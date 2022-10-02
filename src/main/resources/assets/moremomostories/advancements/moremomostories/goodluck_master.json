@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "momostories:fake_diamond"
+    },
+    "title": {
+      "translate": "advancements.itzmxAdvancements.goodluckmaster.title"
+    },
+    "description": {
+      "translate": "advancements.itzmxAdvancements.goodluckmaster.desc"
+    },
+    "show_toast": true ,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "moremomostories:moremomostories/doublehit",
+  "criteria": {
+    "get_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "momostories:achievemrnt"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    " A ",
+    "ABA",
+    " A "
+  ],
+
+  "key":
+  {
+    "B":
+    {
+      "item": "minecraft:beacon"
+    },
+    "A":
+    {
+      "item": "minecraft:diamond"
+    }
+  },
+
+  "result":
+  {
+    "item": "moremomostories:item_main_null",
+    "count": 1
+  }
+}

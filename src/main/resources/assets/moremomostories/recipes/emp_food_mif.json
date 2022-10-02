@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MH"
+  ],
+  "key": {
+    "M": {
+      "item": "momostories:the_fruit_of_the_flowing_years"
+    },
+    "H": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "result": {
+    "item": "moremomostories:item_food_sysg",
+    "count": 1
+  }
+}

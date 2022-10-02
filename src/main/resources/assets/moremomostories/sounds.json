@@ -1,0 +1,8 @@
+{
+  "entity.114514.hurt":
+  {
+    "category": "entity",
+    "subtitle": "entity.114514.hurt",
+    "sounds": [{"name":  "moremomostories:entity/hurt_114514", "stream":  true}]
+  }
+}

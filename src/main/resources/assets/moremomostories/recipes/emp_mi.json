@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "BA"
+  ],
+
+  "key":
+  {
+    "A":
+    {
+      "item": "momostories:the_book_of_manifestation"
+    },
+    "B":
+    {
+      "item": "moremomostories:item_card_mi"
+    }
+  },
+
+  "result":
+  {
+    "item": "moremomostories:item_card_mi_item",
+    "count": 1
+  }
+}

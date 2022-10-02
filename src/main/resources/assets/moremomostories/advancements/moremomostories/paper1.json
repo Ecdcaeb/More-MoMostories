@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "moremomostories:item_paper_idonotwanttodie"
+    },
+    "title": {
+      "translate": "com.hileb.achievement.findpaper.title"
+    },
+    "description": {
+      "translate": "com.hileb.achievement.findpaper.desc"
+    },
+    "show_toast": true ,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "moremomostories:moremomostories/root",
+  "criteria": {
+    "get_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moremomostories:achievement"
+          }
+        ]
+      }
+    }
+  }
+}

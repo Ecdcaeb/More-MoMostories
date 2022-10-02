@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "AB",
+    "C "
+  ],
+
+  "key":
+  {
+    "A":
+    {
+      "item": "moremomostories:item_card_null"
+    },
+    "B":
+    {
+      "item": "moremomostories:item_main_xk"
+    },
+    "C":
+    {
+      "item": "moremomostories:item_main_tr"
+    }
+  },
+
+  "result":
+  {
+    "item": "moremomostories:item_card_get_from_null",
+    "count": 1
+  }
+}
