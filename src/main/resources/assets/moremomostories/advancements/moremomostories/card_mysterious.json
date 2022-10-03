@@ -64,6 +64,16 @@
           }
         ]
       }
+    },
+    "get_card_abyss_cloister": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item":"momostories:abyss_cloister"
+          }
+        ]
+      }
     }
   }
 }

@@ -1,8 +1,7 @@
 langname.name=zh_cn
 
 # PARSE_ESCAPES
-itemGroup.itzmxMiscTab=额外momo学
-Modname.lang.name=Sakura of itzmx，在你的世界养一只小樱！
+itemGroup.itzmxMiscTab=更多momo学
 
 generator.TYPE_ONE=Type One;
 generator.TYPE_TWO=Type Two;
@@ -22,13 +21,15 @@ item.item_main_sy.name=岁月之力
 item.item_main_tr.name=贪婪之噬
 item.item_main_wj.name=硬化之纹
 
+tile.blackstonebrick.name=深色石砖
+
 item.item_card_null.name=卡牌-空
 item.item_card_null.desc=在上面画点什么呢。
 
 item.item_card_get_from_null.name=「无中生有」
 item.item_card_zfp.name=「煮饭婆」
 desc.cardzfp.desc=煮饭婆举高高！~
-desc.cardzfp.desc2=煮饭婆可爱捏！~
+desc.cardzfp2.desc=煮饭婆可爱捏！~
 
 item.item_copyer.name=复制卡
 desc.item.copyer.desc=仿制的...终究是仿制的...\n--Hileb\n此卡为消耗品\n可以复制副手物品\n限时200ticks
@@ -39,11 +40,11 @@ item.item_card_mi.name=万写的宝镜
 item.item_card_mi_item.name=万写的宝镜
 
 
-advancements.itzmxAdvancements.root.title=Sakura of itzmx
-advancements.itzmxAdvancements.root.desc=Sakura of itzmx的核心
+advancements.itzmxAdvancements.root.title=More MoMostories
+advancements.itzmxAdvancements.root.desc=More MoMostories的核心
 
-advancements.itzmxAdvancements.card.root.title=momostories card
-advancements.itzmxAdvancements.card.root.desc=在Sakura of itzmx中搜集momostories卡！
+advancements.itzmxAdvancements.card.root.title=MoMostories Cards
+advancements.itzmxAdvancements.card.root.desc=在More MoMostories中搜集momostories卡！
 
 advancements.itzmxAdvancements.goodluck.title=好运！
 advancements.itzmxAdvancements.goodluck.desc=在欺诈之瓶中开出钻石！
@@ -117,6 +118,14 @@ gui.hileb.paper1.desc.9.tip=人家都说……都说这是……一……一语�
 gui.hileb.paper1.desc.10.tip=就好像我真的要死掉一样……别吓我了，怎么可能呢……
 gui.hileb.paper1.desc.11.tip=我一直……运气很好的……
 gui.hileb.paper1.desc.12.tip=芽衣姐……§4我……不想死……
+entity.entity_mm.name=帕朵
+com.hileb.moremomostories.say.1.say=%s……§4我……不想死……
+
+com.hileb.achievement.dream1.title=在记忆里的拯救
+com.hileb.achievement.dream1.desc=具显的场景，是真的，还是假的......
+
+com.hileb.achievement.again1.title=MoMo刀子会
+com.hileb.achievement.again1.desc=再一次被刀了！
 
 entity.entity_zq.name=战旗
 
@@ -128,5 +137,8 @@ item.item_do_forever.name=永动机
 item.item_do_forever.desc1=宇宙三大最高科技之一\n但具显之书似乎不想将其具显
 com.hileb.achievement.findpaper.title=§4纸
 com.hileb.achievement.findpaper.desc=找到并阅读§4纸
+item.item_scene_1.name=§4场景
+com.hileb.achievement.scene1.title=§4场景
+com.hileb.achievement.scene1.desc=具显§4场景
 #momostroies
 

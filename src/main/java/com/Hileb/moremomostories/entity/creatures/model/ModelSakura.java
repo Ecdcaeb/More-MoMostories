@@ -10,6 +10,7 @@ public class ModelSakura extends ModelBiped {
     {
         super(modelSize, 0.0F, 64, p_i1168_2_ ? 32 : 64);
     }
+    public ModelSakura(float modelSize, float p_i1149_2_, int textureWidthIn, int textureHeightIn){super(modelSize, p_i1149_2_, textureWidthIn, textureHeightIn);}
 
     @Override
     public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {

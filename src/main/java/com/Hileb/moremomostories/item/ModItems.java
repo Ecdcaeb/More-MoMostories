@@ -4,6 +4,7 @@ import com.Hileb.moremomostories.init.ModCreativeTab;
 import com.Hileb.moremomostories.item.food.ItemFoodBase;
 import com.Hileb.moremomostories.item.food.ItemFoodSyzg;
 import com.Hileb.moremomostories.item.paper.ItemPaper1;
+import com.Hileb.moremomostories.item.paper.ItemScene1;
 import com.Hileb.moremomostories.item.weapon.*;
 import com.gq2529.momostories.item.ModItemStoryboards.FraudulentBottles;
 import net.minecraft.item.Item;
@@ -61,6 +62,7 @@ public class ModItems {
     public static final Item ITEM_DO_FOREVER=new ItemBase("item_do_forever",new ItemInformationAdder("item.item_do_forever.desc1"));//永动机
 
     public static final Item ITEM_PAPER_IDONOTWANTTODIE=new ItemPaper1();//纸"我不想死"
+    public static final Item ITEM_SCENE_1=new ItemScene1();//场景"我不想死"
 
 
 

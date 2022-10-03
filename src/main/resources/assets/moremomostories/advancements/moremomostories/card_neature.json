@@ -84,6 +84,26 @@
           }
         ]
       }
+    },
+    "get_card_wisereed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item":"momostories:wisereed"
+          }
+        ]
+      }
+    },
+    "get_card_scavengers": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item":"momostories:scavengers"
+          }
+        ]
+      }
     }
   }
 }

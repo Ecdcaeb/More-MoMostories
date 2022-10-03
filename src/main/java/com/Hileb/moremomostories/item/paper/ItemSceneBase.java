@@ -1,5 +1,6 @@
 package com.Hileb.moremomostories.item.paper;
 
+import com.Hileb.moremomostories.Advancements.ModAdvancementsInit;
 import com.Hileb.moremomostories.item.ItemBase;
 import com.Hileb.moremomostories.item.ItemInformationAdder;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
@@ -27,31 +28,32 @@ public class ItemSceneBase extends ItemBase {
         achieve=achieve_;
         MinecraftForge.EVENT_BUS.register(this);
     }
-    public ItemInformationAdder SceneDesc(){
+    public ItemInformationAdder sceneDesc(){
         return new ItemInformationAdder();//this is null ItemInformation!
     }
     @SubscribeEvent
     public void onItemClick(PlayerInteractEvent.RightClickBlock event){
         World world=event.getWorld();
-        if (!world.isRemote){
+        //if (!world.isRemote){
             if (event.getEntityPlayer()!=null){
                 EntityPlayer player=event.getEntityPlayer();
                 if (player.getHeldItemMainhand().getItem()==this){
                     IDLNBTUtil.SetBoolean(event.getItemStack(),"paper",true);
-                    doSence(event);
+                    ModAdvancementsInit.giveAdvancement(player,achieve);
+                    doScene(event);
                 }
             }
-        }
+        //}
 
     }
-    public void doSence(PlayerInteractEvent.RightClickBlock event){
+    public void doScene(PlayerInteractEvent.RightClickBlock event){
     }
     @SideOnly(Side.CLIENT)
     @Override
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
         super.addInformation(stack, world, tooltip, flag);
         if (IDLNBTUtil.StackHasKey(stack,"paper") && IDLNBTUtil.GetBoolean(stack,"paper")){
-            SceneDesc().func_addInformation_item_base(stack,world,tooltip,flag);
+            sceneDesc().func_addInformation_item_base(stack,world,tooltip,flag);
         }
         else item_WWWW.func_addInformation_item_base(stack,world,tooltip,flag);
     }

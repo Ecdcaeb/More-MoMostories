@@ -13,6 +13,7 @@ public class ModEntityInit {
     {
         registerEntity("entity_zfp",EntityZFP.class);
         registerEntity("entity_zq",EntityZQ.class);
+        registerEntity("entity_mm",EntityDeathMM.class);
         //Examples
 //        registerEntity("moroon_orbital_beacon", EntityMoroonBombBeacon.class);
 //        registerEntity("moroon_tainter", EntityMoroonTainter.class,0xff00ff, 0x000033);

@@ -1,5 +1,5 @@
 local outFile = nil;
-local modName = "idlframewok";
+local modName = "moremomostories";
 local blockName = "grid_normal";
 
 local function GenModelBlockItem()
@@ -48,18 +48,25 @@ end
 
 
 
-local function GenItem(_typeName, _itemName)
-	print("Creating:".._typeName.." ".._itemName)
+local function GenItem(_typeName, _itemName, _HoldingType)
+	print("Creating:".._typeName.." ".._itemName.." " .._HoldingType)
 	local path = string.format("src\\main\\resources\\assets\\%s\\models\\item\\%s.json", modName, _itemName);
 	outFile = io.open(path,"w");
 
-	local content = string.format('{"parent": "item/handheld","textures": {"layer0":"%s:items/%s/%s"}}\n', modName, _typeName, _itemName );
+	local content = string.format('{"parent": "item/%s","textures": {"layer0":"%s:items/%s/%s"}}\n', _HoldingType ,modName, _typeName, _itemName );
 	outFile:write(content);
 
 	outFile:close();
 end
 
- GenItem("misc", "idl_ai_terminal");
+-- creat item
+GenItem("misc", "item_scene_1","generated");
+
+--GenItem("misc", "item_rainbowj","handheld");
+
+--create block
+
+--GenBlock("blackstonebrick");
 
 
 --GenBlock("idl_glass");

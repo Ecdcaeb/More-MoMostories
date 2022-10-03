@@ -39,6 +39,7 @@ public class ModRecipes {
 //		r.register(new GobletFill().setRegistryName(new ResourceLocation(Reference.MOD_ID, "goblet_fill")));
 //
 //		//
+		r.register(new RecipePutrid(ModItems.THE_BOOK_OF_MANIFESTATION,com.Hileb.moremomostories.item.ModItems.ITEM_PAPER_IDONOTWANTTODIE,com.Hileb.moremomostories.item.ModItems.ITEM_SCENE_1).setRegistryName(new ResourceLocation(Reference.MOD_ID, String.format("recipe_emp_scene1"))));
 		for(int i=0;i<RecipePutrid.PutridItems.size();i++){
 			IdlFramework.LogWarning("%s is Putrid",RecipePutrid.PutridItems.get(i).getUnlocalizedName());
 			r.register(new RecipePutrid(ModItems.SCAVENGERS,RecipePutrid.PutridItems.get(i),ModItems.MYSTERIOUS_MEATBALLS).setRegistryName(new ResourceLocation(Reference.MOD_ID, String.format("recipe_putrid_%d",i))));

@@ -17,6 +17,9 @@ public class Advancementkeys {
     public static String AD_FIRETIME="moremomostories/goodfiretime";
 
     public static String AD_PAPER1="moremomostories/paper1";
+    public static String AD_SCENE1="moremomostories/scene1";
+    public static String AD_DREAM_1="moremomostories/dream1";
+    public static String AD_AGAIN_1="moremomostories/again1";
 
 
     public Advancementkeys(){
