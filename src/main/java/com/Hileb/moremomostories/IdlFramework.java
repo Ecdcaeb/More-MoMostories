@@ -1,16 +1,12 @@
 package com.Hileb.moremomostories;
 
 import com.Hileb.moremomostories.gui.ModGuiElementLoader;
-import com.Hileb.moremomostories.init.ModConfig;
-import com.Hileb.moremomostories.init.ModRecipes;
-import com.Hileb.moremomostories.init.ModSpawn;
-import com.Hileb.moremomostories.init.RegistryHandler;
+import com.Hileb.moremomostories.init.*;
 import com.Hileb.moremomostories.keys.KeyboardManager;
 import com.Hileb.moremomostories.meta.MetaUtil;
 import com.Hileb.moremomostories.network.NetworkHandler;
 import com.Hileb.moremomostories.proxy.ProxyBase;
 import com.Hileb.moremomostories.util.Reference;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -19,8 +15,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
-
-import javax.annotation.Nullable;
 
 import static com.Hileb.moremomostories.init.RegistryHandler.initRegistries;
 
@@ -34,7 +28,7 @@ import static com.Hileb.moremomostories.init.RegistryHandler.initRegistries;
 public class IdlFramework {
     public static final String MODID = "moremomostories";
     public static final String NAME = "more momostories";
-    public static final String VERSION = "1.0.0.1";
+    public static final String VERSION = "1.0.0.2";
     public static final String DEPEND="after:momostories"+after_mod("idealland")+after_mod("forestry")+after_mod("manametalmod")+after_mod("calculator");
 
     public static Logger logger;
@@ -73,6 +67,7 @@ public class IdlFramework {
         ModRecipes.Init();
         RegisterTileEntity();
         initRegistries(event);
+        ModOreDic.init();
         new ModGuiElementLoader();
         if (!proxy.isServer())
         {

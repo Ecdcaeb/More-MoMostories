@@ -2,6 +2,7 @@ package com.Hileb.moremomostories.worldgen;
 
 import java.util.Random;
 
+import com.gq2529.momostories.blocks.ModBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -34,7 +35,7 @@ public class ModWorldGenOld implements IWorldGenerator {
 
 		perCluster = 6;
 		//generateOre(ModBlocks.PURE_ORE.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 10, 58, random.nextInt(perCluster) + 2, 20);
-		//generateOre(ModBlocks.COPPER_ORE.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 16, 64, random.nextInt(perCluster) + 15, 18);
+		generateOre(ModBlocks.ID.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 120, 140, random.nextInt(perCluster) + 15, 18);
 	}
 	
 	private void generateOre(IBlockState ore, World world, Random random, int x, int z, int minY, int maxY, int size, int chances)

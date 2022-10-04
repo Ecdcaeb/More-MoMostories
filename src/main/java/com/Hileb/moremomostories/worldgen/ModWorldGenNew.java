@@ -1,11 +1,14 @@
 package com.Hileb.moremomostories.worldgen;
 
+import com.Hileb.moremomostories.IdlFramework;
+import com.gq2529.momostories.blocks.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
@@ -17,9 +20,12 @@ public class ModWorldGenNew implements IWorldGenerator {
 
 	//Please register this in preInitRegistries
 
-	private WorldGenerator testGen1, testGen2;
+	//private WorldGenerator testGen1, testGen2;
+	private WorldGenerator genOreId;
 
 	public ModWorldGenNew() {
+		genOreId= new WorldGenMinable(ModBlocks.ID.getDefaultState(),
+				2);
 //		testGen1 = new WorldGenMinable(Blocks.DIAMOND_BLOCK.getDefaultState(),
 //				9, BlockMatcher.forBlock(Blocks.NETHERRACK));
 //
@@ -37,9 +43,10 @@ public class ModWorldGenNew implements IWorldGenerator {
 				break;
 			case 0:
 				//overworld
-				//IdlFramework.Log("world gen running");
+				//IdlFramework.Log("world gen running ");
 
 				//runGenOre(testGen2, world, random, chunkX, chunkZ, 32, 16, 18);
+				runGenOre(genOreId,world,random,chunkX,chunkZ,100,120,140);
 
 				break;
 			case 1:
