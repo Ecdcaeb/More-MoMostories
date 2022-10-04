@@ -32,9 +32,10 @@ public class ItemSceneBase extends ItemBase {
         return new ItemInformationAdder();//this is null ItemInformation!
     }
     @SubscribeEvent
-    public void onItemClick(PlayerInteractEvent.RightClickBlock event){
+    public void onItemClick(PlayerInteractEvent.LeftClickBlock event){
+        //only once if it is Left
         World world=event.getWorld();
-        //if (!world.isRemote){
+        if (!world.isRemote){
             if (event.getEntityPlayer()!=null){
                 EntityPlayer player=event.getEntityPlayer();
                 if (player.getHeldItemMainhand().getItem()==this){
@@ -43,10 +44,10 @@ public class ItemSceneBase extends ItemBase {
                     doScene(event);
                 }
             }
-        //}
+        }
 
     }
-    public void doScene(PlayerInteractEvent.RightClickBlock event){
+    public void doScene(PlayerInteractEvent.LeftClickBlock event){
     }
     @SideOnly(Side.CLIENT)
     @Override

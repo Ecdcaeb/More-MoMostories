@@ -11,10 +11,11 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 public class ItemScene1 extends ItemSceneBase {
     public ItemScene1(){
         super("item_scene_1", Advancementkeys.AD_SCENE1);
+        this.setMaxStackSize(1);
     }
 
     @Override
-    public void doScene(PlayerInteractEvent.RightClickBlock event) {
+    public void doScene(PlayerInteractEvent.LeftClickBlock event) {
         //isRemote==false
         BlockPos pos=event.getPos();
         World world=event.getWorld();
@@ -23,13 +24,14 @@ public class ItemScene1 extends ItemSceneBase {
         int z=pos.getZ()-8;
         for(int i=x;i<=x+16;i++){
             for(int j=z;j<=z+16;j++){
-                world.setBlockState(new BlockPos(i,y,j), ModBlocks.BLOCK_BLACK_STONE_BRICK.getDefaultState(),1);
+                world.setBlockState(new BlockPos(i,y,j), ModBlocks.BLOCK_BLACK_STONE_BRICK.getDefaultState(),3);
             }
         }
         if (!world.isRemote){
-            EntityDeathMM sakura=new EntityDeathMM(world);
-            sakura.setPosition(pos.getX(),y+1,pos.getZ());
-            event.getWorld().spawnEntity(sakura);
+            EntityDeathMM entity=new EntityDeathMM(world);
+            entity.setPosition(pos.getX(),y+1,pos.getZ());
+            event.getWorld().spawnEntity(entity);
+            event.getItemStack().setCount(0);
         }
     }
     @Override
