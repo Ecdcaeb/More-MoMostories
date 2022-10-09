@@ -1,6 +1,7 @@
 package com.Hileb.moremomostories.worldgen;
 
 import com.gq2529.momostories.blocks.ModBlocks;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -17,7 +18,7 @@ public class ModWoldGenOreId implements IWorldGenerator {
         int i=random.nextInt(1024)%64+16;
         int z=random.nextInt(1024)%16+chunkX*16;
         int x=random.nextInt(1024)%16+chunkZ*16;
-        if (world.provider.getDimension()==0 &&random.nextInt(256)<4 ){
+        if (world.provider.getDimension()==0 &&random.nextInt(256)<4 && world.getBlockState(new BlockPos(x,i,z)).getBlock()== Blocks.STONE){
             //IdlFramework.LogWarning("ore id in %d,%d,%d",x,i,z);
             world.setBlockState(new BlockPos(x,i,z), ModBlocks.ID.getDefaultState(),3);
         }

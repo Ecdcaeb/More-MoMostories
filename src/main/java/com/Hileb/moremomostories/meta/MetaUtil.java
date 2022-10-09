@@ -2,6 +2,7 @@ package com.Hileb.moremomostories.meta;
 
 import com.Hileb.moremomostories.item.ModItems;
 import com.Hileb.moremomostories.recipe.RecipePutrid;
+import com.Hileb.moremomostories.util.MoMo.MoMoCards;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Loader;
 
@@ -46,23 +47,36 @@ public class MetaUtil {
     }
     public static void modLoadInit(){
         if( isLoaded_MoreMomoStories ){
-            RecipePutrid.PutridItems.add(ModItems.ITEM_PUTRID);
+            RecipePutrid.registerPutridItem(ModItems.ITEM_PUTRID);
+            MoMoCards.registerCard(ModItems.ITEM_DO_FOREVER);
+            MoMoCards.registerCard(ModItems.ITEM_CARD_FIVE);
         }
         if (isLoaded_forestry){
-            RecipePutrid.PutridItems.add(Item.getByNameOrId("forestry:decaying_wheat"));
-            RecipePutrid.PutridItems.add(Item.getByNameOrId("forestry:humus"));
+            RecipePutrid.registerPutridItem(Item.getByNameOrId("forestry:decaying_wheat"));
+            RecipePutrid.registerPutridItem(Item.getByNameOrId("forestry:humus"));
         }
         if (isLoaded_Momostories){
             //RecipePutrid.PutridItems.add(Item.getByNameOrId("momostories:the_book_of_manifestation"));
+            for(int i=0;i<com.gq2529.momostories.item.ModItems.ITEMS.size();i++){//给其添加卡牌
+                if(com.gq2529.momostories.item.ModItems.ITEMS.get(i) instanceof com.gq2529.momostories.item.tools.CardBase){
+                    MoMoCards.registerCard(com.gq2529.momostories.item.ModItems.ITEMS.get(i));
+                }
+                if(com.gq2529.momostories.item.ModItems.ITEMS.get(i) instanceof com.gq2529.momostories.item.ModItemStoryboards.LucyAxeCard){
+                    MoMoCards.registerCard(com.gq2529.momostories.item.ModItems.ITEMS.get(i));
+                }
+                if(com.gq2529.momostories.item.ModItems.ITEMS.get(i) instanceof com.gq2529.momostories.item.tools.Replica.CardJump){
+                    MoMoCards.registerCard(com.gq2529.momostories.item.ModItems.ITEMS.get(i));
+                }
+            }
         }
         if (isLoaded_manametalmod){
-            RecipePutrid.PutridItems.add(Item.getByNameOrId("manametalmod:rotFood"));
+            RecipePutrid.registerPutridItem(Item.getByNameOrId("manametalmod:rotFood"));
         }
         if (isIDLLoaded){
-            RecipePutrid.PutridItems.add(Item.getByNameOrId("idealland:float_food"));
+            RecipePutrid.registerPutridItem("idealland:float_food");
         }
         if (isLoaded_calculator){
-            RecipePutrid.PutridItems.add(Item.getByNameOrId("calculator:rottenpear"));
+            RecipePutrid.registerPutridItem("calculator:rottenpear");
         }
     }
 

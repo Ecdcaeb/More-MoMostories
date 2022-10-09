@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "moremomostories:blocks/wood_no_leaf_top",
+        "side": "moremomostories:blocks/wood_no_leaf"
+    }
+}

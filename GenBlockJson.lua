@@ -60,13 +60,13 @@ local function GenItem(_typeName, _itemName, _HoldingType)
 end
 
 -- creat item
-GenItem("misc", "item_scene_1","generated");
+--GenItem("misc", "item_scene_1","generated");
 
 --GenItem("misc", "item_rainbowj","handheld");
 
 --create block
 
---GenBlock("blackstonebrick");
+GenBlock("wood_no_leaf");
 
 
 --GenBlock("idl_glass");

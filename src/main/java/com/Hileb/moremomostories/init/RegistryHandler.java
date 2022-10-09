@@ -7,7 +7,9 @@ import com.Hileb.moremomostories.entity.RenderHandler;
 import com.Hileb.moremomostories.item.ModItems;
 import com.Hileb.moremomostories.util.IHasModel;
 import com.Hileb.moremomostories.util.ModSoundHandler;
+import com.Hileb.moremomostories.worldgen.ModWoldGenHilebRoom;
 import com.Hileb.moremomostories.worldgen.ModWoldGenOreId;
+import com.Hileb.moremomostories.worldgen.ModWorldGenLogNoLeaf;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -74,6 +76,8 @@ public class RegistryHandler {
 //		GameRegistry.registerWorldGenerator(new ModWorldGenOld(), 100);
 //		GameRegistry.registerWorldGenerator(new ModWorldGenNew(), 120);
 		GameRegistry.registerWorldGenerator(new ModWoldGenOreId(), 120);
+		GameRegistry.registerWorldGenerator(new ModWoldGenHilebRoom(), 120);
+		GameRegistry.registerWorldGenerator(new ModWorldGenLogNoLeaf(), 120);
 
 		InitBiome.registerBiomes();
 		InitDimension.registerDimensions();

@@ -4,6 +4,7 @@ import com.Hileb.moremomostories.entity.EntityZFP;
 import com.Hileb.moremomostories.item.ItemBase;
 import com.Hileb.moremomostories.item.ItemInformationAdder;
 import com.Hileb.moremomostories.util.CommonFunctions;
+import com.Hileb.moremomostories.util.MoMo.MoMoCards;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.effect.EntityLightningBolt;
@@ -21,6 +22,7 @@ public class ItemCardAddZFP extends ItemBase {
     public ItemCardAddZFP(String name, CreativeTabs tabs){
         super(name, tabs, 1);
         CommonFunctions.addToEventBus(this);
+        MoMoCards.registerCard(this);
     }
 
     @SubscribeEvent

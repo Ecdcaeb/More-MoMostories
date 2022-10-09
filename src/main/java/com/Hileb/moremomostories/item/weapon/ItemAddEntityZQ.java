@@ -2,27 +2,19 @@ package com.Hileb.moremomostories.item.weapon;
 
 import com.Hileb.moremomostories.Advancements.Advancementkeys;
 import com.Hileb.moremomostories.Advancements.ModAdvancementsInit;
-import com.Hileb.moremomostories.entity.EntityZFP;
 import com.Hileb.moremomostories.entity.EntityZQ;
 import com.Hileb.moremomostories.item.ItemBase;
-import com.Hileb.moremomostories.item.ItemInformationAdder;
 import com.Hileb.moremomostories.util.CommonFunctions;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.item.ItemStack;
+import com.Hileb.moremomostories.util.MoMo.MoMoCards;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
 
 public class ItemAddEntityZQ extends ItemBase {
     public ItemAddEntityZQ(String name){
         super(name, 1);
         CommonFunctions.addToEventBus(this);
+        MoMoCards.registerCard(this);
     }
 
     @SubscribeEvent

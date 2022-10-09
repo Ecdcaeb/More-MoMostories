@@ -5,9 +5,9 @@ import com.Hileb.moremomostories.init.ModCreativeTab;
 import com.Hileb.moremomostories.item.ItemBase;
 import com.Hileb.moremomostories.item.ItemInformationAdder;
 import com.Hileb.moremomostories.util.CommonFunctions;
+import com.Hileb.moremomostories.util.MoMo.MoMoCards;
 import com.Hileb.moremomostories.util.ModSoundHandler;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
-import net.minecraft.client.audio.ISound;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -19,10 +19,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
-import net.minecraftforge.client.event.sound.PlaySoundEvent;
-import net.minecraftforge.client.event.sound.SoundEvent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -41,6 +37,7 @@ public class ItemCopier extends ItemBase {
     public ItemCopier(String name){
         super(name, ModCreativeTab.IDL_MISC,1);
         CommonFunctions.addToEventBus(this);
+        MoMoCards.registerCard(this);
     }
     @SubscribeEvent
     public void onRightClick(PlayerInteractEvent.RightClickItem event){

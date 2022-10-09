@@ -4,19 +4,14 @@ import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.init.ModCreativeTab;
 import com.Hileb.moremomostories.item.ModItems;
 import com.Hileb.moremomostories.util.IHasModel;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BlockBase extends Block implements IHasModel
@@ -59,4 +54,5 @@ public class BlockBase extends Block implements IHasModel
 	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon) {
 		return false;
 	}
+
 }
