@@ -58,14 +58,16 @@ public class MetaUtil {
         if (isLoaded_Momostories){
             //RecipePutrid.PutridItems.add(Item.getByNameOrId("momostories:the_book_of_manifestation"));
             for(int i=0;i<com.gq2529.momostories.item.ModItems.ITEMS.size();i++){//给其添加卡牌
-                if(com.gq2529.momostories.item.ModItems.ITEMS.get(i) instanceof com.gq2529.momostories.item.tools.CardBase){
-                    MoMoCards.registerCard(com.gq2529.momostories.item.ModItems.ITEMS.get(i));
-                }
-                if(com.gq2529.momostories.item.ModItems.ITEMS.get(i) instanceof com.gq2529.momostories.item.ModItemStoryboards.LucyAxeCard){
-                    MoMoCards.registerCard(com.gq2529.momostories.item.ModItems.ITEMS.get(i));
-                }
-                if(com.gq2529.momostories.item.ModItems.ITEMS.get(i) instanceof com.gq2529.momostories.item.tools.Replica.CardJump){
-                    MoMoCards.registerCard(com.gq2529.momostories.item.ModItems.ITEMS.get(i));
+                if(com.gq2529.momostories.item.ModItems.ITEMS.get(i)!=com.gq2529.momostories.item.ModItems.THE_FRUIT_OF_THE_FLOWING_YEARS){
+                    if(com.gq2529.momostories.item.ModItems.ITEMS.get(i) instanceof com.gq2529.momostories.item.tools.CardBase){
+                        MoMoCards.registerCard(com.gq2529.momostories.item.ModItems.ITEMS.get(i));
+                    }
+                    if(com.gq2529.momostories.item.ModItems.ITEMS.get(i) instanceof com.gq2529.momostories.item.ModItemStoryboards.LucyAxeCard){
+                        MoMoCards.registerCard(com.gq2529.momostories.item.ModItems.ITEMS.get(i));
+                    }
+                    if(com.gq2529.momostories.item.ModItems.ITEMS.get(i) instanceof com.gq2529.momostories.item.tools.Replica.CardJump){
+                        MoMoCards.registerCard(com.gq2529.momostories.item.ModItems.ITEMS.get(i));
+                    }
                 }
             }
         }

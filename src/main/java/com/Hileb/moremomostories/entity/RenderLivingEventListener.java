@@ -1,6 +1,5 @@
 package com.Hileb.moremomostories.entity;
 
-import com.Hileb.moremomostories.ConfigLoader;
 import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.init.ModConfig;
 import com.Hileb.moremomostories.item.ModItems;

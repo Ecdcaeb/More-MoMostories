@@ -66,7 +66,7 @@ end
 
 --create block
 
-GenBlock("wood_no_leaf");
+GenBlock("unbreakable_hileb_block");
 
 
 --GenBlock("idl_glass");

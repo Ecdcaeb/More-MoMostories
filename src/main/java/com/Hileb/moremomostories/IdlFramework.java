@@ -83,9 +83,9 @@ public class IdlFramework {
     public void postInit(FMLPostInitializationEvent event) {
         // Moved Spawning registry to last since forge doesn't auto-generate sub
         // "M' biomes until late
-        if (ModConfig.SPAWN_CONF.SPAWN) {
-            ModSpawn.registerSpawnList();
-        }
+//        if (ModConfig.SPAWN_CONF.SPAWN) {
+//            ModSpawn.registerSpawnList();
+//        }
 
         TrashTalking();
 

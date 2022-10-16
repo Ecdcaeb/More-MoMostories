@@ -141,4 +141,7 @@ item.item_scene_1.name=§4场景
 com.hileb.achievement.scene1.title=§4场景
 com.hileb.achievement.scene1.desc=具显§4场景
 #momostroies
+moremomostories.conf.apionly=仅API模式
+tile.wood_no_leaf.name=无叶木
+tile.unbreakable_hileb_block.name=高强度材料
 

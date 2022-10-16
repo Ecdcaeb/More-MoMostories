@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "moremomostories:blocks/unbreakable_hileb_block"
+	}
+}
