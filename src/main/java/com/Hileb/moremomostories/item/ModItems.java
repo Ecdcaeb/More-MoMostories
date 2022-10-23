@@ -1,12 +1,10 @@
 package com.Hileb.moremomostories.item;
 
 import com.Hileb.moremomostories.init.ModCreativeTab;
-import com.Hileb.moremomostories.item.food.ItemFoodBase;
 import com.Hileb.moremomostories.item.food.ItemFoodSyzg;
 import com.Hileb.moremomostories.item.paper.ItemPaper1;
 import com.Hileb.moremomostories.item.paper.ItemScene1;
 import com.Hileb.moremomostories.item.weapon.*;
-import com.gq2529.momostories.item.ModItemStoryboards.FraudulentBottles;
 import net.minecraft.item.Item;
 
 import java.util.ArrayList;
@@ -63,6 +61,10 @@ public class ModItems {
 
     public static final Item ITEM_PAPER_IDONOTWANTTODIE=new ItemPaper1();//纸"我不想死"
     public static final Item ITEM_SCENE_1=new ItemScene1();//场景"我不想死"
+
+    public static final Item ITEM_11_A=new ItemRemainBase("item_11_a");//核心制造技术
+
+    public static final Item ITEM_12_B=new Item12Base("item_12_b");//纤维绳
 
 
 

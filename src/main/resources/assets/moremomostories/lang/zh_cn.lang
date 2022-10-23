@@ -144,4 +144,5 @@ com.hileb.achievement.scene1.desc=具显§4场景
 moremomostories.conf.apionly=仅API模式
 tile.wood_no_leaf.name=无叶木
 tile.unbreakable_hileb_block.name=高强度材料
-
+item.item_11_a.name=核心制造技术
+entity.entity_golden_guide.name=黄金卫士

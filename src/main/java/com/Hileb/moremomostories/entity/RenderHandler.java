@@ -20,6 +20,8 @@ public class RenderHandler {
 
         RenderingRegistry.registerEntityRenderingHandler(EntityDeathMM.class, RenderDeath::new);
 
+        RenderingRegistry.registerEntityRenderingHandler(EntityGoldenGuide.class, RenderGuide::new);
+
 
         RenderingRegistry.registerEntityRenderingHandler(EntityIdlProjectile.class, renderManager -> new RenderBullet<>(renderManager, new ResourceLocation(IdlFramework.MODID,
                 "textures/entity/projectiles/bullet_norm.png")));
