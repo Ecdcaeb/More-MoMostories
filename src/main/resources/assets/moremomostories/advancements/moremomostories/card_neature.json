@@ -104,6 +104,16 @@
           }
         ]
       }
+    },
+    "get_four_way_trip": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item":"momostories:four_way_trip"
+          }
+        ]
+      }
     }
   }
 }

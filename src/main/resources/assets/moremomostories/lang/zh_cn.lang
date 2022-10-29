@@ -69,7 +69,7 @@ item.item_paper_hileb_a.name=Hileb的手稿
 item.item_food_sysg.name=岁月煲
 tooltip.item_food_sysg.desc=富含岁月之力\n嘎嘎好吃
 
-death.syzg.death=%s试图在岁月中游泳！
+death.syzg.death=%s试图在岁月中游泳！被时间泯灭了。
 
 com.hileb.item.mi.desc=能够放大自然力量的镜子！
 com.hileb.itzm.main.desc=Hileb仿制的力量！
@@ -119,6 +119,7 @@ gui.hileb.paper1.desc.10.tip=就好像我真的要死掉一样……别吓我了
 gui.hileb.paper1.desc.11.tip=我一直……运气很好的……
 gui.hileb.paper1.desc.12.tip=芽衣姐……§4我……不想死……
 entity.entity_mm.name=帕朵
+entity.entity_van.name=王的男人
 com.hileb.moremomostories.say.1.say=<帕朵菲利斯>%s……§4我……不想死……
 
 com.hileb.achievement.dream1.title=在记忆里的拯救
@@ -145,4 +146,9 @@ moremomostories.conf.apionly=仅API模式
 tile.wood_no_leaf.name=无叶木
 tile.unbreakable_hileb_block.name=高强度材料
 item.item_11_a.name=核心制造技术
+item.item_12_b.name=纤维绳
 entity.entity_golden_guide.name=黄金卫士
+com.hileb.achievement.lx.title=homo故事会
+com.hileb.achievement.lx.desc=遇见老♂乡。
+
+death.attack.van_damage=%1$s遇见了老♂乡。
