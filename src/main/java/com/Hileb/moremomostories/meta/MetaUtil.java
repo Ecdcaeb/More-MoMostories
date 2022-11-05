@@ -23,6 +23,8 @@ public class MetaUtil {
     public static boolean isLoaded_manametalmod = false;///give @p manametalmod:rotFood 64
     public static boolean isLoaded_calculator=false; ///give @p calculator:rottenpear 64
 
+    public static boolean isLoaded_MagicCircle= false;
+
     //extra difficulty
     public static int HARD_AOA3 = 5;
     public static int HARD_GOG = 4;
@@ -44,6 +46,7 @@ public class MetaUtil {
         MetaUtil.isLoaded_forestry = Loader.isModLoaded("forestry");
         MetaUtil.isLoaded_manametalmod = Loader.isModLoaded("manametalmod");
         MetaUtil.isLoaded_calculator = Loader.isModLoaded("calculator");
+        MetaUtil.isLoaded_MagicCircle=Loader.isModLoaded("magiccircle");
     }
     public static void modLoadInit(){
         if( isLoaded_MoreMomoStories ){
@@ -57,19 +60,7 @@ public class MetaUtil {
         }
         if (isLoaded_Momostories){
             //RecipePutrid.PutridItems.add(Item.getByNameOrId("momostories:the_book_of_manifestation"));
-            for(int i=0;i<com.gq2529.momostories.item.ModItems.ITEMS.size();i++){//给其添加卡牌
-                if(com.gq2529.momostories.item.ModItems.ITEMS.get(i)!=com.gq2529.momostories.item.ModItems.THE_FRUIT_OF_THE_FLOWING_YEARS){
-                    if(com.gq2529.momostories.item.ModItems.ITEMS.get(i) instanceof com.gq2529.momostories.item.tools.CardBase){
-                        MoMoCards.registerCard(com.gq2529.momostories.item.ModItems.ITEMS.get(i));
-                    }
-                    if(com.gq2529.momostories.item.ModItems.ITEMS.get(i) instanceof com.gq2529.momostories.item.ModItemStoryboards.LucyAxeCard){
-                        MoMoCards.registerCard(com.gq2529.momostories.item.ModItems.ITEMS.get(i));
-                    }
-                    if(com.gq2529.momostories.item.ModItems.ITEMS.get(i) instanceof com.gq2529.momostories.item.tools.Replica.CardJump){
-                        MoMoCards.registerCard(com.gq2529.momostories.item.ModItems.ITEMS.get(i));
-                    }
-                }
-            }
+            MoMoCards.cardInit();
         }
         if (isLoaded_manametalmod){
             RecipePutrid.registerPutridItem(Item.getByNameOrId("manametalmod:rotFood"));

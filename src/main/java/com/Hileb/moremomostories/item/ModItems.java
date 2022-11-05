@@ -2,9 +2,9 @@ package com.Hileb.moremomostories.item;
 
 import com.Hileb.moremomostories.init.ModCreativeTab;
 import com.Hileb.moremomostories.item.food.ItemFoodSyzg;
+import com.Hileb.moremomostories.item.myItems.*;
 import com.Hileb.moremomostories.item.paper.ItemPaper1;
 import com.Hileb.moremomostories.item.paper.ItemScene1;
-import com.Hileb.moremomostories.item.weapon.*;
 import net.minecraft.item.Item;
 
 import java.util.ArrayList;
@@ -65,6 +65,10 @@ public class ModItems {
     public static final Item ITEM_11_A=new ItemRemainBase("item_11_a");//核心制造技术
 
     public static final Item ITEM_12_B=new Item12Base("item_12_b");//纤维绳
+
+    public static final Item ITEM_XE=new ItemXe("item_xe");//氙石
+
+    public static final Item ITEM_ARROM_XE=new ItemQGX("item_qgx");
 
 
 

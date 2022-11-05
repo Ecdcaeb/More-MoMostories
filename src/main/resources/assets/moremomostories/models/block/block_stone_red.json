@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "moremomostories:blocks/block_stone_red"
+	}
+}

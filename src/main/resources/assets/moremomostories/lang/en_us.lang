@@ -32,8 +32,8 @@ desc.cardzfp.desc=煮饭婆举高高！~
 desc.cardzfp2.desc=煮饭婆可爱捏！~
 
 item.item_copyer.name=Copier
-desc.item.copyer.desc=Imitated... After all, it is imitated...  n -- Hileb  \n This card is a consumable  \n You can copy the second hand items  \n The time limit is 200 ticks
-desc.item.copyer.desc2=Imitated... is imitated after all...  n -- Hileb  \n Press and hold § eLShift § f to show more
+desc.item.copyer.desc=Imitated... After all, it is imitated...  \n -- Hileb  \n This card is a consumable  \n You can copy the second hand items  \n The time limit is 200 ticks
+desc.item.copyer.desc2=Imitated... is imitated after all...  \n -- Hileb  \n Press and hold § eLShift § f to show more
 desc.copyitem.desc=§ e Replica! \N § f has% d * 20 minutes left!
 
 item.item_card_mi.name=The Mirror of Ten Thousand Writings
@@ -130,6 +130,7 @@ com.hileb.achievement.again1.desc=I was knifed again!
 
 entity.entity_zq.name=War Flag
 
+
 entity.entity_zfp.name=EntityZFP
 
 item.item_putrid_item.name=Rotten items
@@ -152,3 +153,27 @@ com.hileb.achievement.lx.title=Homo story meeting
 com.hileb.achievement.lx.desc=Meet Fellow♂Villagers.
 
 death.attack.van_damage=%1$sMet a Fellow♂Villager。
+
+tile.block_stone_red.name=RX ore
+tile.block_stone_blue.name=BX ore
+tile.block_stone_yellow.name=BLX ore
+
+com.hileb.moremomostories.item.xe.red.name=RX Dust
+com.hileb.moremomostories.item.xe.blue.name=BX Dust
+com.hileb.moremomostories.item.xe.black.name=BLX Dust
+com.hileb.moremomostories.item.xe.other.name=Unknown-X Dust
+com.hileb.moremomostories.item.xe.empty.name=Empty-X Dust Bottle
+com.hileb.moremomostories.item.xe.golden.name=氙金粉末
+com.hileb.moremomostories.item.xe.stone.red.name=RX
+com.hileb.moremomostories.item.xe.stone.blue.name=BX
+com.hileb.moremomostories.item.xe.stone.black.name=BLX
+com.hileb.moremomostories.item.xe.stone.other.name=Unknown-X
+com.hileb.moremomostories.item.xe.stone.golden.name=氙金
+
+com.hileb.moremomostories.item.xe.stone.level.name=Level:%d
+com.hileb.moremomostories.item.xe.stone.color.name=Color:%d
+
+item.item_qgx.name=Chelsea
+item.item_qgx.blue.name=Blue Demon Concubine
+item.item_qgx.red.name=Red Storm
+item.item_qgx.black.name=Black Silence

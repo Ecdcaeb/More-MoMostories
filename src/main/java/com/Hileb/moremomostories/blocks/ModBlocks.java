@@ -16,6 +16,11 @@ public class ModBlocks {
 	public static final Block BLOCK_BLACK_STONE_BRICK=new BlockBase("blackstonebrick", Material.ROCK);
 	public static final Block BLOCK_HILEB_BLOCK=new BlockBase("unbreakable_hileb_block",Obsidian).setHardness(50.0F).setResistance(2000.0F);
 	public static final Block BLOCK_WOOD_NO_LEAF=new BlockLogNoLeaf("wood_no_leaf");
+
+	public static final Block BLOCK_ORE_XE_RED=new BlockOreBase("block_stone_red",MapColor.STONE);
+	public static final Block BLOCK_ORE_XE_YELLOW=new BlockOreBase("block_stone_yellow",MapColor.STONE);
+	public static final Block BLOCK_ORE_XE_BLUE=new BlockOreBase("block_stone_blue",MapColor.STONE);
+
 	
 	/*
 	 * To add a block, put a line here,

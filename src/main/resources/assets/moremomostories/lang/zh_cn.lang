@@ -152,3 +152,27 @@ com.hileb.achievement.lx.title=homo故事会
 com.hileb.achievement.lx.desc=遇见老♂乡。
 
 death.attack.van_damage=%1$s遇见了老♂乡。
+
+tile.block_stone_red.name=红色氙石矿石
+tile.block_stone_blue.name=蓝色氙石矿石
+tile.block_stone_yellow.name=黑色氙石矿石
+
+com.hileb.moremomostories.item.xe.red.name=红色氙石粉末
+com.hileb.moremomostories.item.xe.blue.name=蓝色氙石粉末
+com.hileb.moremomostories.item.xe.black.name=黑色氙石粉末
+com.hileb.moremomostories.item.xe.other.name=氙石粉末
+com.hileb.moremomostories.item.xe.empty.name=空氙石粉末瓶
+com.hileb.moremomostories.item.xe.golden.name=氙金粉末
+com.hileb.moremomostories.item.xe.stone.red.name=红色氙石
+com.hileb.moremomostories.item.xe.stone.blue.name=蓝色氙石
+com.hileb.moremomostories.item.xe.stone.black.name=黑色氙石
+com.hileb.moremomostories.item.xe.stone.other.name=氙石
+com.hileb.moremomostories.item.xe.stone.golden.name=氙金
+
+com.hileb.moremomostories.item.xe.stone.level.name=等级%d
+com.hileb.moremomostories.item.xe.stone.color.name=成色%d
+
+item.item_qgx.name=切尔西
+item.item_qgx.blue.name=蓝色妖姬
+item.item_qgx.red.name=红色风暴
+item.item_qgx.black.name=黑色沉默

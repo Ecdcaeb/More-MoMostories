@@ -66,7 +66,9 @@ end
 
 --create block
 
-GenBlock("unbreakable_hileb_block");
+GenBlock("block_stone_blue");
+GenBlock("block_stone_red");
+GenBlock("block_stone_yellow");
 
 
 --GenBlock("idl_glass");

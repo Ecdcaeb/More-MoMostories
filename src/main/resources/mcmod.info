@@ -3,13 +3,13 @@
   "modid": "moremomostories",
   "name": "More MoMostories",
   "description": "A mod for MoMostories.",
-  "version": "1.0.1.5",
+  "version": "1.0.1.6",
   "mcversion": "1.12.2",
   "url": "https://www.mcmod.cn/class/7481.html",
   "updateUrl": "https://www.mcmod.cn/class/7481.html",
   "authorList": ["Hileb"],
   "credits": "\n Idealland - they provided this framework. \n momostories - the mod is very very goooooooood.~",
-  "logoFile": "assets/moremomostories/index.png",
+  "logoFile": "assets.moremomostories.index.png",
   "screenshots": ["assets/moremomostories/index.png"],
   "dependencies": ["momostories"]
 }

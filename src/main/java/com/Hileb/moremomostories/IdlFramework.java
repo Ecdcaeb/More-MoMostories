@@ -1,7 +1,10 @@
 package com.Hileb.moremomostories;
 
 import com.Hileb.moremomostories.gui.ModGuiElementLoader;
-import com.Hileb.moremomostories.init.*;
+import com.Hileb.moremomostories.init.ModOreDic;
+import com.Hileb.moremomostories.init.ModRecipes;
+import com.Hileb.moremomostories.init.RegistryHandler;
+import com.Hileb.moremomostories.item.myItems.ItemColorHandler;
 import com.Hileb.moremomostories.keys.KeyboardManager;
 import com.Hileb.moremomostories.meta.MetaUtil;
 import com.Hileb.moremomostories.network.NetworkHandler;
@@ -14,6 +17,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Logger;
 
 import static com.Hileb.moremomostories.init.RegistryHandler.initRegistries;
@@ -28,7 +33,7 @@ import static com.Hileb.moremomostories.init.RegistryHandler.initRegistries;
 public class IdlFramework {
     public static final String MODID = "moremomostories";
     public static final String NAME = "more momostories";
-    public static final String VERSION = "1.0.1.5";
+    public static final String VERSION = "1.0.1.6";
     public static final String DEPEND="after:momostories"+after_mod("idealland")+after_mod("forestry")+after_mod("manametalmod")+after_mod("calculator");
 
     public static Logger logger;
@@ -69,6 +74,7 @@ public class IdlFramework {
         initRegistries(event);
         ModOreDic.init();
         new ModGuiElementLoader();
+        clientInit();
         if (!proxy.isServer())
         {
             KeyboardManager.init();
@@ -78,6 +84,10 @@ public class IdlFramework {
 		LogWarning("%s has finished its initializations", MODID);
 
 	}
+	@SideOnly(Side.CLIENT)
+    public static void clientInit(){
+        ItemColorHandler.init();
+    }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
