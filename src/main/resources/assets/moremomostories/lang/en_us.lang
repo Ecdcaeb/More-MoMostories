@@ -177,3 +177,6 @@ item.item_qgx.name=Chelsea
 item.item_qgx.blue.name=Blue Demon Concubine
 item.item_qgx.red.name=Red Storm
 item.item_qgx.black.name=Black Silence
+
+com.hileb.moremomostories.item.xe.unknown.name=Unknown-X Dust
+com.hileb.moremomostories.item.xe.stone.unknown.name=Unknown-X Dust

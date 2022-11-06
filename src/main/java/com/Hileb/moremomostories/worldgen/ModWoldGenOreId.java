@@ -31,7 +31,7 @@ public class ModWoldGenOreId implements IWorldGenerator {
 
 
                 case 2:
-                    world.setBlockState(new BlockPos(x,i,z), com.Hileb.moremomostories.blocks.ModBlocks.BLOCK_ORE_XE_YELLOW.getDefaultState(),3);
+                    world.setBlockState(new BlockPos(x,i,z), com.Hileb.moremomostories.blocks.ModBlocks.BLOCK_ORE_XE_BLACK.getDefaultState(),3);
                     break;
 
             }

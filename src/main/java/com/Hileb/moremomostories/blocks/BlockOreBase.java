@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 import java.util.Random;
 
@@ -58,6 +59,16 @@ public class BlockOreBase extends BlockOre implements IHasModel {
     {
         if (hasItemDrop)return itemDrop;
         else return Item.getItemFromBlock(this);
+    }
+    @Override
+    public void dropXpOnBlockBreak(World worldIn, BlockPos pos, int amount) {
+        //To tell the truth,it is a good way to drop something.
+        super.dropXpOnBlockBreak(worldIn, pos, amount);
+        dropItemStack(worldIn,pos,amount);
+
+    }
+    public void dropItemStack(World worldIn, BlockPos pos, int amount){
+
     }
 
     @Override

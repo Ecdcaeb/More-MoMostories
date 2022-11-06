@@ -157,16 +157,19 @@ tile.block_stone_red.name=红色氙石矿石
 tile.block_stone_blue.name=蓝色氙石矿石
 tile.block_stone_yellow.name=黑色氙石矿石
 
+item.item_xe.name=未知氙
 com.hileb.moremomostories.item.xe.red.name=红色氙石粉末
 com.hileb.moremomostories.item.xe.blue.name=蓝色氙石粉末
 com.hileb.moremomostories.item.xe.black.name=黑色氙石粉末
 com.hileb.moremomostories.item.xe.other.name=氙石粉末
 com.hileb.moremomostories.item.xe.empty.name=空氙石粉末瓶
 com.hileb.moremomostories.item.xe.golden.name=氙金粉末
+com.hileb.moremomostories.item.xe.unknown.name=未知氙石粉末
 com.hileb.moremomostories.item.xe.stone.red.name=红色氙石
 com.hileb.moremomostories.item.xe.stone.blue.name=蓝色氙石
 com.hileb.moremomostories.item.xe.stone.black.name=黑色氙石
 com.hileb.moremomostories.item.xe.stone.other.name=氙石
+com.hileb.moremomostories.item.xe.stone.unknown.name=未知氙石
 com.hileb.moremomostories.item.xe.stone.golden.name=氙金
 
 com.hileb.moremomostories.item.xe.stone.level.name=等级%d

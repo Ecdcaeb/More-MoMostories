@@ -1,9 +1,12 @@
 package com.Hileb.moremomostories.otherMods;
 
 import com.Hileb.moremomostories.IdlFramework;
+import com.Hileb.moremomostories.item.myItems.ItemXe;
 import com.Hileb.moremomostories.meta.MetaUtil;
 import com.gq2529.momostories.events.DamageSource1;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -35,6 +38,47 @@ public class MagicCircle {
                                 if (!player.isSneaking()) {
                                     player.attackEntityFrom(DamageSource1.TIME, 5);
                                     //岁月阵
+                                }
+                            }
+                        }
+                        if (MagicCirclesForMod.Magic_Circle_of_Xe.compare(MagicCircleSixstars.getFromSixstars(block))){
+                            //氙石阵：红色风暴
+                            if (ItemXe.isRed(block.func_70301_a(0))){
+                                if (ItemXe.isRed(block.func_70301_a(1))){
+                                    if (ItemXe.isRed(block.func_70301_a(2))){
+                                        if (ItemXe.isRed(block.func_70301_a(3))){
+                                            if (ItemXe.isRed(block.func_70301_a(4))){
+                                                if (ItemXe.isRed(block.func_70301_a(5))){
+                                                    for (EntityPlayer player : world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(new BlockPos(block.getPos().getX() - 3, block.getPos().getY() - 3, block.getPos().getZ() - 3), new BlockPos(block.getPos().getX() + 3, block.getPos().getY() + 3, block.getPos().getZ() + 3)))) {
+                                                        if (!player.isSneaking()) {
+                                                            player.heal(1);
+                                                            player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH,20,3));
+                                                            //红色风暴
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            //氙石阵：蓝色妖姬
+                            if (ItemXe.isBlue(block.func_70301_a(0))){
+                                if (ItemXe.isBlue(block.func_70301_a(1))){
+                                    if (ItemXe.isBlue(block.func_70301_a(2))){
+                                        if (ItemXe.isBlue(block.func_70301_a(3))){
+                                            if (ItemXe.isBlue(block.func_70301_a(4))){
+                                                if (ItemXe.isBlue(block.func_70301_a(5))){
+                                                    for (EntityPlayer player : world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(new BlockPos(block.getPos().getX() - 3, block.getPos().getY() - 3, block.getPos().getZ() - 3), new BlockPos(block.getPos().getX() + 3, block.getPos().getY() + 3, block.getPos().getZ() + 3)))) {
+                                                        if (!player.isSneaking()) {
+                                                            player.addPotionEffect(new PotionEffect(MobEffects.SPEED,20,5));
+                                                            //蓝色妖姬
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }

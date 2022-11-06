@@ -79,12 +79,14 @@ public class ItemXe extends ItemBase {
                 if (isBlack(stack)){stack.setTranslatableName("com.hileb.moremomostories.item.xe.black.name");}
                 if (isBlue(stack)){stack.setTranslatableName("com.hileb.moremomostories.item.xe.blue.name");}
                 if (isOther(stack)){stack.setTranslatableName("com.hileb.moremomostories.item.xe.other.name");}
+                if (ItemXe.getRGBColor(stack).color>=(256*256*256) || ItemXe.getRGBColor(stack).color<0){stack.setTranslatableName("com.hileb.moremomostories.item.xe.unknown.name");}
             }
             else if(getLevel(stack)>0){
                 if (isRed(stack)){stack.setTranslatableName("com.hileb.moremomostories.item.xe.stone.red.name");}
                 if (isBlack(stack)){stack.setTranslatableName("com.hileb.moremomostories.item.xe.stone.black.name");}
                 if (isBlue(stack)){stack.setTranslatableName("com.hileb.moremomostories.item.xe.stone.blue.name");}
                 if (isOther(stack)){stack.setTranslatableName("com.hileb.moremomostories.item.xe.stone.other.name");}
+                if (ItemXe.getRGBColor(stack).color>=(256*256*256) || ItemXe.getRGBColor(stack).color<0){stack.setTranslatableName("com.hileb.moremomostories.item.xe.stone.unknown.name");}
             }
 
     }
@@ -142,9 +144,9 @@ public class ItemXe extends ItemBase {
     }
     public static RGBColor getRGBColor(ItemStack stack){
         if (stack.hasTagCompound()){
-            if (stack.getTagCompound().hasKey(NBT_XE_COLOR_R)){
-                if(stack.getTagCompound().hasKey(NBT_XE_COLOR_G)){
-                    if (stack.getTagCompound().hasKey(NBT_XE_COLOR_B)){
+            if (stack.getTagCompound().hasKey(NBT_XE_COLOR_R) && IDLNBTUtil.GetInt(stack,NBT_XE_COLOR_R)<=255){
+                if(stack.getTagCompound().hasKey(NBT_XE_COLOR_G) && IDLNBTUtil.GetInt(stack,NBT_XE_COLOR_G)<=255){
+                    if (stack.getTagCompound().hasKey(NBT_XE_COLOR_B) && IDLNBTUtil.GetInt(stack,NBT_XE_COLOR_B)<=255){
                         return new RGBColor(IDLNBTUtil.GetInt(stack,NBT_XE_COLOR_R),IDLNBTUtil.GetInt(stack,NBT_XE_COLOR_G),IDLNBTUtil.GetInt(stack,NBT_XE_COLOR_B));
                     }
                 }
