@@ -1,0 +1,50 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "moremomostories:items/misc/xe_empty"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "com.hileb.moremomostories.item.xe.color": 0.1
+            },
+            "model": "moremomostories:item/xe_0_f"
+        },
+        {
+            "predicate": {
+                "com.hileb.moremomostories.item.xe.color": 0.2
+            },
+            "model": "moremomostories:item/xe_0_r"
+        },
+        {
+            "predicate": {
+                "com.hileb.moremomostories.item.xe.color": 0.3
+            },
+            "model": "moremomostories:item/xe_0_b"
+        },
+        {
+            "predicate": {
+                "com.hileb.moremomostories.item.xe.color": 0.4
+            },
+            "model": "moremomostories:item/xe_0_bx"
+        },
+        {
+            "predicate": {
+                "com.hileb.moremomostories.item.xe.color": 1.1
+            },
+            "model": "moremomostories:item/xe_1_r"
+        },
+        {
+            "predicate": {
+                "com.hileb.moremomostories.item.xe.color": 1.2
+            },
+            "model": "moremomostories:item/xe_1_b"
+        },
+        {
+            "predicate": {
+                "com.hileb.moremomostories.item.xe.color": 1.3
+            },
+            "model": "moremomostories:item/xe_1_bx"
+        }
+    ]
+}

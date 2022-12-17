@@ -7,8 +7,11 @@ import com.Hileb.moremomostories.util.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
@@ -16,21 +19,26 @@ import java.util.Random;
 
 public class BlockBase extends Block implements IHasModel
 {
+	public final Item itemBlock;
+	public static final int haha=0;
 	public BlockBase(String name, Material material)
 	{
 		super(material);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(ModCreativeTab.IDL_MISC);;
+		setCreativeTab(ModCreativeTab.IDL_MISC);
 		
 		ModBlocks.BLOCKS.add(this);
-		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+		itemBlock=new ItemBlock(this).setRegistryName(this.getRegistryName());
+		ModItems.ITEMS.add(itemBlock);
+		ModItems.BLOCK_ITEMS.add(itemBlock);
 
 		setHardness(5.0F);
 		//setResistance(1000.0F);
 		//setHarvestLevel("pickaxe", 1);
 		//setLightLevel(1f);
 		setLightOpacity(1);
+		//getItemBlock();
 	}
 
 
@@ -38,6 +46,11 @@ public class BlockBase extends Block implements IHasModel
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	{
 		return super.getItemDropped(state, rand, fortune);
+	}
+
+	@Override
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
+		//super.getSubBlocks(itemIn, items);
 	}
 
 	@Override
@@ -55,4 +68,7 @@ public class BlockBase extends Block implements IHasModel
 		return false;
 	}
 
+	public Item getItem() {
+		return itemBlock;
+	}
 }

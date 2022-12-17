@@ -1,6 +1,7 @@
 package com.Hileb.moremomostories.entity;
 
 import com.Hileb.moremomostories.IdlFramework;
+import com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity.EntityRain;
 import com.Hileb.moremomostories.util.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -15,6 +16,8 @@ public class ModEntityInit {
         registerEntity("entity_zq",EntityZQ.class);
         registerEntity("entity_mm",EntityDeathMM.class);
         registerEntity("entity_golden_guide",EntityGoldenGuide.class);
+        registerEntity("entity_van",EntityVan.class);
+        registerEntity("entity_rain", EntityRain.class);
         //Examples
 //        registerEntity("moroon_orbital_beacon", EntityMoroonBombBeacon.class);
 //        registerEntity("moroon_tainter", EntityMoroonTainter.class,0xff00ff, 0x000033);

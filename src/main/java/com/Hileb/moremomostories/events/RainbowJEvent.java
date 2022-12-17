@@ -12,4 +12,6 @@ public class RainbowJEvent extends PlayerEvent {
     public long getUseWorldTotelTime(){
         return time;
     }
+
+
 }

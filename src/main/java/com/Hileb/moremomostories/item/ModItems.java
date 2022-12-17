@@ -1,11 +1,16 @@
 package com.Hileb.moremomostories.item;
 
 import com.Hileb.moremomostories.init.ModCreativeTab;
+import com.Hileb.moremomostories.item.food.ItemFoodBase;
+import com.Hileb.moremomostories.item.food.ItemFoodDuckKao;
 import com.Hileb.moremomostories.item.food.ItemFoodSyzg;
+import com.Hileb.moremomostories.item.myItems.*;
 import com.Hileb.moremomostories.item.paper.ItemPaper1;
 import com.Hileb.moremomostories.item.paper.ItemScene1;
-import com.Hileb.moremomostories.item.weapon.*;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +18,7 @@ import java.util.List;
 public class ModItems {
 
 	public static final List<Item> ITEMS = new ArrayList<Item>();
+    public static final List<Item> BLOCK_ITEMS = new ArrayList<Item>();
 
 	//Basic
 
@@ -22,15 +28,10 @@ public class ModItems {
 
 	public static final Item ITEM_COPYER =new ItemCopier("item_copyer");//复制卡
 	public static final Item ITEM_CARD_ZFP =new ItemCardAddZFP("item_card_zfp", ModCreativeTab.IDL_MISC);//煮饭婆
-
-
 	public static final Item ITEM_CARD_GET_FROM_NULL=new ItemCardGetFromNull();//无中生有
 	public static final Item ITEM_CARD_NULL=new ItemBase("item_card_null");//空卡
-
-
+    public static final Item ITEM_RAIN=new ItemBase("rain");//雨，只render
     public static final Item ITEM_AXE_DIA = new ItemAxeDiamond_();//欺诈钻石镐子
-
-
 	//public static final Item SlashBlade_ITZMX_RAINBOW = new ItemSlashBladeItzmx(TOOL_MATERIAL_RAINBOW,7f,"item_bdj_rainbow");
     //核心：
     public static final Item ITEM_MAIN_XK=new ItemBase("item_main_xk",new ItemInformationAdder("com.hileb.itzm.main.desc"));
@@ -38,33 +39,28 @@ public class ModItems {
     public static final Item ITEM_MAIN_SY=new ItemBase("item_main_sy",new ItemInformationAdder("com.hileb.itzm.main.desc"));
     public static final Item ITEM_MAIN_WJ=new ItemBase("item_main_wj",new ItemInformationAdder("com.hileb.itzm.main.desc"));
     public static final Item ITEM_MAIN_NULL=new ItemBase("item_main_null",new ItemInformationAdder("com.hileb.itzm.main.desc"));
-
     public static final Item ITEM_PAPER_HILEB_A=new ItemBase("item_paper_hileb_a",new ItemInformationAdder("tooltip.paper.hileb.a.desc","tooltip.paper.hileb.a.desc"));
     public static final Item ITEM_FOOD_SYZG=new ItemFoodSyzg();//岁月煲
-
     public static final Item ITEM_CARD_MI_CARD=new ItemBase("item_card_mi",new ItemInformationAdder("com.hileb.item.mi.desc"));//万写的宝镜
     public static final Item ITEM_CARD_MI_ITEM=new ItemBase("item_card_mi_item",new ItemInformationAdder("com.hileb.item.mi.desc"));//
-
-
     public static final Item ITEM_RABBIT=new ItemBase("achievement");//成就
     //public static final Item ITEM_LUCK_BOTTLE=new FraudulentBottles("luck_bottle");//幸运之瓶
     public static final Item ITEM_TURN_INTO=new ItemTurnInto("item_turn_into");//腐朽者
-
     public static final Item ITEM_ADD_ENTITYZQ=new ItemAddEntityZQ("item_add_entityzq_item");//战旗
     public static final Item ITEM_NO_CAN_HIT_IT=new ItemNoCanHit("no_can_hit_it");//无懈可击
-
     public static final Item ITEM_PUTRID=new ItemBase("item_putrid_item");//腐烂的物品
-
     public static final Item ITEM_CARD_FIVE=new ItemBase("item_card_five");//五雷天师令
-
     public static final Item ITEM_DO_FOREVER=new ItemBase("item_do_forever",new ItemInformationAdder("item.item_do_forever.desc1"));//永动机
-
     public static final Item ITEM_PAPER_IDONOTWANTTODIE=new ItemPaper1();//纸"我不想死"
     public static final Item ITEM_SCENE_1=new ItemScene1();//场景"我不想死"
-
     public static final Item ITEM_11_A=new ItemRemainBase("item_11_a");//核心制造技术
-
     public static final Item ITEM_12_B=new Item12Base("item_12_b");//纤维绳
+    public static final Item ITEM_XE=new ItemXe("item_xe");//氙石
+    public static final Item ITEM_ARROM_XE=new ItemQGX("item_qgx");
+    public static final Item ITEM_DUCK_COOKED=new ItemFoodBase("duck_cooked",6,6,true);
+    public static final Item ITEM_DUCK_KAO=new ItemFoodDuckKao("duck_kao");
+    public static final Item ITEM_DAO=new ItemDao("item_dao");
+    public static final Item ITEM_BOOK=new ItemBookMod("item_book");
 
 
 
@@ -128,4 +124,59 @@ public class ModItems {
 //	public static final ItemPackage RANDOM_SKILL = (ItemPackage) new ItemPackage("random_skill", new Item[]{
 //			Items.BLAZE_ROD, Items.PAPER
 //	}).setMaxStackSize(1);
+    private static final int cardCount=10;
+    private static final int itemCount=5;
+    private static final int sceneCount=2;
+    private static final int mainCount=5;
+    private static final int foodCount=3;
+    public static void subItems(CreativeTabs tab, NonNullList<ItemStack> items){
+        if (tab==ModCreativeTab.IDL_MISC){
+            //cards
+            items.add(0,new ItemStack(ITEM_CARD_ZFP));
+            items.add(1,new ItemStack(ITEM_CARD_GET_FROM_NULL));
+            items.add(2,new ItemStack(ITEM_CARD_MI_CARD));
+            items.add(3,new ItemStack(ITEM_CARD_FIVE));
+            items.add(4,new ItemStack(ITEM_TURN_INTO));
+            items.add(5,new ItemStack(ITEM_NO_CAN_HIT_IT));
+            items.add(6,new ItemStack(ITEM_CARD_NULL));
+            items.add(7,new ItemStack(ITEM_CARD_MI_CARD));
+            items.add(8,new ItemStack(ITEM_COPYER));
+            items.add(9,new ItemStack(ITEM_CARD_NULL));
+            //items
+            items.add(0+cardCount,new ItemStack(ITEM_DAO));
+            items.add(1+cardCount,new ItemStack(ITEM_12_B));
+            items.add(2+cardCount,new ItemStack(ITEM_ADD_ENTITYZQ));
+            items.add(3+cardCount,new ItemStack(ITEM_AXE_DIA));
+            items.add(3+cardCount,new ItemStack(ITEM_DO_FOREVER));
+            //scenes
+            items.add(0+cardCount+itemCount,new ItemStack(ITEM_PAPER_IDONOTWANTTODIE));
+            items.add(1+cardCount+itemCount,new ItemStack(ITEM_SCENE_1));
+            //foods
+            items.add(0+cardCount+itemCount+sceneCount,new ItemStack(ITEM_FOOD_SYZG));
+            items.add(1+cardCount+itemCount+sceneCount,new ItemStack(ITEM_DUCK_COOKED));
+            items.add(2+cardCount+itemCount+sceneCount,new ItemStack(ITEM_DUCK_KAO));
+            //main
+            items.add(0+cardCount+itemCount+sceneCount+foodCount,new ItemStack(ITEM_MAIN_NULL));
+            items.add(1+cardCount+itemCount+sceneCount+foodCount,new ItemStack(ITEM_MAIN_XK));
+            items.add(2+cardCount+itemCount+sceneCount+foodCount,new ItemStack(ITEM_MAIN_TR));
+            items.add(3+cardCount+itemCount+sceneCount+foodCount,new ItemStack(ITEM_MAIN_SY));
+            items.add(4+cardCount+itemCount+sceneCount+foodCount,new ItemStack(ITEM_MAIN_WJ));
+
+            //block
+            //items.add(0+ cardCount+itemCount+sceneCount+foodCount+mainCount,new ItemStack(ModItems.)));
+            for(int i=0;i<BLOCK_ITEMS.size();i++){
+                items.add(i+ cardCount+itemCount+sceneCount+foodCount+mainCount,new ItemStack(ModItems.BLOCK_ITEMS.get(i)));
+            }
+            //xe
+            items.add(0+cardCount+itemCount+sceneCount+foodCount+mainCount+ModItems.BLOCK_ITEMS.size(),ItemXe.get(ItemXe.XeType.EMPTY));
+
+            items.add(1+cardCount+itemCount+sceneCount+foodCount+mainCount+ModItems.BLOCK_ITEMS.size(),ItemXe.get(ItemXe.XeType.RED_0));
+            items.add(2+cardCount+itemCount+sceneCount+foodCount+mainCount+ModItems.BLOCK_ITEMS.size(),ItemXe.get(ItemXe.XeType.BLUE_0));
+            items.add(3+cardCount+itemCount+sceneCount+foodCount+mainCount+ModItems.BLOCK_ITEMS.size(),ItemXe.get(ItemXe.XeType.BLACK_0));
+
+            items.add(4+cardCount+itemCount+sceneCount+foodCount+mainCount+ModItems.BLOCK_ITEMS.size(),ItemXe.get(ItemXe.XeType.RED_1));
+            items.add(5+cardCount+itemCount+sceneCount+foodCount+mainCount+ModItems.BLOCK_ITEMS.size(),ItemXe.get(ItemXe.XeType.BLUE_1));
+            items.add(6+cardCount+itemCount+sceneCount+foodCount+mainCount+ModItems.BLOCK_ITEMS.size(),ItemXe.get(ItemXe.XeType.BLACK_1));
+        }
+    }
 }

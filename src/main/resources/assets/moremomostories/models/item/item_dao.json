@@ -1,0 +1,14 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "moremomostories:items/misc/daoke_0"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "com.hileb.moremomostories.item.dao": 1
+            },
+            "model": "moremomostories:item/daoke_1"
+        }
+    ]
+}

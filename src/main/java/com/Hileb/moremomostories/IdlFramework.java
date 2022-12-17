@@ -1,12 +1,18 @@
 package com.Hileb.moremomostories;
 
+import com.Hileb.moremomostories.blocks.tileEntity.TileEntityBookShelf;
 import com.Hileb.moremomostories.gui.ModGuiElementLoader;
-import com.Hileb.moremomostories.init.*;
+import com.Hileb.moremomostories.init.ModOreDic;
+import com.Hileb.moremomostories.init.ModRecipes;
+import com.Hileb.moremomostories.init.RegistryHandler;
+import com.Hileb.moremomostories.item.myItems.ItemColorHandler;
 import com.Hileb.moremomostories.keys.KeyboardManager;
 import com.Hileb.moremomostories.meta.MetaUtil;
 import com.Hileb.moremomostories.network.NetworkHandler;
+import com.Hileb.moremomostories.otherMods.SlashBlade.SlashBladeUtil;
 import com.Hileb.moremomostories.proxy.ProxyBase;
 import com.Hileb.moremomostories.util.Reference;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -14,6 +20,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Logger;
 
 import static com.Hileb.moremomostories.init.RegistryHandler.initRegistries;
@@ -28,7 +37,7 @@ import static com.Hileb.moremomostories.init.RegistryHandler.initRegistries;
 public class IdlFramework {
     public static final String MODID = "moremomostories";
     public static final String NAME = "more momostories";
-    public static final String VERSION = "1.0.0.a";
+    public static final String VERSION = "1.0.1.8";
     public static final String DEPEND="after:momostories"+after_mod("idealland")+after_mod("forestry")+after_mod("manametalmod")+after_mod("calculator");
 
     public static Logger logger;
@@ -45,19 +54,20 @@ public class IdlFramework {
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
 
-        if (MODID.equals("untitled"))
-        {
-            logger.error("Please change your mod id in the main class.");
-            
-        }
-
-        if (Reference.CLIENT_PROXY_CLASS.indexOf("Hileb.moremomostories.proxy.ClientProxy") > 0)
-        {
-            logger.warn("Have you changed your package name to author and modname?");
-            
-        }
+//        if (MODID.equals("untitled"))
+//        {
+//            logger.error("Please change your mod id in the main class.");
+//
+//        }
+//
+//        if (Reference.CLIENT_PROXY_CLASS.indexOf("Hileb.moremomostories.proxy.ClientProxy") > 0)
+//        {
+//            logger.warn("Have you changed your package name to author and modname?");
+//
+//        }
 
         RegistryHandler.preInitRegistries(event);
+
         //cConfigLoader.init(event);
 
     }
@@ -69,15 +79,25 @@ public class IdlFramework {
         initRegistries(event);
         ModOreDic.init();
         new ModGuiElementLoader();
+        clientInit();
         if (!proxy.isServer())
         {
             KeyboardManager.init();
+        }
+        if (MetaUtil.isLoaded_SlashBlade){//联动拔刀剑//
+            SlashBladeUtil slashBladeUtil=new SlashBladeUtil();//拔刀剑联动主类
+            slashBladeUtil.registerBlade();//注册拔刀剑
+            slashBladeUtil.registerSA();//注册SA
         }
         NetworkHandler.init();
 
 		LogWarning("%s has finished its initializations", MODID);
 
 	}
+	@SideOnly(Side.CLIENT)
+    public static void clientInit(){
+        ItemColorHandler.init();
+    }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
@@ -112,7 +132,7 @@ public class IdlFramework {
 //        GameRegistry.registerTileEntity(TileEntityDeBoomOrb.class, new ResourceLocation(MODID, "deboom_orb_basic"));
 
         //GameRegistry.registerTileEntity(TileEntityBuilderFarm.class, new ResourceLocation(MODID, "builder_farm_basic"));
-        //GameRegistry.registerTileEntity(TileEntityBuilderOne.class, new ResourceLocation(MODID, "builder.builder_one"));
+        GameRegistry.registerTileEntity(TileEntityBookShelf.class, new ResourceLocation(MODID, "tile_entity_book_shelf"));
     }
 
     public static void LogWarning(String str, Object... args) {

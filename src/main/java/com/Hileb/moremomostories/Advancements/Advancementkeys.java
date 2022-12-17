@@ -20,8 +20,8 @@ public class Advancementkeys {
     public static String AD_SCENE1="moremomostories/scene1";
     public static String AD_DREAM_1="moremomostories/dream1";
     public static String AD_AGAIN_1="moremomostories/again1";
+    public static String AD_LX="moremomostories/lx";
 
+    public static String AD_MEETVAN="moremomostories/meetvan";
 
-    public Advancementkeys(){
-    }
 }

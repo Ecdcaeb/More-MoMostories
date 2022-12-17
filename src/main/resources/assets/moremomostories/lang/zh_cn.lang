@@ -69,7 +69,7 @@ item.item_paper_hileb_a.name=Hileb的手稿
 item.item_food_sysg.name=岁月煲
 tooltip.item_food_sysg.desc=富含岁月之力\n嘎嘎好吃
 
-death.syzg.death=%s试图在岁月中游泳！
+death.syzg.death=%s试图在岁月中游泳！被时间泯灭了。
 
 com.hileb.item.mi.desc=能够放大自然力量的镜子！
 com.hileb.itzm.main.desc=Hileb仿制的力量！
@@ -85,6 +85,9 @@ com.hileb.achievement.findcat.title=抱起猫猫！
 
 advancements.itzmxAdvancements.goodluckmaster.title=欺诈大师！
 advancements.itzmxAdvancements.goodluckmaster.desc=将欺诈之瓶伪装成幸运之瓶！
+
+com.hileb.achievement.meetvan.title=美梦
+com.hileb.achievement.meetvan.desc=遇见王的男人(Van♂ Man)
 
 com.hileb.achievement.goodfiretime.title=战！
 com.hileb.achievement.goodfiretime.desc=使用战旗
@@ -119,6 +122,7 @@ gui.hileb.paper1.desc.10.tip=就好像我真的要死掉一样……别吓我了
 gui.hileb.paper1.desc.11.tip=我一直……运气很好的……
 gui.hileb.paper1.desc.12.tip=芽衣姐……§4我……不想死……
 entity.entity_mm.name=帕朵
+entity.entity_van.name=王的男人
 com.hileb.moremomostories.say.1.say=<帕朵菲利斯>%s……§4我……不想死……
 
 com.hileb.achievement.dream1.title=在记忆里的拯救
@@ -145,4 +149,138 @@ moremomostories.conf.apionly=仅API模式
 tile.wood_no_leaf.name=无叶木
 tile.unbreakable_hileb_block.name=高强度材料
 item.item_11_a.name=核心制造技术
+item.item_12_b.name=纤维绳
 entity.entity_golden_guide.name=黄金卫士
+com.hileb.achievement.lx.title=homo故事会
+com.hileb.achievement.lx.desc=遇见老♂乡。
+
+death.attack.van_damage=%1$s遇见了老♂乡。
+
+tile.block_stone_red.name=红色氙石矿石
+tile.block_stone_blue.name=蓝色氙石矿石
+tile.block_stone_yellow.name=黑色氙石矿石
+
+item.item_xe.name=未知氙
+com.hileb.moremomostories.item.xe.red.name=红色氙石粉末
+com.hileb.moremomostories.item.xe.blue.name=蓝色氙石粉末
+com.hileb.moremomostories.item.xe.black.name=黑色氙石粉末
+com.hileb.moremomostories.item.xe.other.name=氙石粉末
+com.hileb.moremomostories.item.xe.empty.name=空氙石粉末瓶
+com.hileb.moremomostories.item.xe.golden.name=氙金粉末
+com.hileb.moremomostories.item.xe.unknown.name=未知氙石粉末
+com.hileb.moremomostories.item.xe.stone.red.name=红色氙石
+com.hileb.moremomostories.item.xe.stone.blue.name=蓝色氙石
+com.hileb.moremomostories.item.xe.stone.black.name=黑色氙石
+com.hileb.moremomostories.item.xe.stone.other.name=氙石
+com.hileb.moremomostories.item.xe.stone.unknown.name=未知氙石
+com.hileb.moremomostories.item.xe.stone.golden.name=氙金
+
+com.hileb.moremomostories.item.xe.stone.level.name=等级%d
+com.hileb.moremomostories.item.xe.stone.color.name=成色%d
+
+item.item_qgx.name=切尔西
+item.item_qgx.blue.name=蓝色妖姬
+item.item_qgx.red.name=红色风暴
+item.item_qgx.black.name=黑色沉默
+
+item.duck_cooked.name=烤鸭
+item.duck_kao.name=尻鸭
+item.item_dao.name=折扇
+
+item.moremomostories.testBlade1.name=雨
+flammpfeil.slashblade.specialattack.sa1=雨意
+flammpfeil.slashblade.specialattack.up_and_down_world=世界混乱
+
+say.zfp.0.say=<煮饭婆>传说，帝君在出征之时，曾言道...
+say.zfp.1.say=<煮饭婆>我感觉我需要换一个脑子
+say.zfp.2.say=<煮饭婆>好了，湖神赢了
+say.zfp.3.say=<煮饭婆>昨晚梦梦全是闪电
+say.zfp.4.say=<煮饭婆>指令可以做，而且更简单
+say.zfp.5.say=<煮饭婆>空间问题
+say.zfp.6.say=<煮饭婆>你这合成有多少？
+say.zfp.7.say=<煮饭婆>主要这个闪电画成很容易被人理解为电，但这种图片又是最常见的闪电
+say.zfp.8.say=<煮饭婆>我记得这是高版本的特性
+say.zfp.9.say=<煮饭婆>微型自动化模组代码不错，就是基类太多了
+say.zfp.10.say=<煮饭婆>你可以想一想
+say.zfp.11.say=<煮饭婆>嗯
+say.zfp.12.say=<煮饭婆>@凌晨の茶 小茶茶
+say.zfp.13.say=<煮饭婆>我们这是智障危机
+say.zfp.14.say=<煮饭婆>赛博朋克酒馆
+say.zfp.15.say=<煮饭婆>白茶，捏捏
+say.zfp.16.say=<煮饭婆>一堆铁甲战舰出一个独特的风帆船
+say.zfp.17.say=<煮饭婆>完全没搞懂
+say.zfp.18.say=<煮饭婆>哒咩~
+say.zfp.19.say=<煮饭婆>
+say.zfp.20.say=<煮饭婆>
+say.zfp.21.say=<煮饭婆>
+say.zfp.22.say=<煮饭婆>
+say.zfp.23.say=<煮饭婆>
+say.zfp.24.say=<煮饭婆>
+
+boss.van.spawn=王的男人(Van♂ Man)出现了！！！
+
+#config
+slashblade=拔刀剑设置
+SlashBlade.all.tooltip=这里控制一些关于联动拔刀剑的设置
+dimension=维度设置
+Dimension.tooltip=这里控制维度以防冲突（更改后须重启游戏）
+canEntityElectricShaking.tooltip=这里决定是否启用生物电摇
+
+container.title.book=书架
+//yx
+book.name.0.name=《迈恩可拉福特使用指南》
+book.author.0.name=网难
+book.name.1.name=《红石入门》
+book.author.1.name=网难
+book.name.2.name=《霸道史蒂夫爱上我》
+book.author.2.name=匿名网友
+book.name.3.name=《逸一世误一世》
+book.author.3.name=田所浩二
+book.name.4.name=《别人的世界》
+book.author.4.name=别人
+book.name.5.name=《重生是失望》
+book.author.5.name=匿名网友
+book.name.6.name=《加速火把（加粗）真正的（斜体）使用方法》
+book.author.6.name=森林蝙蝠
+book.name.7.name=《§k§4Hello Minecraft§f》
+book.author.7.name=§kHerobrine
+book.name.8.name=《逸久逸九罢一龄》
+book.author.8.name=田所浩二
+book.name.9.name=《怎么下载我的世界》
+book.author.9.name=匿名网友
+book.name.10.name=《蓝楼梦》
+book.author.10.name=蔡靴轻
+book.name.11.name=《怎么装光影》
+book.author.11.name=OptiFine
+book.name.12.name=《怎么在Fabric上装光影》
+book.author.12.name=OptiFabric
+book.name.13.name=《为什么光影不能用》
+book.author.13.name=钠（Sodium）
+book.name.14.name=《OmOm事故会》
+book.author.14.name=Hileb
+book.name.15.name=《这是一本书》
+book.author.15.name=这是这本书的作者
+book.name.16.name=《怎么装模组》
+book.author.16.name=Forge，Fabric
+book.name.17.name=《红石大神》
+book.author.17.name=网难
+book.name.18.name=《北游记》
+book.author.18.name=武城摁
+book.name.19.name=《千度万科》
+book.author.19.name=千度（Du·Qian）
+book.name.20.name=《火浒传》
+book.author.20.name=势奈艳
+book.name.21.name=《死着》
+book.author.21.name=剩华
+book.name.22.name=《七体》
+book.author.22.name=六瓷醒
+book.name.23.name=《九国演狗》
+book.author.23.name=洛惯重
+book.name.24.name=《被风筝追的人》
+book.author.24.name=不卡列·胡谁尼（Bukalie Huseini）
+book.name.25.name=《十年孤独》
+book.author.25.name=减夫六尔·加冬压·马摁克锡（Jianfuliuer Jiadongya Maenkexi）
+book.name.26.name=《呵马莱普》
+book.author.26.name=窝世·伊戈萨比（Woshi Yigegesb）
+book.name.27.name=《这是一本书的续作》
+book.author.27.name=这是这本书的续作的作者

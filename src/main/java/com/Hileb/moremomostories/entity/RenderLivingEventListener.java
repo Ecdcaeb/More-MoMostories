@@ -23,58 +23,94 @@ public class RenderLivingEventListener {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onRenderModelBiped(RenderLivingEvent.Post event){
-        if (ModConfig.entityElectricShakingConf.iscanEntityElectricShaking){
-            if (isElectricShaking(event.getEntity())){
-                if (event.getRenderer().getMainModel() instanceof ModelBiped){
-                    ModelBiped modelBiped=(ModelBiped) event.getRenderer().getMainModel();
-                    setRotationAnglesElectricShaking(modelBiped,event.getEntity(),event);
-                }
-            }
-        }
+//        if (ModConfig.entityElectricShakingConf.iscanEntityElectricShaking){
+//            if (isElectricShaking(event.getEntity()) && (!(event.getEntity()instanceof EntityPlayer))){
+//                if (event.getRenderer().getMainModel() instanceof ModelBiped){
+//                    ModelBiped modelBiped=(ModelBiped) event.getRenderer().getMainModel();
+//                    setRotationAnglesElectricShaking(modelBiped,event.getEntity(),event);
+//                }
+//            }
+//        }
     }
     @SideOnly(Side.CLIENT)
     public static void setRotationAnglesElectricShaking(ModelBiped modelBiped, Entity entityIn,RenderLivingEvent.Post event) {
-        boolean flag =isElectricShaking(entityIn);
-        float f2 = -(float) Math.PI / 0.5F;
-        modelBiped.bipedRightArm.rotateAngleX = f2;
-        modelBiped.bipedLeftArm.rotateAngleX = f2;
-        if (flag) {
-            f2 = -(float) Math.PI / 2.25F;
-            modelBiped.bipedRightArm.rotateAngleX = f2;
-            modelBiped.bipedLeftArm.rotateAngleX = f2;
-            if (entityIn.world.getWorldTime() % 4 > 1) {
-                modelBiped.bipedBody.rotateAngleX = 0.5F;
-                modelBiped.bipedRightLeg.rotationPointZ = 4.0F;
-                modelBiped.bipedLeftLeg.rotationPointZ = 4.0F;
-                modelBiped.bipedRightLeg.rotationPointY = 9.0F;
-                modelBiped.bipedLeftLeg.rotationPointY = 9.0F;
-                modelBiped.bipedHead.rotationPointY = 1.0F;
-                modelBiped.bipedHead.rotationPointZ = -2.0F;
-                GlStateManager.pushMatrix();
-                GlStateManager.translate(0.0F, 0.2F, 0.0F);
-                GlStateManager.popMatrix();
+
+        float scale=event.getRenderer().prepareScale((EntityLivingBase) Minecraft.getMinecraft().player,event.getPartialRenderTick());
+        render(modelBiped,entityIn,0,0,2,entityIn.rotationYaw,entityIn.height,scale);
+        GlStateManager.pushMatrix();
+        GlStateManager.translate(entityIn.posX,entityIn.posY,entityIn.posZ);
+        GlStateManager.popMatrix();
+    }
+    public static void render(ModelBiped biped,Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+    {
+        setRotationAngles(biped,limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
+        GlStateManager.pushMatrix();
+
+        if (biped.isChild)
+        {
+            float f = 2.0F;
+            GlStateManager.scale(0.75F, 0.75F, 0.75F);
+            //GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
+            biped.bipedHead.render(scale);
+            //GlStateManager.popMatrix();
+            //GlStateManager.pushMatrix();
+            GlStateManager.scale(0.5F, 0.5F, 0.5F);
+            //GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
+            biped.bipedBody.render(scale);
+            biped.bipedRightArm.render(scale);
+            biped.bipedLeftArm.render(scale);
+            biped.bipedRightLeg.render(scale);
+            biped.bipedLeftLeg.render(scale);
+            biped.bipedHeadwear.render(scale);
+        }
+        else
+        {
+            if (entityIn.isSneaking())
+            {
+                //GlStateManager.translate(0.0F, 0.2F, 0.0F);
             }
-            else {
-                modelBiped.bipedBody.rotateAngleX = 0.8F;
-                modelBiped.bipedRightLeg.rotationPointZ = 8.0F;
-                modelBiped.bipedLeftLeg.rotationPointZ = 8.0F;
-                modelBiped.bipedRightLeg.rotationPointY = 18.0F;
-                modelBiped.bipedLeftLeg.rotationPointY = 18.0F;
-                modelBiped.bipedHead.rotationPointY = 3.0F;
-                modelBiped.bipedHead.rotationPointZ = 2.0F;
-                GlStateManager.pushMatrix();
-                GlStateManager.translate(0.0F, 0.2F, 0.0F);
-                GlStateManager.popMatrix();
+
+            biped.bipedHead.render(scale);
+            biped.bipedBody.render(scale);
+            biped.bipedRightArm.render(scale);
+            biped.bipedLeftArm.render(scale);
+            biped.bipedRightLeg.render(scale);
+            biped.bipedLeftLeg.render(scale);
+            biped.bipedHeadwear.render(scale);
+        }
+
+        GlStateManager.popMatrix();
+    }
+    public static void setRotationAngles(ModelBiped biped,float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+        biped.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+        boolean flag = true;
+        float f2 = -(float)Math.PI / 0.5F;
+        biped.bipedRightArm.rotateAngleX = f2;
+        biped.bipedLeftArm.rotateAngleX = f2;
+        if (flag){
+            f2 = -(float)Math.PI / 2.25F;
+            biped.bipedRightArm.rotateAngleX = f2;
+            biped.bipedLeftArm.rotateAngleX = f2;
+            if (entityIn.world.getWorldTime()%3==0){
+                biped.bipedBody.rotateAngleX = 0.5F;
+                biped.bipedRightLeg.rotationPointZ = 4.0F;
+                biped.bipedLeftLeg.rotationPointZ = 4.0F;
+                biped.bipedRightLeg.rotationPointY = 9.0F;
+                biped.bipedLeftLeg.rotationPointY = 9.0F;
+                biped.bipedHead.rotationPointY = 1.0F;
+                biped.bipedHead.rotationPointZ= -2.0F;
+            }
+            else
+            {
+                biped.bipedBody.rotateAngleX = 0.8F;
+                biped.bipedRightLeg.rotationPointZ = 8.0F;
+                biped.bipedLeftLeg.rotationPointZ = 8.0F;
+                biped.bipedRightLeg.rotationPointY = 18.0F;
+                biped.bipedLeftLeg.rotationPointY = 18.0F;
+                biped.bipedHead.rotationPointY = 3.0F;
+                biped.bipedHead.rotationPointZ= 2.0F;
             }
         }
-        float scale=event.getRenderer().prepareScale((EntityLivingBase) Minecraft.getMinecraft().player,event.getPartialRenderTick());
-        modelBiped.bipedHead.render(scale);
-        modelBiped.bipedBody.render(scale);
-        modelBiped.bipedRightArm.render(scale);
-        modelBiped.bipedLeftArm.render(scale);
-        modelBiped.bipedRightLeg.render(scale);
-        modelBiped.bipedLeftLeg.render(scale);
-        modelBiped.bipedHeadwear.render(scale);
     }
     @SubscribeEvent
     public static void ItemClickToRender(PlayerInteractEvent.EntityInteract event){

@@ -125,16 +125,6 @@
         ]
       }
     },
-    "get_card_alchemist_medal": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item":"momostories:alchemist_medal"
-          }
-        ]
-      }
-    },
     "get_card_forgotten_ancient_mirrors": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -191,6 +181,46 @@
         "items": [
           {
             "item":"momostories:the_angel_project"
+          }
+        ]
+      }
+    },
+    "get_card_sirin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item":"momostories:sirin"
+          }
+        ]
+      }
+    },
+    "get_card_central_academy_of_sciences": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item":"momostories:central_academy_of_sciences"
+          }
+        ]
+      }
+    },
+    "get_card_internal_strife": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item":"momostories:internal_strife"
+          }
+        ]
+      }
+    },
+    "get_card_miser": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item":"momostories:miser"
           }
         ]
       }

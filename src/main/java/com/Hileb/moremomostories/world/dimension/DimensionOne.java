@@ -1,6 +1,6 @@
 package com.Hileb.moremomostories.world.dimension;
 
-import com.Hileb.moremomostories.world.dimension.hexcube.ChunkGeneratorHexCube16;
+import com.Hileb.moremomostories.world.dimension.ChuckGenerator.ChunkGeneratorNullPlace;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.gen.IChunkGenerator;
@@ -20,7 +20,7 @@ public class DimensionOne extends WorldProvider {
 
     @Override
     public IChunkGenerator createChunkGenerator() {
-        return new ChunkGeneratorHexCube16( world, true, world.getSeed());
+        return new ChunkGeneratorNullPlace( world, true, world.getSeed());
     }
 
     @Override
