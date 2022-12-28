@@ -10,11 +10,13 @@ import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTDef;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -152,5 +154,10 @@ public class ItemFoodBase extends ItemFood implements IHasModel {
         }
 
         return "";
+    }
+
+    @Override
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+        //
     }
 }

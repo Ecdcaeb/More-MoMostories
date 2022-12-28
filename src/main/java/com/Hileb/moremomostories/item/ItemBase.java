@@ -10,22 +10,20 @@ import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
@@ -39,7 +37,7 @@ public class ItemBase extends Item implements IHasModel {
 	private boolean isRangedWeapon = false;
 	protected boolean logNBT = false;
 	protected boolean glitters = false;
-	private ItemInformationAdder ItemDesc=null;
+	public ItemInformationAdder ItemDesc=null;
 
 	protected static final UUID OFF_HAND_MODIFIER = UUID.fromString("9271eeea-5f74-4e12-97b6-7cf3c60ef7a0");
 	protected static final UUID MAIN_HAND_MODIFIER = UUID.fromString("7d766720-0695-46c6-b320-44529f3da63f");
@@ -278,4 +276,8 @@ public class ItemBase extends Item implements IHasModel {
 
 	}
 
+	@Override
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+		//super.getSubItems(tab, items);
+	}
 }

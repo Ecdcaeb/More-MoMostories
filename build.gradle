@@ -27,7 +27,7 @@ if (useMirror) apply from: "mirror.gradle"
 apply plugin: "net.minecraftforge.gradle.forge"
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
-version = "1.0.1.7"
+version = "1.0.1.9"
 group = "com.ideallandframework.moremomostories" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "moremomostories"
 
@@ -68,6 +68,7 @@ repositories {
 dependencies {
     compile files('lib/momostories-1.0.1.jar')
     compile files('lib/Magic_Circle-1.0.1.jar')
+    compile files('lib/SlashBlade-mc1.12-r6.jar')
     //Magic_Circle-1.0.1.jar
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..

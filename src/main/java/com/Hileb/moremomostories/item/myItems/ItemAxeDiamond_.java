@@ -8,8 +8,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.BlockRedstoneOre;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BlockEvent;
@@ -41,25 +43,9 @@ public class ItemAxeDiamond_ extends ItemPickaxeBase {
             }
         }
     }
-//    @SubscribeEvent
-//    public void inbreakblock_(BlockEvent.BreakEvent event){
-//        World world=event.getWorld();
-//        if(!world.isRemote){
-//            if(event.getPlayer()!=null){
-//                EntityPlayer player=event.getPlayer();
-//                if(player.getHeldItemMainhand().isEmpty()){
-//                    ItemStack stack=player.getHeldItemMainhand();
-//                    Block block=world.getBlockState(event.getPos()).getBlock();
-//                    if((block.isWood())){
-//                        event.setCanceled(true);
-//                        world.setBlockToAir(event.getPos());
-////                        if (!player.isCreative()){
-////                            stack.getItem().setDamage(stack, stack.getItem().getDamage(stack) + 1);
-////                            ModAdvancementsInit.giveAdvancement(player, Advancementkeys.AD_CARD_DOUBLEHIT);
-////                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
+
+    @Override
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+
+    }
 }

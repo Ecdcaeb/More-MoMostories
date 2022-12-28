@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "moremomostories:item_book_dust",
+    "count": 1
+  },
+  "ingredients": [
+    [
+      { "item": "moremomostories:item_book" }
+    ]
+  ],
+  "type": "forge:ore_shapeless"
+}

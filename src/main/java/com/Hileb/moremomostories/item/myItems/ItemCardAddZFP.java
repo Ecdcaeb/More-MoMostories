@@ -3,12 +3,14 @@ package com.Hileb.moremomostories.item.myItems;
 import com.Hileb.moremomostories.entity.EntityZFP;
 import com.Hileb.moremomostories.item.ItemBase;
 import com.Hileb.moremomostories.item.ItemInformationAdder;
+import com.Hileb.moremomostories.item.ModItems;
 import com.Hileb.moremomostories.util.CommonFunctions;
 import com.Hileb.moremomostories.util.MoMo.MoMoCards;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -34,11 +36,11 @@ public class ItemCardAddZFP extends ItemBase {
                 EntityZFP sakura=new EntityZFP(world);
                 sakura.setPosition(event.getPos().getX(),event.getPos().getY()+1,event.getPos().getZ());
                 event.getWorld().spawnEntity(sakura);
-                sakura.uuid=event.getEntityPlayer().getUniqueID();
+                //sakura.uuid=event.getEntityPlayer().getUniqueID();
                 //return super.onItemUse(event.getEntityPlayer(),event.getWorld(),event.getPos(), EnumHand.MAIN_HAND,);
                 event.getItemStack().setCount(0);
                 //ModAdvancementsInit.giveAdvancement(event.getEntityPlayer(), Advancementkeys.AD_HELLOSAKURA);
-                sakura.getTags().add(sakura.uuid.toString());
+                //sakura.getTags().add(sakura.uuid.toString());
             }
         }
     }
@@ -49,4 +51,8 @@ public class ItemCardAddZFP extends ItemBase {
         ItemDesc.func_addInformation_item_base(stack,worldIn,str,flagIn);
     }
 
+    @Override
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+        ModItems.subItems(tab,items);
+    }
 }

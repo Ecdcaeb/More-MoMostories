@@ -1,6 +1,7 @@
 package com.Hileb.moremomostories.entity;
 
 import com.Hileb.moremomostories.entity.creatures.ai.EntityAIGuideAttack;
+import com.Hileb.moremomostories.item.ModItems;
 import com.Hileb.moremomostories.util.CommonFunctions;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -14,6 +15,7 @@ import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -22,6 +24,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class EntityGoldenGuide extends EntityMob implements IMob {
 
@@ -123,6 +126,20 @@ public class EntityGoldenGuide extends EntityMob implements IMob {
         }
 
         return flag;
+    }
+
+    @Override
+    public void onDeath(DamageSource cause) {
+        if (cause.damageType.equals("player")){
+            Random random=new Random();
+            random.setSeed(cause.hashCode());
+            if (random.nextInt(1000)<1){
+                net.minecraftforge.common.ForgeHooks.onPlayerTossEvent((EntityPlayer)cause.getTrueSource(), new ItemStack(ModItems.ITEM_Z).copy(), false);
+            }else if (random.nextInt(1000)<1){
+                net.minecraftforge.common.ForgeHooks.onPlayerTossEvent((EntityPlayer)cause.getTrueSource(), new ItemStack(ModItems.ITEM_ARROM_XE).copy(), false);
+            }
+        }
+        super.onDeath(cause);
     }
 }
 

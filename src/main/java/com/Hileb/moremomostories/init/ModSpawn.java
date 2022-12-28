@@ -1,5 +1,6 @@
 package com.Hileb.moremomostories.init;
 
+import com.Hileb.moremomostories.entity.EntityGoldenGuide;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.Biome;
@@ -16,6 +17,7 @@ public class ModSpawn {
      * Register Mobs based on Biome sub Types
      */
     public static void registerSpawnList() {
+        add(InitBiome.BIOME_BOOK,100, EntityGoldenGuide.class,40,60);
         Map<Type, Set<Biome>> biomeMap = buildBiomeListByType();
 
         addNormalSpawn(biomeMap);

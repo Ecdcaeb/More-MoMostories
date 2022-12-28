@@ -1,5 +1,7 @@
 package com.Hileb.moremomostories.blocks;
 
+import com.Hileb.moremomostories.init.ModConfig;
+import com.Hileb.moremomostories.util.Teleport;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,11 +18,14 @@ public class BlockTeleporter extends BlockBase {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
-//            Teleport.teleportToDim(playerIn, ModConfig.DEBUG_CONF.DIM_ONE_ID, playerIn.getPosition().getX(),
-//                    playerIn.posY + 5, playerIn.posZ);
+            Teleport.teleportToDim(playerIn, ModConfig.dimension.WORLD_GEN_CONF, 1,
+                    1,1);
             return true;
         }
 
         return false;
     }
+//    public Teleport getTP(WorldServer s,int x,int y,int z){
+//        return new Teleport(s,x,y,z);
+//    }
 }

@@ -1,14 +1,16 @@
 package com.Hileb.moremomostories.world.dimension;
 
-import com.Hileb.moremomostories.world.dimension.hexcube.ChunkGeneratorHexCube16;
+import com.Hileb.moremomostories.init.InitBiome;
+import com.Hileb.moremomostories.world.dimension.ChuckGenerator.ChunkGeneratorNullPlace;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
+import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.gen.IChunkGenerator;
 
 public class DimensionOne extends WorldProvider {
 
     public DimensionOne() {
-        //this.biomeProvider = new BiomeProviderSingle(InitBiome.BIOME_ONE);
+        this.biomeProvider = new BiomeProviderSingle(InitBiome.BIOME_BOOK);
         hasSkyLight = false;
     }
 
@@ -20,12 +22,12 @@ public class DimensionOne extends WorldProvider {
 
     @Override
     public IChunkGenerator createChunkGenerator() {
-        return new ChunkGeneratorHexCube16( world, true, world.getSeed());
+        return new ChunkGeneratorNullPlace( world, true, world.getSeed());
     }
 
     @Override
     public boolean canRespawnHere() {
-        return false;
+        return true;
     }
 
     @Override

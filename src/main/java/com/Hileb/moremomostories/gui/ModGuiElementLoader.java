@@ -1,9 +1,14 @@
 package com.Hileb.moremomostories.gui;
 
 import com.Hileb.moremomostories.IdlFramework;
+import com.Hileb.moremomostories.blocks.tileEntity.TileEntityBookShelf;
+import com.Hileb.moremomostories.gui.BookShelf.ContainerBookShelf;
+import com.Hileb.moremomostories.gui.BookShelf.GuiContainerBookShelf;
 import com.Hileb.moremomostories.gui.paper.paper1.ContainerPaper1;
 import com.Hileb.moremomostories.gui.paper.paper1.GuiContainerPaper1;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -18,6 +23,8 @@ public class ModGuiElementLoader implements IGuiHandler {
     public static final int GUI_RESEARCH = 2;
     public static final int GUI_PAPER_1 = 1001;
 
+    public static final int GUI_CHEST = 1011;
+
     public ModGuiElementLoader()
     {
         NetworkRegistry.INSTANCE.registerGuiHandler(IdlFramework.instance, this);
@@ -30,6 +37,15 @@ public class ModGuiElementLoader implements IGuiHandler {
         {
             case GUI_PAPER_1:
                 return new ContainerPaper1(player);
+            case GUI_CHEST:
+                TileEntity tile=world.getTileEntity(new BlockPos(x,y,z));
+                if (tile!=null){
+                    if (tile instanceof TileEntityBookShelf){
+                        TileEntityBookShelf trueTile=(TileEntityBookShelf)tile;
+                        return new ContainerBookShelf(player.inventory,trueTile,player,trueTile.getPos());
+                    }
+                }
+                return null;
                 default:
                     return null;
         }
@@ -42,7 +58,16 @@ public class ModGuiElementLoader implements IGuiHandler {
         {
             case GUI_PAPER_1:
                 return new GuiContainerPaper1(new ContainerPaper1(player));
-            default:
+            case GUI_CHEST:
+                TileEntity tile=world.getTileEntity(new BlockPos(x,y,z));
+                if (tile!=null){
+                    if (tile instanceof TileEntityBookShelf){
+                        TileEntityBookShelf trueTile=(TileEntityBookShelf)tile;
+                        return new GuiContainerBookShelf(new ContainerBookShelf(player.inventory,trueTile,player,tile.getPos()));
+                    }
+                }
+                return null;
+                default:
                 return null;
         }
     }

@@ -4,6 +4,7 @@ import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.entity.creatures.moroon.EntityMoroonUnitBase;
 import com.Hileb.moremomostories.entity.creatures.render.*;
 import com.Hileb.moremomostories.entity.projectiles.EntityIdlProjectile;
+import com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
@@ -23,6 +24,13 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityGoldenGuide.class, RenderGuide::new);
 
         RenderingRegistry.registerEntityRenderingHandler(EntityVan.class, RenderVan::new);
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityRain.class, RenderRain::new);
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityFire.class, RenderFire::new);
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityIce.class, RenderIce::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityIceMother.class, RenderIceMother::new);
 
 
         RenderingRegistry.registerEntityRenderingHandler(EntityIdlProjectile.class, renderManager -> new RenderBullet<>(renderManager, new ResourceLocation(IdlFramework.MODID,

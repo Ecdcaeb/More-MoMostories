@@ -26,8 +26,10 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class EntityVan extends EntityMob  {//van♂ man
+    //public long coldTime;
     public EntityVan(World worldIn) {
         super(worldIn);
+        //coldTime=worldIn.getTotalWorldTime();
         this.setHealth(100.0f);
         this.setSize(0.6F, 1.95F);
         CommonFunctions.addToEventBus(this);
@@ -38,7 +40,7 @@ public class EntityVan extends EntityMob  {//van♂ man
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
+        this.tasks.addTask(9, new EntityAILookIdle(this));
         this.applyEntityAI();
     }
     protected void applyEntityAI()

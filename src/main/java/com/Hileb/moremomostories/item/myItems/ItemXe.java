@@ -1,18 +1,15 @@
 package com.Hileb.moremomostories.item.myItems;
 
-import com.Hileb.moremomostories.init.ModCreativeTab;
 import com.Hileb.moremomostories.item.ItemBase;
 import com.Hileb.moremomostories.item.ModItems;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -91,57 +88,57 @@ public class ItemXe extends ItemBase {
 
     }
 
-    @Override
-    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-        //super.getSubItems(tab, items);
-        if(tab== ModCreativeTab.IDL_MISC){
-            ItemStack lvl_f=new ItemStack(this);
-            ItemStack lvl_0r=new ItemStack(this);
-            ItemStack lvl_0b=new ItemStack(this);
-            ItemStack lvl_0bx=new ItemStack(this);
-            ItemStack lvl_1r=new ItemStack(this);
-            ItemStack lvl_1b=new ItemStack(this);
-            ItemStack lvl_1bx=new ItemStack(this);
-
-            setLeveL(lvl_f,-1);
-            setRGBColor(lvl_f,COLOR_EMPTY);
-
-            setLeveL(lvl_0r,0);
-            setRGBColor(lvl_0r,COLOR_RED);
-            setLeveL(lvl_0b,0);
-            setRGBColor(lvl_0b,COLOR_BLUE);
-            setLeveL(lvl_0bx,0);
-            setRGBColor(lvl_0bx,COLOR_BLACK);
-
-            setLeveL(lvl_1b,1);
-            setRGBColor(lvl_1b,COLOR_RED);
-            setLeveL(lvl_1r,1);
-            setRGBColor(lvl_1r,COLOR_BLUE);
-            setLeveL(lvl_1bx,1);
-            setRGBColor(lvl_1bx,COLOR_BLACK);
-
-            changeName(lvl_f);
-            changeName(lvl_0r);
-            changeName(lvl_0b);
-            changeName(lvl_0bx);
-            changeName(lvl_1r);
-            changeName(lvl_1b);
-            changeName(lvl_1bx);
-
-            items.add(lvl_f.copy());
-            items.add(lvl_0r.copy());
-            items.add(lvl_0b.copy());
-            items.add(lvl_0bx.copy());
-            items.add(lvl_1r.copy());
-            items.add(lvl_1b.copy());
-            items.add(lvl_1bx.copy());
-        }
-//        ItemStack empty_lv0=new ItemStack(this);
-//        empty_lv0.setTranslatableName("com.hileb.moremomostories.item.xe.empty.name");
-//        IDLNBTUtil.SetInt(empty_lv0,NBT_XE_LVL,-1);
-//        IDLNBTUtil.SetInt(empty_lv0,NBT_XE_Color,XeType.XE_EMPTY);
-//        items.add(empty_lv0);
-    }
+//    @Override
+//    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+//        //super.getSubItems(tab, items);
+//        if(tab== ModCreativeTab.IDL_MISC){
+//            ItemStack lvl_f=new ItemStack(this);
+//            ItemStack lvl_0r=new ItemStack(this);
+//            ItemStack lvl_0b=new ItemStack(this);
+//            ItemStack lvl_0bx=new ItemStack(this);
+//            ItemStack lvl_1r=new ItemStack(this);
+//            ItemStack lvl_1b=new ItemStack(this);
+//            ItemStack lvl_1bx=new ItemStack(this);
+//
+//            setLeveL(lvl_f,-1);
+//            setRGBColor(lvl_f,COLOR_EMPTY);
+//
+//            setLeveL(lvl_0r,0);
+//            setRGBColor(lvl_0r,COLOR_RED);
+//            setLeveL(lvl_0b,0);
+//            setRGBColor(lvl_0b,COLOR_BLUE);
+//            setLeveL(lvl_0bx,0);
+//            setRGBColor(lvl_0bx,COLOR_BLACK);
+//
+//            setLeveL(lvl_1b,1);
+//            setRGBColor(lvl_1b,COLOR_RED);
+//            setLeveL(lvl_1r,1);
+//            setRGBColor(lvl_1r,COLOR_BLUE);
+//            setLeveL(lvl_1bx,1);
+//            setRGBColor(lvl_1bx,COLOR_BLACK);
+//
+//            changeName(lvl_f);
+//            changeName(lvl_0r);
+//            changeName(lvl_0b);
+//            changeName(lvl_0bx);
+//            changeName(lvl_1r);
+//            changeName(lvl_1b);
+//            changeName(lvl_1bx);
+//
+//            items.add(lvl_f.copy());
+//            items.add(lvl_0r.copy());
+//            items.add(lvl_0b.copy());
+//            items.add(lvl_0bx.copy());
+//            items.add(lvl_1r.copy());
+//            items.add(lvl_1b.copy());
+//            items.add(lvl_1bx.copy());
+//        }
+////        ItemStack empty_lv0=new ItemStack(this);
+////        empty_lv0.setTranslatableName("com.hileb.moremomostories.item.xe.empty.name");
+////        IDLNBTUtil.SetInt(empty_lv0,NBT_XE_LVL,-1);
+////        IDLNBTUtil.SetInt(empty_lv0,NBT_XE_Color,XeType.XE_EMPTY);
+////        items.add(empty_lv0);
+//    }
     public static RGBColor getRGBColor(ItemStack stack){
         if (stack.hasTagCompound()){
             if (stack.getTagCompound().hasKey(NBT_XE_COLOR_R) && IDLNBTUtil.GetInt(stack,NBT_XE_COLOR_R)<=255){

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "AAA",
+    "AAA",
+    "AAA"
+  ],
+
+  "key":
+  {
+    "A":
+    {
+      "item": "moremomostories:item_book"
+    }
+  },
+
+  "result":
+  {
+    "item": "moremomostories:item_book_buddha_god_palm",
+    "count": 1
+  }
+}

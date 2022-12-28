@@ -1,11 +1,12 @@
 package com.Hileb.moremomostories.item.myItems;
 
 import com.Hileb.moremomostories.command.ModCommands;
+import com.Hileb.moremomostories.init.ModConfig;
 import com.Hileb.moremomostories.item.ItemBase;
 import com.Hileb.moremomostories.item.ItemInformationAdder;
 import com.Hileb.moremomostories.item.ModItems;
-import com.Hileb.moremomostories.recipe.RecipePutrid;
 import com.Hileb.moremomostories.util.MoMo.MoMoCards;
+import com.Hileb.moremomostories.util.Teleport;
 import com.gq2529.momostories.potion.effect.ModPotions;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -45,8 +46,7 @@ public class ItemTurnInto extends ItemBase {
                         event.getItemStack().setCount(event.getItemStack().getCount()-1);
                 }
                 else if (event.getEntityPlayer().getHeldItemMainhand().getItem()==ModItems.ITEM_CARD_FIVE){
-                    RecipePutrid.registerPutridItemForAfterMod(ModItems.ITEM_CARD_FIVE);
-                    event.getItemStack().setCount(event.getItemStack().getCount()-1);
+                    Teleport.teleportToDim(event.getEntityPlayer(),ModConfig.dimension.WORLD_GEN_CONF,0,0,0);
                 }
             }
         }
