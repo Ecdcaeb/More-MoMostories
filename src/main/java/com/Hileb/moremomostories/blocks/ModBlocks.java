@@ -54,6 +54,8 @@ public class ModBlocks {
 	public static final Block BLOCK_END_BOOK_SHELF=new BlockEndBlockShelf("block_end_book_shelf");
 	public static final Block BLOCK_TP_HILEB =new BlockTeleporter("block_tp_hileb",Material.ROCK);
 
+	//public static final Block BLOCK_JUKE_BOX =new BlockJukebox("block_jukebox");
+
 	
 	/*
 	 * To add a block, put a line here,

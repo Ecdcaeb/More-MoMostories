@@ -9,6 +9,7 @@ import com.Hileb.moremomostories.item.myItems.*;
 import com.Hileb.moremomostories.item.paper.ItemPaper1;
 import com.Hileb.moremomostories.item.paper.ItemScene1;
 import com.Hileb.moremomostories.item.weapon.ItemZ;
+import com.Hileb.moremomostories.util.YTXSYSounds;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -67,6 +68,8 @@ public class ModItems {
     public static final Item ITEM_BOOK_BUDDHA_GOD_PALM=new ItemBookBuddhaGodPalm("item_book_buddha_god_palm");
     public static final Item ITEM_Z=new ItemZ("item_z");
     public static final Item ITEM_BOOK_DUST=new ItemBase("item_book_dust");
+
+    public static final Item ITEM_YTXSY_SOUND=new ItemYTXSY("item_ytxsy_sound");
 
 
 
@@ -160,6 +163,15 @@ public class ModItems {
             items.add((i++),new ItemStack(ITEM_BOOK_BUDDHA_GOD_PALM));
             items.add((i++),new ItemStack(ITEM_BOOK_DUST));
             items.add((i++),new ItemStack(ITEM_Z));
+//            ItemStack stack=new ItemStack(ITEM_YTXSY_SOUND);
+//////            ((ItemYTXSY)ITEM_YTXSY_SOUND).getItemYTXSY(stack,11);
+//////            items.add((i++),stack);
+            for(int var1 = 0; var1< YTXSYSounds.getLimit(); var1++){
+                         ItemStack stack=new ItemStack(ITEM_YTXSY_SOUND);
+                         ((ItemYTXSY)ITEM_YTXSY_SOUND).getItemYTXSY(stack,var1);
+                         items.add((i++),stack);
+            }
+
             //scenes
             items.add((i++),new ItemStack(ITEM_PAPER_IDONOTWANTTODIE));
             items.add((i++),new ItemStack(ITEM_SCENE_1));

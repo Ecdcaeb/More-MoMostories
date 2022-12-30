@@ -14,8 +14,6 @@ import java.util.Iterator;
 import java.util.List;
 
 public class XeDustRecipe extends ShapelessOreRecipe {
-    public static final String RepairCountStr = "RepairCount";
-    public static int RepairProudSoulCount = 2;
 
     public XeDustRecipe() {
         super(new ResourceLocation("moremomostories", "recipe_do_xe"), new ItemStack(ModItems.ITEM_XE, 1, 0), new Object[]{new ItemStack(ModItems.ITEM_XE, 1, 0),new ItemStack(ModItems.ITEM_XE, 1, 0)});

@@ -1,7 +1,5 @@
 package com.Hileb.moremomostories.util.NBTStrDef;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,9 +7,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
-import static com.Hileb.moremomostories.util.IDLNBT.*;
+import static com.Hileb.moremomostories.util.IDLNBT.getPlayerIdeallandIntArraySafe;
+import static com.Hileb.moremomostories.util.IDLNBT.setPlayerIdeallandTagSafe;
 import static com.Hileb.moremomostories.util.NBTStrDef.IDLNBTDef.*;
 
 //on a server, strlen 65000 is ok, but 66000 will crash
@@ -350,4 +352,7 @@ public class IDLNBTUtil {
 		IDLNBTUtil.SetDouble(stack, ANCHOR_Y_2, pos.getY());
 		IDLNBTUtil.SetDouble(stack, ANCHOR_Z_2, pos.getZ());
 	}
+
+
+	//private static boolean SetItemStackBase(NBTTagCompound tagCompound, ItemStack stack)
 }
