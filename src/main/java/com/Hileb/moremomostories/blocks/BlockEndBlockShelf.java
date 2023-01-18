@@ -42,8 +42,10 @@ public class BlockEndBlockShelf extends BlockBase{
     public void onPlayerClickShelf(PlayerInteractEvent.RightClickBlock event){
         World world=event.getWorld();
         if (!world.isRemote){
-            if (event.getEntityPlayer().getHeldItem(event.getHand()).getItem()== ModItems.ITEM_BOOK){
-                world.setBlockState(event.getPos(), this.getDefaultState(),3);
+            if (event.getWorld().getBlockState(event.getPos()).getBlock()==Blocks.BOOKSHELF){
+                if (event.getEntityPlayer().getHeldItem(event.getHand()).getItem()== ModItems.ITEM_BOOK){
+                    world.setBlockState(event.getPos(), this.getDefaultState(),3);
+                }
             }
         }
     }
@@ -70,11 +72,20 @@ public class BlockEndBlockShelf extends BlockBase{
             spawnVan(worldIn,pos);
         }
     }
+    @Override
+    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
+    {
+        if (state.getBlock()==this)
+        {
+            worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
+        }
+    }
 
     public int tickRate(World worldIn)
     {
-        return 300;
+        return 3000;
     }
+    @Override
     public boolean requiresUpdates()
     {
         return true;

@@ -8,6 +8,7 @@ import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
+
 public class ModelEntityZQ extends ModelBase {
 	private final ModelRenderer bb_main;
 

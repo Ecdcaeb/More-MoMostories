@@ -37,6 +37,7 @@ public class ItemBase extends Item implements IHasModel {
 	private boolean isRangedWeapon = false;
 	protected boolean logNBT = false;
 	protected boolean glitters = false;
+
 	public ItemInformationAdder ItemDesc=null;
 
 	protected static final UUID OFF_HAND_MODIFIER = UUID.fromString("9271eeea-5f74-4e12-97b6-7cf3c60ef7a0");

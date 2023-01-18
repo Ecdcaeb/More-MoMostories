@@ -1,6 +1,6 @@
 package com.Hileb.moremomostories.item.paper;
 
-import com.Hileb.moremomostories.Advancements.Advancementkeys;
+import com.Hileb.moremomostories.advancements.Advancementkeys;
 import com.Hileb.moremomostories.gui.ModGuiElementLoader;
 import com.Hileb.moremomostories.item.ItemInformationAdder;
 

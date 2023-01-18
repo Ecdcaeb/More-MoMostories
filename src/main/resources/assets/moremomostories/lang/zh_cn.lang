@@ -11,6 +11,9 @@ item.item_card_get_from_null.name=无中生有
 item.item_card_get_from_null.desc1=出牌阶段，对自己使用。摸一张牌。\n“天下万物生于有，有生于无”\n<老子>\n获得一张momostroies牌\n没有加载momostories时返回原料.
 item.item_card_get_from_null.desc2=出牌阶段，对自己使用。摸一张牌。\n“天下万物生于有，有生于无”\n<老子>\n按住 §eLShift §f显示更多
 
+momo.energy.rainbow.damage.name=耐久
+momo.energy.rainbow.en.name=能量
+momo.energy.rainbow.en.end=RE(RainbowEnergy)
 
 
 item.diamond_pickaxe.name=钻石镐
@@ -161,8 +164,8 @@ tile.block_stone_blue.name=蓝色氙石矿石
 tile.block_stone_yellow.name=黑色氙石矿石
 
 item.item_xe.name=未知氙
-com.hileb.moremomostories.item.xe.red.name=红色氙石粉末
-com.hileb.moremomostories.item.xe.blue.name=蓝色氙石粉末
+com.hileb.moremomostories.item.xe.red.name=§r红色氙石粉末
+com.hileb.moremomostories.item.xe.blue.name=§b蓝色氙石粉末
 com.hileb.moremomostories.item.xe.black.name=黑色氙石粉末
 com.hileb.moremomostories.item.xe.other.name=氙石粉末
 com.hileb.moremomostories.item.xe.empty.name=空氙石粉末瓶
@@ -189,9 +192,11 @@ item.duck_kao.name=尻鸭
 item.item_dao.name=折扇
 
 item.moremomostories.testBlade1.name=雨
+item.moremomostories.blandTianki.name=天姬
 flammpfeil.slashblade.specialattack.sa1=雨意
 flammpfeil.slashblade.specialattack.up_and_down_world=世界混乱
 flammpfeil.slashblade.specialattack.sa_fire=炎爆
+flammpfeil.slashblade.specialattack.sa_bakin=淫気祓清
 
 say.player.hileb.qgx.say=<%s>英雄 可以 受委屈~但是 你不能踩我的  切尔西。
 say.zfp.0.say=<煮饭婆>传说，帝君在出征之时，曾言道...
@@ -296,3 +301,7 @@ book.author.28.name=Hileb
 entity.entity_rain.name=雨点
 entity.entity_ice.name=冰点
 entity.entity_icem.name=北极
+
+effect.potion_blind_day.name=白昼
+tag.tag_best.name=神圣的
+DayTimeText=§e曙光初现..

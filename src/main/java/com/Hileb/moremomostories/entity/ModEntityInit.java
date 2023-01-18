@@ -25,6 +25,8 @@ public class ModEntityInit {
         registerEntity("entity_fire", EntityFire.class);
         registerEntity("entity_ice", EntityIce.class);
         registerEntity("entity_icem", EntityIceMother.class);
+
+        registerEntity("entity_bookworm", EntityBookworm.class);
         //Examples
 //        registerEntity("moroon_orbital_beacon", EntityMoroonBombBeacon.class);
 //        registerEntity("moroon_tainter", EntityMoroonTainter.class,0xff00ff, 0x000033);

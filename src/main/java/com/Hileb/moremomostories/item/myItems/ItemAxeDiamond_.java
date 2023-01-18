@@ -1,7 +1,7 @@
 package com.Hileb.moremomostories.item.myItems;
 
-import com.Hileb.moremomostories.Advancements.Advancementkeys;
-import com.Hileb.moremomostories.Advancements.ModAdvancementsInit;
+import com.Hileb.moremomostories.advancements.Advancementkeys;
+import com.Hileb.moremomostories.advancements.ModAdvancementsInit;
 import com.Hileb.moremomostories.init.ModCreativeTab;
 import com.Hileb.moremomostories.item.ItemPickaxeBase;
 import net.minecraft.block.Block;

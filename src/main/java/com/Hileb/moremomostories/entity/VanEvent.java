@@ -1,7 +1,7 @@
 package com.Hileb.moremomostories.entity;
 
-import com.Hileb.moremomostories.Advancements.Advancementkeys;
-import com.Hileb.moremomostories.Advancements.ModAdvancementsInit;
+import com.Hileb.moremomostories.advancements.Advancementkeys;
+import com.Hileb.moremomostories.advancements.ModAdvancementsInit;
 import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.events.PlayerBossEvent;
 import com.Hileb.moremomostories.worldgen.WorldGenHelper;

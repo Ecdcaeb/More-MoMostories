@@ -51,20 +51,22 @@ public class CommonFunctions {
 
     public static void teleportToDimension(EntityPlayer player, int dimension, double x, double y, double z)
     {
-        int oldDimension = player.getEntityWorld().provider.getDimension();
-        EntityPlayerMP entityPlayerMP = (EntityPlayerMP) player;
-        MinecraftServer server = player.getEntityWorld().getMinecraftServer();
-        WorldServer worldServer = server.getWorld(dimension);
-        player.addExperienceLevel(0);
+        if (player instanceof EntityPlayerMP){
+            int oldDimension = player.getEntityWorld().provider.getDimension();
+            EntityPlayerMP entityPlayerMP = (EntityPlayerMP) player;
+            MinecraftServer server = player.getEntityWorld().getMinecraftServer();
+            WorldServer worldServer = server.getWorld(dimension);
+            player.addExperienceLevel(0);
 
-        if (worldServer == null || worldServer.getMinecraftServer() == null)
-        {
-            throw new IllegalArgumentException("Dimension: "+dimension+" doesn't exist!");
+            if (worldServer == null || worldServer.getMinecraftServer() == null)
+            {
+                throw new IllegalArgumentException("Dimension: "+dimension+" doesn't exist!");
+            }
+
+            //todo
+            //worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, dimension, new CustomTeleporter(worldServer, x, y, z));
+            player.setPositionAndUpdate(x, y, z);
         }
-
-        //todo
-        //worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, dimension, new CustomTeleporter(worldServer, x, y, z));
-        player.setPositionAndUpdate(x, y, z);
     }
 
     public static float GetTemperatureHere(Entity creature)

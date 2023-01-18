@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.Advancements;
+package com.Hileb.moremomostories.advancements;
 
 import com.Hileb.moremomostories.IdlFramework;
 import net.minecraft.advancements.Advancement;

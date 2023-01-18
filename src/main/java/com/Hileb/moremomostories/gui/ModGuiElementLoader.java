@@ -4,6 +4,8 @@ import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.blocks.tileEntity.TileEntityBookShelf;
 import com.Hileb.moremomostories.gui.BookShelf.ContainerBookShelf;
 import com.Hileb.moremomostories.gui.BookShelf.GuiContainerBookShelf;
+import com.Hileb.moremomostories.gui.EnchantmentGUI.ContainerEnchantmentTableHileb;
+import com.Hileb.moremomostories.gui.EnchantmentGUI.GuiEnchantmentTableHileb;
 import com.Hileb.moremomostories.gui.paper.paper1.ContainerPaper1;
 import com.Hileb.moremomostories.gui.paper.paper1.GuiContainerPaper1;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,6 +26,8 @@ public class ModGuiElementLoader implements IGuiHandler {
     public static final int GUI_PAPER_1 = 1001;
 
     public static final int GUI_CHEST = 1011;
+
+    public static final int GUI_ENCH = 101;
 
     public ModGuiElementLoader()
     {
@@ -46,6 +50,8 @@ public class ModGuiElementLoader implements IGuiHandler {
                     }
                 }
                 return null;
+            case GUI_ENCH:
+                return new ContainerEnchantmentTableHileb(player.inventory,world,new BlockPos(x,y,z));
                 default:
                     return null;
         }
@@ -66,7 +72,10 @@ public class ModGuiElementLoader implements IGuiHandler {
                         return new GuiContainerBookShelf(new ContainerBookShelf(player.inventory,trueTile,player,tile.getPos()));
                     }
                 }
+
                 return null;
+            case GUI_ENCH:
+                return new GuiEnchantmentTableHileb(new ContainerEnchantmentTableHileb(player.inventory,world,new BlockPos(x,y,z)),player.inventory,world,player.inventory);
                 default:
                 return null;
         }

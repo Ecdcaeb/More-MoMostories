@@ -5,8 +5,9 @@ import com.Hileb.moremomostories.item.armorMaterials.ModArmorMaterials;
 import com.Hileb.moremomostories.item.armorMaterials.QGXModel5;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import ic2.api.item.ElectricItem;
+import ic2.core.IC2;
 import net.minecraft.block.BlockDispenser;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.entity.Entity;
@@ -24,11 +25,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.Optional;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.List;
-
+@Optional.Interface(modid = IC2.MODID, iface = "ic2.api.item.ISpecialElectricItem")
 public class ItemQGX extends ItemArmorBase {
+
     public ItemQGX(String name){
         super(name, ModArmorMaterials.QGXMaterial,1, EntityEquipmentSlot.FEET);
         BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(this, new Bootstrap.BehaviorDispenseOptional()
@@ -48,9 +54,10 @@ public class ItemQGX extends ItemArmorBase {
         super.registerModels();
     }
 
+    @SideOnly(Side.CLIENT)
     @Nullable
     @Override
-    public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
+    public net.minecraft.client.model.ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot,net.minecraft.client.model.ModelBiped _default) {
         if(itemStack!=null){
             if (!itemStack.isEmpty()){
                 if (itemStack.getItem()==this){
@@ -122,11 +129,29 @@ public class ItemQGX extends ItemArmorBase {
                     }
                 }
             }
+            if (Loader.isModLoaded(IC2.MODID)){
+                ic2charge(stack,worldIn,entityIn,itemSlot,isSelected);
+            }
         }
     }
 
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 
+    }
+    @Optional.Method(modid = IC2.MODID)
+    private void ic2charge(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {//试图充电
+        if (!entity.world.isRemote && entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entity;
+            for (int i = 0; i < player.inventory.getSizeInventory(); i++) {//遍历背包
+                ItemStack toCharge = player.inventory.getStackInSlot(i);
+                if (!toCharge.isEmpty()) {
+                    ElectricItem.manager.charge(toCharge,
+                            ElectricItem.manager.getMaxCharge(toCharge) -
+                                    ElectricItem.manager.getCharge(toCharge),
+                            Integer.MAX_VALUE, true, false);//进行充电
+                }
+            }
+        }
     }
 }

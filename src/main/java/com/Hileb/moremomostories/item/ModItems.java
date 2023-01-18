@@ -72,6 +72,9 @@ public class ModItems {
     public static final Item ITEM_YTXSY_SOUND=new ItemYTXSY("item_ytxsy_sound");
 
 
+    public static final Item ITEM_SWOOD_SAKURA_END=new ItemEndRainbow("item_end_rainbow_swood");
+
+
 
 
 
@@ -163,14 +166,9 @@ public class ModItems {
             items.add((i++),new ItemStack(ITEM_BOOK_BUDDHA_GOD_PALM));
             items.add((i++),new ItemStack(ITEM_BOOK_DUST));
             items.add((i++),new ItemStack(ITEM_Z));
-//            ItemStack stack=new ItemStack(ITEM_YTXSY_SOUND);
-//////            ((ItemYTXSY)ITEM_YTXSY_SOUND).getItemYTXSY(stack,11);
-//////            items.add((i++),stack);
-            for(int var1 = 0; var1< YTXSYSounds.getLimit(); var1++){
-                         ItemStack stack=new ItemStack(ITEM_YTXSY_SOUND);
-                         ((ItemYTXSY)ITEM_YTXSY_SOUND).getItemYTXSY(stack,var1);
-                         items.add((i++),stack);
-            }
+
+            items.add((i++),new ItemStack(ITEM_SWOOD_SAKURA_END));
+
 
             //scenes
             items.add((i++),new ItemStack(ITEM_PAPER_IDONOTWANTTODIE));
@@ -202,6 +200,13 @@ public class ModItems {
             items.add((i++),ItemXe.get(ItemXe.XeType.RED_1));
             items.add((i++),ItemXe.get(ItemXe.XeType.BLUE_1));
             items.add((i++),ItemXe.get(ItemXe.XeType.BLACK_1));
+            //sound
+
+            for(int var1 = 0; var1< YTXSYSounds.getLimit(); var1++){
+                ItemStack stack=new ItemStack(ITEM_YTXSY_SOUND);
+                ((ItemYTXSY)ITEM_YTXSY_SOUND).getItemYTXSY(stack,var1);
+                items.add((i++),stack);
+            }
         }
     }
 }

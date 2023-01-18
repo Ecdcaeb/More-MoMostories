@@ -1,0 +1,9 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "moremomostories:items/weapon/item_end_rainbow_swood",
+		"layer1": "moremomostories:items/weapon/saku_ff",
+		"layer2": "moremomostories:items/weapon/zfp_ff",
+		"layer3": "moremomostories:items/weapon/ylk_ff"
+	}
+}

@@ -59,5 +59,13 @@ public class ModConfig {
         @Config.Comment("SA:WORLD ID")
         @Config.RequiresMcRestart
         public int SA_WORLD=82;
+        @Config.LangKey("SA:FIRE ID")
+        @Config.Comment("SA:FIRE ID")
+        @Config.RequiresMcRestart
+        public int SA_FIRE=83;
+        @Config.LangKey("SA:BAKIN ID")
+        @Config.Comment("SA:BAKIN ID")
+        @Config.RequiresMcRestart
+        public int SA_BAKIN=84;
     }
 }

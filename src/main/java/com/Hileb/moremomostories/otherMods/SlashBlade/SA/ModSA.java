@@ -71,5 +71,6 @@ public class ModSA {
             }
         }
     };
-    public static SpecialAttackBase saUpAndDownWorld=new SA_UpAndDownWorld();
+    public final static SpecialAttackBase saUpAndDownWorld=new SA_UpAndDownWorld();
+    public final static SpecialAttackBase saBakin=new SABakin();
 }

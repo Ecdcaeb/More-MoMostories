@@ -3,6 +3,7 @@ package com.Hileb.moremomostories.world.dimension.ChuckGenerator;
 import com.Hileb.moremomostories.blocks.ModBlocks;
 import com.Hileb.moremomostories.init.InitBiome;
 import com.Hileb.moremomostories.world.structure.IHilebStructure;
+import com.Hileb.moremomostories.world.structure.StructureTest;
 import com.Hileb.moremomostories.worldgen.WorldGenHelper;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.entity.EnumCreatureType;
@@ -10,14 +11,17 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.structure.MapGenStructure;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -26,19 +30,27 @@ public class ChunkGeneratorNullPlace implements IChunkGenerator {
     private static final int heightLimit = 255;
     //private static final int yNoGateLimit = 255;
 
-    public List<IHilebStructure> structures=new ArrayList<>();
+    public List<IHilebStructure> structuresHileb =new ArrayList<>();
+    public HashMap<String, MapGenStructure> structureHashMap=new HashMap<>();
+    public StructureTest structureTest=new StructureTest();
     private final World world;
     private final boolean generateStructures;
     private final Random rand;
+
     public ChunkGeneratorNullPlace(World world, boolean generate, long seed) {
         this.world = world;
         this.generateStructures = generate;
         this.rand = new Random(seed);
         world.setSeaLevel(63);
         hilebStructureInit();
+        mcStructureInit();
+    }
+
+    public void mcStructureInit(){
+        structureHashMap.put(structureTest.getStructureName(),structureTest);
     }
     public void hilebStructureInit(){
-        structures.add(new IHilebStructure() {
+        structuresHileb.add(new IHilebStructure() {
             @Override
             public String getName() {
                 return "iup";
@@ -62,19 +74,26 @@ public class ChunkGeneratorNullPlace implements IChunkGenerator {
 
     @Override//是否在某结构里
     public boolean isInsideStructure(World worldIn, String structureName, BlockPos pos) {
-        return  false;
-        //return structureName=="nullPlace" && pos.getX()<=8 && pos.getX()>=-8 && pos.getZ()>=-8 && pos.getZ()<=8;
+        if (structureHashMap.containsKey(structureName)){
+            return structureHashMap.get(structureName).isInsideStructure(pos);
+        }
+        return false;
     }
 
     @Override
     public void recreateStructures(Chunk chunkIn, int x, int z) {
-        //nothing to do
+        for (MapGenStructure structure:structureHashMap.values()){
+            structure.generate(world,x,z,null);
+        }
     }
 
     @Nullable
     @Override
     public BlockPos getNearestStructurePos(World worldIn, String structureName, BlockPos position, boolean findUnexplored) {
-        return null;//do nothing
+        if (structureHashMap.containsKey(structureName)){
+            return structureHashMap.get(structureName).getNearestStructurePos(worldIn,position,findUnexplored);
+        }
+        return BlockPos.ORIGIN;
     }
 
     @Override
@@ -153,9 +172,14 @@ public class ChunkGeneratorNullPlace implements IChunkGenerator {
             return;
             //WorldGenHelper.genRoomWithAABB(primer,new AxisAlignedBB(new BlockPos(3,0,8 ),new BlockPos(11,0,8 )),  ModBlocks.BLOCK_HILEB_BLOCK.getDefaultState());
         }
-        for (IHilebStructure structure:structures){
+        for (IHilebStructure structure: structuresHileb){
             //IdlFramework.LogWarning("start!");
             if (structure.doStructure(x,z,primer))return;
+        }
+
+        //try primer all
+        for (MapGenStructure structure:structureHashMap.values()){
+            structure.generate(world,x,z,primer);
         }
     }
 
@@ -186,6 +210,12 @@ public class ChunkGeneratorNullPlace implements IChunkGenerator {
 //            }
 //        }
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(false, this, this.world, this.rand, chunkX, chunkZ, false);
+
+        //try build all
+        for (MapGenStructure structure:structureHashMap.values()){
+            structure.generateStructure(world,rand,new ChunkPos(chunkX,chunkZ));
+        }
+
         net.minecraft.block.BlockFalling.fallInstantly = false;
     }
     void setSeedFor(int x, int y, int z)

@@ -146,6 +146,7 @@ public class ContainerBookShelf extends Container
         for(int i=0;i<27;i++){
             lowerChestInventory.setInventorySlotContents(i,items.getStackInSlot(i).copy());
         }
+        lowerChestInventory.markDirty();
     }
 
     /**

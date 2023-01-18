@@ -159,7 +159,7 @@ public class ItemYTXSY extends ItemBase {
         }
         return null;
     }
-    public void getItemYTXSY(ItemStack stack,int index){
-        if (index!=-1) IDLNBTUtil.SetInt(stack,NBT_SOUND_ID,index);
+    public void getItemYTXSY(ItemStack stack,int index) {
+        if (index != -1) IDLNBTUtil.SetInt(stack, NBT_SOUND_ID, index);
     }
 }

@@ -1,5 +1,6 @@
 package com.Hileb.moremomostories.init;
 
+import com.Hileb.moremomostories.world.dimension.DimensionEdge;
 import com.Hileb.moremomostories.world.dimension.DimensionHileb;
 import com.Hileb.moremomostories.world.dimension.DimensionOne;
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,6 +16,7 @@ public class InitDimension {
 
         //DimensionManager.registerDimension(ModConfig.dimension.WORLD_GEN_CONF, DIM_UNIV);
         DimensionManager.registerDimension(ModConfig.dimension.WORLD_GEN_CONF, DIM_ONE);
+        DimensionManager.registerDimension(DimensionEdge.ID, DimensionEdge.DIM_TYPE);
     }
 
     public static NBTTagCompound getDimensionData(World world) {

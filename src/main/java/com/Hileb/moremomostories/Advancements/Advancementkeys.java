@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.Advancements;
+package com.Hileb.moremomostories.advancements;
 
 public class Advancementkeys {
     public static String AD_HELLOSAKURA = "moremomostories/hellosakura";

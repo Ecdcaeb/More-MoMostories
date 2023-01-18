@@ -11,7 +11,6 @@ import org.lwjgl.input.Keyboard;
 
 import java.util.List;
 
-@SideOnly(Side.CLIENT)
 public class ItemInformationAdder {
     public String lang;
     public String langS;
@@ -31,6 +30,7 @@ public class ItemInformationAdder {
         lvl=true;
         isNull=false;
     }
+    @SideOnly(Side.CLIENT)
     public void func_addInformation_item_base(ItemTooltipEvent event){
         if(event.getEntityPlayer()!=null){
             if(event.getEntityPlayer().world.isRemote){//SideOnly();
@@ -38,10 +38,12 @@ public class ItemInformationAdder {
             }
         }
     }
+    @SideOnly(Side.CLIENT)
     public void func_addInformation_item_base(ItemStack stack,World worldIn,List<String> str,ITooltipFlag flagIn){
         if(lvl)addInformations_item_base(stack,worldIn,str,flagIn,lang);
         else addInformations_item_base(stack,worldIn,str,flagIn,lang,langS);
     }
+    @SideOnly(Side.CLIENT)
     public void func_addInformation_item_base(List<String> str){
         if(lvl)addInformations_item_base(null,null,str,null,lang);
         else addInformations_item_base(null,null,str,null,lang,langS);

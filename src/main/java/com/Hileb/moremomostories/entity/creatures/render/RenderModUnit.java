@@ -2,24 +2,21 @@ package com.Hileb.moremomostories.entity.creatures.render;
 
 import com.Hileb.moremomostories.entity.creatures.EntityModUnit;
 import com.Hileb.moremomostories.entity.creatures.model.ModelSakura;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.entity.RenderBiped;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderModUnit extends RenderBiped<EntityModUnit> {
+public class RenderModUnit extends net.minecraft.client.renderer.entity.RenderBiped<EntityModUnit> {
     private static final ResourceLocation DEFAULT_RES_LOC = new ResourceLocation("textures/entity/steve.png");
 
-    public RenderModUnit(RenderManager renderManagerIn)
+    public RenderModUnit(net.minecraft.client.renderer.entity.RenderManager renderManagerIn)
     {
         super(renderManagerIn, new ModelSakura(), 0.5F);
     }
 
 
-    public RenderModUnit(RenderManager renderManagerIn, ModelBiped modelBipedIn, float shadowSize) {
+    public RenderModUnit(net.minecraft.client.renderer.entity.RenderManager renderManagerIn, net.minecraft.client.model.ModelBiped modelBipedIn, float shadowSize) {
         super(renderManagerIn, modelBipedIn, shadowSize);
 //        LayerBipedArmor layerbipedarmor = new LayerBipedArmor(this)
 //        {

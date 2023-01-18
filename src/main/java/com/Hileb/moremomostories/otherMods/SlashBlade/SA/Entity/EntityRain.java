@@ -2,12 +2,16 @@ package com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity;
 
 import com.Hileb.moremomostories.meta.MetaUtil;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+
+import java.util.UUID;
 
 public class EntityRain extends EntityThrowable {
     protected EntityPlayer throwerBlade=null;
@@ -52,8 +56,11 @@ public class EntityRain extends EntityThrowable {
 //                            1f);
                     if (result.entityHit!=null){//主要
                         int a=0;
-                        if (mods.flammpfeil.slashblade.ItemSlashBladeNamed.RepairCount.get(blade.getTagCompound())>throwerBlade.experienceLevel)a=throwerBlade.experienceLevel;
-                        else a=mods.flammpfeil.slashblade.ItemSlashBladeNamed.RepairCount.get(blade.getTagCompound());
+                        for(AttributeModifier ab:blade.getAttributeModifiers(EntityEquipmentSlot.MAINHAND).get("CB3F55D3-645C-4F38-A497-9C13A33DB5CF")){
+                            if (ab.getID().equals(UUID.fromString("CB3F55D3-645C-4F38-A497-9C13A33DB5CF")))a+=ab.getAmount();
+                        }
+                        if (a!=0)a=a/2;
+                        else a=1;
                         result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(throwerBlade),//causePlayerDamage(throwerBlade),
                                 (float) a);
                     }

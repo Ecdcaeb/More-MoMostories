@@ -1,11 +1,7 @@
 package com.Hileb.moremomostories.entity;
 
 import com.Hileb.moremomostories.IdlFramework;
-import com.Hileb.moremomostories.init.ModConfig;
 import com.Hileb.moremomostories.item.ModItems;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,28 +29,29 @@ public class RenderLivingEventListener {
 //        }
     }
     @SideOnly(Side.CLIENT)
-    public static void setRotationAnglesElectricShaking(ModelBiped modelBiped, Entity entityIn,RenderLivingEvent.Post event) {
+    public static void setRotationAnglesElectricShaking(net.minecraft.client.model.ModelBiped modelBiped, Entity entityIn,RenderLivingEvent.Post event) {
 
-        float scale=event.getRenderer().prepareScale((EntityLivingBase) Minecraft.getMinecraft().player,event.getPartialRenderTick());
+        float scale=event.getRenderer().prepareScale((EntityLivingBase) net.minecraft.client.Minecraft.getMinecraft().player,event.getPartialRenderTick());
         render(modelBiped,entityIn,0,0,2,entityIn.rotationYaw,entityIn.height,scale);
-        GlStateManager.pushMatrix();
-        GlStateManager.translate(entityIn.posX,entityIn.posY,entityIn.posZ);
-        GlStateManager.popMatrix();
+        net.minecraft.client.renderer.GlStateManager.pushMatrix();
+        net.minecraft.client.renderer.GlStateManager.translate(entityIn.posX,entityIn.posY,entityIn.posZ);
+        net.minecraft.client.renderer.GlStateManager.popMatrix();
     }
-    public static void render(ModelBiped biped,Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+    @SideOnly(Side.CLIENT)
+    public static void render(net.minecraft.client.model.ModelBiped biped,Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
     {
         setRotationAngles(biped,limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
-        GlStateManager.pushMatrix();
+        net.minecraft.client.renderer.GlStateManager.pushMatrix();
 
         if (biped.isChild)
         {
             float f = 2.0F;
-            GlStateManager.scale(0.75F, 0.75F, 0.75F);
+            net.minecraft.client.renderer.GlStateManager.scale(0.75F, 0.75F, 0.75F);
             //GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
             biped.bipedHead.render(scale);
             //GlStateManager.popMatrix();
             //GlStateManager.pushMatrix();
-            GlStateManager.scale(0.5F, 0.5F, 0.5F);
+            net.minecraft.client.renderer.GlStateManager.scale(0.5F, 0.5F, 0.5F);
             //GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
             biped.bipedBody.render(scale);
             biped.bipedRightArm.render(scale);
@@ -79,9 +76,10 @@ public class RenderLivingEventListener {
             biped.bipedHeadwear.render(scale);
         }
 
-        GlStateManager.popMatrix();
+        net.minecraft.client.renderer.GlStateManager.popMatrix();
     }
-    public static void setRotationAngles(ModelBiped biped,float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+    @SideOnly(Side.CLIENT)
+    public static void setRotationAngles(net.minecraft.client.model.ModelBiped biped,float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         biped.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
         boolean flag = true;
         float f2 = -(float)Math.PI / 0.5F;
@@ -112,6 +110,7 @@ public class RenderLivingEventListener {
             }
         }
     }
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void ItemClickToRender(PlayerInteractEvent.EntityInteract event){
         World world=event.getWorld();

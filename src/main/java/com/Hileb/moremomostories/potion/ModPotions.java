@@ -1,6 +1,8 @@
 package com.Hileb.moremomostories.potion;
 
 import com.Hileb.moremomostories.IdlFramework;
+import com.Hileb.moremomostories.potion.myBuff.PotionBaKin;
+import com.Hileb.moremomostories.potion.myBuff.PotionDayTime;
 import com.Hileb.moremomostories.util.Reference;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
@@ -17,7 +19,9 @@ public class ModPotions {
 
     public static final List<Potion> INSTANCES = new ArrayList<Potion>();
 
-//    public static final PotionDeadly DEADLY = new PotionDeadly(false, 0x333333, "deadly", 0);
+    public static final Potion BAKIN = new PotionBaKin("potion_blind_bakin");
+    public static final Potion DAY_BLIND= new PotionDayTime("potion_blind_day");
+
 //    public static final PotionZenHeart ZEN_HEART = new PotionZenHeart(false, 0xcccc00, "zen_heart", 1);
 
     @Nullable

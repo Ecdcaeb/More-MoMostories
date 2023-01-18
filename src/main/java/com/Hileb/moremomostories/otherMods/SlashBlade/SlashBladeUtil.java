@@ -1,8 +1,10 @@
 package com.Hileb.moremomostories.otherMods.SlashBlade;
 
 import com.Hileb.moremomostories.IdlFramework;
+import com.Hileb.moremomostories.init.ModConfig;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SA.ModSA;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SlashBlade.BladeTest;
+import com.Hileb.moremomostories.otherMods.SlashBlade.SlashBlade.BladeTianKi;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SlashBlade.IBlade;
 import mods.flammpfeil.slashblade.item.ItemSlashBlade;
 
@@ -19,6 +21,7 @@ public class SlashBladeUtil {
                 return 82;
             }
         });
+        bladeList.add(new BladeTianKi());
     }
     public void registerBlade(){
         for(int i=0;i<bladeList.size();i++){//批量注册
@@ -30,11 +33,13 @@ public class SlashBladeUtil {
         }
     }
     public void registerSA(){
-        ItemSlashBlade.specialAttacks.put(81, ModSA.sa1);
+        ItemSlashBlade.specialAttacks.put(ModConfig.SlashBlade.SA_RAIN, ModSA.sa1);
         IdlFramework.Log("register sa:%S",ModSA.sa1.toString());
-        ItemSlashBlade.specialAttacks.put(82, ModSA.saUpAndDownWorld);
+        ItemSlashBlade.specialAttacks.put(ModConfig.SlashBlade.SA_WORLD, ModSA.saUpAndDownWorld);
         IdlFramework.Log("register sa:%S",ModSA.saUpAndDownWorld.toString());
-        ItemSlashBlade.specialAttacks.put(83, ModSA.SA_FIRE);
+        ItemSlashBlade.specialAttacks.put(ModConfig.SlashBlade.SA_FIRE, ModSA.SA_FIRE);
         IdlFramework.Log("register sa:%S",ModSA.SA_FIRE.toString());
+        ItemSlashBlade.specialAttacks.put(ModConfig.SlashBlade.SA_BAKIN, ModSA.saBakin);
+        IdlFramework.Log("register sa:%S",ModSA.saBakin.toString());
     }//id,sa
 }

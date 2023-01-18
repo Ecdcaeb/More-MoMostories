@@ -26,8 +26,8 @@ public class BladeTest implements IBlade{
         ItemSlashBladeNamed.CurrentItemName.set(tag, "moremomostories.testBlade1");//设置客户端刀名
         ItemSlashBladeNamed.CustomMaxDamage.set(tag, 42);//设置最大耐久
         ItemSlashBlade.setBaseAttackModifier(tag, Item.ToolMaterial.DIAMOND.getAttackDamage());//初始攻击力
-        ItemSlashBlade.TextureName.set(tag, "innominandum/nebula/nebula");//贴图路径 .npg
-        ItemSlashBlade.ModelName.set(tag, "innominandum/nebula/nebula");//模型路径 .obj
+        ItemSlashBlade.TextureName.set(tag, "momo/named/yaohushen");//贴图路径 .npg
+        ItemSlashBlade.ModelName.set(tag, "named/sange/sange");//模型路径 .obj
         ItemSlashBlade.SummonedSwordColor.set(tag, 3355647);//颜色
         ItemSlashBlade.SpecialAttackType.set(tag, getSA());//SA类型
         //ItemSlashBlade.specialAttacks.put(Integer.valueOf(100),new SlashDimension());

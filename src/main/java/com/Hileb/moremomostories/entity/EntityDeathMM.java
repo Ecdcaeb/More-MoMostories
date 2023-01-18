@@ -1,8 +1,7 @@
 package com.Hileb.moremomostories.entity;
 
-import com.Hileb.moremomostories.Advancements.Advancementkeys;
-import com.Hileb.moremomostories.Advancements.ModAdvancementsInit;
-import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.moremomostories.advancements.Advancementkeys;
+import com.Hileb.moremomostories.advancements.ModAdvancementsInit;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.util.DamageSource;

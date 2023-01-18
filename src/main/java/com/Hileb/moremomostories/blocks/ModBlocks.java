@@ -1,5 +1,6 @@
 package com.Hileb.moremomostories.blocks;
 
+import com.Hileb.moremomostories.blocks.tileEntity.BlockBookShelf;
 import com.Hileb.moremomostories.item.myItems.ItemXe;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -55,6 +56,9 @@ public class ModBlocks {
 	public static final Block BLOCK_TP_HILEB =new BlockTeleporter("block_tp_hileb",Material.ROCK);
 
 	//public static final Block BLOCK_JUKE_BOX =new BlockJukebox("block_jukebox");
+	public static final Block BLOCK_SHELF=new BlockBookShelf("block_book_shelf");
+
+	public static final Block BLOCK_SHELF_E=new BlockEnchantmentTableHileb("block_book_shelf_inv");
 
 	
 	/*

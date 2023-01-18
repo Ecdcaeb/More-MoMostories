@@ -19,8 +19,6 @@ import java.util.Random;
 
 public class BlockBase extends Block implements IHasModel
 {
-	public final Item itemBlock;
-	public static final int haha=0;
 	public BlockBase(String name, Material material)
 	{
 		super(material);
@@ -29,7 +27,7 @@ public class BlockBase extends Block implements IHasModel
 		setCreativeTab(ModCreativeTab.IDL_MISC);
 		
 		ModBlocks.BLOCKS.add(this);
-		itemBlock=new ItemBlock(this).setRegistryName(this.getRegistryName());
+		Item itemBlock=new ItemBlock(this).setRegistryName(this.getRegistryName());
 		ModItems.ITEMS.add(itemBlock);
 		ModItems.BLOCK_ITEMS.add(itemBlock);
 
@@ -66,9 +64,5 @@ public class BlockBase extends Block implements IHasModel
 	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon) {
 		return false;
-	}
-
-	public Item getItem() {
-		return itemBlock;
 	}
 }

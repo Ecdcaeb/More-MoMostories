@@ -20,8 +20,8 @@ public class BlockBookShelf extends BlockContainerBase {
     {
         return new TileEntityBookShelf();
     }
-    public BlockBookShelf(String name, Material material){
-        super(name,material);
+    public BlockBookShelf(String name){
+        super(name,Material.WOOD);
     }
 
     @Override

@@ -33,6 +33,7 @@ import java.util.List;
 public class ItemCopier extends ItemBase {
 
     private ItemInformationAdder ItemDesc=new ItemInformationAdder("desc.item.copyer.desc","desc.item.copyer.desc2");
+
     private String key="desc.copyitem.desc";
     public ItemCopier(String name){
         super(name, ModCreativeTab.IDL_MISC,1);
@@ -149,5 +150,10 @@ public class ItemCopier extends ItemBase {
                 }
             }
         }
+    }
+
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+        return oldStack.getItem()==newStack.getItem();
     }
 }

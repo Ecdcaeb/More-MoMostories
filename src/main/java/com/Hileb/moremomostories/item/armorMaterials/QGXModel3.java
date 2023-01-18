@@ -3,12 +3,11 @@ package com.Hileb.moremomostories.item.armorMaterials;// Made with Blockbench 4.
 // Paste this class into your mod and generate all required imports
 
 
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class QGXModel3 extends ModelBiped {
+public class QGXModel3 extends net.minecraft.client.model.ModelBiped {
 	public final ModelRenderer bone_all;
 	public final ModelRenderer bone_left;
 	private final ModelRenderer cube_r1;
@@ -32,21 +31,21 @@ public class QGXModel3 extends ModelBiped {
 		bone_left = new ModelRenderer(this);
 		bone_left.setRotationPoint(-3.0F, 0.0F, 0.0F);
 		bone_all.addChild(bone_left);
-		bone_left.cubeList.add(new ModelBox(bone_left, 0, 0, -2.0F, -1.0F, -2.0F, 4, 1, 6, 0.0F, false));
-		bone_left.cubeList.add(new ModelBox(bone_left, 0, 0, -2.0F, -2.5F, -2.0F, 4, 2, 4, 0.0F, false));
-		bone_left.cubeList.add(new ModelBox(bone_left, 0, 0, -1.0F, -1.0F, 6.0F, 2, 1, 1, 0.0F, false));
+		bone_left.cubeList.add(new net.minecraft.client.model.ModelBox(bone_left, 0, 0, -2.0F, -1.0F, -2.0F, 4, 1, 6, 0.0F, false));
+		bone_left.cubeList.add(new net.minecraft.client.model.ModelBox(bone_left, 0, 0, -2.0F, -2.5F, -2.0F, 4, 2, 4, 0.0F, false));
+		bone_left.cubeList.add(new net.minecraft.client.model.ModelBox(bone_left, 0, 0, -1.0F, -1.0F, 6.0F, 2, 1, 1, 0.0F, false));
 
 		cube_r1 = new ModelRenderer(this);
 		cube_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bone_left.addChild(cube_r1);
 		setRotationAngle(cube_r1, 0.0F, 0.1745F, 0.0F);
-		cube_r1.cubeList.add(new ModelBox(cube_r1, 0, 0, -2.7F, -1.0F, 6.0F, 1, 1, -3, 0.0F, false));
+		cube_r1.cubeList.add(new net.minecraft.client.model.ModelBox(cube_r1, 0, 0, -2.7F, -1.0F, 6.0F, 1, 1, -3, 0.0F, false));
 
 		cube_r2 = new ModelRenderer(this);
 		cube_r2.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bone_left.addChild(cube_r2);
 		setRotationAngle(cube_r2, 0.0F, -0.1745F, 0.0F);
-		cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 0, 1.7F, -1.0F, 6.0F, 1, 1, -3, 0.0F, false));
+		cube_r2.cubeList.add(new net.minecraft.client.model.ModelBox(cube_r2, 0, 0, 1.7F, -1.0F, 6.0F, 1, 1, -3, 0.0F, false));
 
 		cube_r3 = new ModelRenderer(this);
 		cube_r3.setRotationPoint(0.0F, -1.0F, 2.0F);
