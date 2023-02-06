@@ -15,15 +15,8 @@
   },
   "parent": "moremomostories:moremomostories/root",
   "criteria": {
-    "get_stone": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "momostories:fake_diamond"
-          }
-        ]
-      }
+    "impossible": {
+      "trigger": "minecraft:impossible"
     }
   }
 }

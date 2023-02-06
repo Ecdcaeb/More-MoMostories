@@ -15,6 +15,10 @@ momo.energy.rainbow.damage.name=耐久
 momo.energy.rainbow.en.name=能量
 momo.energy.rainbow.en.end=RE(RainbowEnergy)
 
+item.item_ytxsy_sound.name=唱片
+item.item_end_rainbow_swood.name=终焉彩虹
+item.entity_boss_disdescable.name=不可名状
+
 
 item.diamond_pickaxe.name=钻石镐
 
@@ -80,6 +84,9 @@ com.hileb.itzm.main.desc=Hileb仿制的力量！
 com.hileb.achievement.IDoNotWantToDie.title=我不想死！
 com.hileb.achievement.IDoNotWantToDie.desc=芽衣姐我不想死
 
+advancements.momoOtherModAdvancements.card.root.title=3M联动
+advancements.momoOtherModAdvancements.card.root.desc=你添加了3M所联动的Mod！
+
 com.hileb.achievement.ItsMustMHY.title=一定是米哈游干的！
 com.hileb.achievement.ItsMustMHY.desc=一定是米哈游干的！
 
@@ -108,6 +115,9 @@ item.item_add_entityzq_item.desc=战！战！战！战！
 item.no_can_hit_it.name=无懈可击
 item.no_can_hit_it.tip=使用它，你就是无敌的！
 item.item_paper_idonotwanttodie.name=§4纸
+
+tip.item.end.memory.sword.tip1.tip=“啊！这是什么？斩忆剑？斩一下...啊！这是什么？斩忆剑？斩一下... ...”
+tip.item.end.memory.sword.tip2.tip=一把可以抹除记忆的剑，无论是亲友，敌人，都会忘记吧......
 
 tip.item.know.no.desc=§e？？？？
 tooltip.paper1.tooltip=就好像我真的要死掉一样……别吓我了，怎么可能呢……\n我一直……运气很好的……\n§4芽衣姐……我……不想死……
@@ -305,3 +315,7 @@ entity.entity_icem.name=北极
 effect.potion_blind_day.name=白昼
 tag.tag_best.name=神圣的
 DayTimeText=§e曙光初现..
+com.hileb.momo.lang.skill.bakin=§e淫气释放
+com.hileb.momo.lang.skill.rain=§e落雨地生
+com.hileb.momo.lang.skill.endmemory.name=§e斩忆
+com.hileb.momo.lang.skill.endmemory.desc=使被击中者30刻内失去目标。

@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
@@ -82,5 +83,11 @@ public class WorldGenHelper {
         spawm.setLocationAndAngles((double)x + 0.5D, (double)y, (double)z + 0.5D, 0.0F, 0.0F);
         worldIn.spawnEntity(spawm);
         return true;
+    }
+    public static double getLong(BlockPos pos1,BlockPos pos2){
+        double x=pos1.getX()-pos2.getX();
+        double y=pos1.getY()-pos2.getY();
+        double z=pos1.getZ()-pos2.getZ();
+        return (double) MathHelper.sqrt((x*x)+(y*y)+(z*z));
     }
 }

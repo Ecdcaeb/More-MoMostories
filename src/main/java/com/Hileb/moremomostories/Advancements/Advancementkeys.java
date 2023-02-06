@@ -24,4 +24,6 @@ public class Advancementkeys {
 
     public static String AD_MEETVAN="moremomostories/meetvan";
 
+    public static String AD_OMOD_ROOT="other_mod/meetvan";
+
 }

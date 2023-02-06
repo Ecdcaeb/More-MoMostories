@@ -1,10 +1,13 @@
 package com.Hileb.moremomostories.otherMods.MagicCircle;
 
+import com.Hileb.moremomostories.damageSource.ModDamageSources;
 import com.Hileb.moremomostories.item.myItems.ItemXe;
 import com.gq2529.momostories.events.DamageSource1;
 import com.gq2529.momostories.item.ModItems;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemSword;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -29,6 +32,62 @@ public class MagicCirclesForMod {
                 if (!player.isSneaking()) {
                     player.attackEntityFrom(DamageSource1.TIME, 5);
                     //岁月阵
+                }
+            }
+        }
+    };
+    public static final MagicCircleSixstars Magic_Circle_of_Sword =new MagicCircleSixstars(
+            ModItems.THE_FRUIT_OF_THE_FLOWING_YEARS
+            ,ModItems.ID_SANDPAPER,ModItems.ID_SAND
+            ,ModItems.ID_SAND,ModItems.ID_SANDPAPER
+            ,ModItems.THE_FRUIT_OF_THE_FLOWING_YEARS){
+        @Override
+        public boolean compare(MagicCircleSixstars mag) {
+            if (mag.get(0) instanceof ItemSword){
+                if (mag.get(1) instanceof ItemSword){
+                    if (mag.get(2) instanceof ItemSword){
+                        if (mag.get(3) instanceof ItemSword){
+                            if (mag.get(4) instanceof ItemSword){
+                                if (mag.get(5) instanceof ItemSword){
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        public float getDamage(TileEntityLockableLoot block){
+            float damage=0f;
+            if (block.getStackInSlot(0).getItem() instanceof ItemSword){
+                if (block.getStackInSlot(1).getItem() instanceof ItemSword){
+                    if (block.getStackInSlot(2).getItem() instanceof ItemSword){
+                        if (block.getStackInSlot(3).getItem() instanceof ItemSword){
+                            if (block.getStackInSlot(4).getItem() instanceof ItemSword){
+                                if (block.getStackInSlot(5).getItem() instanceof ItemSword){
+                                    damage+=((ItemSword) block.getStackInSlot(0).getItem()).getAttackDamage();
+                                    damage+=((ItemSword) block.getStackInSlot(1).getItem()).getAttackDamage();
+                                    damage+=((ItemSword) block.getStackInSlot(2).getItem()).getAttackDamage();
+                                    damage+=((ItemSword) block.getStackInSlot(3).getItem()).getAttackDamage();
+                                    damage+=((ItemSword) block.getStackInSlot(4).getItem()).getAttackDamage();
+                                    damage+=((ItemSword) block.getStackInSlot(5).getItem()).getAttackDamage();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return damage/6f/4f;
+        }
+
+        @Override
+        public void doCircle(TileEntityLockableLoot block) {
+            //TileEntityLockableLoot block=(TileEntityLockableLoot)world.getTileEntity(pos);
+            for (EntityLivingBase player : block.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(new BlockPos(block.getPos().getX() - 3, block.getPos().getY() - 3, block.getPos().getZ() - 3), new BlockPos(block.getPos().getX() + 3, block.getPos().getY() + 3, block.getPos().getZ() + 3)))) {
+                if (!player.isSneaking() && !(player instanceof EntityPlayer)) {
+                    player.attackEntityFrom(ModDamageSources.SWORD, getDamage(block));
+                    //剑阵
                 }
             }
         }

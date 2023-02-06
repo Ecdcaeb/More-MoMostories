@@ -2,16 +2,15 @@ package com.Hileb.moremomostories.events;
 
 import com.Hileb.moremomostories.advancements.Advancementkeys;
 import com.Hileb.moremomostories.advancements.ModAdvancementsInit;
-import com.Hileb.moremomostories.IdlFramework;
+import com.Hileb.moremomostories.meta.MetaUtil;
 import com.Hileb.moremomostories.util.IDLNBT;
 import com.Hileb.moremomostories.util.Reference;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
-
-import java.time.LocalDate;
 
 import static com.Hileb.moremomostories.util.IDLNBT.getPlayerIdeallandIntSafe;
 import static com.Hileb.moremomostories.util.NBTStrDef.IDLNBTDef.CUR_STARTER_KIT_VERSION;
@@ -39,10 +38,11 @@ public class ModStarterEvents {
 		  World world = event.player.world;
 		  if (!world.isRemote) {
 			  EntityPlayer _player_=event.player;
-			  LocalDate date=LocalDate.now();
-			  IdlFramework.LogWarning("date:getmonth==%d,getday==%d",date.getMonthValue(),date.getDayOfMonth());
-			  if (date.getMonthValue()==8 && date.getDayOfMonth()==23){
-				  ModAdvancementsInit.giveAdvancement(_player_, Advancementkeys.AD_SAKURADAY);
+			  if(_player_ instanceof EntityPlayerMP){
+			  	EntityPlayerMP playerMP=(EntityPlayerMP)_player_;
+			  	if (MetaUtil.isLoaded_SlashBlade || MetaUtil.isLoaded_MagicCircle || MetaUtil.isLoaded_AddPotion){
+					ModAdvancementsInit.giveAdvancement(playerMP, Advancementkeys.AD_OMOD_ROOT);
+				}
 			  }
 		  }
 	  }

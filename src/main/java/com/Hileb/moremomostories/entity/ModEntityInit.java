@@ -1,6 +1,7 @@
 package com.Hileb.moremomostories.entity;
 
 import com.Hileb.moremomostories.IdlFramework;
+import com.Hileb.moremomostories.entity.boss.EntityBossDisdescable;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity.EntityFire;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity.EntityIce;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity.EntityIceMother;
@@ -15,18 +16,19 @@ public class ModEntityInit {
     private static int ENTITY_NEXT_ID = 1;
     public static void registerEntities()
     {
-        registerEntity("entity_zfp",EntityZFP.class);
-        registerEntity("entity_zq",EntityZQ.class);
-        registerEntity("entity_mm",EntityDeathMM.class);
-        registerEntity("entity_golden_guide",EntityGoldenGuide.class);
-        registerEntity("entity_van",EntityVan.class);
+        registerEntityEgg("entity_zfp",EntityZFP.class);
+        registerEntityEgg("entity_zq",EntityZQ.class);
+        registerEntityEggLess("entity_mm",EntityDeathMM.class);
+        registerEntityEgg("entity_golden_guide",EntityGoldenGuide.class);
+        registerEntityEgg("entity_van",EntityVan.class);
 
-        registerEntity("entity_rain", EntityRain.class);
-        registerEntity("entity_fire", EntityFire.class);
-        registerEntity("entity_ice", EntityIce.class);
-        registerEntity("entity_icem", EntityIceMother.class);
+        registerEntityEggLess("entity_rain", EntityRain.class);
+        registerEntityEggLess("entity_fire", EntityFire.class);
+        registerEntityEggLess("entity_ice", EntityIce.class);
+        registerEntityEggLess("entity_icem", EntityIceMother.class);
 
-        registerEntity("entity_bookworm", EntityBookworm.class);
+        registerEntityEgg("entity_bookworm", EntityBookworm.class);
+        registerEntityEgg("entity_boss_disdescable", EntityBossDisdescable.class);
         //Examples
 //        registerEntity("moroon_orbital_beacon", EntityMoroonBombBeacon.class);
 //        registerEntity("moroon_tainter", EntityMoroonTainter.class,0xff00ff, 0x000033);
@@ -42,27 +44,14 @@ public class ModEntityInit {
         DataFixer datafixer = new DataFixer(1343);
     }
 
-    private  static  void registerEntity(String name, Class<? extends Entity> entity)
+    private  static  void registerEntityEgg(String name, Class<? extends Entity> entity)
     {
-        registerEntity(name, entity, ENTITY_NEXT_ID, 50, 0xff00ff, 0x000000);
+        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + name), entity, name, ENTITY_NEXT_ID, IdlFramework.instance, 50, 1, true,0xff00ff, 0x000000);
+        ENTITY_NEXT_ID++;
     }
-
-    private  static  void registerEntity(String name, Class<? extends Entity> entity, int color1, int color2)
+    private  static  void registerEntityEggLess(String name, Class<? extends Entity> entity)
     {
-        registerEntity(name, entity, ENTITY_NEXT_ID, 50, color1, color2);
-    }
-
-    private  static  void registerEntity(String name, Class<? extends Entity> entity, int id, int range, int color1, int color2){
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + name),
-                entity,
-                name,
-                id,
-                IdlFramework.instance,
-                range,
-                1,
-                true,
-                color1, color2
-                );
+        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + name), entity, name,ENTITY_NEXT_ID, IdlFramework.instance, 50, 1, true);
         ENTITY_NEXT_ID++;
     }
 }

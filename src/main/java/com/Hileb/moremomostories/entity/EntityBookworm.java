@@ -1,25 +1,21 @@
 package com.Hileb.moremomostories.entity;
 
-import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.blocks.ModBlocks;
-import com.Hileb.moremomostories.entity.ai.block.EntityAIBreakBlock;
 import com.Hileb.moremomostories.util.CommonFunctions;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.storage.loot.LootTableList;
 
 import javax.annotation.Nullable;
@@ -37,7 +33,7 @@ public class EntityBookworm extends EntityMob {
 
     protected void initEntityAI()
     {
-        this.tasks.addTask(3, new EntityAIBreakBlock(this, ModBlocks.BLOCK_END_BOOK_SHELF,30));
+        this.tasks.addTask(3, new AIBreakBlock(this));
         this.tasks.addTask(4, new EntityAISwimming(this));
         this.tasks.addTask(5, new EntityAIAttackMelee(this, 1.0D, false));
         this.tasks.addTask(6, new EntityAIMoveTowardsRestriction(this, 1.0D));
@@ -101,84 +97,87 @@ public class EntityBookworm extends EntityMob {
     {
         return this.isChild() ? this.height : 1.3F;
     }
-    @Override
-    protected void dropFewItems(boolean arg1, int arg2) {
-        if (arg1 == true) {
-        }
-    }
 
-
-    public boolean attackEntityAsMob(Entity entityIn)
+    @Override//寻路：方块权重
+    public float getBlockPathWeight(BlockPos pos)
     {
-        boolean flag = super.attackEntityAsMob(entityIn);
+        return this.world.getBlockState(pos).getBlock() == ModBlocks.BLOCK_END_BOOK_SHELF ? 10.0F : super.getBlockPathWeight(pos);
+    }
+    public static boolean canBreak(Block block){
+        return block==ModBlocks.BLOCK_END_BOOK_SHELF;
+    }
+    public static class AIBreakBlock extends EntityAIWander {
+        private EnumFacing facing;
+        private boolean doMerge;
 
-        if (flag)
+        public AIBreakBlock(EntityCreature silverfishIn) {
+            super(silverfishIn, 1.0D, 10);
+            this.setMutexBits(1);
+        }
+        /**
+         * Returns whether the EntityAIBase should begin execution.
+         */
+        public boolean shouldExecute()
         {
-            float f = this.world.getDifficultyForLocation(new BlockPos(this)).getAdditionalDifficulty();
-
-            if (this.getHeldItemMainhand().isEmpty() && this.isBurning() && this.rand.nextFloat() < f * 0.3F)
+            if (this.entity.getAttackTarget() != null)
             {
-                entityIn.setFire(2 * (int)f);
+                return false;
             }
-        }
-
-        return flag;
-    }
-
-    @Override
-    public void onUpdate() {
-        super.onUpdate();
-        if (!isFindingBlock){
-            Chunk chunk=this.world.getChunkFromBlockCoords(this.getPosition());
-            if (!world.isRemote){
-                if (getNerstBlock(ModBlocks.BLOCK_END_BOOK_SHELF,chunk)!=null){
-                    BlockPos posT=getNerstBlock(ModBlocks.BLOCK_END_BOOK_SHELF,chunk);
-                    BlockPos pos=new BlockPos(this.world.getChunkFromBlockCoords(this.getPosition()).x*16+posT.getX(),posT.getY(),this.world.getChunkFromBlockCoords(this.getPosition()).z*16+posT.getZ());
-                    this.getNavigator().setPath(this.getNavigator().getPathToPos(pos),1.2F);
-                    IdlFramework.LogWarning("target in %d %d %d == %s",pos.getX(),pos.getY(),pos.getZ(),world.getBlockState(pos).getBlock().getUnlocalizedName());
-                    this.isFindingBlock=true;
-                }
+            else if (!this.entity.getNavigator().noPath())
+            {
+                return false;
             }
-        }
-    }
-    private BlockPos getNerstBlock(Block block,Chunk chunk){
-        BlockPos pos=null;
-        double limit=6000;
-        for(int y=0;y<=255;y++){
-            for(int x=0;x<16;x++){
-                for(int z=0;z<16;z++){
-                    if (chunk.getBlockState(x,y,z).getBlock()==block){
-                        BlockPos posTemp=new BlockPos(x,y,z);
-                        IdlFramework.LogWarning("on 1 in %d %d %d %s",posTemp.getX(),posTemp.getY(),posTemp.getZ(),chunk.getBlockState(posTemp).getBlock().getUnlocalizedName());
-                        //if (this.canPosBeSeen(posTemp)){
-                            IdlFramework.LogWarning("on 2");
-                            if (getLong(posTemp,this.getPosition())<limit){
-                                IdlFramework.LogWarning("on 3");
-                                pos=posTemp;
-                                limit=getLong(posTemp,this.getPosition());
-                            }
-                        //}
+            else
+            {
+                Random random = this.entity.getRNG();
+
+                if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.entity.world, this.entity) && random.nextInt(10) == 0)
+                {
+                    this.facing = EnumFacing.random(random);
+                    BlockPos blockpos = (new BlockPos(this.entity.posX, this.entity.posY + 0.5D, this.entity.posZ)).offset(this.facing);
+                    IBlockState iblockstate = this.entity.world.getBlockState(blockpos);
+
+                    if (canBreak(iblockstate.getBlock()))
+                    {
+                        this.doMerge = true;
+                        return true;
                     }
                 }
+
+                this.doMerge = false;
+                return super.shouldExecute();
             }
         }
-        return pos;
-    }
-    private double getLong(BlockPos pos1,BlockPos pos2){
-        return Math.sqrt(((pos1.getX()-pos2.getX())*(pos1.getX()-pos2.getX()))+((pos1.getY()-pos2.getY())*(pos1.getY()-pos2.getY()))+((pos1.getZ()-pos2.getZ())*(pos1.getZ()-pos2.getZ())));
-    }
-    private boolean canPosBeSeen(BlockPos blockpos){
-        Random random = this.getRNG();
-        int i = MathHelper.floor(this.posX - 2.0D + random.nextDouble() * 4.0D);
-        int j = MathHelper.floor(this.posY + random.nextDouble() * 3.0D);
-        int k = MathHelper.floor(this.posZ - 2.0D + random.nextDouble() * 4.0D);
-        RayTraceResult raytraceresult = world.rayTraceBlocks(new Vec3d((double)((float) MathHelper.floor(this.posX) + 0.5F), (double)((float)j + 0.5F), (double)((float)MathHelper.floor(this.posZ) + 0.5F)),new Vec3d(blockpos.getX(),blockpos.getY(),blockpos.getZ()), false, true, false);
-        return raytraceresult != null && raytraceresult.getBlockPos().equals(blockpos);
-    }
 
+        /**
+         * Returns whether an in-progress EntityAIBase should continue executing
+         */
+        public boolean shouldContinueExecuting()
+        {
+            return !this.doMerge && super.shouldContinueExecuting();
+        }
 
-    @Override
-    public boolean canEntityBeSeen(Entity entityIn) {
-        return super.canEntityBeSeen(entityIn);
+        /**
+         * Execute a one shot task or start executing a continuous task
+         */
+        public void startExecuting()
+        {
+            if (!this.doMerge)
+            {
+                super.startExecuting();
+            }
+            else
+            {
+                World world = this.entity.world;
+                BlockPos blockpos = (new BlockPos(this.entity.posX, this.entity.posY + 0.5D, this.entity.posZ)).offset(this.facing);
+                IBlockState iblockstate = world.getBlockState(blockpos);
+
+                if (canBreak(iblockstate.getBlock()))
+                {
+                    world.destroyBlock(blockpos,true);
+                    this.entity.spawnExplosionParticle();
+                }
+            }
+        }
     }
 }

@@ -4,7 +4,6 @@ import com.Hileb.moremomostories.command.ModCommands;
 import com.Hileb.moremomostories.item.ItemBase;
 import com.Hileb.moremomostories.item.ItemInformationAdder;
 import com.Hileb.moremomostories.item.ModItems;
-import com.Hileb.moremomostories.potion.myBuff.PotionBaKin;
 import com.Hileb.moremomostories.util.MoMo.MoMoCards;
 import com.gq2529.momostories.potion.effect.ModPotions;
 import net.minecraft.entity.player.EntityPlayer;
@@ -45,7 +44,7 @@ public class ItemTurnInto extends ItemBase {
                         event.getItemStack().setCount(event.getItemStack().getCount()-1);
                 }
                 else if (event.getEntityPlayer().getHeldItemMainhand().getItem()==ModItems.ITEM_CARD_FIVE){
-                    ((PotionBaKin) com.Hileb.moremomostories.potion.ModPotions.BAKIN).putEffect(event.getEntityPlayer(),1);
+
 
 //                    if (event.getEntityPlayer() instanceof EntityPlayerMP){
 //                        EntityPlayerMP player=(EntityPlayerMP) event.getEntityPlayer();

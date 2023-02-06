@@ -3,6 +3,7 @@ package com.Hileb.moremomostories.world.dimension.ChuckGenerator;
 import com.Hileb.moremomostories.blocks.ModBlocks;
 import com.Hileb.moremomostories.init.InitBiome;
 import com.Hileb.moremomostories.world.structure.IHilebStructure;
+import com.Hileb.moremomostories.world.structure.StructurePrimerTree;
 import com.Hileb.moremomostories.world.structure.StructureTest;
 import com.Hileb.moremomostories.worldgen.WorldGenHelper;
 import net.minecraft.block.BlockStairs;
@@ -33,6 +34,7 @@ public class ChunkGeneratorNullPlace implements IChunkGenerator {
     public List<IHilebStructure> structuresHileb =new ArrayList<>();
     public HashMap<String, MapGenStructure> structureHashMap=new HashMap<>();
     public StructureTest structureTest=new StructureTest();
+    public StructurePrimerTree structurePrimerTree=new StructurePrimerTree();
     private final World world;
     private final boolean generateStructures;
     private final Random rand;
@@ -48,6 +50,7 @@ public class ChunkGeneratorNullPlace implements IChunkGenerator {
 
     public void mcStructureInit(){
         structureHashMap.put(structureTest.getStructureName(),structureTest);
+        structureHashMap.put(structurePrimerTree.getStructureName(),structurePrimerTree);
     }
     public void hilebStructureInit(){
         structuresHileb.add(new IHilebStructure() {
@@ -173,8 +176,7 @@ public class ChunkGeneratorNullPlace implements IChunkGenerator {
             //WorldGenHelper.genRoomWithAABB(primer,new AxisAlignedBB(new BlockPos(3,0,8 ),new BlockPos(11,0,8 )),  ModBlocks.BLOCK_HILEB_BLOCK.getDefaultState());
         }
         for (IHilebStructure structure: structuresHileb){
-            //IdlFramework.LogWarning("start!");
-            if (structure.doStructure(x,z,primer))return;
+            if (structure.doStructure(x,z,primer))break;
         }
 
         //try primer all

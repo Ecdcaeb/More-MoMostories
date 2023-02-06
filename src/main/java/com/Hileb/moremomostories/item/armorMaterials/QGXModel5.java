@@ -31,7 +31,7 @@ public class QGXModel5 extends ModelBiped {
 
 
 		bone_left = new ModelRenderer(this);
-		bone_left.setRotationPoint(-3.0F, 0.0F, 0.0F);
+		bone_left.setRotationPoint(1.9F, 12.0F, 0.0F);
 		bone_all.addChild(bone_left);
 		bone_left.cubeList.add(new ModelBox(bone_left, 0, 0, -2.0F, -15.0F, -2.0F, 4, 1, 6, 0.0F, false));
 		bone_left.cubeList.add(new ModelBox(bone_left, 0, 0, -2.0F, -16.5F, -2.0F, 4, 2, 4, 0.0F, false));
@@ -62,7 +62,7 @@ public class QGXModel5 extends ModelBiped {
 		cube_r4.cubeList.add(new ModelBox(cube_r4, 0, 0, -1.0F, -14.5F, 1.0F, 2, 1, 4, 0.0F, false));
 
 		bone_right = new ModelRenderer(this);
-		bone_right.setRotationPoint(3.0F, 0.0F, 0.0F);
+		bone_right.setRotationPoint(-1.9F, 12.0F , 0.0F);
 		bone_all.addChild(bone_right);
 		bone_right.cubeList.add(new ModelBox(bone_right, 0, 0, -2.0F, -15.0F, -2.0F, 4, 1, 6, 0.0F, false));
 		bone_right.cubeList.add(new ModelBox(bone_right, 0, 0, -2.0F, -16.5F, -2.0F, 4, 2, 4, 0.0F, false));
@@ -108,5 +108,11 @@ public class QGXModel5 extends ModelBiped {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
+	}
+	@Override
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+		copyModelAngles(bipedLeftLeg,bone_left);
+		copyModelAngles(bipedRightLeg,bone_right);
 	}
 }

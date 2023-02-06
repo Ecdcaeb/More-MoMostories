@@ -1,10 +1,13 @@
 package com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity;
 
 import com.Hileb.moremomostories.meta.MetaUtil;
+import net.minecraft.block.BlockFire;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -37,9 +40,24 @@ public class EntityRain extends EntityThrowable {
     }
 
     @Override
+    public void onUpdate() {
+        super.onUpdate();
+        if (!world.isRemote){
+            if (world.getBlockState(this.getPosition()).getBlock()== Blocks.FIRE)world.setBlockToAir(this.getPosition());
+        }
+    }
+
+    @Override
     protected void onImpact(RayTraceResult result) {
         if (!world.isRemote){//击中的效果
             if (result.entityHit!=throwerBlade && result.entityHit!=null){
+                if (result.getBlockPos()!=null && result.typeOfHit== RayTraceResult.Type.BLOCK){
+                    IBlockState state =world.getBlockState(result.getBlockPos());
+                    if (state.getBlock() instanceof BlockFire){
+                        world.setBlockToAir(result.getBlockPos());
+                    }
+                    this.setDead();
+                }
                 if(throwerBlade==null){
                     result.entityHit.attackEntityFrom(DamageSource.OUT_OF_WORLD,1);
                     return;

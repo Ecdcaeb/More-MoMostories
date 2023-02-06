@@ -15,15 +15,8 @@
   },
   "parent": "moremomostories:moremomostories/paper1",
   "criteria": {
-    "get_stone": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "moremomostories:achievement"
-          }
-        ]
-      }
+    "impossible": {
+      "trigger": "minecraft:impossible"
     }
   }
 }

@@ -36,11 +36,7 @@ public class ItemCardAddZFP extends ItemBase {
                 EntityZFP sakura=new EntityZFP(world);
                 sakura.setPosition(event.getPos().getX(),event.getPos().getY()+1,event.getPos().getZ());
                 event.getWorld().spawnEntity(sakura);
-                //sakura.uuid=event.getEntityPlayer().getUniqueID();
-                //return super.onItemUse(event.getEntityPlayer(),event.getWorld(),event.getPos(), EnumHand.MAIN_HAND,);
                 event.getItemStack().setCount(0);
-                //ModAdvancementsInit.giveAdvancement(event.getEntityPlayer(), Advancementkeys.AD_HELLOSAKURA);
-                //sakura.getTags().add(sakura.uuid.toString());
             }
         }
     }

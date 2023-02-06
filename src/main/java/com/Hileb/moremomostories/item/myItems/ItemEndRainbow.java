@@ -10,6 +10,8 @@ import com.Hileb.moremomostories.potion.myBuff.PotionDayTime;
 import com.Hileb.moremomostories.util.EntityUtil;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
 import com.Hileb.moremomostories.util.named.NameTagHandler;
+import ic2.api.item.ElectricItem;
+import ic2.core.IC2;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -25,6 +27,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -64,9 +69,9 @@ public class ItemEndRainbow extends ItemSwordBase {
     public boolean applySA(ItemStack stack, EntityPlayer player) {
         //return super.onLeftClickEntity(stack, player, entity);
         if (!player.getCooldownTracker().hasCooldown(stack.getItem())){
-            if (getEnergy(stack)>=500d){
-                addEnergy(stack,-500d);
-                int amount=new Random((player.toString()+player.world.toString()+stack.toString()+player.getName()+player.getUniqueID().toString()+player.world.getTotalWorldTime()).hashCode()).nextInt(3);
+            if (getEnergy(stack)>=500d || player.isCreative()){
+                if (!player.isCreative())addEnergy(stack,-500d);
+                int amount=new Random((player.toString()+player.world.toString()+stack.toString()+player.getName()+player.getUniqueID().toString()+player.world.getTotalWorldTime()).hashCode()).nextInt(2);
                 IdlFramework.LogWarning("amount == %d",amount);
                 switch (amount){
                     case 0:{
@@ -75,10 +80,6 @@ public class ItemEndRainbow extends ItemSwordBase {
                     }
                     case 1:{
                         SaFire.doSpacialAttack(stack,player);
-                        return true;
-                    }
-                    case 2:{
-                        SaBakin.doSpacialAttack(stack,player);
                         return true;
                     }
                     default:{
@@ -90,6 +91,7 @@ public class ItemEndRainbow extends ItemSwordBase {
         }
         return false;
     }
+
     public static void addEnergy(ItemStack stack,double amont){
         IDLNBTUtil.SetDouble(stack,NBT_ENERGY,IDLNBTUtil.GetDouble(stack,NBT_ENERGY,0)+amont);
     }
@@ -107,6 +109,15 @@ public class ItemEndRainbow extends ItemSwordBase {
         return PASS;
     }
 
+    @SubscribeEvent
+    public void onLeftClick(PlayerInteractEvent.LeftClickEmpty event){
+        if (!event.getEntityPlayer().world.isRemote && event.getEntityPlayer()!=null){
+            ItemStack stack=event.getEntityPlayer().getHeldItem(event.getHand());
+            if (stack.getItem()==this){
+                SaBakin.doSpacialAttack(stack,event.getEntityPlayer());
+            }
+        }
+    }
 
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
@@ -203,6 +214,9 @@ public class ItemEndRainbow extends ItemSwordBase {
                 EntityPlayer player=(EntityPlayer)event.getSource().getTrueSource();
                 if (player.getHeldItemMainhand().getItem()==this){
                     addEnergy(player.getHeldItemMainhand(),(double) event.getAmount());
+                    if (Loader.isModLoaded("ic2")){
+                        ic2charge(event.getEntityLiving().getHeldItemMainhand(),world,event.getEntityLiving(),event.getAmount());
+                    }
                 }
             }
         }
@@ -233,5 +247,14 @@ public class ItemEndRainbow extends ItemSwordBase {
     public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
         super.onUpdate(stack,worldIn,entityIn,itemSlot,isSelected);
         stack.setItemDamage(0);
+    }
+
+
+
+    @Optional.Method(modid = IC2.MODID)
+    private void ic2charge(ItemStack stack, World world, Entity entity, float amount) {//试图充电
+        if (!entity.world.isRemote && entity instanceof EntityPlayer) {
+            ElectricItem.manager.charge(stack, ElectricItem.manager.getMaxCharge(stack) - ElectricItem.manager.getCharge(stack),(int)amount, true, false);//进行充电
+        }
     }
 }

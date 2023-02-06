@@ -15,15 +15,8 @@
   },
   "parent": "moremomostories:moremomostories/doublehit",
   "criteria": {
-    "get_stone": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "momostories:achievemrnt"
-          }
-        ]
-      }
+    "impossible": {
+      "trigger": "minecraft:impossible"
     }
   }
 }

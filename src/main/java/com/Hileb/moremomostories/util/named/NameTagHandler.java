@@ -2,7 +2,6 @@ package com.Hileb.moremomostories.util.named;
 
 import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
-import com.sun.istack.internal.NotNull;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -11,6 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -40,7 +40,7 @@ public class NameTagHandler {
         }
         return null;
     }
-    public static void apply(@NotNull ItemStack stack,@NotNull NameTagBase key){
+    public static void apply(@Nonnull ItemStack stack,@Nonnull NameTagBase key){
         IDLNBTUtil.SetString(stack,NBT_TAG,key.getRegisterName().toString());
     }
 

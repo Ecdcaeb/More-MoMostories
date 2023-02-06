@@ -2,7 +2,6 @@ package com.Hileb.moremomostories.enchantments;
 
 import com.Hileb.moremomostories.IdlFramework;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Enchantments;
@@ -36,10 +35,6 @@ public class ModEnchantmentInit {
 //    public static final ModEnchantmentBase ANTI_VANILLA = new ModEnchantmentBase("moremomostories.anti_vanilla", Enchantment.Rarity.UNCOMMON, EnumEnchantmentType.WEAPON,  mainHand)
 //            .setMaxLevel(10).setValue(0.3f, 0.3f);
     //附魔
-    public static final ModEnchantmentBase ENCH_AROMATIC = new ModEnchantmentBase("moremomostories.aromatic", Enchantment.Rarity.VERY_RARE, EnumEnchantmentType.WEAPON,  mainHand)
-            .setMaxLevel(10).setValue(0.3f, 0.3f);
-    public static final ModEnchantmentBase ENCH_RAINBOW = new ModEnchantmentBase("moremomostories.rainbow", Enchantment.Rarity.VERY_RARE, EnumEnchantmentType.WEAPON,  mainHand)
-            .setMaxLevel(1).setValue(0.3f, 0.3f);
 
 //    public static final ModEnchantmentBase ENCH_COPY = new ModEnchantmentBase("moremomostories.copy", Enchantment.Rarity.VERY_RARE, EnumEnchantmentType.WEAPON,  mainHand)
 //            .setMaxLevel(64).setValue(0.3f, 0.3f);

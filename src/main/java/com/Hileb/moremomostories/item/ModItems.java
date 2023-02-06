@@ -58,21 +58,25 @@ public class ModItems {
     public static final Item ITEM_SCENE_1=new ItemScene1();//场景"我不想死"
     public static final Item ITEM_11_A=new ItemRemainBase("item_11_a");//核心制造技术
     public static final Item ITEM_12_B=new Item12Base("item_12_b");//纤维绳
-    public static final Item ITEM_FIRE=new Item12Base("item_fire");
+    public static final Item ITEM_FIRE=new Item12Base("item_fire");//投掷物：火
     public static final Item ITEM_XE=new ItemXe("item_xe");//氙石
-    public static final Item ITEM_ARROM_XE=new ItemQGX("item_qgx");
-    public static final Item ITEM_DUCK_COOKED=new ItemFoodBase("duck_cooked",6,6,true);
-    public static final Item ITEM_DUCK_KAO=new ItemFoodDuckKao("duck_kao");
-    public static final Item ITEM_DAO=new ItemDao("item_dao");
-    public static final Item ITEM_BOOK=new ItemBookMod("item_book");
-    public static final Item ITEM_BOOK_BUDDHA_GOD_PALM=new ItemBookBuddhaGodPalm("item_book_buddha_god_palm");
-    public static final Item ITEM_Z=new ItemZ("item_z");
-    public static final Item ITEM_BOOK_DUST=new ItemBase("item_book_dust");
+    public static final Item ITEM_ARROM_XE=new ItemQGX("item_qgx");//切尔西
+    public static final Item ITEM_DUCK_COOKED=new ItemFoodBase("duck_cooked",6,6,true);//烤鸭
+    public static final Item ITEM_DUCK_KAO=new ItemFoodDuckKao("duck_kao");//尻鸭
+    public static final Item ITEM_DAO=new ItemDao("item_dao");//折扇
+    public static final Item ITEM_BOOK=new ItemBookMod("item_book");//书
+    public static final Item ITEM_BOOK_BUDDHA_GOD_PALM=new ItemBookBuddhaGodPalm("item_book_buddha_god_palm");//如来神掌
+    public static final Item ITEM_Z=new ItemZ("item_z");//北极
+    public static final Item ITEM_BOOK_DUST=new ItemBase("item_book_dust");//书粉
+    public static final Item ITEM_MAGATAMA=new ItemBase("item_magatama");//勾玉
 
-    public static final Item ITEM_YTXSY_SOUND=new ItemYTXSY("item_ytxsy_sound");
+    public static final Item ITEM_YTXSY_SOUND=new ItemYTXSY("item_ytxsy_sound");//唱片
+
+    public static final Item ITEM_ZFP_HEADSET=new ItemHeadSet("item_zfp_headset");//唱片
 
 
-    public static final Item ITEM_SWOOD_SAKURA_END=new ItemEndRainbow("item_end_rainbow_swood");
+    public static final Item ITEM_SWOOD_SAKURA_END=new ItemEndRainbow("item_end_rainbow_swood");//终焉彩虹
+    public static final Item ITEM_SWOOD_MEMORY_END=new ItemEndMemorySword("item_end_memory_swood");//斩记剑
 
 
 
@@ -136,11 +140,6 @@ public class ModItems {
 //	public static final ItemPackage RANDOM_SKILL = (ItemPackage) new ItemPackage("random_skill", new Item[]{
 //			Items.BLAZE_ROD, Items.PAPER
 //	}).setMaxStackSize(1);
-    private static final int cardCount=10;
-    private static final int itemCount=7;
-    private static final int sceneCount=2;
-    private static final int mainCount=6;
-    private static final int foodCount=3;
     public static void subItems(CreativeTabs tab, NonNullList<ItemStack> items){
         if (tab==ModCreativeTab.IDL_MISC){
             //cards
@@ -168,7 +167,8 @@ public class ModItems {
             items.add((i++),new ItemStack(ITEM_Z));
 
             items.add((i++),new ItemStack(ITEM_SWOOD_SAKURA_END));
-
+            items.add((i++),new ItemStack(ITEM_SWOOD_MEMORY_END));
+            items.add((i++),new ItemStack(ITEM_ZFP_HEADSET));
 
             //scenes
             items.add((i++),new ItemStack(ITEM_PAPER_IDONOTWANTTODIE));
@@ -186,7 +186,6 @@ public class ModItems {
             items.add((i++),new ItemStack(ITEM_MAIN_WJ));
 
             //block
-            //items.add(0+ cardCount+itemCount+sceneCount+foodCount+mainCount,new ItemStack(ModItems.)));
             for(int ioi=0;ioi<BLOCK_ITEMS.size();ioi++){
                 items.add((i++),new ItemStack(ModItems.BLOCK_ITEMS.get(ioi)));
             }

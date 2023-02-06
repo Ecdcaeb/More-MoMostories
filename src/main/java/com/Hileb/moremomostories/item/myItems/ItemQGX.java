@@ -72,21 +72,14 @@ public class ItemQGX extends ItemArmorBase {
                     model.rightArmPose = _default.rightArmPose;
                     model.leftArmPose = _default.leftArmPose;
                     //
-                    model.bone_left.rotationPointZ=_default.bipedRightLeg.rotationPointZ;
-                    model.bone_left.rotationPointX=_default.bipedRightLeg.rotationPointX;
-                    model.bone_left.rotationPointY=_default.bipedRightLeg.rotationPointY;
                     model.bone_left.rotateAngleX=_default.bipedRightLeg.rotateAngleX;
                     model.bone_left.rotateAngleY=_default.bipedRightLeg.rotateAngleY;
                     model.bone_left.rotateAngleZ=_default.bipedRightLeg.rotateAngleZ;
 
-                    model.bone_right.rotationPointZ=_default.bipedLeftLeg.rotationPointZ;
-                    model.bone_right.rotationPointX=_default.bipedLeftLeg.rotationPointX;
-                    model.bone_right.rotationPointY=_default.bipedLeftLeg.rotationPointY;
                     model.bone_right.rotateAngleX=_default.bipedLeftLeg.rotateAngleX;
                     model.bone_right.rotateAngleY=_default.bipedLeftLeg.rotateAngleY;
                     model.bone_right.rotateAngleZ=_default.bipedLeftLeg.rotateAngleZ;
 
-                    //IdlFramework.LogWarning("model qgx has been returned");
                     return model;
                 }
             }

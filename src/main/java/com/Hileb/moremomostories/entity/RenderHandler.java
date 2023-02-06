@@ -1,6 +1,7 @@
 package com.Hileb.moremomostories.entity;
 
 import com.Hileb.moremomostories.IdlFramework;
+import com.Hileb.moremomostories.entity.boss.EntityBossDisdescable;
 import com.Hileb.moremomostories.entity.creatures.moroon.EntityMoroonUnitBase;
 import com.Hileb.moremomostories.entity.creatures.render.*;
 import com.Hileb.moremomostories.entity.projectiles.EntityIdlProjectile;
@@ -31,6 +32,10 @@ public class RenderHandler {
 
         RenderingRegistry.registerEntityRenderingHandler(EntityIce.class, RenderIce::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityIceMother.class, RenderIceMother::new);
+
+
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityBossDisdescable.class, RenderUndescable::new);
 
 
         RenderingRegistry.registerEntityRenderingHandler(EntityIdlProjectile.class, renderManager -> new RenderBullet<>(renderManager, new ResourceLocation(IdlFramework.MODID,

@@ -27,6 +27,8 @@ public class MetaUtil {
 
     public static boolean isLoaded_SlashBlade= false;
 
+    public static boolean isLoaded_AddPotion= false;
+
     //extra difficulty
     public static int HARD_AOA3 = 5;
     public static int HARD_GOG = 4;
@@ -50,6 +52,7 @@ public class MetaUtil {
         MetaUtil.isLoaded_calculator = Loader.isModLoaded("calculator");
         MetaUtil.isLoaded_MagicCircle=Loader.isModLoaded("magiccircle");
         MetaUtil.isLoaded_SlashBlade=Loader.isModLoaded("flammpfeil.slashblade");
+        MetaUtil.isLoaded_AddPotion=Loader.isModLoaded("flammpfeil.slashblade");
     }
     public static void modLoadInit(){
         if( isLoaded_MoreMomoStories ){

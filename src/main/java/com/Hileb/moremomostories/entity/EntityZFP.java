@@ -6,6 +6,7 @@ import com.Hileb.moremomostories.command.ModCommands;
 import com.Hileb.moremomostories.item.myItems.ItemDao;
 import com.Hileb.moremomostories.util.CommonFunctions;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.moremomostories.util.ticker.AttackRenderTask;
 import com.gq2529.momostories.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.resources.I18n;
@@ -15,6 +16,7 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
@@ -42,6 +44,7 @@ public class EntityZFP extends EntityAnimal {
         this.setSize(0.6F, 1.95F);
         CommonFunctions.addToEventBus(this);
         this.setHeldItem(EnumHand.MAIN_HAND,new ItemStack(com.Hileb.moremomostories.item.ModItems.ITEM_DAO));
+        this.setItemStackToSlot(EntityEquipmentSlot.HEAD,new ItemStack(com.Hileb.moremomostories.item.ModItems.ITEM_ZFP_HEADSET));
     }
 
     @Override
@@ -126,21 +129,6 @@ public class EntityZFP extends EntityAnimal {
         if (arg1 == true) {
         }
     }
-//    }
-//    @SubscribeEvent
-//    public  void  PlayerHurt(LivingHurtEvent event){
-//        if(!event.getEntity().world.isRemote){
-//            if(event.getEntityLiving() instanceof EntityPlayer){
-//                EntityPlayer player = (EntityPlayer)event.getEntityLiving();
-//                if(event.getSource().getTrueSource() instanceof EntityArrow){
-//                    if(player.getUniqueID()==uuid || this.getTags().contains(player.getUniqueID().toString())){
-//                        event.isCanceled();
-//                        this.attemptTeleport(player.posX,player.posY,player.posZ);
-//                    }
-//                }
-//            }
-//        }
-//    }
     public boolean isElectricShaking(){
         return IDLNBTUtil.GetBoolean(this,"isElectricShaking",false);
     }
@@ -210,5 +198,17 @@ public class EntityZFP extends EntityAnimal {
         }
         ItemDao.setClosed(this.getHeldItemMainhand(),false);
     }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+        boolean b= super.attackEntityFrom(source, amount);
+
+        if (world.isRemote){
+            LivingHurtEvent event=new LivingHurtEvent(this,source,amount);
+            AttackRenderTask.put(event);
+        }
+        return b;
+    }
+
 }
 
