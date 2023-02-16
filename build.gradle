@@ -62,6 +62,9 @@ repositories {
         maven { url "https://maven.aliyun.com/nexus/content/groups/public" }
         maven { url "file://${projectDir}/.gradle/local-repo" }
         maven { url "https://${mirror_maven_url}" }
+        maven {
+            url "https://maven.cleanroommc.com"
+        }
     }
 }
 
@@ -71,6 +74,8 @@ dependencies {
     compile files('lib/SlashBlade-mc1.12-r6.jar')
     compile files('lib/industrialcraft-2-2.8.194-ex112.jar')
 
+
+    deobfCompile ("zone.rong:mixinbooter:4.2")
     //Magic_Circle-1.0.1.jar
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..

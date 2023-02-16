@@ -5,6 +5,7 @@ import com.Hileb.moremomostories.item.ItemBase;
 import com.Hileb.moremomostories.item.ItemInformationAdder;
 import com.Hileb.moremomostories.item.ModItems;
 import com.Hileb.moremomostories.util.MoMo.MoMoCards;
+import com.Hileb.moremomostories.util.Teleport;
 import com.gq2529.momostories.potion.effect.ModPotions;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -45,12 +46,7 @@ public class ItemTurnInto extends ItemBase {
                 }
                 else if (event.getEntityPlayer().getHeldItemMainhand().getItem()==ModItems.ITEM_CARD_FIVE){
 
-
-//                    if (event.getEntityPlayer() instanceof EntityPlayerMP){
-//                        EntityPlayerMP player=(EntityPlayerMP) event.getEntityPlayer();
-//                        int a=player.getStatFile().readStat(StatList.WALK_ONE_CM);
-//                        player.sendMessage(new TextComponentString(String.format("%d",a)));
-//                    }
+                    Teleport.teleportToDim(event.getEntityPlayer(),7899,0,255,0);
                 }
             }
         }

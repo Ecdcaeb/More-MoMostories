@@ -134,7 +134,7 @@ public class EntityBookworm extends EntityMob {
                 if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.entity.world, this.entity) && random.nextInt(10) == 0)
                 {
                     this.facing = EnumFacing.random(random);
-                    BlockPos blockpos = (new BlockPos(this.entity.posX, this.entity.posY + 0.5D, this.entity.posZ)).offset(this.facing);
+                    BlockPos blockpos = (new BlockPos(this.entity.posX, this.entity.posY, this.entity.posZ)).offset(this.facing);
                     IBlockState iblockstate = this.entity.world.getBlockState(blockpos);
 
                     if (canBreak(iblockstate.getBlock()))
@@ -169,7 +169,7 @@ public class EntityBookworm extends EntityMob {
             else
             {
                 World world = this.entity.world;
-                BlockPos blockpos = (new BlockPos(this.entity.posX, this.entity.posY + 0.5D, this.entity.posZ)).offset(this.facing);
+                BlockPos blockpos = (new BlockPos(this.entity.posX, this.entity.posY, this.entity.posZ)).offset(this.facing);
                 IBlockState iblockstate = world.getBlockState(blockpos);
 
                 if (canBreak(iblockstate.getBlock()))

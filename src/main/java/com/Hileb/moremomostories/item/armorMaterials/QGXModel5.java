@@ -6,6 +6,7 @@ package com.Hileb.moremomostories.item.armorMaterials;// Made with Blockbench 4.
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
 public class QGXModel5 extends ModelBiped {
@@ -27,7 +28,6 @@ public class QGXModel5 extends ModelBiped {
 
 		bone_all = new ModelRenderer(this);
 		bone_all.setRotationPoint(0.0F, 26.0F, 0.0F);
-		setRotationAngle(bone_all, 0.0F, 3.1416F, 0.0F);
 
 
 		bone_left = new ModelRenderer(this);
@@ -40,25 +40,21 @@ public class QGXModel5 extends ModelBiped {
 		cube_r1 = new ModelRenderer(this);
 		cube_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bone_left.addChild(cube_r1);
-		setRotationAngle(cube_r1, 0.0F, 0.1745F, 0.0F);
 		cube_r1.cubeList.add(new ModelBox(cube_r1, 0, 0, -2.7F, -15.0F, 6.0F, 1, 1, -3, 0.0F, false));
 
 		cube_r2 = new ModelRenderer(this);
 		cube_r2.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bone_left.addChild(cube_r2);
-		setRotationAngle(cube_r2, 0.0F, -0.1745F, 0.0F);
 		cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 0, 1.7F, -15.0F, 6.0F, 1, 1, -3, 0.0F, false));
 
 		cube_r3 = new ModelRenderer(this);
 		cube_r3.setRotationPoint(0.0F, -1.0F, 2.0F);
 		bone_left.addChild(cube_r3);
-		setRotationAngle(cube_r3, -0.0873F, 0.0F, 0.0F);
 		cube_r3.cubeList.add(new ModelBox(cube_r3, 0, 0, -2.0F, -14.5F, -2.0F, 4, 1, 4, 0.0F, false));
 
 		cube_r4 = new ModelRenderer(this);
 		cube_r4.setRotationPoint(0.0F, -1.0F, 2.0F);
 		bone_left.addChild(cube_r4);
-		setRotationAngle(cube_r4, 0.0436F, 0.0F, 0.0F);
 		cube_r4.cubeList.add(new ModelBox(cube_r4, 0, 0, -1.0F, -14.5F, 1.0F, 2, 1, 4, 0.0F, false));
 
 		bone_right = new ModelRenderer(this);
@@ -71,25 +67,21 @@ public class QGXModel5 extends ModelBiped {
 		cube_r5 = new ModelRenderer(this);
 		cube_r5.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bone_right.addChild(cube_r5);
-		setRotationAngle(cube_r5, 0.0F, 0.1745F, 0.0F);
 		cube_r5.cubeList.add(new ModelBox(cube_r5, 0, 0, -2.7F, -15.0F, 6.0F, 1, 1, -3, 0.0F, false));
 
 		cube_r6 = new ModelRenderer(this);
 		cube_r6.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bone_right.addChild(cube_r6);
-		setRotationAngle(cube_r6, 0.0F, -0.1745F, 0.0F);
 		cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 0, 1.7F, -15.0F, 6.0F, 1, 1, -3, 0.0F, false));
 
 		cube_r7 = new ModelRenderer(this);
 		cube_r7.setRotationPoint(0.0F, -1.0F, 2.0F);
 		bone_right.addChild(cube_r7);
-		setRotationAngle(cube_r7, -0.0873F, 0.0F, 0.0F);
 		cube_r7.cubeList.add(new ModelBox(cube_r7, 0, 0, -2.0F, -14.5F, -2.0F, 4, 1, 4, 0.0F, false));
 
 		cube_r8 = new ModelRenderer(this);
 		cube_r8.setRotationPoint(0.0F, -1.0F, 2.0F);
 		bone_right.addChild(cube_r8);
-		setRotationAngle(cube_r8, 0.0436F, 0.0F, 0.0F);
 		cube_r8.cubeList.add(new ModelBox(cube_r8, 0, 0, -1.0F, -14.5F, 1.0F, 2, 1, 4, 0.0F, false));
 
 
@@ -100,19 +92,45 @@ public class QGXModel5 extends ModelBiped {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		bone_all.render(f5);
+	public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
+		GlStateManager.pushMatrix();
+
+		if (this.isChild)
+		{
+			GlStateManager.scale(0.75F, 0.75F, 0.75F);
+			GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
+			GlStateManager.popMatrix();
+			GlStateManager.pushMatrix();
+			GlStateManager.scale(0.5F, 0.5F, 0.5F);
+			GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
+			renderChild(bipedRightLeg,bone_right,scale);
+			renderChild(bipedLeftLeg,bone_left,scale);
+		}
+		else
+		{
+			if (entityIn.isSneaking())
+			{
+				GlStateManager.translate(0.0F, 0.2F, 0.0F);
+			}
+
+			renderChild(bipedRightLeg,bone_right,scale);
+			renderChild(bipedLeftLeg,bone_left,scale);
+		}
+
+		GlStateManager.popMatrix();
 	}
 
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
-	}
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-		copyModelAngles(bipedLeftLeg,bone_left);
-		copyModelAngles(bipedRightLeg,bone_right);
+	}
+	public void renderChild(ModelRenderer mother,ModelRenderer child,float scale){
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(mother.offsetX, mother.offsetY, mother.offsetZ);
+		mother.postRender(scale);
+		child.render(scale);
+		GlStateManager.popMatrix();
+		GlStateManager.translate(-mother.offsetX, -mother.offsetY, -mother.offsetZ);
 	}
 }

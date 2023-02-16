@@ -63,8 +63,6 @@ public class ItemQGX extends ItemArmorBase {
                 if (itemStack.getItem()==this){
                     QGXModel5 model=new QGXModel5();
                     model.bone_all.showModel=armorSlot.equals(EntityEquipmentSlot.FEET);
-                    model.bipedLeftLeg=_default.bipedLeftLeg;
-                    model.bipedRightLeg=_default.bipedRightLeg;
                     //model.bipedBody=_default.bipedBody;
                     model.isChild=_default.isChild;
                     model.isSneak=_default.isSneak;
@@ -72,13 +70,6 @@ public class ItemQGX extends ItemArmorBase {
                     model.rightArmPose = _default.rightArmPose;
                     model.leftArmPose = _default.leftArmPose;
                     //
-                    model.bone_left.rotateAngleX=_default.bipedRightLeg.rotateAngleX;
-                    model.bone_left.rotateAngleY=_default.bipedRightLeg.rotateAngleY;
-                    model.bone_left.rotateAngleZ=_default.bipedRightLeg.rotateAngleZ;
-
-                    model.bone_right.rotateAngleX=_default.bipedLeftLeg.rotateAngleX;
-                    model.bone_right.rotateAngleY=_default.bipedLeftLeg.rotateAngleY;
-                    model.bone_right.rotateAngleZ=_default.bipedLeftLeg.rotateAngleZ;
 
                     return model;
                 }

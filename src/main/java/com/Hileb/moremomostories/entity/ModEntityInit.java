@@ -2,6 +2,7 @@ package com.Hileb.moremomostories.entity;
 
 import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.entity.boss.EntityBossDisdescable;
+import com.Hileb.moremomostories.entity.boss.EntityGoldenGuideBoss;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity.EntityFire;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity.EntityIce;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity.EntityIceMother;
@@ -29,6 +30,7 @@ public class ModEntityInit {
 
         registerEntityEgg("entity_bookworm", EntityBookworm.class);
         registerEntityEgg("entity_boss_disdescable", EntityBossDisdescable.class);
+        registerEntityEgg("entity_boss_golden_guide", EntityGoldenGuideBoss.class);
         //Examples
 //        registerEntity("moroon_orbital_beacon", EntityMoroonBombBeacon.class);
 //        registerEntity("moroon_tainter", EntityMoroonTainter.class,0xff00ff, 0x000033);
