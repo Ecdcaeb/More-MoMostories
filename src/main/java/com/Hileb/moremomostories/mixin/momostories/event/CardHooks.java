@@ -6,6 +6,7 @@ import com.Hileb.moremomostories.util.MoMo.MoMoCards;
 import com.gq2529.momostories.blocks.ModBlocks;
 import com.gq2529.momostories.entity.ModEntity.Evil;
 import com.gq2529.momostories.entity.ModEntity.Kindness;
+import com.gq2529.momostories.entity.ModEntity.Reinforcements;
 import com.gq2529.momostories.events.DamageSource1;
 import com.gq2529.momostories.item.ModItemStoryboards.ModODF.IJumpBoost;
 import com.gq2529.momostories.item.ModItems;
@@ -24,13 +25,13 @@ import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
-import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -45,7 +46,9 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.AnvilRepairEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
@@ -297,7 +300,7 @@ public class CardHooks {
                     EntityPlayer Player = (EntityPlayer) attacker;
                     if (Player.getHeldItemMainhand().getItem() == ModItems.BLUE_CALIDAN) {
                         if (MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(Player,Player.getHeldItemMainhand(),event.getEntityLiving()).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.EVENT)))return;
-                        event.setAmount(event.getAmount() + 6);
+                        event.setAmount(event.getAmount() + 20);
                     }
                 }
             }
@@ -375,6 +378,7 @@ public class CardHooks {
                         {
                             itemStack.shrink(1);
                             player.entityDropItem(new ItemStack(ModItems.ProofofGlory, 1), 0);
+                            player.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(ModItems.ProofofGlory));
                             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
                         }
                     }
@@ -394,7 +398,7 @@ public class CardHooks {
                     EntityPlayer Player = (EntityPlayer) attack;
                     for (int i = 0; i < Player.inventory.getSizeInventory(); ++i) {
                         ItemStack itemStack = Player.inventory.getStackInSlot(i);
-                        if (itemStack.getItem() == ModItems.ONE_TYPE) {
+                        if (itemStack.getItem() instanceof com.gq2529.momostories.item.tools.Bleeding.OneType) {
                             if (MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(Player,itemStack,attack).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.EVENT)))return;
                             event.setCanceled(true);
                         }
@@ -495,23 +499,24 @@ public class CardHooks {
             }
         }
     }
+    //remove into FragmentsOfFalseGods
 
-    public static class UnknownCards{
-        public static ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand){
-            if (!world.isRemote){
-                if (MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,player.getHeldItem(hand),null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.RIGHT_CLICK)))return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
-                Item card= MoMoCards.getCard(new Random().nextInt(MoMoCards.getCount()));
-                player.getHeldItem(hand).shrink(1);
-                ModCommands.give(player,new ItemStack(card));
-                return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
+//    public static class UnknownCards{
+//        public static ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand){
+//            if (!world.isRemote){
+//                if (MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,player.getHeldItem(hand),null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.RIGHT_CLICK)))return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
+//                Item card= MoMoCards.getCard(new Random().nextInt(MoMoCards.getCount()));
+//                player.getHeldItem(hand).shrink(1);
+//                ModCommands.give(player,new ItemStack(card));
+//                return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
+//
+//            }
+//            return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
+//
+//        }
+//    }
 
-            }
-            return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
-
-        }
-    }
-
-    public static class TheSupremeMagiDeepLake{
+    public static class TheSupremeMagicDeepLake{
         public static void Deep_lake(LivingHurtEvent event) {
             World world = event.getEntity().world;
             if (!world.isRemote) {
@@ -569,7 +574,6 @@ public class CardHooks {
         public static boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged){
             if(!oldStack.isEmpty() || !newStack.isEmpty()){
                 if(oldStack.getItem() == newStack.getItem() && !slotChanged)
-
                     return false;
             }
             return !oldStack.equals(newStack);
@@ -578,13 +582,15 @@ public class CardHooks {
 
     public static class ConscriptionOrder{
         public static ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
-            if(!world.isRemote){
-                if(player.getHeldItem(hand).getItem() == ModItems.CONSCRIPTION_ORDER && !MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,player.getHeldItem(hand),null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.RIGHT_CLICK)))
-                {
-                    Entity IronGolem = new EntityIronGolem(world);
-                    IronGolem.setPosition(player.posX,player.motionY + 5,player.lastTickPosZ);
-                    world.spawnEntity(IronGolem);
-                    player.getCooldownTracker().setCooldown(player.getHeldItem(hand).getItem(),20 * 20 );
+            if (!world.isRemote) {
+                if (player.getHeldItem(hand).getItem() == ModItems.CONSCRIPTION_ORDER) {
+                    EntityLivingBase reinforcements = new Reinforcements(world);
+                    reinforcements.setPosition(player.posX, player.posY, player.posZ);
+                    world.spawnEntity(reinforcements);
+                    //hand change by hileb
+                    reinforcements.setItemStackToSlot(hand==EnumHand.MAIN_HAND?EntityEquipmentSlot.MAINHAND:EntityEquipmentSlot.OFFHAND, new ItemStack(Items.IRON_SWORD));
+                    reinforcements.setItemStackToSlot(hand!=EnumHand.MAIN_HAND?EntityEquipmentSlot.MAINHAND:EntityEquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
+                    player.getCooldownTracker().setCooldown(player.getHeldItem(hand).getItem(), 20 * 20);
                     return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
                 }
             }
@@ -618,9 +624,9 @@ public class CardHooks {
         public static void reed(LivingHurtEvent event) {
             World world = event.getEntity().world;
             if (!world.isRemote) {
-                EntityLivingBase attack = event.getEntityLiving();
-                if (attack instanceof EntityPlayer) {
-                    EntityPlayer Player = (EntityPlayer) attack;
+                EntityLivingBase beAttackeder = event.getEntityLiving();
+                if (beAttackeder instanceof EntityPlayer) {
+                    EntityPlayer Player = (EntityPlayer) beAttackeder;
                     for (int i = 0; i < Player.inventory.getSizeInventory(); ++i) {
                         ItemStack itemStack = Player.inventory.getStackInSlot(i);
                         if (itemStack.getItem() == ModItems.REED) {
@@ -798,6 +804,7 @@ public class CardHooks {
                                 Player.setHealth(1);
                                 event.setCanceled(true);
                                 Player.hurtResistantTime = 30;
+                                Player.world.playSound(null,Player.getPosition(), SoundEvents.ITEM_TOTEM_USE, SoundCategory.PLAYERS,2,2);
                                 Player.getCooldownTracker().setCooldown(ModItems.AI_LING_WISHES, 6 * 20);
                             }
                         }
@@ -872,7 +879,7 @@ public class CardHooks {
                 }
             }
         }
-        public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+        public static void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
             if (!worldIn.isRemote) {
                 EntityPlayer Player = (EntityPlayer) entityIn;
                 if (stack.getItem() == ModItems.THE_ANGERL_PROJECT) {
@@ -1213,11 +1220,13 @@ public class CardHooks {
                             Entity kindness = new Kindness(world);
                             kindness.setPosition(target.posX, target.motionY + 5, target.lastTickPosZ);
                             world.spawnEntity(kindness);
+                            playerIn.getCooldownTracker().setCooldown(playerIn.getHeldItem(hand).getItem(),20 * 20 );
                             return true;
                         } else {
                             Entity evil = new Evil(world);
                             evil.setPosition(target.posX, target.motionY + 5, target.lastTickPosZ);
                             world.spawnEntity(evil);
+                            playerIn.getCooldownTracker().setCooldown(playerIn.getHeldItem(hand).getItem(),20 * 20 );
                             return true;
                         }
                     }
@@ -1229,41 +1238,57 @@ public class CardHooks {
     }
     public static class Miser{
         public static void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-            if (!worldIn.isRemote)
-            {
+
+
+            //TODO : fixBug
+
+            if (!worldIn.isRemote) {
                 EntityPlayer player = (EntityPlayer) entityIn;
                 if (worldIn.getWorldTime() % 20 == 0) {
-                    int a = 0,b = 0,c =0;
+                    int a = 0, b = 0, c = 0;
                     for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
                         ItemStack itemStack = player.inventory.getStackInSlot(i);
                         if (itemStack.getItem() == Items.GOLD_INGOT) {
                             a = a + itemStack.getCount();
                         }
-                        if (itemStack.getItem() == Items.DIAMOND)
-                        {
+                        if (itemStack.getItem() == Items.DIAMOND) {
                             b = b + itemStack.getCount();
                         }
-                        if (itemStack.getItem() == Items.MAGMA_CREAM)
-                        {
+                        if (itemStack.getItem() == Items.MAGMA_CREAM) {
                             c = c + itemStack.getCount();
                         }
                     }
+                    //fix bug by Hileb
+                    //gold
                     if (a <= 32 && a > 0)
-                        if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,stack,null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 20, 1, false, false));
-                    else if (a <= 64 && a >0) {
-                            if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,stack,null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 20, 2, false, false));
-                    } else if (a <=128 &&a> 0) {
-                            if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,stack,null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 20, 4, false, false));
+                        if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player, stack, null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))
+                            player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 20, 1, false, false));
+                    if (a <= 64 && a > 32) {
+                        if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player, stack, null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))
+                            player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 20, 2, false, false));
                     }
-                    if (b <= 32 && b > 0)
-                        if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,stack,null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20, 0, false, false));
-                    else if (b <= 64 && b >0) {
-                            if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,stack,null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20, 1, false, false));
-                    } else if (b <=128 && b> 0) {
-                            if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,stack,null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20, 3, false, false));
+                    if (a <= 128 && a > 64) {
+                        if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player, stack, null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))
+                            player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 20, 4, false, false));
                     }
-                    if (c >= 3)
-                        if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,stack,null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 20, 2, false, false));
+
+                    //diamond
+                    if (b <= 32 && b > 0){
+                        if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player, stack, null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))
+                            player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20, 0, false, false));
+                    }
+                    if (b <= 64 && b > 32) {
+                        if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player, stack, null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))
+                            player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20, 1, false, false));
+                    }
+                    if (b <= 128 && b > 64) {
+                        if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player, stack, null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))
+                            player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20, 3, false, false));
+                    }
+                    if (c >= 3){
+                        if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player, stack, null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE)))
+                            player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 20, 2, false, false));
+                    }
                 }
             }
         }
@@ -1314,6 +1339,177 @@ public class CardHooks {
             }
         }
     }
+
+    public static class WhiteFeathers{
+        public static void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+            //null
+        }
+        public static void onJump(LivingEvent.LivingJumpEvent event){
+            if (event.getEntityLiving() instanceof EntityPlayerMP){
+                EntityPlayer player = (EntityPlayerMP)event.getEntityLiving();
+                if (player.getHeldItemMainhand().getItem() ==ModItems.WHITE_FESTHERS)
+                {
+                    if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,player.getHeldItemMainhand(),null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE))){
+                        player.addPotionEffect(new PotionEffect(ModPotions.SLOWFALL, 20));
+                    }
+                }
+            }
+        }
+    }
+    public static class TheLampofTiamat_1{
+        public static void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+            if (!worldIn.isRemote) {
+                EntityPlayer player = (EntityPlayer) entityIn;
+                int range = 20;
+                List<Entity> list = worldIn.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(player.posX - range, player.posY - range, player.posZ - range, player.posX + range, player.posY + range, player.posZ + range));
+                for (Entity en : list) {
+                    if (worldIn.getWorldTime() % 20 == 1) {
+                        if (player.getHeldItemOffhand().getItem() == ModItems.THE_LAMP_OF_TIAMAT_1 && player.getHeldItemOffhand().getItemDamage()==1) {
+                           if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,stack,(EntityPlayer)en).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.UPDATE))){
+                               EntityPlayer player1 = (EntityPlayer) en;
+                               player1.heal(1);
+                           }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public static class EternalKingship{
+        public static void AnvilRepairEvent(AnvilRepairEvent event) {
+            EntityPlayer player = event.getEntityPlayer();
+            for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
+                ItemStack itemStack = player.inventory.getStackInSlot(i);
+                if (itemStack.getItem() == ModItems.ETERNA_KINGSHIP) {
+                    if (!player.world.isRemote) {
+                        {
+                            if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,itemStack,null).setMessage("craft")))
+                            event.setBreakChance(0.0f);
+                        }
+                    }
+                }
+            }
+        }
+        public static void hurt(LivingHurtEvent event) {
+            World world = event.getEntity().world;
+            if (!world.isRemote) {
+                EntityLivingBase attack = event.getEntityLiving();
+                if (attack instanceof EntityPlayer) {
+                    EntityPlayer Player = (EntityPlayer) attack;
+                    for (int i = 0; i < Player.inventory.getSizeInventory(); ++i) {
+                        ItemStack itemStack = Player.inventory.getStackInSlot(i);
+                        if (itemStack.getItem() == ModItems.ETERNA_KINGSHIP) {
+                            if (event.getSource().equals(DamageSource.FALL)) {
+                                if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(Player,itemStack,null).setMessage("hurt")));
+                                event.setAmount(event.getAmount() * 1.5F);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public static class FragmentsOfFalseGods{
+        public static ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
+            if (!world.isRemote){
+                if (MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,player.getHeldItem(hand),null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.RIGHT_CLICK)))return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
+                Item card= MoMoCards.getCard(new Random().nextInt(MoMoCards.getCount()));
+                player.getHeldItem(hand).shrink(1);
+                ModCommands.give(player,new ItemStack(card));
+                return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
+
+            }
+            return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
+        }
+    }
+
+    public static class NordBlacksmithWorkshop{
+        public static EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+            ItemStack stack=player.getHeldItem(hand);
+            if (!world.isRemote) {
+                if (stack.getItem() == ModItems.NORD_BLACKSMITH_WORKSHOP) {
+                    Block block = world.getBlockState(pos).getBlock();
+                    if ( block == Blocks.ANVIL)
+                    {
+                        if (player.isSneaking()) {
+                            if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,stack,null).setItemUseType(new MoMoCardEffortEvent.OnItemUseType(player,world,pos,hand,facing,hitX,hitY,hitZ)).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.USE))){
+                                setBlock(world, pos, ModBlocks.MOD_ENVIL);
+                                return EnumActionResult.SUCCESS;
+                            }
+                        }
+                    }
+                }
+            }
+            return EnumActionResult.PASS;
+        }
+        private static void setBlock(World worldIn, BlockPos pos, Block block){
+            worldIn.setBlockState(pos,block.getDefaultState());
+        }
+        public static void Cooldown (EntityPlayer player, EnumHand hand,int time){
+            player.getCooldownTracker().setCooldown(player.getHeldItem(hand).getItem(), time );
+
+        }
+    }
+    public static class LettertoKerry{
+        public static ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
+
+            ItemStack item = player.getHeldItem(hand);
+            if (!world.isRemote) {
+                if (player.isSneaking()) {
+                    if (player.getHeldItemMainhand().getItem() == ModItems.LETTER_TO_KERRY) {
+                        if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,item,null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.RIGHT_CLICK))){
+                            item.setCount(item.getCount() - 1);
+                            player.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.DEAR_Karen));
+                            player.sendMessage(new TextComponentTranslation("LettertoKerryText"));
+                            player.entityDropItem(new ItemStack(ModItems.DAYLIGHT, 1), 0);
+                            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, item);
+                        }
+                    }
+                }
+            }
+            return new ActionResult<ItemStack>(EnumActionResult.PASS, item);
+        }
+    }
+    public static class LucyAxe{
+        public static void onLogin(PlayerEvent.PlayerLoggedInEvent event)
+        {
+            EntityPlayer player = event.player;
+            for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
+                ItemStack itemStack = player.inventory.getStackInSlot(i);
+                if (itemStack.getItem() == ModItems.LUCY_THE_AXE)
+                {
+
+                    if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,itemStack,null).setMessage("login")))
+                    itemStack.setItemDamage(0);
+                }
+
+            }
+        }
+    }
+    public static class Month{
+        public static ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
+            ItemStack itemStack=player.getHeldItemMainhand();
+            if (!world.isRemote)
+            {
+                if (player.getHeldItemMainhand().getItem() == ModItems.MONTH)
+                {
+                    if (player.isSneaking()) {
+                        if (player.getHeldItemOffhand().getItem() == Items.BOW) {
+                            if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,player.getHeldItemMainhand(),null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.RIGHT_CLICK))){
+                               ItemStack item = player.getHeldItemOffhand();
+                               item.setCount(item.getCount() - 1);
+                                //player.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(ModItems.LUNA_HUNTING));
+                                //bug fix by hileb
+                               ModCommands.give(player,new ItemStack(ModItems.LUNA_HUNTING));
+                               return new ActionResult<ItemStack>(EnumActionResult.SUCCESS,itemStack);
+                        }}
+                    }
+                }
+            }
+            return new ActionResult<ItemStack>(EnumActionResult.PASS,itemStack);
+        }
+    }
+
 
 
 

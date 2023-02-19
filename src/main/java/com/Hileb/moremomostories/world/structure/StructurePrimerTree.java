@@ -209,7 +209,7 @@ public class StructurePrimerTree extends MapGenStructure {
         public static class TreePoint{
             public int range;
             public BlockPos primerPos;
-            public List<TreePoint> childs;
+            public List<TreePoint> childs=new ArrayList<>();
             public TreePoint(BlockPos posIn,int rangeIn){
                 primerPos=posIn;
                 childs=new ArrayList<>();
@@ -227,7 +227,7 @@ public class StructurePrimerTree extends MapGenStructure {
             }
             public  StructureBoundingBox getBos(){
                 StructureBoundingBox boxOut=new StructureBoundingBox();
-                if (childs.size()==0){
+                if (childs==null || childs.size()==0){
                     boxOut.minX=primerPos.getX();
                     boxOut.minY=primerPos.getY();
                     boxOut.minZ=primerPos.getZ();
@@ -274,8 +274,10 @@ public class StructurePrimerTree extends MapGenStructure {
                 if (range<=2)return;
                 int count=random.nextInt(6)+1;
                 int nextRange=Math.abs((int)(range/count));
+                if (nextRange<=0)return;
+                int bound=Math.abs(nextRange)+1;
                 for(int i=0;i<count;i++){
-                    TreePoint treePoint=new TreePoint(new BlockPos(primerPos.getX()+10*(random.nextInt(nextRange*2)-nextRange),primerPos.getY()+5*((type?1:-1) * random.nextInt(nextRange)),primerPos.getZ()+10*(random.nextInt(nextRange*2)-nextRange)),nextRange);
+                    TreePoint treePoint=new TreePoint(new BlockPos(primerPos.getX()+10*(random.nextInt(bound*2)-bound),primerPos.getY()+5*((type?1:-1) * random.nextInt(bound)),primerPos.getZ()+10*(random.nextInt(bound*2)-bound)),bound);
                     treePoint.randomChild(random,type);
                     addChild(treePoint);
                 }
@@ -294,6 +296,7 @@ public class StructurePrimerTree extends MapGenStructure {
             float yValue=(posX.getY()-posY.getY());
             float zValue=(posX.getZ()-posY.getZ());
             float longGet=(float) WorldGenHelper.getLong(posX,posY);
+
             xValue=xValue/longGet;
             yValue=yValue/longGet;
             zValue=zValue/longGet;
@@ -303,6 +306,7 @@ public class StructurePrimerTree extends MapGenStructure {
                 float xAbs=Math.abs(xValue);
                 float yAbs=Math.abs(yValue);
                 float zAbs=Math.abs(zValue);
+                List<BlockPos> creatList=new ArrayList<>();
 
                 BlockLog.EnumAxis face;
                 if (xAbs>yAbs && xAbs>zAbs)face=BlockLog.EnumAxis.X;
@@ -312,12 +316,43 @@ public class StructurePrimerTree extends MapGenStructure {
 
                 float range=r*(longValue/longGet);
 
+                if (face==BlockLog.EnumAxis.X){
+                    for(int y=(int)(-range);y<=range;y++){
+                        for(int z=(int)(-range);z<=range;z++){
+                            if (WorldGenHelper.getLong(new BlockPos(0,y,z),new BlockPos(0,createPos.getY(),createPos.getZ()))<=range){
+                                creatList.add(new BlockPos(createPos.getX(),y,z));
+                            }
+                        }
+                    }
+                }
+                else if (face==BlockLog.EnumAxis.Y){
+                    for(int x=(int)(-range);x<=range;x++){
+                        for(int z=(int)(-range);z<=range;z++){
+                            if (WorldGenHelper.getLong(new BlockPos(x,0,z),new BlockPos(createPos.getX(),0,createPos.getZ()))<=range){
+                                creatList.add(new BlockPos(x,createPos.getY(),z));
+                            }
+                        }
+                    }
+                }
+                else if (face==BlockLog.EnumAxis.Z){
+                    for(int x=(int)(-range);x<=range;x++){
+                        for(int y=(int)(-range);y<=range;y++){
+                            if (WorldGenHelper.getLong(new BlockPos(x,y,0),new BlockPos(createPos.getX(),createPos.getY(),0))<=range){
+                                creatList.add(new BlockPos(x,y,createPos.getZ()));
+                            }
+                        }
+                    }
+                }
 
 
                 IBlockState state=(Blocks.LOG.getStateFromMeta(0)).withProperty(BlockLog.LOG_AXIS, face);
                 if (structureBoundingBoxIn.isVecInside(createPos)){
                     worldIn.setBlockState(createPos,state,3);
-                    IdlFramework.LogWarning("I build at %d %d %d",createPos.getX(),createPos.getY(),createPos.getZ());
+                }
+                for(BlockPos pos:creatList){
+                    if (structureBoundingBoxIn.isVecInside(pos)){
+                        worldIn.setBlockState(pos,state,3);
+                    }
                 }
             }
         }

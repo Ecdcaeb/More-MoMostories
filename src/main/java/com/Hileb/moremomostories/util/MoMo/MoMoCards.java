@@ -43,7 +43,6 @@ public class MoMoCards {
         registerCard(  ModItems.BLOOD_COOLORED_CALIDAN);
         registerCard(  ModItems.DEVILS_BLOOD);
         registerCard(  ModItems.LUCY_THE_AXE_CARD);
-        registerCard(  ModItems.SOUL_PUPPETS);
         registerCard( ModItems.THE_BOOK_OF_FORGERY);
         registerCard( ModItems.AI_LING_WISHES);
         registerCard(  ModItems.NIGHT);

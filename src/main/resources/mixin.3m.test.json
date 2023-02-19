@@ -1,8 +1,0 @@
-{
-  "package": "com.Hileb.moremomostories.test.in",
-  "mixins": ["MixinEffictive"],
-  "client": [],
-  "minVersion": 0.8,
-  "compatibilityLevel": "JAVA_8",
-  "server": []
-}

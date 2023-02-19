@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.mixin.momostories.mixin;
+package com.Hileb.moremomostories.mixin.momostories.mixin.hooks;
 
 import com.Hileb.moremomostories.mixin.momostories.event.CardHooks;
 import com.gq2529.momostories.item.tools.ModTool.OrdinaryHammer;

@@ -36,7 +36,7 @@ import static com.Hileb.moremomostories.init.RegistryHandler.initRegistries;
  */
 //To let the player be a traveling god who plays yin-yang magic.
 
-@Mod(modid = IdlFramework.MODID, name = IdlFramework.NAME, version = IdlFramework.VERSION,dependencies="required-after:momostories;after:idealland;after:forestry;after:manametalmod;after:calculator;after:ic2;after:flammpfeil.slashblade")//dependencies = "required-after:Forge@[14.23.5.2705,)"
+@Mod(modid = IdlFramework.MODID, name = IdlFramework.NAME, version = IdlFramework.VERSION,dependencies="required-after:momostories;required-after:mixinbooter@[4.2,);after:idealland;after:forestry;after:manametalmod;after:calculator;after:ic2;after:flammpfeil.slashblade")//dependencies = "required-after:Forge@[14.23.5.2705,)"
 public class IdlFramework {
     public static final String MODID = "moremomostories";
     public static final String NAME = "More MoMoStories";
