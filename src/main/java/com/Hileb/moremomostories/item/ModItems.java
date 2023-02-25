@@ -73,6 +73,8 @@ public class ModItems {
     public static final Item ITEM_YTXSY_SOUND=new ItemYTXSY("item_ytxsy_sound");//唱片
 
     public static final Item ITEM_ZFP_HEADSET=new ItemHeadSet("item_zfp_headset");//唱片
+    public static final Item ITEM_SILVER_CHEST=new ItemShiningSilverBreastplate("item_shining_silver_breastplate");//
+    public static final Item ITEM_VAN_CHEST=new ItemVanChest("item_van_chest");//
 
 
     public static final Item ITEM_SWOOD_SAKURA_END=new ItemEndRainbow("item_end_rainbow_swood");//终焉彩虹
@@ -169,6 +171,8 @@ public class ModItems {
             items.add((i++),new ItemStack(ITEM_SWOOD_SAKURA_END));
             items.add((i++),new ItemStack(ITEM_SWOOD_MEMORY_END));
             items.add((i++),new ItemStack(ITEM_ZFP_HEADSET));
+            items.add((i++),new ItemStack(ITEM_SILVER_CHEST));
+            items.add((i++),new ItemStack(ITEM_VAN_CHEST));
 
             //scenes
             items.add((i++),new ItemStack(ITEM_PAPER_IDONOTWANTTODIE));
