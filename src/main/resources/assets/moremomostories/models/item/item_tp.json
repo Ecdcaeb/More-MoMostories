@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0":"moremomostories:items/misc/item_main_wj",
+    "layer1":"moremomostories:items/misc/item_fire"
+  }
+}

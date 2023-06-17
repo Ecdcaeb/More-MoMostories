@@ -1,6 +1,7 @@
 package com.Hileb.moremomostories.otherMods.SlashBlade.SlashBlade;//package com.Hileb.moremomostories.otherMods.SlashBlade.SlashBlade;
 
 import com.Hileb.moremomostories.IdlFramework;
+import com.Hileb.moremomostories.init.ModConfig;
 import com.Hileb.moremomostories.otherMods.SlashBlade.BasicBladeRecipe;
 import mods.flammpfeil.slashblade.ItemSlashBladeNamed;
 import mods.flammpfeil.slashblade.SlashBlade;
@@ -41,7 +42,6 @@ public class BladeTest implements IBlade{
 
     @Override
     public void registerRecipe() {
-        IdlFramework.LogWarning("regi");
         //注册刀的配方
         ItemStack blade = SlashBlade.getCustomBlade("moremomostories.testBlade1");//从刀名获取刀的Stack：自己刀
         ItemStack reqiredBlade = SlashBlade.getCustomBlade("slashbladeWood");//从刀名获取刀的Stack：前置刀
@@ -56,6 +56,6 @@ public class BladeTest implements IBlade{
         return NAME;
     }
     public int getSA(){
-        return 80;
+        return ModConfig.SlashBlade.SA_RAIN;
     }
 }

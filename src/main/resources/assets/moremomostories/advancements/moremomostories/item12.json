@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "item": "moremomostories:item_12_b"
+    },
+    "title": {
+      "translate": "com.hileb.achievement.ass.title"
+    },
+    "description": {
+      "translate": "com.hileb.achievement.ass.desc"
+    },
+    "show_toast": true ,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "moremomostories:moremomostories/zfphigh",
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

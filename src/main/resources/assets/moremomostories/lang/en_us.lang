@@ -12,6 +12,14 @@ item.item_card_get_from_null.desc1=Play cards for yourself. Touch a card. \N "Ev
 item.item_card_get_from_null.desc2=Play cards for yourself. Touch a card. \N "Everything in the world is born of something, something is born of nothing"  n<Lao Tzu> \n Press and hold § eLShift § f to display more
 
 
+momo.energy.rainbow.damage.name=Max Damage
+momo.energy.rainbow.en.name=Energy
+momo.energy.rainbow.en.end=RE(RainbowEnergy)
+
+item.item_ytxsy_sound.name=Record
+item.item_end_rainbow_swood.name=End Rainbow Sword
+item.entity_boss_disdescable.name=Indescribable
+
 
 item.diamond_pickaxe.name=Diamond Pick
 
@@ -77,8 +85,11 @@ com.hileb.itzm.main.desc=The power of Hileb imitation!
 com.hileb.achievement.IDoNotWantToDie.title=I don't want to die!
 com.hileb.achievement.IDoNotWantToDie.desc=Sister Yayi, I don't want to die
 
-com.hileb.achievement.ItsMustMHY.title=It must be Miha!
-com.hileb.achievement.ItsMustMHY.desc=It must be Miha!
+advancements.momoOtherModAdvancements.card.root.title=MoreMoMoStories Plus!
+advancements.momoOtherModAdvancements.card.root.desc=add mod which 3M like!~
+
+com.hileb.achievement.ItsMustMHY.title=It must be Mihoyo!
+com.hileb.achievement.ItsMustMHY.desc=It must be Mihoyo!
 
 com.hileb.achievement.findcat.desc=Pick up the cat!
 com.hileb.achievement.findcat.title=Pick up the cat!
@@ -105,6 +116,9 @@ item.item_add_entityzq_item.desc=Battle! Battle! Battle! Battle!
 item.no_can_hit_it.name=With No Chink In One's Armour
 item.no_can_hit_it.tip=Use it, you are invincible!
 item.item_paper_idonotwanttodie.name=§4Paper
+
+tip.item.end.memory.sword.tip1.tip=“Ah! What is this? Chopping Memory Sword? Slash it Ah! What is this? Chopping Memory Sword? Slash it... ...”
+tip.item.end.memory.sword.tip2.tip=A sword that can erase memories, whether it's family, friends, or enemies, will forget
 
 tip.item.know.no.desc=§e？？？？
 tooltip.paper1.tooltip=就好像我真的要死掉一样……别吓我了，怎么可能呢……\n我一直……运气很好的……\n§4芽衣姐……我……不想死……
@@ -184,14 +198,16 @@ item.item_qgx.red.name=Red Storm
 item.item_qgx.black.name=Black Silence
 item.item_z.name=North Pole
 
-item.duck_cooked.name=烤鸭
-item.duck_kao.name=尻鸭
-item.item_dao.name=折扇
+item.duck_cooked.name=Cooked Duck
+item.duck_kao.name=Ass Duck
+item.item_dao.name=Foldable Fan
 
 item.moremomostories.testBlade1.name=Rain
+item.moremomostories.blandTianki.name=天姬
 flammpfeil.slashblade.specialattack.sa1=The mood of rain
 flammpfeil.slashblade.specialattack.up_and_down_world=World chaos
 flammpfeil.slashblade.specialattack.sa_fire=Flaming Explosion
+flammpfeil.slashblade.specialattack.sa_bakin=淫気祓清
 
 say.player.hileb.qgx.say=<%s>Heroes can be wronged~but you can't step on my Chelsea.
 say.zfp.0.say=<煮饭婆>传说，帝君在出征之时，曾言道...
@@ -296,3 +312,64 @@ book.author.28.name=Hileb
 entity.entity_rain.name=Rain
 entity.entity_ice.name=Ice
 entity.entity_icem.name=North Pole
+
+effect.potion_blind_day.name=Day Time
+tag.tag_best.name=Sacred
+DayTimeText=§eThe dawn is beginning to dawn..
+com.hileb.momo.lang.skill.bakin=§eRelease of obscene qi
+com.hileb.momo.lang.skill.rain=§eFalling rain and growing on the ground
+com.hileb.momo.lang.skill.endmemory.name=§eChop one's memory
+com.hileb.momo.lang.skill.endmemory.desc=Causes the victim to lose their target within 30 seconds.
+
+item.item_book_buddha_god_palm.name=《如来神掌》
+item.item_book_dust.name=Fragments of a Book
+item.item_end_memory_swood.name=Chopping Memory Sword
+item.item_zfp_headset.name=Cooker earphones
+item.item_shining_silver_breastplat.name=Shining Silver Breastplate
+item.item_van_chest.name=Binding belt
+item.item_card_container.name=Known Card Book
+tile.block_book_shelf.name=BookShelf
+tile.block_book_shelf_inv.name=Skill EnchantmentTable
+tile.block_infinitycake.name=Infinity Cake
+advancements.momoOtherModAdvancements.card.ap.title=Doctor P.
+advancements.momoOtherModAdvancements.card.ap.desc=add potion Poison into food
+advancements.momoOtherModAdvancements.card.tk.title=天姬
+advancements.momoOtherModAdvancements.card.tk.desc=Get a SlashBlade "天姬"
+
+item.luck_bottle.name=Lucky bottle
+item.item_tp.name=transport manager->location:
+skill.left.desc=Left Click:
+skill.right.desc=Right Click(500RE):
+skill.pass.desc=Skill:
+skill.bakin.desc=Clear 淫气 Effect
+skill.rain.desc=Spawn EntityRain
+skill.fire.desc=Spawn EntityFire
+skill.eu.desc=Get EU from damage.1Damage=1EU
+com.hileb.achievement.memory.title=Memory Chopper
+com.hileb.achievement.memory.desc=get Chopping Memory Sword
+com.hileb.achievement.ass.title=Silent Assassin
+com.hileb.achievement.ass.desc=Use Fibre Rope catch sb. and hide in single chest
+com.hileb.achievement.rainbow.title=Final Sword
+com.hileb.achievement.rainbow.desc=get End Rainbow Sword
+entity.entity_bike.name=Bike
+entity.entity_bookworm.name=Book Worm
+entity.entity_boss_golden_guide.name=Big Golden Guide
+entity.entity_mob_chest.name=Chest
+item.item_magatama.name=Magatama
+
+tag.1.name=锐利
+tag.2.name=高端
+tag.3.name=强力
+tag.4.name=碎裂
+tag.5.name=破损
+tag.6.name=粗劣
+tag.7.name=致伤
+tag.8.name=强劲
+tag.9.name=粗鲁
+tag.10.name=软弱
+tag.11.name=无情
+tag.12.name=神级
+tag.13.name=恶魔
+tag.14.name=狂热
+item.moremomostories.blandSaki.name=赤姬
+flammpfeil.slashblade.specialattack.sa_sef=§e淫气释放

@@ -4,7 +4,6 @@ import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.init.ModCreativeTab;
 import com.Hileb.moremomostories.item.ModItems;
 import com.Hileb.moremomostories.util.CommonFunctions;
-import com.Hileb.moremomostories.util.IDLSkillNBT;
 import com.Hileb.moremomostories.util.IHasModel;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTDef;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
@@ -108,8 +107,7 @@ public class ItemFoodBase extends ItemFood implements IHasModel {
     @Override
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
 
-        IDLSkillNBT.addInformation(stack,world,tooltip,flag,shiftToShowDesc, showGuaSocketDesc, use_flavor,
-                getMainDesc(stack,world,tooltip,flag));
+        tooltip.add(getMainDesc(stack,world,tooltip,flag));
 
         if (logNBT)
         {

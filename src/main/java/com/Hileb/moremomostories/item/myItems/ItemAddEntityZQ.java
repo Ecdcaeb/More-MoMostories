@@ -2,7 +2,7 @@ package com.Hileb.moremomostories.item.myItems;
 
 import com.Hileb.moremomostories.advancements.Advancementkeys;
 import com.Hileb.moremomostories.advancements.ModAdvancementsInit;
-import com.Hileb.moremomostories.entity.EntityZQ;
+import com.Hileb.moremomostories.entity.entity.living.EntityZQ;
 import com.Hileb.moremomostories.item.ItemBase;
 import com.Hileb.moremomostories.util.CommonFunctions;
 import com.Hileb.moremomostories.util.MoMo.MoMoCards;

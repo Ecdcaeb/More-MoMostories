@@ -6,6 +6,10 @@ import com.Hileb.moremomostories.gui.BookShelf.ContainerBookShelf;
 import com.Hileb.moremomostories.gui.BookShelf.GuiContainerBookShelf;
 import com.Hileb.moremomostories.gui.EnchantmentGUI.ContainerEnchantmentTableHileb;
 import com.Hileb.moremomostories.gui.EnchantmentGUI.GuiEnchantmentTableHileb;
+import com.Hileb.moremomostories.gui.cardGUI.card.ContainerCard;
+import com.Hileb.moremomostories.gui.cardGUI.card.GuiContainerCard;
+import com.Hileb.moremomostories.gui.fakeChestGui.BookShelf.ContainerFakeChest;
+import com.Hileb.moremomostories.gui.fakeChestGui.BookShelf.GuiContainerFakeChest;
 import com.Hileb.moremomostories.gui.paper.paper1.ContainerPaper1;
 import com.Hileb.moremomostories.gui.paper.paper1.GuiContainerPaper1;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,6 +32,9 @@ public class ModGuiElementLoader implements IGuiHandler {
     public static final int GUI_CHEST = 1011;
 
     public static final int GUI_ENCH = 101;
+    public static final int GUI_CHEST_FAKE = 1012;
+
+    public static final int GUI_CARD_CONTAINER = 1013;
 
     public ModGuiElementLoader()
     {
@@ -52,6 +59,10 @@ public class ModGuiElementLoader implements IGuiHandler {
                 return null;
             case GUI_ENCH:
                 return new ContainerEnchantmentTableHileb(player.inventory,world,new BlockPos(x,y,z));
+            case GUI_CHEST_FAKE:
+                return new ContainerFakeChest(player,world,new BlockPos(x,y,z));
+            case GUI_CARD_CONTAINER:
+                return new ContainerCard(player.inventory,x,player);
                 default:
                     return null;
         }
@@ -76,6 +87,10 @@ public class ModGuiElementLoader implements IGuiHandler {
                 return null;
             case GUI_ENCH:
                 return new GuiEnchantmentTableHileb(new ContainerEnchantmentTableHileb(player.inventory,world,new BlockPos(x,y,z)),player.inventory,world,player.inventory);
+            case GUI_CHEST_FAKE:
+                return new GuiContainerFakeChest(new ContainerFakeChest(player,world,new BlockPos(x,y,z)));
+            case GUI_CARD_CONTAINER:
+                return new GuiContainerCard(new ContainerCard(player.inventory,x,player));
                 default:
                 return null;
         }

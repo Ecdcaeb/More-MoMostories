@@ -8,6 +8,23 @@ import net.minecraft.world.World;
 import java.util.UUID;
 
 public class IDFBasicNBTUtil {
+    public static class NBTType{
+        public static final int NBTTagEnd=0;
+        public static final int NBTTagByte=1;
+        public static final int NBTTagShort=2;
+        public static final int NBTTagInt=3;
+        public static final int NBTTagLong=4;
+        public static final int NBTTagFloat=5;
+        public static final int NBTTagDouble=6;
+        public static final int NBTTagByteArray=7;
+        public static final int NBTTagString=8;
+        public static final int NBTTagList=9;
+
+        public static final int NBTTagCompound=10;
+
+        public static final int NBTTagIntArray=11;
+        public static final int NBTTagLongArray=12;
+    }
     public static boolean getBoolean(NBTTagCompound tagCompound, String key, boolean defaultVal)
     {
         if (tagCompound!=null)

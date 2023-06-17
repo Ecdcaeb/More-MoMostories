@@ -7,6 +7,7 @@ import com.Hileb.moremomostories.entity.RenderHandler;
 import com.Hileb.moremomostories.item.ModItems;
 import com.Hileb.moremomostories.util.IHasModel;
 import com.Hileb.moremomostories.util.ModSoundHandler;
+import com.Hileb.moremomostories.util.register.DefineRegisterClass;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -22,6 +23,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @EventBusSubscriber
 public class RegistryHandler {
+
+
 	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event)
 	{
@@ -31,6 +34,7 @@ public class RegistryHandler {
 	@SubscribeEvent
 	public static void onBlockRegister(RegistryEvent.Register<Block> event) {
 		event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
+		DefineRegisterClass.DefineTileEntity.register();
 	}
 
 	@SubscribeEvent

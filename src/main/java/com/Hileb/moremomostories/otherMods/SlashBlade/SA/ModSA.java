@@ -1,5 +1,6 @@
 package com.Hileb.moremomostories.otherMods.SlashBlade.SA;
 
+import com.Hileb.moremomostories.init.ModConfig;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity.EntityFire;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity.EntityRain;
 import com.Hileb.moremomostories.util.EntityUtil;
@@ -13,8 +14,8 @@ import java.util.List;
 import java.util.Random;
 
 public class ModSA {
-    public static List<SpecialAttackBase> saList= new ArrayList<>();
-    public static final SpecialAttackBase sa1=new SABase() {
+    public static List<SpecialAttack> REGISTER = new ArrayList<>();
+    public static final SpecialAttackBase sa1=new SpecialAttack() {
         @Override
         public String toString() {
             return "sa1";
@@ -39,8 +40,13 @@ public class ModSA {
                 }
             }
         }
+
+        @Override
+        public int getID() {
+            return ModConfig.SlashBlade.SA_RAIN;
+        }
     };
-    public static final SpecialAttackBase SA_FIRE=new SABase() {
+    public static final SpecialAttackBase SA_FIRE=new SpecialAttack() {
         @Override
         public String toString() {
             return "sa_fire";
@@ -70,7 +76,13 @@ public class ModSA {
                 entityPlayer.world.createExplosion(entityPlayer, entityPlayer.posX, entityPlayer.posY,entityPlayer.posZ, 16.0F, false);
             }
         }
+        @Override
+        public int getID() {
+            return ModConfig.SlashBlade.SA_FIRE;
+        }
     };
     public final static SpecialAttackBase saUpAndDownWorld=new SA_UpAndDownWorld();
     public final static SpecialAttackBase saBakin=new SABakin();
+
+    public final static SpecialAttackBase saBossBakin=new SABossBakin();
 }

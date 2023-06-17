@@ -1,18 +1,21 @@
 package com.Hileb.moremomostories.otherMods.SlashBlade.SA;
 
+import com.Hileb.moremomostories.init.ModConfig;
 import com.Hileb.moremomostories.potion.ModPotions;
 import com.Hileb.moremomostories.potion.myBuff.PotionDayTime;
+import com.Hileb.moremomostories.util.EntityUtil;
 import com.Hileb.moremomostories.util.named.NameTagHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.common.MinecraftForge;
 
-public class SABakin extends SABase {
+public class SABakin extends SpecialAttack {
     public SABakin(){
-        ModSA.saList.add(this);
+        super();
         MinecraftForge.EVENT_BUS.register(this);
     }
     public String toString(){
@@ -27,7 +30,9 @@ public class SABakin extends SABase {
 
             var2.addPotionEffect(PotionDayTime.getEffectShort());
             removeEffect(var2,ModPotions.BAKIN);
-            NameTagHandler.randomApply(var1);
+
+            EntityUtil.ApplyBuff(var2, MobEffects.SPEED,1,30);
+            EntityUtil.ApplyBuff(var2, MobEffects.STRENGTH,1,30);
         }
     }
     private void removeEffect(EntityLivingBase livingBase,Potion potion){
@@ -40,5 +45,9 @@ public class SABakin extends SABase {
             }
         }
         return false;
+    }
+    @Override
+    public int getID() {
+        return ModConfig.SlashBlade.SA_BAKIN;
     }
 }

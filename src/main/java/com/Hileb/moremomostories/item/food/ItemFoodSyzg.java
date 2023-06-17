@@ -56,6 +56,5 @@ public class ItemFoodSyzg extends ItemFoodBase {
     @Override
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag){
        ItemDesc.func_addInformation_item_base(stack,world,tooltip,flag);
-
     }
 }

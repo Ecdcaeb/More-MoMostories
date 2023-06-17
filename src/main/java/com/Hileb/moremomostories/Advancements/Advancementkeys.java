@@ -15,6 +15,7 @@ public class Advancementkeys {
 
     public static String AD_ZFPHIGH="moremomostories/zfphigh";
     public static String AD_FIRETIME="moremomostories/goodfiretime";
+    public static String AD_GOODLUCK_MASTER="moremomostories/goodluck_master";
 
     public static String AD_PAPER1="moremomostories/paper1";
     public static String AD_SCENE1="moremomostories/scene1";
@@ -22,8 +23,14 @@ public class Advancementkeys {
     public static String AD_AGAIN_1="moremomostories/again1";
     public static String AD_LX="moremomostories/lx";
 
+    public static String AD_ASS="moremomostories/item12";
+    public static String AD_END_MEMORY="moremomostories/endmemory";
+    public static String AD_END_RAINBOW="moremomostories/endrainbow";
+
     public static String AD_MEETVAN="moremomostories/meetvan";
 
-    public static String AD_OMOD_ROOT="other_mod/meetvan";
+    public static String AD_OMOD_ROOT="other_mod/root";
+    public static String AD_OMOD_TK="other_mod/tk";
+    public static String AD_OMOD_AP="other_mod/ap";
 
 }

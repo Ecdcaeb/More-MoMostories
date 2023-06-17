@@ -1,11 +1,10 @@
 package com.Hileb.moremomostories.item.myItems;
 
+import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.command.ModCommands;
 import com.Hileb.moremomostories.item.ItemBase;
-import com.Hileb.moremomostories.item.ItemInformationAdder;
 import com.Hileb.moremomostories.item.ModItems;
 import com.Hileb.moremomostories.util.MoMo.MoMoCards;
-import com.Hileb.moremomostories.util.Teleport;
 import com.gq2529.momostories.potion.effect.ModPotions;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -20,7 +19,8 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 public class ItemTurnInto extends ItemBase {
     public ItemTurnInto(String name){//化神奇为腐朽。
-        super(name,new ItemInformationAdder("item.item_turn_into.tip"));//new ItemInformationAdder("item.item_turn_into.tip")
+        super(name);//new ItemInformationAdder("item.item_turn_into.tip")
+        setDesc("item.item_turn_into.tip","item.item_turn_into.tip");
         MinecraftForge.EVENT_BUS.register(this);
         MoMoCards.registerCard(this);
     }
@@ -46,8 +46,17 @@ public class ItemTurnInto extends ItemBase {
                 }
                 else if (event.getEntityPlayer().getHeldItemMainhand().getItem()==ModItems.ITEM_CARD_FIVE){
 
-                    Teleport.teleportToDim(event.getEntityPlayer(),7899,0,255,0);
+//                    EntityUtil.resetRotionPlayer(event.getEntityPlayer(),event.getEntityPlayer().rotationYaw+Math.PI/2,event.getEntityPlayer().rotationPitch+=Math.PI/2);
+//                    //event.getEntityPlayer().addPotionEffect(new PotionEffect(com.Hileb.moremomostories.potion.ModPotions.BAKIN,100));
                 }
+            }
+        }
+        if(world.isRemote){
+            if (event.getEntityPlayer().getHeldItemMainhand().getItem()==ModItems.ITEM_CARD_FIVE){
+
+//                player.prevRotationYaw=yaw;
+//                    EntityUtil.resetRotionPlayer(event.getEntityPlayer(),event.getEntityPlayer().rotationYaw+Math.PI/2,event.getEntityPlayer().rotationPitch+=Math.PI/2);
+//                    //event.getEntityPlayer().addPotionEffect(new PotionEffect(com.Hileb.moremomostories.potion.ModPotions.BAKIN,100));
             }
         }
     }

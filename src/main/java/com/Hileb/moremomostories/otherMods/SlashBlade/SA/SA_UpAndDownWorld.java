@@ -1,5 +1,6 @@
 package com.Hileb.moremomostories.otherMods.SlashBlade.SA;
 
+import com.Hileb.moremomostories.init.ModConfig;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -9,7 +10,7 @@ import net.minecraft.item.ItemStack;
 
 import java.util.Random;
 
-public class SA_UpAndDownWorld extends SABase {
+public class SA_UpAndDownWorld extends SpecialAttack {
     public SA_UpAndDownWorld(){
         super();
     }
@@ -62,5 +63,10 @@ public class SA_UpAndDownWorld extends SABase {
         GlStateManager.popMatrix();
     }
     //@SideOnly(Side.SERVER)
-    public void saService(ItemStack itemStack, EntityPlayer entityPlayer){}
+    public void saService(ItemStack itemStack, EntityPlayer entityPlayer){};
+
+    @Override
+    public int getID() {
+        return ModConfig.SlashBlade.SA_WORLD;
+    }
 }

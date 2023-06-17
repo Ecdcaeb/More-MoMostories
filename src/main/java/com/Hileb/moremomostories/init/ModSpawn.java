@@ -1,6 +1,6 @@
 package com.Hileb.moremomostories.init;
 
-import com.Hileb.moremomostories.entity.EntityGoldenGuide;
+import com.Hileb.moremomostories.entity.entity.living.EntityGoldenGuide;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.Biome;

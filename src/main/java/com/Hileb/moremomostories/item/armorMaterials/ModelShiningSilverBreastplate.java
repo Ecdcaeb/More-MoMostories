@@ -182,8 +182,8 @@ public class ModelShiningSilverBreastplate extends ModelBiped {
 		this.i_move_down.rotateAngleX = Math.abs(MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount / f);
 
 
-		this.all.offsetY-=1.0f;
-		this.all.offsetZ+=0.1f;
-		this.all.rotateAngleY+=Math.PI;
+		this.all.offsetY=-1.0f;
+		this.all.offsetZ=0.1f;
+		this.all.rotateAngleY=(float) Math.PI;
 	}
 }

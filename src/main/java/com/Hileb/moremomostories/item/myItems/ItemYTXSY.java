@@ -1,21 +1,22 @@
 package com.Hileb.moremomostories.item.myItems;
 
+import com.Hileb.moremomostories.init.ModCreativeTab;
 import com.Hileb.moremomostories.item.ItemBase;
+import com.Hileb.moremomostories.item.ModItems;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
 import com.Hileb.moremomostories.util.YTXSYSounds;
 import net.minecraft.block.BlockJukebox;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
@@ -30,6 +31,7 @@ public class ItemYTXSY extends ItemBase {
         super(name);
         MinecraftForge.EVENT_BUS.register(this);
         YTXSYSounds.init();
+        setCreativeTab(ModCreativeTab.GAME_SOUNDS);
     }
 
     @SubscribeEvent
@@ -151,15 +153,30 @@ public class ItemYTXSY extends ItemBase {
     public static SoundEvent getSound(ItemStack stack){
         if (stack.getItem() instanceof ItemYTXSY ){
             if (stack.hasTagCompound()){
-                int soundId=IDLNBTUtil.GetInt(stack,NBT_SOUND_ID,-1);
-                if (soundId!=-1){
-                    return YTXSYSounds.get(soundId);
+                String soundId=IDLNBTUtil.GetString(stack,NBT_SOUND_ID,null);
+                if (soundId!=null){
+                    return SoundEvent.REGISTRY.getObject(new ResourceLocation(soundId));
                 }
             }
         }
         return null;
     }
-    public void getItemYTXSY(ItemStack stack,int index) {
-        if (index != -1) IDLNBTUtil.SetInt(stack, NBT_SOUND_ID, index);
+    public static void setItemYTXSY(ItemStack stack,SoundEvent event) {
+        if (event!=null) IDLNBTUtil.SetString(stack, NBT_SOUND_ID, event.getSoundName().toString());
+    }
+    public static ItemStack getStack(SoundEvent event){
+        ItemStack stack=new ItemStack(ModItems.ITEM_YTXSY_SOUND);
+        setItemYTXSY(stack,event);
+        stack.setTranslatableName("subtitles."+event.getSoundName().getResourcePath());
+        return stack;
+    }
+
+    @Override
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+        if (tab==ModCreativeTab.GAME_SOUNDS){
+            for(SoundEvent s:SoundEvent.REGISTRY){
+                items.add(getStack(s));
+            }
+        }
     }
 }

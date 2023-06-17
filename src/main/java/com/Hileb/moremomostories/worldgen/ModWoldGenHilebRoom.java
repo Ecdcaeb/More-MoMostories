@@ -2,7 +2,7 @@ package com.Hileb.moremomostories.worldgen;
 
 import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.blocks.ModBlocks;
-import com.Hileb.moremomostories.entity.EntityGoldenGuide;
+import com.Hileb.moremomostories.entity.entity.living.EntityGoldenGuide;
 import com.Hileb.moremomostories.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -85,6 +85,11 @@ public class ModWoldGenHilebRoom implements IWorldGenerator {
         chest.setInventorySlotContents(2,new ItemStack(ModItems.ITEM_PAPER_IDONOTWANTTODIE));
         chest.setInventorySlotContents(3,new ItemStack(ModItems.ITEM_MAIN_XK,2));
         chest.setInventorySlotContents(4,new ItemStack(ModItems.ITEM_12_B,1));
+        chest.setInventorySlotContents(5,new ItemStack(ModItems.ITEM_MAGATAMA,1));
+        chest.setInventorySlotContents(6,new ItemStack(ModItems.ITEM_CARD_ZFP,3));
+        chest.setInventorySlotContents(7,new ItemStack(com.gq2529.momostories.item.ModItems.THE_BOOK_OF_MANIFESTATION,1));
+        chest.setInventorySlotContents(8,new ItemStack(ModItems.ITEM_ZFP_HEADSET,1));
+        chest.setInventorySlotContents(9,new ItemStack(ModItems.ITEM_PAPER_HILEB_A,1));
 
 
         world.setBlockState(new BlockPos(blockPoschest.getX()+1,pos.getY()+1,blockPoschest.getZ()+2),Blocks.CRAFTING_TABLE.getDefaultState(),3);

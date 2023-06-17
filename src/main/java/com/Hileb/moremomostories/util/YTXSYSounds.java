@@ -25,6 +25,7 @@ public class YTXSYSounds {
         register(10, SoundEvents.ITEM_FIRECHARGE_USE);
         register(11, SoundEvents.RECORD_WAIT);
         register(12, SoundEvents.EVOCATION_FANGS_ATTACK);
+
     }
     public static SoundEvent get(int index){
         return soundEventList.get(index);

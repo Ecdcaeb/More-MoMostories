@@ -54,7 +54,6 @@ public class BlockEnchantmentTableHileb extends net.minecraft.block.BlockEnchant
         }
         else
         {
-            IdlFramework.LogWarning("opening");
             playerIn.openGui(IdlFramework.instance, ModGuiElementLoader.GUI_ENCH,worldIn,pos.getX(),pos.getY(),pos.getZ());
             //playerIn.addStat(StatList.CRAFTING_TABLE_INTERACTION);
             return true;

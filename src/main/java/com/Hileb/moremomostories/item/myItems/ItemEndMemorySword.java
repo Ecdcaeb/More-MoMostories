@@ -1,8 +1,11 @@
 package com.Hileb.moremomostories.item.myItems;
 
 import com.Hileb.moremomostories.IdlFramework;
+import com.Hileb.moremomostories.entity.entity.EntityItemX;
+import com.Hileb.moremomostories.item.IEntityItemX;
 import com.Hileb.moremomostories.item.ItemSwordBase;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.moremomostories.util.named.skillTag.ItemSkill;
 import com.Hileb.moremomostories.util.named.skillTag.ItemSkillList;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -10,6 +13,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -21,10 +25,11 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import javax.annotation.Nullable;
 import java.lang.reflect.Field;
 import java.util.List;
 
-public class ItemEndMemorySword extends ItemSwordBase {
+public class ItemEndMemorySword extends ItemSwordBase implements IEntityItemX {
     public ItemEndMemorySword(String name){
         super(name, EnumHelper.addToolMaterial("toolmaterialEndMemory",0,2048,8.0f,1.0f,30));
         MinecraftForge.EVENT_BUS.register(this);
@@ -98,11 +103,13 @@ public class ItemEndMemorySword extends ItemSwordBase {
         tooltip.add(I18n.format("tip.item.end.memory.sword.tip2.tip"));
 
         tooltip.add("");
-        tooltip.addAll(ItemSkillList.SKILL_END_MEMORY.tooltips);
+        ItemSkillList.SKILL_END_MEMORY.onTooltip(tooltip);
     }
 
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 
     }
+
+
 }

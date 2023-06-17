@@ -44,10 +44,19 @@ public class ModConfig {
         @Config.Comment("Dimension Hileb")
         @Config.RequiresMcRestart
         public int WORLD_GEN_CONF=7481;
+
+        @Config.LangKey("Dimension ZFP")
+        @Config.Comment("Dimension ZFP")
+        @Config.RequiresMcRestart
+        public int WORLD_GEN_ZFP=7899;
     }
     @Config.LangKey("SlashBlade.all")
     @Config.Comment("SlashBlade.all")
     public static final SlashBladeClass SlashBlade = new SlashBladeClass();
+
+    @Config.LangKey("Render")
+    @Config.Comment("Render")
+    public static final Render render = new Render();
 
     public static class SlashBladeClass {
         //ConfigLoader.canEntityElectricShaking=true;
@@ -67,5 +76,16 @@ public class ModConfig {
         @Config.Comment("SA:BAKIN ID")
         @Config.RequiresMcRestart
         public int SA_BAKIN=84;
+
+        @Config.LangKey("SA:BOSS_BAKIN ID")
+        @Config.Comment("SA:BOSS_BAKIN ID")
+        @Config.RequiresMcRestart
+        public int SA_BOSS_BAKIN=85;
+    }
+    public static class Render {
+        //ConfigLoader.canEntityElectricShaking=true;
+        @Config.LangKey("should render special tooltip for ZFP?")
+        @Config.Comment("should render special tooltip for ZFP?")
+        public boolean should_render_special_tooltip_for_ZFP=true;
     }
 }

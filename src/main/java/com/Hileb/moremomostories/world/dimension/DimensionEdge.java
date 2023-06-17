@@ -1,6 +1,7 @@
 package com.Hileb.moremomostories.world.dimension;
 
 import com.Hileb.moremomostories.IdlFramework;
+import com.Hileb.moremomostories.init.ModConfig;
 import com.Hileb.moremomostories.world.structure.StructurePrimerTree;
 import com.Hileb.moremomostories.worldgen.WorldGenHelper;
 import net.minecraft.entity.EnumCreatureType;
@@ -26,8 +27,7 @@ import java.util.Random;
 
 @Mod.EventBusSubscriber(modid= IdlFramework.MODID)
 public class DimensionEdge extends WorldProvider {
-    public static final int ID=7899;//这里是数字id，建议使用配置文件
-    public static final DimensionType DIM_TYPE = DimensionType.register("edge", "_testdim",ID, DimensionEdge.class, false);
+    public static final DimensionType DIM_TYPE = DimensionType.register("edge", "_testdim", ModConfig.dimension.WORLD_GEN_ZFP, DimensionEdge.class, false);
 
     // DimensionManager.registerDimension(DimensionEdge.ID, DimensionEdge.DIM_TYPE);
     //不要忘记使用上述方法注册维度
@@ -137,38 +137,38 @@ public class DimensionEdge extends WorldProvider {
             return chunk;
         }
         private void buildChunk(int x,int z,ChunkPrimer primer) {
-//            for (int x_ = 0; x_ < 16; x_++) {
-//                for (int z_ = 0; z_ < 16; z_++) {
-//                    primer.setBlockState(x_, 0, z_, Blocks.BEDROCK.getDefaultState());//生成基岩
-//                    /**primer中的x,y,z是单个区块内部的x,y,z**/
-//                }
-//            }
-//            if (x * x + z * z <= 100) {//距离原点10个区块内
-//                for (int x_ = 0; x_ < 16; x_++) {
-//                    for (int z_ = 0; z_ < 16; z_++) {
-//                        for (int y_ = 1; y_ <= 60; y_++) {
-//                            primer.setBlockState(x_, y_, z_, Blocks.STONE.getDefaultState());//生成石头
-//                        }
-//                        primer.setBlockState(x_, 61, z_, Blocks.GRASS.getDefaultState());//生成草
-//                        /**primer中的x,y,z是单个区块内部的x,y,z**/
-//                    }
-//                }
-//            } else {
-//                for (int x_ = 0; x_ < 16; x_++) {
-//                    for (int z_ = 0; z_ < 16; z_++) {
-//                        for (int y_ = 1; y_ <= 50; y_++) {
-//                            primer.setBlockState(x_, y_, z_, Blocks.STONE.getDefaultState());//生成石头
-//                        }
-//                        for (int y_ = 51; y_ <= 54; y_++) {
-//                                primer.setBlockState(x_, y_, z_, Blocks.GRASS.getDefaultState());//生成石头
-//                        }
-//                        for (int y_ = 55; y_ <= 61; y_++) {
-//                            primer.setBlockState(x_, y_, z_, Blocks.WATER.getDefaultState());//生成石头
-//                        }
-//                        /**primer中的x,y,z是单个区块内部的x,y,z**/
-//                    }
-//                }
-//            }
+            for (int x_ = 0; x_ < 16; x_++) {
+                for (int z_ = 0; z_ < 16; z_++) {
+                    primer.setBlockState(x_, 0, z_, Blocks.BEDROCK.getDefaultState());//生成基岩
+                    /**primer中的x,y,z是单个区块内部的x,y,z**/
+                }
+            }
+            if (x * x + z * z <= 100) {//距离原点10个区块内
+                for (int x_ = 0; x_ < 16; x_++) {
+                    for (int z_ = 0; z_ < 16; z_++) {
+                        for (int y_ = 1; y_ <= 60; y_++) {
+                            primer.setBlockState(x_, y_, z_, Blocks.STONE.getDefaultState());//生成石头
+                        }
+                        primer.setBlockState(x_, 61, z_, Blocks.GRASS.getDefaultState());//生成草
+                        /**primer中的x,y,z是单个区块内部的x,y,z**/
+                    }
+                }
+            } else {
+                for (int x_ = 0; x_ < 16; x_++) {
+                    for (int z_ = 0; z_ < 16; z_++) {
+                        for (int y_ = 1; y_ <= 50; y_++) {
+                            primer.setBlockState(x_, y_, z_, Blocks.STONE.getDefaultState());//生成石头
+                        }
+                        for (int y_ = 51; y_ <= 54; y_++) {
+                                primer.setBlockState(x_, y_, z_, Blocks.GRASS.getDefaultState());//生成石头
+                        }
+                        for (int y_ = 55; y_ <= 61; y_++) {
+                            primer.setBlockState(x_, y_, z_, Blocks.WATER.getDefaultState());//生成石头
+                        }
+                        /**primer中的x,y,z是单个区块内部的x,y,z**/
+                    }
+                }
+            }
 
 
             for (MapGenStructure structure : structureHashMap.values()) {

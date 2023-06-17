@@ -3,6 +3,7 @@ package com.Hileb.moremomostories.potion.myBuff;
 import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.potion.ModPotions;
 import com.Hileb.moremomostories.potion.PotionBase;
+import com.Hileb.moremomostories.util.texture.Texture;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.PotionEffect;
@@ -14,6 +15,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class PotionBaKin extends PotionBase {
     public static final int MAX_TICK=200;
+    public static final Texture TEXTURE_BAKIN=new Texture(new ResourceLocation(IdlFramework.MODID,"textures/misc/bakin.png"),0,0,640,480);
+    public static final Texture TEXTURE_GAS=new Texture(new ResourceLocation(IdlFramework.MODID,"textures/misc/gas.png"),0,0,800,480);
+
     public PotionBaKin(String name){
         super(name,false,0,0);
         MinecraftForge.EVENT_BUS.register(this);
@@ -64,12 +68,19 @@ public class PotionBaKin extends PotionBase {
         GlStateManager.enableBlend();
         GlStateManager.enableAlpha();
 
-        int dx=net.minecraft.client.Minecraft.getMinecraft().displayWidth/2;
-        int dy=net.minecraft.client.Minecraft.getMinecraft().displayHeight/2;
+        int dx=net.minecraft.client.Minecraft.getMinecraft().displayWidth;
+        int dy=net.minecraft.client.Minecraft.getMinecraft().displayHeight;
 
         net.minecraft.client.renderer.GlStateManager.color(1.0F, 1.0F, 1.0F,alpha);
-        net.minecraft.client.Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(IdlFramework.MODID,"textures/misc/bakin.png"));
-        drawTexturedModalRect(0,0,0,0,64,64,dx,dy);
+
+
+//        net.minecraft.client.Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(IdlFramework.MODID,"textures/misc/bakin.png"));
+//        drawTexturedModalRect(0,0,0,0,64,64,dx,dy);
+
+        TEXTURE_BAKIN.scaled(dx,dy);
+        TEXTURE_BAKIN.render(0,0,1.0F);
+        TEXTURE_BAKIN.disScaled(dx,dy);
+
 
         GlStateManager.disableBlend();
         GlStateManager.disableAlpha();
@@ -79,24 +90,28 @@ public class PotionBaKin extends PotionBase {
 
         //GlStateManager.scale(800f/dx,480f/dy,0f);
         net.minecraft.client.renderer.GlStateManager.color(1.0F, 1.0F, 1.0F,alpha+0.1f);
-        net.minecraft.client.Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(IdlFramework.MODID,"textures/misc/gas.png"));
-        drawTexturedModalRect(0,0,0,0,800,480,dx*3,dy*3);
+//        net.minecraft.client.Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(IdlFramework.MODID,"textures/misc/gas.png"));
+//        drawTexturedModalRect(0,0,0,0,800,480,dx*3,dy*3);
+
+        TEXTURE_GAS.scaled(dx,dy);
+        TEXTURE_GAS.render(0,0,1.0F);
+        TEXTURE_GAS.disScaled(dx,dy);
 
     }
-    public void drawTexturedModalRect(int x, int y, int textureX, int textureY, int width, int height,int sx,int sy)
-    {
-        float xScale = 0.00390625F;
-        float yScale = 0.00390625F;
-        int zLevel=0;
-        net.minecraft.client.renderer.Tessellator tessellator = net.minecraft.client.renderer.Tessellator.getInstance();
-        net.minecraft.client.renderer.BufferBuilder bufferbuilder = tessellator.getBuffer();
-        bufferbuilder.begin(7, net.minecraft.client.renderer.vertex.DefaultVertexFormats.POSITION_TEX);
-        bufferbuilder.pos((double)(x + 0), (double)(y + sy), (double)zLevel).tex((double)((float)(textureX + 0) * xScale), (double)((float)(textureY + height) * yScale)).endVertex();
-        bufferbuilder.pos((double)(x + sx), (double)(y + sy), (double)zLevel).tex((double)((float)(textureX + width) *  xScale), (double)((float)(textureY + height) * yScale)).endVertex();
-        bufferbuilder.pos((double)(x + sx), (double)(y + 0), (double)zLevel).tex((double)((float)(textureX + width) *  xScale), (double)((float)(textureY + 0) *yScale)).endVertex();
-        bufferbuilder.pos((double)(x + 0), (double)(y + 0), (double)zLevel).tex((double)((float)(textureX + 0) *  xScale), (double)((float)(textureY + 0) *yScale)).endVertex();
-        tessellator.draw();
-    }
+//    public void drawTexturedModalRect(int x, int y, int textureX, int textureY, int width, int height,int sx,int sy)
+//    {
+//        float xScale = 0.00390625F;
+//        float yScale = 0.00390625F;
+//        int zLevel=0;
+//        net.minecraft.client.renderer.Tessellator tessellator = net.minecraft.client.renderer.Tessellator.getInstance();
+//        net.minecraft.client.renderer.BufferBuilder bufferbuilder = tessellator.getBuffer();
+//        bufferbuilder.begin(7, net.minecraft.client.renderer.vertex.DefaultVertexFormats.POSITION_TEX);
+//        bufferbuilder.pos((double)(x + 0), (double)(y + sy), (double)zLevel).tex((double)((float)(textureX + 0) * xScale), (double)((float)(textureY + height) * yScale)).endVertex();
+//        bufferbuilder.pos((double)(x + sx), (double)(y + sy), (double)zLevel).tex((double)((float)(textureX + width) *  xScale), (double)((float)(textureY + height) * yScale)).endVertex();
+//        bufferbuilder.pos((double)(x + sx), (double)(y + 0), (double)zLevel).tex((double)((float)(textureX + width) *  xScale), (double)((float)(textureY + 0) *yScale)).endVertex();
+//        bufferbuilder.pos((double)(x + 0), (double)(y + 0), (double)zLevel).tex((double)((float)(textureX + 0) *  xScale), (double)((float)(textureY + 0) *yScale)).endVertex();
+//        tessellator.draw();
+//    }
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onRender(net.minecraftforge.client.event.RenderGameOverlayEvent.Post event){

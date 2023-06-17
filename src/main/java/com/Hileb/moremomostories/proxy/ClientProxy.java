@@ -18,8 +18,14 @@ public class ClientProxy extends ProxyBase {
 		return false;
 	}
 
+	@Override
 	public void registerItemRenderer(Item item, int meta, String id)
 	{
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
+	}
+
+	@Override
+	public void registerItemRenderer(Item item, Item same, int meta, String id) {
+		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(same.getRegistryName(), id));
 	}
 }

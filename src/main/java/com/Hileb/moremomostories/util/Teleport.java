@@ -37,15 +37,13 @@ public class Teleport extends Teleporter {
         MinecraftServer server = player.getEntityWorld().getMinecraftServer();
         if (server == null)
         {
-            throw  new IllegalArgumentException("Player status incorrect");
+            throw new IllegalArgumentException("Player status incorrect");
         }
-
         WorldServer worldServerNew = server.getWorld(dimension);
         if (worldServerNew == null)
         {
             throw new IllegalArgumentException(String.format("[IDL]Teleporting dimension: %d does not exist", dimension));
         }
-
         worldServerNew.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, dimension, new Teleport(worldServerNew, x,y,z));
         player.setPositionAndUpdate(x,y,z);
     }

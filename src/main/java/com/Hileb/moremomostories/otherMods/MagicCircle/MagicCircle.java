@@ -5,11 +5,13 @@ import com.Hileb.moremomostories.meta.MetaUtil;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 @Mod.EventBusSubscriber(modid = IdlFramework.MODID)
 public class MagicCircle {
+    @Optional.Method(modid= net.mcreator.magiccircle.MagicCircle.MODID)
     @SubscribeEvent
     public static void onUpdate(TickEvent.WorldTickEvent event){
         World world=event.world;

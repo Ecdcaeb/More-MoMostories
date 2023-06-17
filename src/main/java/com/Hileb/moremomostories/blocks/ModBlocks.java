@@ -55,10 +55,12 @@ public class ModBlocks {
 	public static final Block BLOCK_END_BOOK_SHELF=new BlockEndBlockShelf("block_end_book_shelf");
 	public static final Block BLOCK_TP_HILEB =new BlockTeleporter("block_tp_hileb",Material.ROCK);
 
-	//public static final Block BLOCK_JUKE_BOX =new BlockJukebox("block_jukebox");
+	//public static final Block BLOCK_JUKE_BOX =new BlockJukebo("block_jukebox");
 	public static final Block BLOCK_SHELF=new BlockBookShelf("block_book_shelf");
 
-	public static final Block BLOCK_SHELF_E=new BlockEnchantmentTableHileb("block_book_shelf_inv");
+	//public static final Block BLOCK_SHELF_E=new BlockEnchantmentTableHileb("block_book_shelf_inv");
+	public static final Block BLOCK_CAKE=new BlockInfinityCake();
+
 
 	
 	/*

@@ -114,6 +114,16 @@
           }
         ]
       }
+    },
+    "get_card_the_lamp_of_tiamat_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item":"momostories:the_lamp_of_tiamat_1"
+          }
+        ]
+      }
     }
   }
 }

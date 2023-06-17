@@ -85,7 +85,7 @@ public class ModelAKGHeadset extends ModelBiped {
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
 		super.setRotationAngles(limbSwing,limbSwingAmount,ageInTicks,netHeadYaw,headPitch,scaleFactor,entityIn);
-		this.akg.offsetY-=0.100f;
+		this.akg.offsetY=-0.100f;
 	}
 	private void renderAKG(ModelRenderer source,float scale){
 		GlStateManager.pushMatrix();

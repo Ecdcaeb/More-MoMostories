@@ -12,4 +12,8 @@ public class ProxyBase {
 		//Ignored
 		//SlashBlade.InitEventBus.register(new ItemSlashBlade_ItemFoxChange());
 	}
+	public void registerItemRenderer(Item item, Item same,int meta, String id) {
+		//Ignored
+		//SlashBlade.InitEventBus.register(new ItemSlashBlade_ItemFoxChange());
+	}
 }

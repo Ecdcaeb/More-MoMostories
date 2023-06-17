@@ -1,12 +1,15 @@
 package com.Hileb.moremomostories.world.dimension.ChuckGenerator;
 
 import com.Hileb.moremomostories.blocks.ModBlocks;
+import com.Hileb.moremomostories.entity.entity.living.EntityBookworm;
+import com.Hileb.moremomostories.entity.entity.living.EntityGoldenGuide;
 import com.Hileb.moremomostories.init.InitBiome;
 import com.Hileb.moremomostories.world.structure.IHilebStructure;
 import com.Hileb.moremomostories.world.structure.StructurePrimerTree;
 import com.Hileb.moremomostories.world.structure.StructureTest;
 import com.Hileb.moremomostories.worldgen.WorldGenHelper;
 import net.minecraft.block.BlockStairs;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -145,6 +148,7 @@ public class ChunkGeneratorNullPlace implements IChunkGenerator {
         }
 
 
+
         WorldGenHelper.genRoomWithAABB(primer,new AxisAlignedBB(new BlockPos(0,255,0),new BlockPos(15,255,15)), ModBlocks.BLOCK_HILEB_BLOCK.getDefaultState());
         WorldGenHelper.genRoomWithAABB(primer,new AxisAlignedBB(new BlockPos(0,205,0),new BlockPos(15,200,15)), ModBlocks.BLOCK_HILEB_BLOCK.getDefaultState());
         WorldGenHelper.genRoomWithAABB(primer,new AxisAlignedBB(new BlockPos(0,155,0),new BlockPos(15,155,15)), ModBlocks.BLOCK_HILEB_BLOCK.getDefaultState());
@@ -179,6 +183,7 @@ public class ChunkGeneratorNullPlace implements IChunkGenerator {
             if (structure.doStructure(x,z,primer))break;
         }
 
+
         //try primer all
         for (MapGenStructure structure:structureHashMap.values()){
             structure.generate(world,x,z,primer);
@@ -194,23 +199,8 @@ public class ChunkGeneratorNullPlace implements IChunkGenerator {
 
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, chunkX, chunkZ, false);
 
-//        for (int y = 0; y < heightLimit; y+=CHUNK_SIZE) {
-//
-//
-//            setSeedFor(x, y, z);
-//            boolean hasDoorX = rand.nextBoolean();
-//            boolean hasDoorY = y != 0 && rand.nextBoolean();//wont fall to void
-//            boolean hasDoorZ = rand.nextBoolean();
-//
-//            GenCubeBase gen = new GenCubeRoom1(true);
-//
-//            if (gen != null)
-//            {
-//                gen.setHasDoorXYZ(hasDoorX, hasDoorY, hasDoorZ);
-//                gen.setHasLightXYZ(true);
-//                gen.generate(world, rand, new BlockPos(x, y, z));
-//            }
-//        }
+
+
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(false, this, this.world, this.rand, chunkX, chunkZ, false);
 
         //try build all

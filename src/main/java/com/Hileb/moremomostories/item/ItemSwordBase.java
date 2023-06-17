@@ -3,12 +3,12 @@ package com.Hileb.moremomostories.item;
 import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.init.ModCreativeTab;
 import com.Hileb.moremomostories.util.CommonFunctions;
-import com.Hileb.moremomostories.util.IDLSkillNBT;
 import com.Hileb.moremomostories.util.IHasModel;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTDef;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
@@ -18,9 +18,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
 import java.util.List;
-
-import static com.Hileb.moremomostories.util.IDLSkillNBT.GetGuaEnhance;
 
 public class ItemSwordBase extends ItemSword implements IHasModel {
 	private boolean overrideRarity = false;
@@ -67,10 +66,6 @@ public class ItemSwordBase extends ItemSword implements IHasModel {
 
 	public void InitItem()
 	{
-		if (this instanceof IGuaEnhance)
-		{
-			showGuaSocketDesc = true;
-		}
 	}
 
 	public String GetStringForThisByKey(String key)
@@ -119,8 +114,7 @@ public class ItemSwordBase extends ItemSword implements IHasModel {
 	@Override
 	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
 
-		IDLSkillNBT.addInformation(stack,world,tooltip,flag,shiftToShowDesc, showGuaSocketDesc, use_flavor,
-				getMainDesc(stack,world,tooltip,flag));
+		tooltip.add(getMainDesc(stack,world,tooltip,flag));
 
 		if (logNBT)
 		{
@@ -170,5 +164,14 @@ public class ItemSwordBase extends ItemSword implements IHasModel {
 	protected float getBaseAttackDamage()
 	{
 		return 3.0F + toolMaterial.getAttackDamage();
+	}
+
+	@Nullable
+	@Override
+	public Entity createEntity(World world, Entity location, ItemStack itemstack) {
+		if (this instanceof IEntityItemX){
+			return ((IEntityItemX)this).createEntityItem(world,location,itemstack);
+		}
+		return super.createEntity(world, location, itemstack);
 	}
 }

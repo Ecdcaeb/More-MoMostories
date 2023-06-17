@@ -84,7 +84,6 @@ public abstract class PotionBase extends Potion{
     @SideOnly(Side.CLIENT)
     public void renderHUDEffect(int x, int y, PotionEffect effect, net.minecraft.client.Minecraft mc, float alpha)
     {
-        super.renderHUDEffect(x, y, effect, mc, alpha);
         mc.renderEngine.bindTexture(getTexture());
         GlStateManager.enableBlend();
         Gui.drawModalRectWithCustomSizedTexture(x+3, y+3, 0, 0, 18, 18, 18, 18);

@@ -7,6 +7,7 @@ import com.Hileb.moremomostories.init.ModRecipes;
 import com.Hileb.moremomostories.init.ModSpawn;
 import com.Hileb.moremomostories.init.RegistryHandler;
 import com.Hileb.moremomostories.item.myItems.ItemColorHandler;
+import com.Hileb.moremomostories.keys.ClientKey;
 import com.Hileb.moremomostories.keys.KeyboardManager;
 import com.Hileb.moremomostories.meta.MetaUtil;
 import com.Hileb.moremomostories.network.NetworkHandler;
@@ -86,6 +87,7 @@ public class IdlFramework {
 	@SideOnly(Side.CLIENT)
     public static void clientInit(){
         ItemColorHandler.init();
+        ClientKey.init();
     }
 
     @EventHandler
@@ -121,10 +123,7 @@ public class IdlFramework {
     }
 
     private static void RegisterTileEntity() {
-//        GameRegistry.registerTileEntity(TileEntityDeBoomOrb.class, new ResourceLocation(MODID, "deboom_orb_basic"));
 
-        //GameRegistry.registerTileEntity(TileEntityBuilderFarm.class, new ResourceLocation(MODID, "builder_farm_basic"));
-        GameRegistry.registerTileEntity(TileEntityBookShelf.class, new ResourceLocation(MODID, "tile_entity_book_shelf"));
     }
 
     public static void LogWarning(String str, Object... args) {

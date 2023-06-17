@@ -6,12 +6,14 @@ import com.Hileb.moremomostories.meta.MetaUtil;
 import com.Hileb.moremomostories.recipe.*;
 import com.Hileb.moremomostories.util.Reference;
 import com.gq2529.momostories.item.ModItems;
+import mods.flammpfeil.slashblade.SlashBlade;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -59,6 +61,11 @@ public class ModRecipes {
 		r.register(new MainRecipes("moremomostories.main",new ItemStack(com.Hileb.moremomostories.item.ModItems.ITEM_MAIN_NULL)).setRegistryName(Reference.MOD_ID,"main_r"));
 		//通行符节
 		r.register(new FJRecipes("moremomostories.fj.recipe",new ItemStack(ModBlocks.BLOCK_TP_HILEB)).setRegistryName(Reference.MOD_ID,"tp_block_hileb_r"));
+		//欺诈配方
+		r.register(new FakeDiamondBottleRecipe().setRegistryName(new ResourceLocation("moremomostories", "recipe_diamond_bottle")));
+		//终极配方
+		if (Loader.isModLoaded(SlashBlade.modid))r.register(new EndBladeRecipe(new ResourceLocation(IdlFramework.MODID,"moremomostories.fj.recipe")).setRegistryName(IdlFramework.MODID,"moremomostories.fj.recipe"));
+		else r.register(new EndBladeRecipe2(new ResourceLocation(IdlFramework.MODID,"moremomostories.fj.recipe")).setRegistryName(IdlFramework.MODID,"moremomostories.fj.recipe"));
 		//批量注册的无序配方
 		for(int i=0;i<RecipePutrid.PutridItems.size();i++){
 			IdlFramework.LogWarning("%s is Putrid",RecipePutrid.PutridItems.get(i).getUnlocalizedName());

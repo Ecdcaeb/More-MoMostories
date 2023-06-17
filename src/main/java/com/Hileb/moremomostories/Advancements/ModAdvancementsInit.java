@@ -14,7 +14,7 @@ public class ModAdvancementsInit {
 
     public static boolean giveAdvancement(EntityPlayer player, Advancement advancement)
     {
-        if (player.world == null || player.world.isRemote)
+        if (player.world==null || !(player instanceof EntityPlayerMP))
         {
             return false;
         }
@@ -22,6 +22,7 @@ public class ModAdvancementsInit {
         EntityPlayerMP playerMP = (EntityPlayerMP) player;
         if (advancement == null)
         {
+
             return false;
         }
         AdvancementProgress advancementprogress = playerMP.getAdvancements().getProgress(advancement);
@@ -43,7 +44,7 @@ public class ModAdvancementsInit {
 
     public static boolean giveAdvancement(EntityPlayer player, String id)
     {
-        if (player.world == null || player.world.isRemote)
+        if (player.world==null || !(player instanceof EntityPlayerMP))
         {
             return false;
         }

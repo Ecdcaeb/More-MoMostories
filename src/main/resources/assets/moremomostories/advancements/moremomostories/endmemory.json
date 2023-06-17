@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "moremomostories:item_end_memory_swood"
+    },
+    "title": {
+      "translate": "com.hileb.achievement.memory.title"
+    },
+    "description": {
+      "translate": "com.hileb.achievement.memory.desc"
+    },
+    "show_toast": true ,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "moremomostories:moremomostories/zfphigh",
+  "criteria": {
+    "itzmx:item_root": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moremomostories:item_end_memory_swood"
+          }
+        ]
+      }
+    }
+  }
+}

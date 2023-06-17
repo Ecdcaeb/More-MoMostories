@@ -2,14 +2,13 @@ package com.Hileb.moremomostories.item;
 
 import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.init.ModCreativeTab;
-import com.Hileb.moremomostories.util.CommonFunctions;
-import com.Hileb.moremomostories.util.IDLSkillNBT;
-import com.Hileb.moremomostories.util.IHasModel;
+import com.Hileb.moremomostories.util.*;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTDef;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
@@ -24,6 +23,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,7 +39,10 @@ public class ItemBase extends Item implements IHasModel {
 	protected boolean logNBT = false;
 	protected boolean glitters = false;
 
-	public ItemInformationAdder ItemDesc=null;
+	public boolean hasItemDescShiftDown=false;
+
+	public String itemDescStringShiftUp=null;
+	public String itemDescStringShiftDown=null;
 
 	protected static final UUID OFF_HAND_MODIFIER = UUID.fromString("9271eeea-5f74-4e12-97b6-7cf3c60ef7a0");
 	protected static final UUID MAIN_HAND_MODIFIER = UUID.fromString("7d766720-0695-46c6-b320-44529f3da63f");
@@ -52,16 +56,7 @@ public class ItemBase extends Item implements IHasModel {
 		setRegistryName(name);
 		setCreativeTab(ModCreativeTab.IDL_MISC);
 		ModItems.ITEMS.add(this);
-		ItemDesc=null;
-		InitItem();
-	}
-	public ItemBase(String name,ItemInformationAdder informationAdder)
-	{
-		setUnlocalizedName(name);
-		setRegistryName(name);
-		setCreativeTab(ModCreativeTab.IDL_MISC);
-		ItemDesc=informationAdder;
-		ModItems.ITEMS.add(this);
+
 		InitItem();
 	}
 
@@ -71,20 +66,20 @@ public class ItemBase extends Item implements IHasModel {
 	public ItemBase(String name,CreativeTabs tabs,int  maxStackSize){
 		this.maxStackSize=maxStackSize;
 		ItemBaseuseTab(name,tabs);
-		ItemDesc=null;
+
 
 	}
 	public ItemBase(String name,int  maxStackSize){
 		this.maxStackSize=maxStackSize;
 		ItemBaseuseTab(name,ModCreativeTab.IDL_MISC);
-		ItemDesc=null;
+
 	}
 	public void ItemBaseuseTab(String name, CreativeTabs tabs){
 		if (tabs == null){
 			setUnlocalizedName(name);
 			setRegistryName(name);
 			ModItems.ITEMS.add(this);
-			ItemDesc=null;
+
 			InitItem();
 		}
 		else{
@@ -92,9 +87,15 @@ public class ItemBase extends Item implements IHasModel {
 			setRegistryName(name);
 			setCreativeTab(tabs);
 			ModItems.ITEMS.add(this);
-			ItemDesc=null;
+
 			InitItem();
 		}
+	}
+	public Item setDesc(String shiftDown,String shiftUp){
+		hasItemDescShiftDown=true;
+		itemDescStringShiftDown=shiftDown;
+		itemDescStringShiftUp=shiftUp;
+		return this;
 	}
 
 
@@ -136,10 +137,6 @@ public class ItemBase extends Item implements IHasModel {
 
 	public void InitItem()
 	{
-		if (this instanceof IGuaEnhance)
-		{
-			showGuaSocketDesc = true;
-		}
 	}
 
 	public boolean isRangedWeaponItem()
@@ -220,17 +217,22 @@ public class ItemBase extends Item implements IHasModel {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
-		if(ItemDesc!=null){
-			ItemDesc.func_addInformation_item_base(stack,world,tooltip,flag);
+		List<String> fakeList=new ArrayList<>();
+
+		super.addInformation(stack,world,fakeList,flag);
+		if(hasItemDescShiftDown){
+			TooltipHelper.onTooltip(fakeList,itemDescStringShiftUp,itemDescStringShiftDown);
 			return;
 		}
 		else{
-			IDLSkillNBT.addInformation(stack, world, tooltip, flag, shiftToShowDesc, showGuaSocketDesc, use_flavor,
-					getMainDesc(stack, world, tooltip, flag));
+			tooltip.add(getMainDesc(stack,world,tooltip,flag));
 
 			if (logNBT) {
-				tooltip.add(IDLNBTUtil.getNBT(stack).toString());
+				fakeList.add(IDLNBTUtil.getNBT(stack).toString());
 			}
+		}
+		for(String s:fakeList){
+			tooltip.addAll(StringUtil.spiltStringLn(s));
 		}
 	}
 
@@ -280,5 +282,13 @@ public class ItemBase extends Item implements IHasModel {
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		//super.getSubItems(tab, items);
+	}
+	@Nullable
+	@Override
+	public Entity createEntity(World world, Entity location, ItemStack itemstack) {
+		if (this instanceof IEntityItemX){
+			return ((IEntityItemX)this).createEntityItem(world,location,itemstack);
+		}
+		return super.createEntity(world, location, itemstack);
 	}
 }

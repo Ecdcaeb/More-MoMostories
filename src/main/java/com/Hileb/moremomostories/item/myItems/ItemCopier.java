@@ -3,7 +3,6 @@ package com.Hileb.moremomostories.item.myItems;
 import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.init.ModCreativeTab;
 import com.Hileb.moremomostories.item.ItemBase;
-import com.Hileb.moremomostories.item.ItemInformationAdder;
 import com.Hileb.moremomostories.util.CommonFunctions;
 import com.Hileb.moremomostories.util.MoMo.MoMoCards;
 import com.Hileb.moremomostories.util.ModSoundHandler;
@@ -32,13 +31,13 @@ import java.util.List;
 
 public class ItemCopier extends ItemBase {
 
-    private ItemInformationAdder ItemDesc=new ItemInformationAdder("desc.item.copyer.desc","desc.item.copyer.desc2");
-
     private String key="desc.copyitem.desc";
+
     public ItemCopier(String name){
         super(name, ModCreativeTab.IDL_MISC,1);
         CommonFunctions.addToEventBus(this);
         MoMoCards.registerCard(this);
+        setDesc("desc.item.copyer.desc","desc.item.copyer.desc2");
     }
     @SubscribeEvent
     public void onRightClick(PlayerInteractEvent.RightClickItem event){
@@ -125,12 +124,6 @@ public class ItemCopier extends ItemBase {
                 }
             }
         }
-    }
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void addInformation(ItemStack stack, World worldIn, List<String> str, ITooltipFlag flagIn){
-        super.addInformation(stack,worldIn,str,flagIn);
-        ItemDesc.func_addInformation_item_base(stack,worldIn,str,flagIn);
     }
     @SideOnly(Side.CLIENT)
     public void CopyItemaddInformation(ItemStack stack, World worldIn, List<String> str, ITooltipFlag flagIn,int a){

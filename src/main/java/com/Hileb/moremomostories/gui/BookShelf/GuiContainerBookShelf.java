@@ -17,7 +17,7 @@ public class GuiContainerBookShelf extends GuiContainer
     {
         super(inventorySlotsIn);
         this.xSize = 222;
-        this.ySize = 144;
+        this.ySize = 114 + 3 * 18;
     }
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
@@ -45,7 +45,7 @@ public class GuiContainerBookShelf extends GuiContainer
 
         String title = I18n.format("container.title.book");
         //this.fontRenderer.drawString(title, (this.xSize - this.fontRenderer.getStringWidth(title)) / 2, 6, 0xFFFF00);
-        this.fontRenderer.drawString(title, 8, 6, 0xFFFF00);
+        this.fontRenderer.drawString(title, 8, 6, 4210752);
     }
 
 }

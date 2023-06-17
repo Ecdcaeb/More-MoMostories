@@ -84,6 +84,16 @@
           }
         ]
       }
+    },
+    "get_eternal_kingship": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item":"momostories:eternal_kingship"
+          }
+        ]
+      }
     }
   }
 }

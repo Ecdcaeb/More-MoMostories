@@ -205,16 +205,16 @@ public class ModelVanChest extends ModelBiped {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
 
 
-		this.main_cube.offsetY+=0.65f;
+		this.main_cube.offsetY=0.65f;
 
 		//leftArm
-		this.cube2.offsetY+=0.72f;
+		this.cube2.offsetY=0.72f;
 		//rightArm
-		this.cube1.offsetY+=0.65f;
+		this.cube1.offsetY=0.65f;
 		//leftLeg
-		this.cube3.offsetY+=0.82f;
+		this.cube3.offsetY=0.82f;
 		//rightLeg
-		this.cube4.offsetY+=0.89f;
+		this.cube4.offsetY=0.89f;
 	}
 
 	public void renderChild(ModelRenderer mother, ModelRenderer child, float scale){

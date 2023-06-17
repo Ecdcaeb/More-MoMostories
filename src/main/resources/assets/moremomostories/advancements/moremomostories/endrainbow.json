@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "item": "moremomostories:item_end_rainbow_swood"
+    },
+    "title": {
+      "translate": "com.hileb.achievement.rainbow.title"
+    },
+    "description": {
+      "translate": "com.hileb.achievement.rainbow.desc"
+    },
+    "show_toast": true ,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "moremomostories:moremomostories/endmemory",
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

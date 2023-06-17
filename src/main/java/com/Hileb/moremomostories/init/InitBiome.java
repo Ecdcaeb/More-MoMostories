@@ -20,9 +20,9 @@ public class InitBiome {
     {
         biome.setRegistryName(name);
         ForgeRegistries.BIOMES.register(biome);
-        IdlFramework.LogWarning("Biome registered:%s", name);
+        IdlFramework.Log("Biome registered:%s", name);
         BiomeDictionary.addTypes(biome, type);
-        BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 100));
+        //BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 100));
         BiomeManager.addSpawnBiome(biome);
         return biome;
     }

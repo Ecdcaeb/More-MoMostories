@@ -69,7 +69,6 @@ public class ContainerBookShelf extends Container
                     @Override
                     public void onSlotChanged() {
                         lowerChestInventory.setInventorySlotContents(id,items.getStackInSlot(id));
-                        lowerChestInventory.SaveAllItems();
                     }
                 };
                 this.addSlotToContainer(slot);

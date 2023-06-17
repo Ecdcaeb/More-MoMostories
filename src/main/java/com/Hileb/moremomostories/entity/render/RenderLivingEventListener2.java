@@ -1,7 +1,7 @@
 package com.Hileb.moremomostories.entity.render;
 
 import com.Hileb.moremomostories.IdlFramework;
-import com.Hileb.moremomostories.entity.EntityZFP;
+import com.Hileb.moremomostories.entity.entity.living.EntityZFP;
 import com.Hileb.moremomostories.init.ModConfig;
 import com.Hileb.moremomostories.item.ModItems;
 import net.minecraft.entity.Entity;

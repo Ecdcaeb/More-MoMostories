@@ -2,7 +2,7 @@ package com.Hileb.moremomostories.item.paper;
 
 import com.Hileb.moremomostories.advancements.Advancementkeys;
 import com.Hileb.moremomostories.blocks.ModBlocks;
-import com.Hileb.moremomostories.entity.EntityDeathMM;
+import com.Hileb.moremomostories.entity.entity.living.EntityDeathMM;
 import com.Hileb.moremomostories.item.ItemInformationAdder;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

@@ -1,0 +1,9 @@
+{
+  "variants": {
+
+    "facing=north": { "model": "momostories:stone_grinder" },
+    "facing=south": { "model": "momostories:stone_grinder", "y": 180 },
+    "facing=west":  { "model": "momostories:stone_grinder", "y": 270 },
+    "facing=east":  { "model": "momostories:stone_grinder", "y": 90 }
+  }
+}

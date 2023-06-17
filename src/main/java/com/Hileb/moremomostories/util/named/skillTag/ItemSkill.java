@@ -5,7 +5,12 @@ import java.util.List;
 
 public class ItemSkill {
     public List<String> tooltips=new ArrayList<>();
-    public ItemSkill(){
-
+    public final String registerNAME;
+    public ItemSkill(String registerName){
+        registerNAME=registerName;
+        ItemSkillList.REGISTER.put(registerNAME,this);
+    }
+    public void onTooltip(List<String> strings){
+        strings.addAll(tooltips);
     }
 }

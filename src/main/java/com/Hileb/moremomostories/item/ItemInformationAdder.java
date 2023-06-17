@@ -11,6 +11,7 @@ import org.lwjgl.input.Keyboard;
 
 import java.util.List;
 
+@Deprecated
 public class ItemInformationAdder {
     public String lang;
     public String langS;

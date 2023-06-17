@@ -1,6 +1,6 @@
 package com.Hileb.moremomostories.item.myItems;
 
-import com.Hileb.moremomostories.entity.EntityZFP;
+import com.Hileb.moremomostories.entity.entity.living.EntityZFP;
 import com.Hileb.moremomostories.item.ItemBase;
 import com.Hileb.moremomostories.item.ItemInformationAdder;
 import com.Hileb.moremomostories.item.ModItems;
@@ -20,9 +20,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
 public class ItemCardAddZFP extends ItemBase {
-    private final ItemInformationAdder ItemDesc=new ItemInformationAdder("desc.cardzfp.desc","desc.cardzfp2.desc");
+
     public ItemCardAddZFP(String name, CreativeTabs tabs){
         super(name, tabs, 1);
+        setDesc("desc.cardzfp.desc","desc.cardzfp2.desc");
         CommonFunctions.addToEventBus(this);
         MoMoCards.registerCard(this);
     }
@@ -39,12 +40,6 @@ public class ItemCardAddZFP extends ItemBase {
                 event.getItemStack().setCount(0);
             }
         }
-    }
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void addInformation(ItemStack stack, World worldIn, List<String> str, ITooltipFlag flagIn){
-        super.addInformation(stack,worldIn,str,flagIn);
-        ItemDesc.func_addInformation_item_base(stack,worldIn,str,flagIn);
     }
 
     @Override

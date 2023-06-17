@@ -1,7 +1,7 @@
 package com.Hileb.moremomostories.item.food;
 
-import com.Hileb.moremomostories.entity.EntityVan;
-import com.Hileb.moremomostories.entity.VanEvent;
+import com.Hileb.moremomostories.entity.entity.living.EntityVan;
+import com.Hileb.moremomostories.entity.spawner.VanEvent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;

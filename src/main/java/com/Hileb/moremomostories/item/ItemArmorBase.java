@@ -3,7 +3,6 @@ package com.Hileb.moremomostories.item;
 import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.init.ModCreativeTab;
 import com.Hileb.moremomostories.util.CommonFunctions;
-import com.Hileb.moremomostories.util.IDLSkillNBT;
 import com.Hileb.moremomostories.util.IHasModel;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTDef;
 import com.Hileb.moremomostories.util.NBTStrDef.IDLNBTUtil;
@@ -26,7 +25,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-import static com.Hileb.moremomostories.util.IDLSkillNBT.GetGuaEnhance;
 
 //try to sync with ItemBase
 public class ItemArmorBase extends ItemArmor implements IHasModel {
@@ -142,8 +140,7 @@ public class ItemArmorBase extends ItemArmor implements IHasModel {
 	@Override
 	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
 
-		IDLSkillNBT.addInformation(stack,world,tooltip,flag,shiftToShowDesc, showGuaSocketDesc, use_flavor,
-				getMainDesc(stack,world,tooltip,flag));
+		tooltip.add(getMainDesc(stack,world,tooltip,flag));
 
 		if (logNBT)
 		{

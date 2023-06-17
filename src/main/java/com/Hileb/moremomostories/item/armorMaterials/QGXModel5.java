@@ -124,14 +124,14 @@ public class QGXModel5 extends ModelBiped {
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-		bone_left.offsetY+=0.9f;
-		bone_right.offsetY+=0.9f;
+		bone_left.offsetY=0.9f;
+		bone_right.offsetY=0.9f;
 
-		bone_left.offsetX-=0.1;
-		bone_right.offsetX+=0.1;
+		bone_left.offsetX=(float) -0.1;
+		bone_right.offsetX=(float)+0.1;
 
-		bone_right.rotateAngleY+=Math.PI;
-		bone_left.rotateAngleY+=Math.PI;
+		bone_right.rotateAngleY=(float)Math.PI;
+		bone_left.rotateAngleY=(float)Math.PI;
 	}
 	public void renderChild(ModelRenderer mother,ModelRenderer child,float scale){
 		GlStateManager.pushMatrix();

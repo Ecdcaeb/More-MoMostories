@@ -1,5 +1,5 @@
 {
-  "package": "com.Hileb.moremomostories.mixin.momostories.mixin.hooks",
+  "package": "com.Hileb.moremomostories.mixin.momostories.mixin.cardMixins",
   "mixins": [
     "MixinLunaBlessing",
     "MixinAncientMirrors",

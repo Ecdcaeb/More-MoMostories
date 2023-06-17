@@ -16,7 +16,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class TileEntityBookShelf extends TileEntityLockable implements ITickable, ISidedInventory {
+public class TileEntityBookShelf extends TileEntityLockable implements ISidedInventory {
     private NonNullList<ItemStack> chestContents = NonNullList.<ItemStack>withSize(27, ItemStack.EMPTY);
 
     @Override
@@ -29,13 +29,12 @@ public class TileEntityBookShelf extends TileEntityLockable implements ITickable
     {
         //this.chestContents = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
         ItemStackHelper.saveAllItems(tag, list);
-        IdlFramework.LogWarning("save all Item");
+
         return tag;
     }
     public static void loadAllItems(NBTTagCompound tag, NonNullList<ItemStack> list)
     {
         ItemStackHelper.loadAllItems(tag, list);
-        IdlFramework.LogWarning("load all Item");
     }
 
     @Override
@@ -63,13 +62,6 @@ public class TileEntityBookShelf extends TileEntityLockable implements ITickable
             }
         }
         return use;
-    }
-    public void SaveAllItems() {
-        //saveAllItems(this.getUpdateTag(),chestContents);
-    }
-    @Override
-    public void update() {
-        //saveAllItems(this.getUpdateTag(),chestContents);
     }
     @Override
     public String getGuiID() {

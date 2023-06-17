@@ -2,7 +2,7 @@ package com.Hileb.moremomostories.blocks;
 
 import com.Hileb.moremomostories.IdlFramework;
 import com.Hileb.moremomostories.command.ModCommands;
-import com.Hileb.moremomostories.entity.EntityGoldenGuide;
+import com.Hileb.moremomostories.entity.entity.living.EntityGoldenGuide;
 import com.Hileb.moremomostories.item.ModItems;
 import com.Hileb.moremomostories.item.myItems.ItemBookMod;
 import com.Hileb.moremomostories.worldgen.WorldGenHelper;
@@ -68,7 +68,6 @@ public class BlockEndBlockShelf extends BlockBase{
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         if (!worldIn.isRemote){
-            IdlFramework.LogWarning("sssss");
             spawnVan(worldIn,pos);
         }
     }
@@ -102,9 +101,9 @@ public class BlockEndBlockShelf extends BlockBase{
     }
     public static void spawnVan(World world, BlockPos posIn){
         EntityGoldenGuide goldenGuide=new EntityGoldenGuide(world);
-        Random random=new Random(world.getSeed()+posIn.hashCode()+world.getTotalWorldTime());
-        int toomore=0;
-        while(true){
+        Random random=new Random();
+        int i=0;
+        while(i<=100){
             BlockPos pos=posIn.add(random.nextInt(12)-6,random.nextInt(12)-6,random.nextInt(12)-6);
             AxisAlignedBB axisAlignedBB=new AxisAlignedBB(pos,pos.add(0,1,0));
             if (WorldGenHelper.isEmptyWithAABB(world,axisAlignedBB)){
@@ -112,9 +111,7 @@ public class BlockEndBlockShelf extends BlockBase{
                 world.spawnEntity(goldenGuide);
                 return;
             }
-            else if (toomore>=100){
-                return;
-            }
+            i++;
         }
     }
 }

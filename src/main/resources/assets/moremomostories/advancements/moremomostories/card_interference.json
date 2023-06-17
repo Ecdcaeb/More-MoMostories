@@ -45,16 +45,6 @@
         ]
       }
     },
-    "get_card_soul_puppets": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item":"momostories:soul_puppets"
-          }
-        ]
-      }
-    },
     "get_card_lucy_the_axe_card": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -140,7 +130,7 @@
       "conditions": {
         "items": [
           {
-            "item":"momostories:the_supreme_magi_deep_lake"
+            "item":"momostories:the_supreme_magic_deep_lake"
           }
         ]
       }
@@ -221,6 +211,16 @@
         "items": [
           {
             "item":"momostories:miser"
+          }
+        ]
+      }
+    },
+    "get_card_nord_blacksmith_workshop": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item":"momostories:nord_blacksmith_workshop"
           }
         ]
       }

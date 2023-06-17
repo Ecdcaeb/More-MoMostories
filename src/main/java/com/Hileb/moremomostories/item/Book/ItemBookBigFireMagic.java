@@ -1,12 +1,11 @@
 package com.Hileb.moremomostories.item.Book;
 
 import com.Hileb.moremomostories.item.ItemBase;
-import com.Hileb.moremomostories.item.ItemInformationAdder;
 
 public class ItemBookBigFireMagic extends ItemBase {
     public ItemBookBigFireMagic(String name){
         super(name);
-        ItemDesc=new ItemInformationAdder("book.name.com.hileb.momo.llf.name");
+        setDesc("book.name.com.hileb.momo.llf.name","book.name.com.hileb.momo.llf.name");
     }
 //    public void setUpAFire(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ)
 //    {

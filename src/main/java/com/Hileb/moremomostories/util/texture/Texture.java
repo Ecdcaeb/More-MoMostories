@@ -15,21 +15,17 @@ public class Texture {
     public final int startY;
     public final int textureX;
     public final int textureY;
+
     @SideOnly(Side.CLIENT)
     public static void renderTexture(int sreenX, int sreenY, int textureStartX, int textureStartY, int x, int y, ResourceLocation texture, float alpha){
-        Minecraft.getMinecraft().renderEngine.bindTexture(texture);
-        Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder buf = tessellator.getBuffer();
-        buf.begin(7, DefaultVertexFormats.POSITION_TEX);
-        GlStateManager.color(1, 1, 1, alpha);
 
 
-        buf.pos(sreenX, y + sreenY, 0).tex(textureStartX * 0.00390625, (textureStartY + y) * 0.00390625).endVertex();
-        buf.pos(sreenX+x, y + sreenY, 0).tex((textureStartX + x) * 0.00390625, (textureStartY +y) * 0.00390625).endVertex();
-        buf.pos(sreenX+x, sreenY, 0).tex((textureStartX+ x) * 0.00390625, textureStartY * 0.00390625).endVertex();
-        buf.pos(sreenX+x, sreenY, 0).tex(textureStartX * 0.00390625, textureStartY * 0.00390625).endVertex();
-
-        tessellator.draw();
+    }
+    public void scaled(float x,float y){
+        GlStateManager.scale(x/textureX,y/textureY,1.0F);
+    }
+    public void disScaled(float x,float y){
+        GlStateManager.scale(textureX/x,textureY/y,1.0F);
     }
     public Texture(ResourceLocation location,int startXIn,int startYIn,int xIn,int yIn){
         resourceLocation=location;
@@ -40,6 +36,16 @@ public class Texture {
     }
     @SideOnly(Side.CLIENT)
     public void render(int x,int y,float alpha){
-        renderTexture(x,y,this.startX,this.startY,this.textureX,this.textureY,this.resourceLocation,alpha);
+        Minecraft.getMinecraft().renderEngine.bindTexture(resourceLocation);
+        float f = 0.00390625F;
+        float f1 = 0.00390625F;
+        Tessellator tessellator = Tessellator.getInstance();
+        BufferBuilder bufferbuilder = tessellator.getBuffer();
+        bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
+        bufferbuilder.pos((double)(x + 0), (double)(y + textureY), 0).tex((double)((float)(startX + 0) * 0.00390625F), (double)((float)(startY + textureY) * 0.00390625F)).endVertex();
+        bufferbuilder.pos((double)(x + textureX), (double)(y + textureY),0).tex((double)((float)(startX +textureX) * 0.00390625F), (double)((float)(startY + textureY) * 0.00390625F)).endVertex();
+        bufferbuilder.pos((double)(x + textureX), (double)(y + 0), (double)0).tex((double)((float)(startX + textureX) * 0.00390625F), (double)((float)(startY + 0) * 0.00390625F)).endVertex();
+        bufferbuilder.pos((double)(x + 0), (double)(y + 0), 0).tex((double)((float)(startX + 0) * 0.00390625F), (double)((float)(startY + 0) * 0.00390625F)).endVertex();
+        tessellator.draw();
     }
 }

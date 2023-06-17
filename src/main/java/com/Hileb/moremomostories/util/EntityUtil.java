@@ -1,7 +1,6 @@
 package com.Hileb.moremomostories.util;
 
 import com.Hileb.moremomostories.IdlFramework;
-import com.Hileb.moremomostories.entity.creatures.EntityModUnit;
 import com.Hileb.moremomostories.meta.MetaUtil;
 import com.google.common.base.Predicate;
 import net.minecraft.entity.Entity;
@@ -112,57 +111,6 @@ public class EntityUtil {
     }
 
     //Player is not otherWorld
-    public static boolean isOtherworldAggression(EntityLivingBase creature)
-    {
-        if (creature instanceof EntityPlayer || creature == null || isIdeallandTeam(creature))
-        {
-            return false;
-        }
-
-        EntityRegistry.EntityRegistration er = EntityRegistry.instance().lookupModSpawn(creature.getClass(), true);
-        if (er == null)
-        {
-            //Normally this will be enough. Vanilla creatures don't have ER
-            return false;
-        }
-        String modid = er.getContainer().getModId();
-        //IdlFramework.Log("Atk ER.modid is %s, name is %s", modid, er.getRegistryName());
-
-        return !modid.equals("minecraft");
-    }
-
-    public static boolean isIdeallandTeam(EntityLivingBase creature)
-    {
-        return (creature instanceof EntityModUnit && ((EntityModUnit) creature).isIdealland);
-    }
-
-    public static boolean isMoroonTeam(EntityLivingBase creature)
-    {
-        return (creature instanceof EntityModUnit && ((EntityModUnit) creature).isMoroon);
-    }
-
-    public static boolean isMechanical(EntityLivingBase creature)
-    {
-        return (creature instanceof EntityModUnit && ((EntityModUnit) creature).is_mechanic);
-    }
-
-    public static boolean isAOA3Creature(EntityLivingBase creature)
-    {
-        if (!MetaUtil.isLoaded_AOA3)
-        {
-            return false;
-        }
-        return getModName(creature).equals(CommonDef.MOD_NAME_AOA3);
-    }
-
-    public static boolean isGOGCreature(EntityLivingBase creature)
-    {
-        if (!MetaUtil.isLoaded_GOG)
-        {
-            return false;
-        }
-        return getModName(creature).equals(CommonDef.MOD_NAME_AOA3);
-    }
 
     public static <T extends Entity> List<T> getEntitiesWithinAABB(World world, Class <? extends T > clazz, AxisAlignedBB aabb, @Nullable Predicate <? super T > filter)
     {
@@ -257,13 +205,7 @@ public class EntityUtil {
 
     public static Faction faction(EntityLivingBase creature)
     {
-        if (isMoroonTeam(creature))
-        {
-            return Faction.MOROON;
-        } else if (isIdeallandTeam(creature))
-        {
-            return Faction.IDEALLAND;
-        }else if (creature instanceof EntityZombie)
+        if (creature instanceof EntityZombie)
         {
             return Faction.MOB_VAN_ZOMBIE;
         }
@@ -591,4 +533,6 @@ public class EntityUtil {
         }
         return entity.world.canSeeSky(new BlockPos(entity.posX, entity.posY + (double)entity.getEyeHeight(), entity.posZ));
     }
+
+
 }

@@ -27,41 +27,45 @@ public class MoMoCards {
         return cards.size();
     }
     public static void cardInit(){
-        registerCard(ModItems.UNKOWN_CARDS);
-        registerCard(ModItems.LUNA_CHURCH);
-        registerCard( ModItems.CHURCH_OF_THE_SUN_GOD);
-        registerCard( ModItems.THE_SUPREME_MAGI_DEEPLAKE);
-        registerCard( ModItems.FORGOTTEN_ANCIENT_MIRRORS);
-        registerCard( ModItems.CENTRAL_ACADEMY_OF_SCIENCES);
-        registerCard( ModItems.FRESHMAN);
-        registerCard( ModItems.CONSCRIPTION_ORDER);
-        registerCard( ModItems.REED);
-        registerCard( ModItems.GARLANFAA_REDEMTION);
-        registerCard( ModItems.FORT_SLIM);
-        registerCard( ModItems.DAYTIME);
-        registerCard( ModItems.LEYDEN_JAR);
+        registerCard(  ModItems.UNKOWN_CARDS);
+        registerCard(  ModItems.LUNA_CHURCH);
+        registerCard(  ModItems.CHURCH_OF_THE_SUN_GOD);
+        registerCard(  ModItems.THE_SUPREME_MAGI_DEEPLAKE);
+        registerCard(  ModItems.FORGOTTEN_ANCIENT_MIRRORS);
+        registerCard(  ModItems.CENTRAL_ACADEMY_OF_SCIENCES);
+        registerCard(  ModItems.FRESHMAN);
+        registerCard(  ModItems.CONSCRIPTION_ORDER);
+        registerCard(  ModItems.REED);
+        registerCard(  ModItems.GARLANFAA_REDEMTION);
+        registerCard(  ModItems.FORT_SLIM);
+        registerCard(  ModItems.DAYTIME);
+        registerCard(  ModItems.LEYDEN_JAR);
         registerCard(  ModItems.BLOOD_COOLORED_CALIDAN);
         registerCard(  ModItems.DEVILS_BLOOD);
         registerCard(  ModItems.LUCY_THE_AXE_CARD);
-        registerCard( ModItems.THE_BOOK_OF_FORGERY);
-        registerCard( ModItems.AI_LING_WISHES);
+        registerCard(  ModItems.THE_BOOK_OF_FORGERY);
+        registerCard(  ModItems.AI_LING_WISHES);
+        registerCard(  ModItems.INTERNAL_STRIIFE);
         registerCard(  ModItems.NIGHT);
         registerCard(  ModItems.ABYSS_CLOISTER);
         registerCard(  ModItems.OHAM_HEAVY_CAVALRY_REGIMENT);
         registerCard(  ModItems.ADJUDICATOR_BALANCE);
-        registerCard( ModItems.PLAGUE_DOCTOR);
+        registerCard(  ModItems.PLAGUE_DOCTOR);
         registerCard(  ModItems.FRAUDULENT_BOTTLES);
         registerCard(  ModItems.THE_FRUIT_OF_THE_FLOWING_YEARS_CARD);
         registerCard(  ModItems.SCAVENGERS);
         registerCard(  ModItems.TWIST);
-        registerCard( ModItems.FINE);
+        registerCard(  ModItems.FINE);
         registerCard(  ModItems.DARK_CLOUDS);
         registerCard(  ModItems.ESTES);
-        registerCard( ModItems.SIRIN);
+        registerCard(  ModItems.SIRIN);
         registerCard(  ModItems.SPLIT);
-        registerCard( ModItems.MISER);
-         registerCard(  ModItems.MISER);
+        registerCard(  ModItems.MISER);
+        registerCard(  ModItems.MISER);
         registerCard(  ModItems.FOUR_WAY_TRIP);
-        registerCard(  ModItems.INTERNAL_STRIIFE);
+        registerCard(  ModItems.THE_LAMP_OF_TIAMAT);
+        registerCard(  ModItems.ETERNA_KINGSHIP);
+        registerCard(  ModItems.NORD_BLACKSMITH_WORKSHOP);
     }
+    
 }

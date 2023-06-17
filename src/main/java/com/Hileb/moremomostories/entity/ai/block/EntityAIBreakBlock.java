@@ -1,6 +1,6 @@
 package com.Hileb.moremomostories.entity.ai.block;
 
-import com.Hileb.moremomostories.entity.EntityBookworm;
+import com.Hileb.moremomostories.entity.entity.living.EntityBookworm;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
 

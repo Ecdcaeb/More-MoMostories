@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon" : {
+      "item" : "flammpfeil.slashblade:slashbladenamed",
+      "data" : 0,
+      "nbt" : "{ModelName: \"named/sange/sange\", TextureName: \"momo/named/yaohushen\"}"
+    },
+    "title": {
+      "translate": "advancements.momoOtherModAdvancements.card.tk.title"
+    },
+    "description": {
+      "translate": "advancements.momoOtherModAdvancements.card.tk.desc"
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "moremomostories:other_mod/root",
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

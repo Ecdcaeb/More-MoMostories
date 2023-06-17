@@ -1,8 +1,10 @@
 package com.Hileb.moremomostories.item.myItems;
 
 import com.Hileb.moremomostories.IdlFramework;
+import com.Hileb.moremomostories.item.IEntityItemX;
 import com.Hileb.moremomostories.item.ItemSwordBase;
 import com.Hileb.moremomostories.item.ModItems;
+import com.Hileb.moremomostories.meta.MetaUtil;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity.EntityFire;
 import com.Hileb.moremomostories.otherMods.SlashBlade.SA.Entity.EntityRain;
 import com.Hileb.moremomostories.potion.ModPotions;
@@ -38,7 +40,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
-public class ItemEndRainbow extends ItemSwordBase {
+public class ItemEndRainbow extends ItemSwordBase implements IEntityItemX {
     public static final String NBT_ENERGY="com.hileb.momo.nbt.energy";
     public static final ToolMaterial toolMaterial= EnumHelper.addToolMaterial("rainbow",5,(int)Float.POSITIVE_INFINITY,10.0F,20.0F,30);
     public ItemEndRainbow(String name){
@@ -72,7 +74,6 @@ public class ItemEndRainbow extends ItemSwordBase {
             if (getEnergy(stack)>=500d || player.isCreative()){
                 if (!player.isCreative())addEnergy(stack,-500d);
                 int amount=new Random((player.toString()+player.world.toString()+stack.toString()+player.getName()+player.getUniqueID().toString()+player.world.getTotalWorldTime()).hashCode()).nextInt(2);
-                IdlFramework.LogWarning("amount == %d",amount);
                 switch (amount){
                     case 0:{
                         SaRain.doSpacialAttack(stack,player);
@@ -122,6 +123,7 @@ public class ItemEndRainbow extends ItemSwordBase {
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
     }
+
 
 
     //复刻SA
@@ -201,11 +203,37 @@ public class ItemEndRainbow extends ItemSwordBase {
         tooltip.add(I18n.format("momo.energy.rainbow.damage.name")+String.format("%f",Float.POSITIVE_INFINITY));
         tooltip.add(((getEnergy(stack)>=500)?"§e":"")+((getEnergy(stack)>=10000)?"§f§r":"")+I18n.format("momo.energy.rainbow.en.name")+String.format(": %f",getEnergy(stack))+I18n.format("momo.energy.rainbow.en.end"));
 
-        tooltip.add("");
+        tooltip.add("    ");
         tooltip.add(I18n.format("item.item_rainbowj.name"));
-        tooltip.add(I18n.format("item.moremomostories.blandTianki.name"));
+        tooltip.add("    ");
+
+        tooltip.add(I18n.format("skill.left.desc"));
+        tooltip.add("§e"+I18n.format("item.moremomostories.blandTianki.name"));
+        tooltip.add(I18n.format("flammpfeil.slashblade.specialattack.sa_bakin"));
+        tooltip.add(I18n.format("skill.bakin.desc"));
+
+        tooltip.add("    ");
+        tooltip.add(I18n.format("skill.right.desc"));
+        tooltip.add("§e"+I18n.format("com.hileb.momo.lang.skill.rain"));
+        tooltip.add(I18n.format("skill.rain.desc"));
+        tooltip.add("§e"+I18n.format("flammpfeil.slashblade.specialattack.sa_fire"));
+        tooltip.add(I18n.format("skill.fire.desc"));
+
+        tooltip.add("    ");
+        tooltip.add(I18n.format("skill.pass.desc"));
+        tooltip.add("    ");
+        if (Loader.isModLoaded(IC2.MODID)){
+            tooltip.add("§e"+I18n.format("skill.eu.desc"));
+        }
+        tooltip.add("§e"+I18n.format("com.hileb.momo.lang.skill.endmemory.name"));
+        tooltip.add(I18n.format("com.hileb.momo.lang.skill.endmemory.desc"));
+
     }
 
+    @Override
+    public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
+        return ModItems.ITEM_SWOOD_MEMORY_END.onLeftClickEntity(stack,player,entity);
+    }
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void onFinalAttack(LivingHurtEvent event){
         World world=event.getEntity().world;
