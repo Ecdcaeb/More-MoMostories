@@ -204,10 +204,10 @@ item.item_dao.name=折扇
 
 item.moremomostories.testBlade1.name=雨
 item.moremomostories.blandTianki.name=天姬
-flammpfeil.slashblade.specialattack.sa1=雨意
-flammpfeil.slashblade.specialattack.up_and_down_world=世界混乱
-flammpfeil.slashblade.specialattack.sa_fire=炎爆
-flammpfeil.slashblade.specialattack.sa_bakin=淫気祓清
+flammpfeil.slashblade.specialattack.momo.sa_rain=雨意
+flammpfeil.slashblade.specialattack.momo.up_and_down_world=世界混乱
+flammpfeil.slashblade.specialattack.momo.sa_fire=炎爆
+flammpfeil.slashblade.specialattack.momo.sa_bakin=淫気祓清
 
 say.player.hileb.qgx.say=<%s>英雄 可以 受委屈~但是 你不能踩我的  切尔西。
 say.zfp.0.say=<煮饭婆>传说，帝君在出征之时，曾言道...
@@ -372,4 +372,4 @@ tag.12.name=神级
 tag.13.name=恶魔
 tag.14.name=狂热
 item.moremomostories.blandSaki.name=赤姬
-flammpfeil.slashblade.specialattack.sa_sef=§e淫气释放
+flammpfeil.slashblade.specialattack.momo.sa_sef=§e淫气释放

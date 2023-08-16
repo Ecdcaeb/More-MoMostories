@@ -45,7 +45,8 @@
     "MixinNordBlacksmithWorkshop",
     "MixinLettertoKerry",
     "MixinLucyAxe",
-    "MixinMonth"
+    "MixinMonth",
+    "MixinLunaHunting"
   ],
   "client": [],
   "minVersion": 0.8,

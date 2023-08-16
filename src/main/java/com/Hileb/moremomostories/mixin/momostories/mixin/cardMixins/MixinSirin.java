@@ -15,4 +15,6 @@ public abstract class MixinSirin extends Item {
     public static void hurt(LivingHurtEvent event) {
         CardFunction.Sirin.hurt(event);
     }
+
+
 }

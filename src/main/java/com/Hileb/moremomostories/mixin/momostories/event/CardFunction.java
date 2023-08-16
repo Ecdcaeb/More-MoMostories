@@ -1,9 +1,12 @@
 package com.Hileb.moremomostories.mixin.momostories.event;
 
-import com.Hileb.moremomostories.command.ModCommands;
-import com.Hileb.moremomostories.item.myItems.ItemCardContainer;
-import com.Hileb.moremomostories.potion.myBuff.PotionDayTime;
-import com.Hileb.moremomostories.util.MoMo.MoMoCards;
+import com.Hileb.moremomostories.client.RandomManager;
+import com.Hileb.moremomostories.common.common.ModEventReader;
+import com.Hileb.moremomostories.common.util.math.VirtueSpace;
+import com.Hileb.moremomostories.common.world.command.ModCommands;
+import com.Hileb.moremomostories.common.world.item.myItems.ItemCardContainer;
+import com.Hileb.moremomostories.common.world.potion.myBuff.PotionDayTime;
+import com.Hileb.moremomostories.mods.momo.MoMoCards;
 import com.gq2529.momostories.blocks.ModBlocks;
 import com.gq2529.momostories.entity.ModEntity.Evil;
 import com.gq2529.momostories.entity.ModEntity.Kindness;
@@ -17,6 +20,7 @@ import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -29,22 +33,21 @@ import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.init.MobEffects;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.init.*;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketTitle;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.stats.StatList;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AnvilRepairEvent;
@@ -58,6 +61,8 @@ import javax.annotation.Nonnull;
 import java.util.Collection;
 import java.util.List;
 import java.util.Random;
+
+import static net.minecraft.item.ItemBow.getArrowVelocity;
 
 public class CardFunction {
     public static class LunaBlessing {
@@ -86,7 +91,7 @@ public class CardFunction {
                             }
                         }
                     }
-                    if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                    if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                         ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                         for(int i_1=0;i_1<stackHandler.getSlots();i_1++){
                             ItemStack stack1=stackHandler.getStackInSlot(i_1);
@@ -324,7 +329,7 @@ public class CardFunction {
                         if (MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(Player,Player.getHeldItemMainhand(),event.getEntityLiving()).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.EVENT)))return;
                         event.setAmount(event.getAmount() + 20);
                     }
-                    if (Player.getHeldItemMainhand().getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                    if (Player.getHeldItemMainhand().getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                         ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(Player.getHeldItemMainhand());
                         for(int i1=0;i1<stackHandler.getSlots();i1++){
                             ItemStack stack1=stackHandler.getStackInSlot(i1);
@@ -376,7 +381,7 @@ public class CardFunction {
                             hurt.setFire(30);
                         }
                     }
-                    if (Player.getHeldItemMainhand().getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                    if (Player.getHeldItemMainhand().getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                         ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(Player.getHeldItemMainhand());
                         for(int i1=0;i1<stackHandler.getSlots();i1++){
                             ItemStack stack1=stackHandler.getStackInSlot(i1);
@@ -452,7 +457,7 @@ public class CardFunction {
                             if (MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(Player,itemStack,attack).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.EVENT)))return;
                             event.setCanceled(true);
                         }
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int i1=0;i1<stackHandler.getSlots();i1++){
                                 ItemStack stack1=stackHandler.getStackInSlot(i1);
@@ -602,7 +607,7 @@ public class CardFunction {
 
 
 
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int i1=0;i1<stackHandler.getSlots();i1++){
                                 ItemStack stack1=stackHandler.getStackInSlot(i1);
@@ -700,7 +705,7 @@ public class CardFunction {
                         }
 
 
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int i1=0;i1<stackHandler.getSlots();i1++){
                                 ItemStack stack1=stackHandler.getStackInSlot(i1);
@@ -732,7 +737,7 @@ public class CardFunction {
                             if (MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(Player,itemStack,null).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.EVENT)))return;
                             event.setAmount(event.getAmount() * 1.5F);
                         }
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int oi1=0;oi1<stackHandler.getSlots();oi1++){
                                 ItemStack stack1=stackHandler.getStackInSlot(oi1);
@@ -765,7 +770,7 @@ public class CardFunction {
 
 
 
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int js=0;js<stackHandler.getSlots();js++){
                                 ItemStack stack1=stackHandler.getStackInSlot(js);
@@ -818,7 +823,7 @@ public class CardFunction {
                         }
 
 
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int i1=0;i1<stackHandler.getSlots();i1++){
                                 ItemStack stack1=stackHandler.getStackInSlot(i1);
@@ -909,7 +914,7 @@ public class CardFunction {
 
 
 
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int i5=0;i5<stackHandler.getSlots();i5++){
                                 ItemStack stack1=stackHandler.getStackInSlot(i5);
@@ -946,7 +951,7 @@ public class CardFunction {
                         if (itemStack.getItem() == ModItems.DEVILS_BLOOD) {
                             if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(Player,itemStack,hurt).setMessage(MoMoCardEffortEvent.ExtraMessage.Common.EVENT)))hurt.setFire(45);
                         }
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int s5=0;s5<stackHandler.getSlots();s5++){
                                 ItemStack stack1=stackHandler.getStackInSlot(s5);
@@ -979,7 +984,7 @@ public class CardFunction {
                                 Player.getCooldownTracker().setCooldown(ModItems.AI_LING_WISHES, 6 * 20);
                             }
                         }
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int s8=0;s8<stackHandler.getSlots();s8++){
                                 ItemStack stack1=stackHandler.getStackInSlot(s8);
@@ -1036,7 +1041,7 @@ public class CardFunction {
                                 break;
                             }
                         }
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int i7=0;i7<stackHandler.getSlots();i7++){
                                 ItemStack stack1=stackHandler.getStackInSlot(i7);
@@ -1078,7 +1083,7 @@ public class CardFunction {
                         }
 
 
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int i8=0;i8<stackHandler.getSlots();i8++){
                                 ItemStack stack1=stackHandler.getStackInSlot(i8);
@@ -1276,7 +1281,7 @@ public class CardFunction {
                                 }
                             }
                         }
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int i9=0;i9<stackHandler.getSlots();i9++){
                                 ItemStack stack1=stackHandler.getStackInSlot(i9);
@@ -1318,7 +1323,7 @@ public class CardFunction {
                             }
                         }
 
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int i10=0;i10<stackHandler.getSlots();i10++){
                                 ItemStack stack1=stackHandler.getStackInSlot(i10);
@@ -1396,7 +1401,7 @@ public class CardFunction {
                     }
 
 
-                    if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                    if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                         ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                         for(int i5=0;i5<stackHandler.getSlots();i5++){
                             ItemStack stack1=stackHandler.getStackInSlot(i5);
@@ -1464,7 +1469,7 @@ public class CardFunction {
                         }
 
 
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int i7=0;i7<stackHandler.getSlots();i7++){
                                 ItemStack stack1=stackHandler.getStackInSlot(i7);
@@ -1634,7 +1639,7 @@ public class CardFunction {
                                 }
                             }
                         }
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int i7=0;i7<stackHandler.getSlots();i7++){
                                 ItemStack stack1=stackHandler.getStackInSlot(i7);
@@ -1668,7 +1673,7 @@ public class CardFunction {
                     }
                 }
                 ItemStack itemStack=player.getHeldItemMainhand();
-                if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                     ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                     for(int i1=0;i1<stackHandler.getSlots();i1++){
                         ItemStack stack1=stackHandler.getStackInSlot(i1);
@@ -1716,7 +1721,7 @@ public class CardFunction {
                         }
                     }
                 }
-                if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                     ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                     for(int i1=0;i1<stackHandler.getSlots();i1++){
                         ItemStack stack1=stackHandler.getStackInSlot(i1);
@@ -1748,7 +1753,7 @@ public class CardFunction {
                             }
                         }
 
-                        if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                        if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                             ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                             for(int i1=0;i1<stackHandler.getSlots();i1++){
                                 ItemStack stack1=stackHandler.getStackInSlot(i1);
@@ -1841,7 +1846,7 @@ public class CardFunction {
                     if (!MinecraftForge.EVENT_BUS.post(new MoMoCardEffortEvent(player,itemStack,null).setMessage("login")))
                     itemStack.setItemDamage(0);
                 }
-                if (itemStack.getItem()==com.Hileb.moremomostories.item.ModItems.ITEM_CARD_CONTAINER){
+                if (itemStack.getItem()== com.Hileb.moremomostories.common.world.item.ModItems.ITEM_CARD_CONTAINER){
                     ItemStackHandler stackHandler= ItemCardContainer.getItemStackHandler(itemStack);
                     for(int i1=0;i1<stackHandler.getSlots();i1++){
                         ItemStack stack1=stackHandler.getStackInSlot(i1);
@@ -1879,6 +1884,244 @@ public class CardFunction {
                 }
             }
             return new ActionResult<ItemStack>(EnumActionResult.PASS,itemStack);
+        }
+    }
+    /**
+     * Particle: {@link ModEventReader#onUseBow(LivingEntityUseItemEvent.Tick)}
+     */
+    public static class LunaHunting{
+        public static void luna_hunting(LivingHurtEvent event) {
+            //因为Hileb使用幻影矢，这里不再需要攻击加成，且fixBug:
+            /*
+                Hileb 2023/8/11 16:19:23
+                突然发现其实月神狩猎近战效果更好
+                因为没有判断伤害类型
+
+                煮饭婆 2023/8/11 16:20:06
+                啊？
+
+                Hileb 2023/8/11 16:20:09
+                近战翻5倍
+                [菜汪]请使用最新版手机QQ体验新功能
+
+                煮饭婆 2023/8/11 16:20:27
+                但也就5攻击吧
+
+                Hileb 2023/8/11 16:21:05
+                不知道为什么
+                我这里一拳捶死僵尸
+                等一下
+                加成还不是看手
+                煮饭婆 2023/8/11 16:21:56
+                我记得似乎写了对亡灵加伤的
+
+                Hileb 2023/8/11 16:21:57
+                是检测背包
+                背包有多少把就翻多少次5倍
+
+                煮饭婆 2023/8/11 16:22:42
+                艹，指数倍了
+
+                Hileb 2023/8/11 16:23:27
+                叠几个一拳捶死末影龙
+
+                煮饭婆 2023/8/11 16:24:08
+                写叉劈了
+             */
+//            World world = event.getEntity().world;
+//            if (!world.isRemote) {
+//                EntityLivingBase attacker = (EntityLivingBase)event.getSource().getTrueSource();
+//                if (attacker instanceof EntityPlayer) {
+//                    EntityPlayer player = (EntityPlayer)attacker;
+//
+////                    for(int i = 0; i < Player.field_71071_by.func_70302_i_(); ++i) {
+////                        ItemStack itemStack = Player.field_71071_by.func_70301_a(i);
+////                        if (itemStack.func_77973_b() == ModItems.LUNA_HUNTING && !world.func_72935_r()) {
+////                            event.setAmount(event.getAmount() * 5.0F);
+////                        }
+////                    }
+//                }
+//            }
+
+        }
+        public static ItemStack findAmmo(EntityPlayer player)
+        {
+            if ((player.getHeldItem(EnumHand.OFF_HAND).getItem() instanceof ItemArrow))
+            {
+                return player.getHeldItem(EnumHand.OFF_HAND);
+            }
+            else if (player.getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof ItemArrow)
+            {
+                return player.getHeldItem(EnumHand.MAIN_HAND);
+            }
+            else
+            {
+                for (int i = 0; i < player.inventory.getSizeInventory(); ++i)
+                {
+                    ItemStack itemstack = player.inventory.getStackInSlot(i);
+
+                    if (itemstack.getItem() instanceof ItemArrow)
+                    {
+                        return itemstack;
+                    }
+                }
+
+                return ItemStack.EMPTY;
+            }
+        }
+        public static void onPlayerStoppedUsing(ItemBow item, ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
+            if (entityLiving instanceof EntityPlayer)
+            {
+                EntityPlayer entityplayer = (EntityPlayer)entityLiving;
+                final long time=worldIn.getWorldTime();
+                boolean flagNight = time % 24000L > 13850L && time % 24000L < 23000L;
+                boolean flag = entityplayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
+                ItemStack itemstack = findAmmo(entityplayer);
+
+                int i = item.getMaxItemUseDuration(stack) - timeLeft;
+                i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, entityplayer, i, !itemstack.isEmpty() || flag);
+                if (i < 0) return;
+
+                if (flagNight && i>=1){
+
+                    final int maxEffectLong=2048;
+
+                    Vec3d playerShootPos=new Vec3d(entityplayer.posX, entityLiving.posY+entityplayer.getEyeHeight(), entityplayer.posZ);
+                    Vec3d lookV=entityplayer.getLookVec();
+                    double lookX=lookV.x;
+                    double lookY=lookV.y;
+                    double lookZ=lookV.z;
+
+                    worldIn.playSound(null,playerShootPos.x, playerShootPos.y,playerShootPos.z,
+                            SoundEvents.ENTITY_ENDERMEN_TELEPORT,
+                            SoundCategory.HOSTILE,2.0F,1.0F);
+
+                    Vec3d playerLook= new Vec3d(lookX*maxEffectLong,lookY*maxEffectLong,lookZ*maxEffectLong);
+                    entityplayer.rayTrace(2048,0);
+                    //List<RayTraceResult> results= com.Hileb.moremomostories.common.util.math.MathHelper.raytraceAll(worldIn,playerShootPos,playerShootPos.add(playerLook),false);
+                    RayTraceResult result= com.Hileb.moremomostories.common.util.math.MathHelper.rayTraceShoot(entityplayer,worldIn,playerShootPos,playerShootPos.add(playerLook),0.5);
+
+
+
+                    VirtueSpace virtueSpace=new VirtueSpace(playerShootPos);
+                    for(int o=0;o<=maxEffectLong*4;o++){
+                        virtueSpace.putPos(new Vec3d(0,o,0));
+                        if (o%8==0){
+                            for(int os=0;os<=32;os++){
+                                float angle= (float) Math.PI/16*os;
+                                float x=MathHelper.cos(angle);
+                                float z=MathHelper.sin(angle);
+                                virtueSpace.putPos(new Vec3d(x,o,z));
+                            }
+                        }
+                    }
+                    virtueSpace.scale(1,0.25d,1);
+                    virtueSpace.rotation(-entityplayer.rotationPitch*0.017453292F-(float)Math.PI/2f,-entityplayer.rotationYaw* 0.017453292F);
+                    for(Vec3d pos:virtueSpace.vec3dList){
+                        //MoreMoMoSrories.logger.warn("{} {} {}",pos.x+playerShootPos.x,pos.y+playerShootPos.y,pos.z+playerShootPos.z);
+                        worldIn.spawnParticle(EnumParticleTypes.END_ROD,
+                                pos.x+playerShootPos.x,pos.y+playerShootPos.y,pos.z+playerShootPos.z,
+                                0,0,0
+                        );
+                    }
+                    if (!worldIn.isRemote && result!=null) {
+                        boolean fire = EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, stack) > 0;
+                        //MoreMoMoSrories.logger.warn(result.toString());
+                        if (result.typeOfHit == RayTraceResult.Type.BLOCK) {
+                            if (fire){
+                                BlockPos pos = result.getBlockPos();
+                                pos = pos.offset(result.sideHit);
+                                if (worldIn.isAirBlock(pos)) {
+                                    worldIn.setBlockState(pos, Blocks.FIRE.getDefaultState(), 11);
+                                }
+                            }
+                        } else if (result.typeOfHit == RayTraceResult.Type.ENTITY) {
+                            double speedCount=stack.getMaxItemUseDuration() - entityplayer.getItemInUseCount();
+                            if (speedCount>=92)speedCount=92;
+                            speedCount=speedCount*speedCount/256;
+                            if (speedCount<=10)speedCount=10;
+
+                            float damage = (float) speedCount;
+                            int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
+
+                            if (j > 0) {
+                                damage += (double) j * 0.5D + 0.5D;
+                            }
+                            Entity entity = result.entityHit;
+                            entity.attackEntityFrom(DamageSource.causePlayerDamage(entityplayer), damage);
+                            if (fire)entity.setFire(100);
+                        }
+                    }
+                    entityplayer.addStat(StatList.getObjectUseStats(item));
+                    return;
+                } else if (!itemstack.isEmpty() || flag )
+                {
+                    if (itemstack.isEmpty())
+                    {
+                        itemstack = new ItemStack(Items.ARROW);
+                    }
+
+                    float f = getArrowVelocity(i);
+
+                    if ((double)f >= 0.1D)
+                    {
+                        boolean flag1 = entityplayer.capabilities.isCreativeMode || (itemstack.getItem() instanceof ItemArrow && ((ItemArrow) itemstack.getItem()).isInfinite(itemstack, stack, entityplayer));
+
+                        if (!worldIn.isRemote)
+                        {
+                            ItemArrow itemarrow = (ItemArrow)(itemstack.getItem() instanceof ItemArrow ? itemstack.getItem() : Items.ARROW);
+                            EntityArrow entityarrow = itemarrow.createArrow(worldIn, itemstack, entityplayer);
+                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F, 1.0F);
+
+                            if (f == 1.0F)
+                            {
+                                entityarrow.setIsCritical(true);
+                            }
+
+                            int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
+
+                            if (j > 0)
+                            {
+                                entityarrow.setDamage(entityarrow.getDamage() + (double)j * 0.5D + 0.5D);
+                            }
+
+                            int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH, stack);
+
+                            if (k > 0)
+                            {
+                                entityarrow.setKnockbackStrength(k);
+                            }
+
+                            if (EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, stack) > 0)
+                            {
+                                entityarrow.setFire(100);
+                            }
+
+                            stack.damageItem(1, entityplayer);
+
+                            if (flag1 || entityplayer.capabilities.isCreativeMode && (itemstack.getItem() == Items.SPECTRAL_ARROW || itemstack.getItem() == Items.TIPPED_ARROW))
+                            {
+                                entityarrow.pickupStatus = EntityArrow.PickupStatus.CREATIVE_ONLY;
+                            }
+
+                            worldIn.spawnEntity(entityarrow);
+                        }
+
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F / (RandomManager.random.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+
+                        if (!flag1 && !entityplayer.capabilities.isCreativeMode)
+                        {
+                            itemstack.shrink(1);
+
+                            if (itemstack.isEmpty())
+                            {
+                                entityplayer.inventory.deleteStack(itemstack);
+                            }
+                        }
+                        entityplayer.addStat(StatList.getObjectUseStats(item));
+                    }
+                }
+            }
         }
     }
 

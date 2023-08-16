@@ -1,8 +1,7 @@
 package com.Hileb.moremomostories.mixin.momostories.mixin.fixBug;
 
-import com.Hileb.moremomostories.otherMods.momo.Somethings;
+import com.Hileb.moremomostories.mods.momo.MoMoStoriesMixinContainer;
 import com.gq2529.momostories.MoMoFramework;
-import com.gq2529.momostories.blocks.BlockBase;
 import com.gq2529.momostories.blocks.ModBlock.StoneGrinder;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
@@ -10,7 +9,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -22,7 +20,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -45,8 +42,8 @@ public abstract class MixinStoneGrinder extends Block{
 
     //mixin bug in building? use
     public AxisAlignedBB func_185496_a(IBlockState state, IBlockAccess source, BlockPos pos) {
-        if (state.getValue(BlockHorizontal.FACING)==EnumFacing.NORTH || state.getValue(BlockHorizontal.FACING)==EnumFacing.SOUTH)return Somethings.AABB_BLOCK1;
-        else return Somethings.AABB_BLOCK2;
+        if (state.getValue(BlockHorizontal.FACING)==EnumFacing.NORTH || state.getValue(BlockHorizontal.FACING)==EnumFacing.SOUTH)return MoMoStoriesMixinContainer.AABB_BLOCK1;
+        else return MoMoStoriesMixinContainer.AABB_BLOCK2;
     }
 
     @Override
