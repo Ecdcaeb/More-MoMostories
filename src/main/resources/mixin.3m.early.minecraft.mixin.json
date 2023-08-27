@@ -1,0 +1,12 @@
+{
+  "package": "com.Hileb.moremomostories.mixin.minecraft.mixin",
+  "refmap": "mixins.moremomostories.refmap.json",
+  "mixins": [],
+  "client": [
+    "MixinRenderItem",
+    "MixinItemStack"
+  ],
+  "minVersion": 0.8,
+  "compatibilityLevel": "JAVA_8",
+  "server": []
+}

@@ -13,7 +13,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.DamageSource;
 
-public class ModEnchantmentBase extends Enchantment {
+public class EnchantmentBase extends Enchantment {
     private boolean isTreasure = false;
 
     private int maxLevel = 1;
@@ -42,43 +42,43 @@ public class ModEnchantmentBase extends Enchantment {
 //        shareConflicts = ench;
 //    }
 
-    public ModEnchantmentBase setHidden(boolean val)
+    public EnchantmentBase setHidden(boolean val)
     {
         isHidden = val;
         return this;
     }
 
-    public ModEnchantmentBase setMaxLevel(int maxLevel)
+    public EnchantmentBase setMaxLevel(int maxLevel)
     {
         this.maxLevel = maxLevel;
         return this;
     }
 
-    public ModEnchantmentBase setAsTreasure()
+    public EnchantmentBase setAsTreasure()
     {
         this.isTreasure = true;
         return this;
     }
-    public ModEnchantmentBase setAsCurse()
+    public EnchantmentBase setAsCurse()
     {
         this.isCurseEnch = true;
         return this;
     }
 
-    public ModEnchantmentBase setConflicts(Enchantment[] conflicts)
+    public EnchantmentBase setConflicts(Enchantment[] conflicts)
     {
         this.conflicts = conflicts;
         return this;
     }
 
-    public ModEnchantmentBase setRarityModifier(float baseFactor, float deltaFactor)
+    public EnchantmentBase setRarityModifier(float baseFactor, float deltaFactor)
     {
         this.rarityBaseMultiplier = baseFactor;
         this.rarityDeltaMultiplier = deltaFactor;
         return this;
     }
 
-    public ModEnchantmentBase setValue(float base_val, float per_level)
+    public EnchantmentBase setValue(float base_val, float per_level)
     {
         this.base_val = base_val;
         this.per_level = per_level;
@@ -123,11 +123,11 @@ public class ModEnchantmentBase extends Enchantment {
     }
 
     //Constructors
-    public ModEnchantmentBase(String name, Rarity rarityIn, EnumEnchantmentType typeIn, EntityEquipmentSlot[] slots)
+    public EnchantmentBase(String name, Rarity rarityIn, EnumEnchantmentType typeIn, EntityEquipmentSlot[] slots)
     {
         super(rarityIn, typeIn, slots);
         setRegistryName(MoreMoMoSrories.MODID, name);
-        setName(name);
+        setName(MoreMoMoSrories.MODID+"."+name);
         ModEnchantmentInit.ENCHANTMENT_LIST.add(this);
         applicableEquipmentTypesOpen = slots;
         //note this slots arguments. Only enchantments in those slots will be counted!

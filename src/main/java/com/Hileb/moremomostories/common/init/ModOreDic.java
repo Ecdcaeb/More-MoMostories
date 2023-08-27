@@ -9,5 +9,8 @@ public class ModOreDic {
         OreDictionary.registerOre("oreId", ModBlocks.ID);
         OreDictionary.registerOre("dustId", ModItems.ID_SAND);
         OreDictionary.registerOre("dustBook", com.Hileb.moremomostories.common.world.item.ModItems.ITEM_BOOK_DUST);
+
+        OreDictionary.registerOre("blood",ModItems.DEVILS_BLOOD_BUCKET);
+        OreDictionary.registerOre("bloodDevils",ModItems.DEVILS_BLOOD_BUCKET);
     }
 }

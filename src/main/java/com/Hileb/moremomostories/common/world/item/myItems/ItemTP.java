@@ -1,7 +1,7 @@
 package com.Hileb.moremomostories.common.world.item.myItems;
 
 import com.Hileb.moremomostories.common.init.ModConfig;
-import com.Hileb.moremomostories.common.world.item.IEntityItemX;
+import com.Hileb.moremomostories.common.world.item.interfaces.IEntityItemX;
 import com.Hileb.moremomostories.common.world.item.ItemBase;
 import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
 import com.Hileb.moremomostories.common.util.Teleport;

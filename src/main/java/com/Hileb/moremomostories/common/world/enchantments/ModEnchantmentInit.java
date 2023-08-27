@@ -1,6 +1,7 @@
 package com.Hileb.moremomostories.common.world.enchantments;
 
 import com.Hileb.moremomostories.MoreMoMoSrories;
+import com.Hileb.moremomostories.common.world.enchantments.enchantments.EnchantmentBlood;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -29,14 +30,27 @@ public class ModEnchantmentInit {
     public static final EntityEquipmentSlot[] mainHand = new EntityEquipmentSlot[] {EntityEquipmentSlot.MAINHAND};
 
     public static final RegistryNamespaced<ResourceLocation, Enchantment> REGISTRY = net.minecraftforge.registries.GameData.getWrapper(Enchantment.class);
-    public static final List<Enchantment> ENCHANTMENT_LIST = new ArrayList<Enchantment>();
+    public static final List<Enchantment> ENCHANTMENT_LIST = new ArrayList<Enchantment>();//自动注册
+
+
+
+
+    public static final Enchantment BLOOD=new EnchantmentBlood("blood");
+    public static final Enchantment YYU=new EnchantmentBlood("uu"){
+        @Override
+        public int getEnchantmentColor(ItemStack stack) {
+            return 0x00FF00;
+        }
+    };
+
+
 
     //Example Enchant
-//    public static final ModEnchantmentBase ANTI_VANILLA = new ModEnchantmentBase("moremomostories.anti_vanilla", Enchantment.Rarity.UNCOMMON, EnumEnchantmentType.WEAPON,  mainHand)
+//    public static final EnchantmentBase ANTI_VANILLA = new EnchantmentBase("moremomostories.anti_vanilla", Enchantment.Rarity.UNCOMMON, EnumEnchantmentType.WEAPON,  mainHand)
 //            .setMaxLevel(10).setValue(0.3f, 0.3f);
     //附魔
 
-//    public static final ModEnchantmentBase ENCH_COPY = new ModEnchantmentBase("moremomostories.copy", Enchantment.Rarity.VERY_RARE, EnumEnchantmentType.WEAPON,  mainHand)
+//    public static final EnchantmentBase ENCH_COPY = new EnchantmentBase("moremomostories.copy", Enchantment.Rarity.VERY_RARE, EnumEnchantmentType.WEAPON,  mainHand)
 //            .setMaxLevel(64).setValue(0.3f, 0.3f);
 
     //Conflict groups
@@ -62,9 +76,9 @@ public class ModEnchantmentInit {
                 group
         ) {
             //is my enchants
-            if (ench instanceof ModEnchantmentBase)
+            if (ench instanceof EnchantmentBase)
             {
-                ((ModEnchantmentBase) ench).setConflicts(group);
+                ((EnchantmentBase) ench).setConflicts(group);
             }
         }
     }

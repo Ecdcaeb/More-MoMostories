@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "moremomostories:items/misc/item_devils_sword"
+  }
+}

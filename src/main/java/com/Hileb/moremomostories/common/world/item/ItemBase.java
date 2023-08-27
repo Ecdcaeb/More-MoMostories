@@ -5,6 +5,7 @@ import com.Hileb.moremomostories.common.init.ModCreativeTab;
 import com.Hileb.moremomostories.common.util.*;
 import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTDef;
 import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.moremomostories.common.world.item.interfaces.IEntityItemX;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;

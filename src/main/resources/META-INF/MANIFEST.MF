@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+FMLCorePlugin: com.Hileb.moremomostories.mixin.core.MoreMoMoStoriesLoadingCore
+FMLCorePluginContainsFMLMod: true
+FMLAT: moremomostories_at.cfg

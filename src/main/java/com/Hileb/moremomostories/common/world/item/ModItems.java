@@ -1,6 +1,7 @@
 package com.Hileb.moremomostories.common.world.item;
 
 import com.Hileb.moremomostories.common.init.ModCreativeTab;
+import com.Hileb.moremomostories.common.world.enchantments.ModEnchantmentInit;
 import com.Hileb.moremomostories.common.world.item.books.ItemBookBuddhaGodPalm;
 import com.Hileb.moremomostories.common.world.item.food.ItemFoodBase;
 import com.Hileb.moremomostories.common.world.item.food.ItemFoodDuckKao;
@@ -14,7 +15,9 @@ import com.Hileb.moremomostories.common.world.item.paper.ItemPaper1;
 import com.Hileb.moremomostories.common.world.item.paper.ItemScene1;
 import com.Hileb.moremomostories.common.world.item.weapon.ItemZ;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFishFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
@@ -86,6 +89,8 @@ public class ModItems {
 
 
     public static final Item ITEM_TP=new ItemTP("item_tp");
+
+    public static final Item ITEM_BLOOD_SWORD=new ItemDevilsSword("item_devils_sword");
 
 
 
@@ -190,6 +195,9 @@ public class ModItems {
             items.add((i++),new ItemStack(ITEM_FOOD_SYZG));
             items.add((i++),new ItemStack(ITEM_DUCK_COOKED));
             items.add((i++),new ItemStack(ITEM_DUCK_KAO));
+            ItemStack stackFish=new ItemStack(Items.FISH,1, ItemFishFood.FishType.CLOWNFISH.getMetadata());
+            stackFish.addEnchantment(ModEnchantmentInit.YYU,3);
+            items.add((i++),stackFish);
             //main
             items.add((i++),new ItemStack(ITEM_11_A));
             items.add((i++),new ItemStack(ITEM_MAIN_NULL));

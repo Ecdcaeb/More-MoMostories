@@ -1,6 +1,6 @@
 package com.Hileb.moremomostories.common.world.item.myItems;
 
-import com.Hileb.moremomostories.common.world.item.IEntityItemX;
+import com.Hileb.moremomostories.common.world.item.interfaces.IEntityItemX;
 import com.Hileb.moremomostories.common.world.item.ItemSwordBase;
 import com.Hileb.moremomostories.common.world.item.ModItems;
 import com.Hileb.moremomostories.common.world.entity.entity.projectile.EntityFire;

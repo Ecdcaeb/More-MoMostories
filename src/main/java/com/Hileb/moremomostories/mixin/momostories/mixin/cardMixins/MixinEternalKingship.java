@@ -14,7 +14,7 @@ public abstract class MixinEternalKingship extends Item {
 
     @Overwrite
     @SubscribeEvent
-    public static void AnvilRepairEvent(AnvilRepairEvent event) {
+    public void AnvilRepairEvent(AnvilRepairEvent event) {
         CardFunction.EternalKingship.AnvilRepairEvent(event);
     }
     @Overwrite

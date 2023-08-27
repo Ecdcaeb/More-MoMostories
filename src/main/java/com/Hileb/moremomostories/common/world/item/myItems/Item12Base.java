@@ -231,7 +231,7 @@ public class Item12Base extends ItemBase {
 
             }
         }catch (ClassCastException e){
-            MoreMoMoSrories.logger.error(e);
+            MoreMoMoSrories.LOGGER.error(e);
         }
 
     }

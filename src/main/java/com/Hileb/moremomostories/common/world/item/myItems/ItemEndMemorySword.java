@@ -1,7 +1,7 @@
 package com.Hileb.moremomostories.common.world.item.myItems;
 
 import com.Hileb.moremomostories.MoreMoMoSrories;
-import com.Hileb.moremomostories.common.world.item.IEntityItemX;
+import com.Hileb.moremomostories.common.world.item.interfaces.IEntityItemX;
 import com.Hileb.moremomostories.common.world.item.ItemSwordBase;
 import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
 import com.Hileb.moremomostories.common.util.named.skillTag.ItemSkillList;
@@ -70,7 +70,7 @@ public class ItemEndMemorySword extends ItemSwordBase implements IEntityItemX {
                                 break;
                             }
                         }
-                        if (!flag) MoreMoMoSrories.logger.error(String.format("on setting living target by %s [entity:%s]",this.getUnlocalizedName(),living.getUniqueID().toString()),(Throwable) e);
+                        if (!flag) MoreMoMoSrories.LOGGER.error(String.format("on setting living target by %s [entity:%s]",this.getUnlocalizedName(),living.getUniqueID().toString()),(Throwable) e);
 
                     }
 
@@ -82,10 +82,10 @@ public class ItemEndMemorySword extends ItemSwordBase implements IEntityItemX {
                                 attackTarget.set(living,null);
                             }
                         }catch (NullPointerException e){
-                            MoreMoMoSrories.logger.error(String.format("on setting living target by %s [entity:%s]",this.getUnlocalizedName(),living.getUniqueID().toString()),(Throwable) e);
+                            MoreMoMoSrories.LOGGER.error(String.format("on setting living target by %s [entity:%s]",this.getUnlocalizedName(),living.getUniqueID().toString()),(Throwable) e);
                         }
                     }catch (IllegalAccessException e){
-                        MoreMoMoSrories.logger.error(String.format("on setting living target by %s [entity:%s]",this.getUnlocalizedName(),living.getUniqueID().toString()),(Throwable) e);
+                        MoreMoMoSrories.LOGGER.error(String.format("on setting living target by %s [entity:%s]",this.getUnlocalizedName(),living.getUniqueID().toString()),(Throwable) e);
                     }
                 }
             }

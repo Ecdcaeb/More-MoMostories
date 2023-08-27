@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.world.item;
+package com.Hileb.moremomostories.common.world.item.interfaces;
 
 import com.Hileb.moremomostories.common.world.entity.entity.EntityItemX;
 import net.minecraft.entity.Entity;

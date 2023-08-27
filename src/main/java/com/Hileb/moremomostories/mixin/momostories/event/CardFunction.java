@@ -65,6 +65,13 @@ import java.util.Random;
 import static net.minecraft.item.ItemBow.getArrowVelocity;
 
 public class CardFunction {
+
+    public static void fixBugs(){
+        MinecraftForge.EVENT_BUS.register(ModItems.ETERNA_KINGSHIP);
+    }
+    static {
+        fixBugs();
+    }
     public static class LunaBlessing {
         public static void doTwilightCloakCheck(LivingEvent event) {
             /** means that clear target when EntityPlayer has it and target is player,null it!**/
@@ -2124,6 +2131,7 @@ public class CardFunction {
             }
         }
     }
+
 
 
 

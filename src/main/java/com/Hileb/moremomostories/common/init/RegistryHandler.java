@@ -42,10 +42,6 @@ public class RegistryHandler {
 	{
 		ModEnchantmentInit.BeforeRegister();
 		event.getRegistry().registerAll(ModEnchantmentInit.ENCHANTMENT_LIST.toArray(new Enchantment[0]));
-
-//		for (Enchantment enchantment : Enchantment.REGISTRY) {
-//			MoreMoMoSrories.Log("registered enchantments: %s", enchantment.getName());
-//		}
 	}
 
 	@SideOnly(Side.CLIENT)
