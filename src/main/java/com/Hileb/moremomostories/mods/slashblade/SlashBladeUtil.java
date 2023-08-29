@@ -5,12 +5,27 @@ import com.Hileb.moremomostories.mods.slashblade.blade.BladeType;
 import com.Hileb.moremomostories.mods.slashblade.blade.ModBlades;
 import com.Hileb.moremomostories.mods.slashblade.specialattack.ModSpecialAttack;
 import com.Hileb.moremomostories.mods.slashblade.specialattack.SpecialAttackType;
+import mods.flammpfeil.slashblade.SlashBlade;
 import mods.flammpfeil.slashblade.item.ItemSlashBlade;
+import mods.flammpfeil.slashblade.named.event.LoadEvent;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.FMLThrowingEventBus;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 
 
 public class SlashBladeUtil {
+    @SubscribeEvent
+    public void onLoadInit(LoadEvent.InitEvent event){
+        registerSA();
+        registerBlade();
+        registerRecipe(ForgeRegistries.RECIPES);
+    }
+    @SubscribeEvent
+    public void onLoadPost(LoadEvent.PostInitEvent event){
+    }
 
     public static void registerBlade(){
         for(BladeType bladeType: ModBlades.REGISTER){

@@ -1,12 +1,12 @@
 package com.Hileb.moremomostories.common.world.entity;
 
 import com.Hileb.moremomostories.MoreMoMoSrories;
+import com.Hileb.moremomostories.common.init.ModBiomes;
 import com.Hileb.moremomostories.common.world.entity.entity.EntityItemX;
 import com.Hileb.moremomostories.common.world.entity.entity.living.boss.EntityBossDisdescable;
 import com.Hileb.moremomostories.common.world.entity.entity.living.boss.EntityGoldenGuideBoss;
 import com.Hileb.moremomostories.common.world.entity.entity.living.EntityBookworm;
 import com.Hileb.moremomostories.common.world.entity.entity.living.*;
-import com.Hileb.moremomostories.common.init.InitBiome;
 import com.Hileb.moremomostories.common.world.entity.entity.projectile.EntityFire;
 import com.Hileb.moremomostories.common.world.entity.entity.projectile.EntityIce;
 import com.Hileb.moremomostories.common.world.entity.entity.projectile.EntityIceMother;
@@ -57,11 +57,11 @@ public class ModEntityInit {
         //Assign Dungeons
         //DungeonHooks.addDungeonMob(EntityList.getKey(EntityMoroonTainter.class), STANDARD_DUNGEON_MOB_RARITY);
 
-        //registerEntitySpawn(EntityGoldenGuide.class,100,4,10,EnumCreatureType.CREATURE, InitBiome.BIOME_BOOK);
-        EntityRegistry.addSpawn(EntityGoldenGuide.class, 10, 10, 100,EnumCreatureType.CREATURE,InitBiome.BIOME_BOOK);
-        EntityRegistry.addSpawn(EntityBookworm.class, 10, 10, 100,EnumCreatureType.CREATURE,InitBiome.BIOME_BOOK);
-        EntityRegistry.addSpawn(EntityGoldenGuideBoss.class, 1, 0,1,EnumCreatureType.CREATURE,InitBiome.BIOME_BOOK);
-        EntityRegistry.addSpawn(EntityBossDisdescable.class, 1, 0,1,EnumCreatureType.CREATURE,InitBiome.BIOME_BOOK);
+        //registerEntitySpawn(EntityGoldenGuide.class,100,4,10,EnumCreatureType.CREATURE, ModBiomes.BIOME_BOOK);
+        EntityRegistry.addSpawn(EntityGoldenGuide.class, 10, 10, 100,EnumCreatureType.CREATURE, ModBiomes.BIOME_BOOK);
+        EntityRegistry.addSpawn(EntityBookworm.class, 10, 10, 100,EnumCreatureType.CREATURE, ModBiomes.BIOME_BOOK);
+        EntityRegistry.addSpawn(EntityGoldenGuideBoss.class, 1, 0,1,EnumCreatureType.CREATURE, ModBiomes.BIOME_BOOK);
+        EntityRegistry.addSpawn(EntityBossDisdescable.class, 1, 0,1,EnumCreatureType.CREATURE, ModBiomes.BIOME_BOOK);
     }
 
     private  static  void registerEntityEgg(String name, Class<? extends Entity> entity)

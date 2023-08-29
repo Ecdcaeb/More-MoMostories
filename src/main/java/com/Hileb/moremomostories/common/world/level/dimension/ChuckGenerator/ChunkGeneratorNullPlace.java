@@ -1,7 +1,7 @@
 package com.Hileb.moremomostories.common.world.level.dimension.ChuckGenerator;
 
 import com.Hileb.moremomostories.common.world.blocks.ModBlocks;
-import com.Hileb.moremomostories.common.init.InitBiome;
+import com.Hileb.moremomostories.common.init.ModBiomes;
 import com.Hileb.moremomostories.common.world.level.structure.IHilebStructure;
 import com.Hileb.moremomostories.common.world.level.structure.StructurePrimerTree;
 import com.Hileb.moremomostories.common.world.level.structure.StructureTest;
@@ -101,7 +101,7 @@ public class ChunkGeneratorNullPlace implements IChunkGenerator {
 
     @Override
     public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
-        return InitBiome.BIOME_BOOK.getSpawnableList(creatureType);
+        return ModBiomes.BIOME_BOOK.getSpawnableList(creatureType);
     }
 
     @Override
@@ -120,8 +120,8 @@ public class ChunkGeneratorNullPlace implements IChunkGenerator {
 
         for (int i = 0; i < abyte.length; ++i)
         {
-            abyte[i] = (byte)Biome.getIdForBiome(InitBiome.BIOME_BOOK);
-            //abyte[i] = (byte)Biome.getIdForBiome(InitBiome.BIOME_ONE);
+            abyte[i] = (byte)Biome.getIdForBiome(ModBiomes.BIOME_BOOK);
+            //abyte[i] = (byte)Biome.getIdForBiome(ModBiomes.BIOME_ONE);
         }
 
         chunk.resetRelightChecks();

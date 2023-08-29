@@ -169,6 +169,8 @@ com.hileb.achievement.lx.title=homo故事会
 com.hileb.achievement.lx.desc=遇见老♂乡。
 
 death.attack.van_damage=%1$s遇见了老♂乡。
+death.attack.momostories.wither=%1$s被%2$s榨干了。
+death.attack.momostories.wither.item=%1$s被%2$s用%3$s榨干了。
 
 tile.block_stone_red.name=红色氙石矿石
 tile.block_stone_blue.name=蓝色氙石矿石
@@ -313,7 +315,7 @@ entity.entity_rain.name=雨点
 entity.entity_ice.name=冰点
 entity.entity_icem.name=北极
 
-effect.potion_blind_day.name=白昼
+effect.moremomostories.potion_blind_day.name=白昼
 tag.tag_best.name=神圣的
 DayTimeText=§e曙光初现..
 com.hileb.momo.lang.skill.bakin=§e淫气释放

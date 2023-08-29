@@ -1,7 +1,6 @@
 package com.Hileb.moremomostories.common.init;
 
 import com.Hileb.moremomostories.MoreMoMoSrories;
-import com.Hileb.moremomostories.mods.slashblade.SlashBladeUtil;
 import com.Hileb.moremomostories.common.world.advancements.Advancementkeys;
 import com.Hileb.moremomostories.common.world.blocks.ModBlocks;
 import com.Hileb.moremomostories.common.meta.MetaUtil;
@@ -26,7 +25,7 @@ public class ModRecipes {
 	public static IForgeRegistry<IRecipe> recipesRegister;
 	
 	
-	public static void Init() {
+	public static void init() {
 		registerRecipe();
 		registerSmelting();
 	}
@@ -38,7 +37,7 @@ public class ModRecipes {
 //		GameRegistry.addSmelting(ModItems.PURE_INGOT,
 //				new ItemStack(ModItems.WEAPON_PEARL),
 //				0.1f);
-				GameRegistry.addSmelting(com.Hileb.moremomostories.common.world.item.ModItems.ITEM_DUCK_COOKED, new ItemStack(com.Hileb.moremomostories.common.world.item.ModItems.ITEM_DUCK_KAO), 0.1f);
+				GameRegistry.addSmelting(new ItemStack(com.Hileb.moremomostories.common.world.item.ModItems.ITEM_DUCK_COOKED), new ItemStack(com.Hileb.moremomostories.common.world.item.ModItems.ITEM_DUCK_KAO), 0.1f);
 	}
 	
 	@SubscribeEvent
@@ -78,10 +77,6 @@ public class ModRecipes {
 			r.register(new RecipePutrid(ModItems.SCAVENGERS,RecipePutrid.PutridItems.get(i),ModItems.MYSTERIOUS_MEATBALLS).setRegistryName(new ResourceLocation(Reference.MOD_ID, String.format("recipe_putrid_%d",i))));
 		}
 		//r.register(new ShapelessOreRecipe("for_id_paper_6151", ModItems.Id_SANDPAPER, OreDictionary.getOres("dustId"),OreDictionary.getOres("logNoLeaf")));
-
-		if (MetaUtil.isLoaded_SlashBlade){
-			SlashBladeUtil.registerRecipe(r);
-		}
 
 	}
 	@SubscribeEvent

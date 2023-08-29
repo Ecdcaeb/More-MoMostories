@@ -31,7 +31,7 @@ public class RenderGuide extends RenderBiped<EntityGoldenGuide>
 
 
     /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
+     * Returns the location of an entity's texture. Doesn't seem to be called unless you call RenderLunaBless.bindEntityTexture.
      */
     protected ResourceLocation getEntityTexture(EntityGoldenGuide entity)
     {

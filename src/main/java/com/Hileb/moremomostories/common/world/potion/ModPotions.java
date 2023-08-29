@@ -22,6 +22,8 @@ public class ModPotions {
     public static final Potion BAKIN = new PotionBaKin("potion_blind_bakin");
     public static final Potion DAY_BLIND= new PotionDayTime("potion_blind_day");
 
+    public static final Potion BLOOD= new PotionDayTime("potion_blood");
+
 //    public static final PotionZenHeart ZEN_HEART = new PotionZenHeart(false, 0xcccc00, "zen_heart", 1);
 
     @Nullable

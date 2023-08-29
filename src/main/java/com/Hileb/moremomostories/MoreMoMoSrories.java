@@ -15,6 +15,8 @@ import com.Hileb.moremomostories.proxy.ProxyBase;
 import com.Hileb.moremomostories.common.util.Reference;
 import com.Hileb.moremomostories.common.util.named.NameTagHandler;
 import com.Hileb.moremomostories.common.util.named.NameTags;
+import mods.flammpfeil.slashblade.SlashBlade;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -54,11 +56,15 @@ public class MoreMoMoSrories {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         RegistryHandler.preInitRegistries(event);
+
+        if (Loader.isModLoaded(SlashBlade.modid)){
+            SlashBlade.InitEventBus.register(new SlashBladeUtil());
+        }
     }
 
     @EventHandler
     public static void Init(FMLInitializationEvent event) {
-        ModRecipes.Init();
+        ModRecipes.init();
         RegisterTileEntity();
         initRegistries(event);
         ModOreDic.init();
@@ -67,10 +73,6 @@ public class MoreMoMoSrories {
         {
             clientInit();
             KeyboardManager.init();
-        }
-        if (MetaUtil.isLoaded_SlashBlade){//联动拔刀剑//
-            SlashBladeUtil.registerBlade();//注册拔刀剑
-            SlashBladeUtil.registerSA();//注册SA
         }
         NetworkHandler.init();
 

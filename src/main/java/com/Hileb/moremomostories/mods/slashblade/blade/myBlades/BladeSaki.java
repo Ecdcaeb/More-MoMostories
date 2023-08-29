@@ -1,5 +1,6 @@
 package com.Hileb.moremomostories.mods.slashblade.blade.myBlades;
 
+import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.mods.slashblade.blade.BladeType;
 import com.Hileb.moremomostories.mods.slashblade.specialattack.ModSpecialAttack;
 import com.Hileb.moremomostories.mods.slashblade.specialattack.SpecialAttackType;
@@ -95,7 +96,7 @@ public class BladeSaki extends BladeType {
         ItemSlashBlade.KillCount.set(requireBladeTag, 1000);//对nbt进行修改，添加其内容（增加要求）
         //reqiredBlade.addEnchantment(Enchantments.field_185302_k, 1);
         //将该配方真正添加
-        return new RecipeAwakeBlade(new ResourceLocation("flammpfeil.slashblade", getName()),thisBlade, reqiredBlade,
+        return new RecipeAwakeBlade(new ResourceLocation(MoreMoMoSrories.MODID, getName()),thisBlade, reqiredBlade,
                 "QGO",
                 "GBG",
                 "OAQ",

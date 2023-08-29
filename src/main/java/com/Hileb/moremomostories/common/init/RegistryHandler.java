@@ -70,8 +70,8 @@ public class RegistryHandler {
 	public static void preInitRegistries(FMLPreInitializationEvent event)
 	{
 		ModGenInit.init(event);
-		InitBiome.registerBiomes();
-		InitDimension.registerDimensions();
+		ModBiomes.registerBiomes();
+		ModDimensions.registerDimensions();
 
 		ModEntityInit.registerEntities();
 	}

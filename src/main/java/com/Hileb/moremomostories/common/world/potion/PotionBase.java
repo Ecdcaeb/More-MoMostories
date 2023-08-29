@@ -1,5 +1,6 @@
 package com.Hileb.moremomostories.common.world.potion;
 
+import com.Hileb.moremomostories.MoreMoMoSrories;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -19,11 +20,18 @@ public abstract class PotionBase extends Potion{
     {
         super(isBadEffect, color);
         this.setRegistryName(name);
-        this.setPotionName("effect." + name);
+        this.setPotionName("effect." + MoreMoMoSrories.MODID+"." + name);
 
         iconIndex = icon;
 
         ModPotions.INSTANCES.add(this);
+    }
+    public void onUpdate(EntityLivingBase entityLivingBaseIn, int amplifier){
+
+    }
+    @Override
+    public final void performEffect(EntityLivingBase entityLivingBaseIn, int amplifier){
+        onUpdate(entityLivingBaseIn,amplifier);
     }
 
     public boolean hasEffect(EntityLivingBase entity) {
@@ -55,19 +63,7 @@ public abstract class PotionBase extends Potion{
     }
 
 
-    //tipped arrow effect
-    public void performEffect(EntityLivingBase entityLivingBaseIn, int amplifier)
-    {
-//        if(this == ModPotions.NEW_POTION)
-//        {
-//              *addEffect
-//        }
-//
-//        else if(this == ModPotions.PURIFY)
-//        {
-//              *addEffect
-//        }
-    }
+    //tipped arrnow effect
 
     public abstract ResourceLocation getTexture();
     @Override

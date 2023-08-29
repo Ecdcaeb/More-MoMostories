@@ -18,6 +18,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class PotionDayTime extends PotionBase {
+    public static final ResourceLocation TEXTURE_EFFECT=new ResourceLocation(MoreMoMoSrories.MODID,"textures/misc/white.png");
+
     public PotionDayTime(String name){
         super(name,false,0,0);
         MinecraftForge.EVENT_BUS.register(this);
@@ -40,7 +42,7 @@ public class PotionDayTime extends PotionBase {
         int dx=net.minecraft.client.Minecraft.getMinecraft().displayWidth;
         int dy=net.minecraft.client.Minecraft.getMinecraft().displayHeight;
         net.minecraft.client.renderer.GlStateManager.color(1.0F, 1.0F, 1.0F,alpha);
-        net.minecraft.client.Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(MoreMoMoSrories.MODID,"textures/misc/white.png"));
+        net.minecraft.client.Minecraft.getMinecraft().getTextureManager().bindTexture(TEXTURE_EFFECT);
         drawTexturedModalRect(0,0,0,0,dx,dy);
 
     }
@@ -70,7 +72,6 @@ public class PotionDayTime extends PotionBase {
                 }
             }
         }
-
     }
     public static PotionEffect getEffect(){
         return new PotionEffect(ModPotions.DAY_BLIND,60,0,false,false);

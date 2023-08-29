@@ -54,8 +54,8 @@ public class ModConfig {
     @Config.Comment("SlashBlade.all")
     public static final SlashBladeClass SlashBlade = new SlashBladeClass();
 
-    @Config.LangKey("Render")
-    @Config.Comment("Render")
+    @Config.LangKey("RenderLunaBless")
+    @Config.Comment("RenderLunaBless")
     public static final Render render = new Render();
 
     public static class SlashBladeClass {

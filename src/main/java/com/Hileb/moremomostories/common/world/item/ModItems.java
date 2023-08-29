@@ -20,6 +20,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemFishFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 import java.util.ArrayList;
 import java.util.List;

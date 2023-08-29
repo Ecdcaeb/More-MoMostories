@@ -1,6 +1,6 @@
 package com.Hileb.moremomostories.common.world.level.dimension;
 
-import com.Hileb.moremomostories.common.init.InitBiome;
+import com.Hileb.moremomostories.common.init.ModBiomes;
 import com.Hileb.moremomostories.common.init.ModConfig;
 import com.Hileb.moremomostories.common.world.level.dimension.ChuckGenerator.ChunkGeneratorNullPlace;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +14,7 @@ public class DimensionOne extends WorldProvider {
 
     public static final DimensionType DIM_ONE = DimensionType.register("Dim_one", "_testdim", ModConfig.dimension.WORLD_GEN_CONF, DimensionOne.class, false);
     public DimensionOne() {
-        this.biomeProvider = new BiomeProviderSingle(InitBiome.BIOME_BOOK);
+        this.biomeProvider = new BiomeProviderSingle(ModBiomes.BIOME_BOOK);
         hasSkyLight = false;
     }
 

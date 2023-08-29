@@ -14,7 +14,7 @@ public class RenderUndescable extends RenderLivingBase<EntityBossDisdescable> {
         super(renderManagerIn, ClientModels.modelDesc, 2.0F);
     }
     /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
+     * Returns the location of an entity's texture. Doesn't seem to be called unless you call RenderLunaBless.bindEntityTexture.
      */
     protected ResourceLocation getEntityTexture(EntityBossDisdescable entity)
     {

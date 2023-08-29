@@ -29,7 +29,7 @@ public class ModGenStructure extends MapGenStructure
         this.spread = 3;
         this.allowedBiomes = Lists.newArrayList();
 
-        //this.allowedBiomes.add(InitBiome.BIOME_ONE);
+        //this.allowedBiomes.add(ModBiomes.BIOME_ONE);
     }
 
     public ModGenStructure(Map<String, String> p_i2068_1_)

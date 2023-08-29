@@ -130,7 +130,7 @@ public class DimensionEdge extends WorldProvider {
             for (int i = 0; i < abyte.length; ++i)
             {
                 abyte[i] = (byte)Biome.getIdForBiome(Biomes.FOREST);
-                //abyte[i] = (byte)Biome.getIdForBiome(InitBiome.BIOME_ONE);
+                //abyte[i] = (byte)Biome.getIdForBiome(ModBiomes.BIOME_ONE);
             }
 
             chunk.resetRelightChecks();

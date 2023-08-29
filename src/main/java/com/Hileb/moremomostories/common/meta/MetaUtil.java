@@ -8,27 +8,14 @@ import net.minecraftforge.fml.common.Loader;
 
 public class MetaUtil {
     public static boolean isLoaded_MoreMomoStories = true;
-
-
-
     public static boolean isIDLLoaded = false;
-
-
-
     public static boolean isLoaded_forestry= false;///give @p forestry:decaying_wheat 64
     public static boolean isLoaded_Momostories = false;
     public static boolean isLoaded_manametalmod = false;///give @p manametalmod:rotFood 64
     public static boolean isLoaded_calculator=false; ///give @p calculator:rottenpear 64
-
     public static boolean isLoaded_MagicCircle= false;
-
     public static boolean isLoaded_SlashBlade= false;
-
     public static boolean isLoaded_AddPotion= false;
-
-
-    static int modListExtraDifficulty = 0;
-
 
     public static void loadmodload(){
         MetaUtil.isIDLLoaded = Loader.isModLoaded("idealland");
@@ -63,10 +50,5 @@ public class MetaUtil {
         if (isLoaded_calculator){
             RecipePutrid.registerPutridItem("calculator:rottenpear");
         }
-    }
-
-    public static int GetModCount()
-    {
-        return Loader.instance().getActiveModList().size();
     }
 }
