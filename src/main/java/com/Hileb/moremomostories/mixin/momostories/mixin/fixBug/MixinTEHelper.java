@@ -8,8 +8,12 @@ import org.spongepowered.asm.mixin.Overwrite;
 
 @Mixin(TileEntityHandler.class)
 public class MixinTEHelper {
+    /**
+     * @author
+     * @reason
+     */
     @Overwrite
     public static void registerTileEntities(Block flag){
-            GameRegistry.registerTileEntity(flag.createTileEntity(null,null).getClass(), flag.getRegistryName());
+            //GameRegistry.registerTileEntity(flag.createTileEntity(null,null).getClass(), flag.getRegistryName());
     }
 }

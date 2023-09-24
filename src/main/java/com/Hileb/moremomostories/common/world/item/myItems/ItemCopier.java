@@ -13,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextComponentString;
@@ -53,7 +54,7 @@ public class ItemCopier extends ItemBase {
                             player.setHeldItem(EnumHand.MAIN_HAND,stack1);
                             stack1.setTagInfo("CopyTime",new NBTTagInt(10*2));//10*20ticks(并不准确)
                             stack1.setTagInfo("Copypp",new NBTTagInt(1));
-                            MoreMoMoSrories.Log("somebody copy a item %s by %s,time=%d",stack1.getUnlocalizedName(),new ItemStack(this).getUnlocalizedName(),10*2);
+                            MoreMoMoSrories.LOGGER.info("{}({}) copy a item {} by {},time={}",player.getName(),player.getUniqueID().toString(),stack1.writeToNBT(new NBTTagCompound()).toString(),this.getRegistryName().toString(),10*2);
                             player.sendMessage( new TextComponentString(new TextComponentTranslation("tip.moremomostories.nothingonoffhand.tip").getFormattedText()));
                         }
                     }
@@ -92,9 +93,8 @@ public class ItemCopier extends ItemBase {
                     if(invStack.getTagCompound().hasKey("CopyTime") && invStack.getTagCompound().getInteger("CopyTime")>=0){
                         if(booleancount==1){
                             int a=invStack.getTagCompound().getInteger("CopyTime");
-                            MoreMoMoSrories.Log(String.format("%d",a));
                             if(a==0){
-                                MoreMoMoSrories.Log("the copy item %s is null!",invStack.getUnlocalizedName());
+                                MoreMoMoSrories.LOGGER.info("the copy item {} is null!",invStack.getUnlocalizedName());
                                 invStack.setCount(0);
                             }
                             else invStack.setTagInfo("CopyTime",new NBTTagInt(a-1));

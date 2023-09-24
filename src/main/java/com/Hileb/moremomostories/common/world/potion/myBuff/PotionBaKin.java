@@ -25,16 +25,16 @@ public class PotionBaKin extends PotionBase {
     public ResourceLocation getTexture(){
         return null;
     }
-    public void putEffect(EntityLivingBase living,int level){
+    public static void putEffect(EntityLivingBase living,int level){
         for (PotionEffect effect:living.getActivePotionEffects()){
-            if (effect.getPotion()== this){
-                PotionEffect newEffect=new PotionEffect(this,MAX_TICK,effect.getAmplifier()+level,false,false);
-                living.removePotionEffect(this);
+            if (effect.getPotion()==ModPotions.BAKIN){
+                PotionEffect newEffect=new PotionEffect(ModPotions.BAKIN,MAX_TICK,effect.getAmplifier()+level,false,false);
+                living.removePotionEffect(ModPotions.BAKIN);
                 living.addPotionEffect(newEffect);
                 return;
             }
         }
-        PotionEffect newEffect=new PotionEffect(this,MAX_TICK,level-1,false,false);
+        PotionEffect newEffect=new PotionEffect(ModPotions.BAKIN,MAX_TICK,level-1,false,false);
         living.addPotionEffect(newEffect);
     }
     @Override

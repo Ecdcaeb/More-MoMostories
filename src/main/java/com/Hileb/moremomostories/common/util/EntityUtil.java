@@ -13,7 +13,7 @@ public class EntityUtil {
     {
         if (livingBase == null || potion == null)
         {
-            MoreMoMoSrories.LogWarning("Trying to apply illegal potion");
+            MoreMoMoSrories.LOGGER.error("Trying to apply illegal potion {} to {}",String.valueOf(potion),String.valueOf(livingBase));
             return false;
         }
         livingBase.addPotionEffect(new PotionEffect(potion, (int) (seconds * TICK_PER_SECOND) + 1, level));

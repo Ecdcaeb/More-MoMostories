@@ -77,7 +77,7 @@ public class ModWoldGenHilebRoom implements IWorldGenerator {
         EntityGoldenGuide goldenGuide=new EntityGoldenGuide(world);
         world.spawnEntity(goldenGuide);
         goldenGuide.setPosition(blockPoschest.getX(),blockPoschest.getY()+1,blockPoschest.getZ());
-        MoreMoMoSrories.LogWarning("chest in %d %d %d",blockPoschest.getX(),blockPoschest.getY(),blockPoschest.getZ());
+        //MoreMoMoSrories.LogWarning("chest in %d %d %d",blockPoschest.getX(),blockPoschest.getY(),blockPoschest.getZ());
         world.setBlockState(blockPoschest,Blocks.CHEST.getDefaultState(),3);
         TileEntityChest chest=(TileEntityChest) world.getTileEntity(blockPoschest);
         chest.setInventorySlotContents(0,new ItemStack(ModItems.ITEM_11_A));

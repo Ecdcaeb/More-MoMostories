@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 
 public interface IEntityItemX {
     @Nullable
-    public default Entity createEntityItem(World world, Entity location, ItemStack itemstack) {
+    default Entity createEntityItem(World world, Entity location, ItemStack itemstack) {
         EntityItemX x=new EntityItemX((EntityItem)location);
         x.setNoPickupDelay();
         return x;

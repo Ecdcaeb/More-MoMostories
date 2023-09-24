@@ -73,7 +73,7 @@ public class ModRecipes {
 
 		//批量注册的无序配方
 		for(int i=0;i<RecipePutrid.PutridItems.size();i++){
-			MoreMoMoSrories.LogWarning("%s is Putrid",RecipePutrid.PutridItems.get(i).getUnlocalizedName());
+			MoreMoMoSrories.LOGGER.info("{} is Putrid",RecipePutrid.PutridItems.get(i).getUnlocalizedName());
 			r.register(new RecipePutrid(ModItems.SCAVENGERS,RecipePutrid.PutridItems.get(i),ModItems.MYSTERIOUS_MEATBALLS).setRegistryName(new ResourceLocation(Reference.MOD_ID, String.format("recipe_putrid_%d",i))));
 		}
 		//r.register(new ShapelessOreRecipe("for_id_paper_6151", ModItems.Id_SANDPAPER, OreDictionary.getOres("dustId"),OreDictionary.getOres("logNoLeaf")));

@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.world.gui.BookShelf;
+package com.Hileb.moremomostories.common.world.gui.bookshelf;
 
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import net.minecraft.client.gui.inventory.GuiContainer;

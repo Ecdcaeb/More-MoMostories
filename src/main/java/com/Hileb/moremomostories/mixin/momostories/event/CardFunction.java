@@ -37,7 +37,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.*;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemArrow;
+import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketTitle;
 import net.minecraft.potion.PotionEffect;
@@ -1642,7 +1645,7 @@ public class CardFunction {
                     Vec3d playerLook= new Vec3d(lookX*maxEffectLong,lookY*maxEffectLong,lookZ*maxEffectLong);
                     entityplayer.rayTrace(2048,0);
                     //List<RayTraceResult> results= com.Hileb.moremomostories.common.util.math.MathHelper.raytraceAll(worldIn,playerShootPos,playerShootPos.add(playerLook),false);
-                    RayTraceResult result= com.Hileb.moremomostories.common.util.math.MathHelper.rayTraceShoot(entityplayer,worldIn,playerShootPos,playerShootPos.add(playerLook),0.5);
+                    RayTraceResult result= com.Hileb.moremomostories.common.util.math.MathHelper.rayTraceShoot(entityplayer,worldIn,playerShootPos,playerShootPos.add(playerLook));
 
 
 

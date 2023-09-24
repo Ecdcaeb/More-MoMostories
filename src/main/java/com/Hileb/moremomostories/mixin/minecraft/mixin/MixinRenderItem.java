@@ -1,12 +1,8 @@
 package com.Hileb.moremomostories.mixin.minecraft.mixin;
 
-import com.Hileb.moremomostories.common.world.item.interfaces.IColorEnchantment;
 import com.Hileb.moremomostories.mixin.minecraft.effect.ExtraMixinRenderItem;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.IBakedModel;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

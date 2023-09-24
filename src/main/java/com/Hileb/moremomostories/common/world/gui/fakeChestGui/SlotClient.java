@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.world.gui.fakeChestGui.BookShelf;
+package com.Hileb.moremomostories.common.world.gui.fakeChestGui;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.mods.momo;
+package com.Hileb.moremomostories.mixin.momostories.eventExtra;
 
 import net.minecraft.util.math.AxisAlignedBB;
 

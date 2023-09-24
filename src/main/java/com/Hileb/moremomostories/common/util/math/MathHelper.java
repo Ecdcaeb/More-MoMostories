@@ -182,7 +182,7 @@ public class MathHelper {
             return result;
         }
     }
-    public static RayTraceResult rayTraceShoot(@Nullable Entity ignored, World world, Vec3d start, Vec3d end, double range){
+    public static RayTraceResult rayTraceShoot(@Nullable Entity ignored, World world, Vec3d start, Vec3d end){
         RayTraceResult result=world.rayTraceBlocks(start,end, false, true, false);
         Vec3d trueEnd=end;
         if (result!=null){

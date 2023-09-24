@@ -1,6 +1,6 @@
 package com.Hileb.moremomostories.mixin.momostories.mixin.fixBug;
 
-import com.Hileb.moremomostories.mods.momo.MoMoStoriesMixinContainer;
+import com.Hileb.moremomostories.mixin.momostories.eventExtra.MoMoStoriesMixinContainer;
 import com.gq2529.momostories.MoMoFramework;
 import com.gq2529.momostories.blocks.ModBlock.StoneGrinder;
 import net.minecraft.block.Block;

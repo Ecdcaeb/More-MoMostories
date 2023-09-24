@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.world.gui.EnchantmentGUI;
+package com.Hileb.moremomostories.common.world.gui.enchantmentGUI;
 
 import com.google.common.collect.Lists;
 import net.minecraft.client.gui.FontRenderer;

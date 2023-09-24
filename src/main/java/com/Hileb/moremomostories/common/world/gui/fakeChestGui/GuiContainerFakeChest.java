@@ -1,6 +1,7 @@
-package com.Hileb.moremomostories.common.world.gui.fakeChestGui.BookShelf;
+package com.Hileb.moremomostories.common.world.gui.fakeChestGui;
 
 import com.Hileb.moremomostories.MoreMoMoSrories;
+import com.Hileb.moremomostories.common.world.gui.fakeChestGui.ContainerFakeChest;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;

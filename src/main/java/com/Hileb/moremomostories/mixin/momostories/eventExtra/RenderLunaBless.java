@@ -1,5 +1,6 @@
 package com.Hileb.moremomostories.mixin.momostories.eventExtra;
 
+import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.common.util.helper.Finder;
 import com.gq2529.momostories.MoMoFramework;
 import com.gq2529.momostories.item.ModItems;
@@ -20,11 +21,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RenderLunaBless {
     @SubscribeEvent
     public static void onPlayerRender(RenderPlayerEvent.Pre event){
+        MoreMoMoSrories.LOGGER.error("a2");
         EntityPlayer player=event.getEntityPlayer();
         if (player!=null){
             final long time = player.world.getWorldTime() + 24000L;
             boolean flagNight = (time % 24000L > 13850L && time % 24000L < 23000L);
             if (flagNight){
+                MoreMoMoSrories.LOGGER.error("aa");
                 Finder.findPlayerInventory(player,(stack)->stack.getItem()==ModItems.LUNA_BLESSING,(player1, stack) -> event.setCanceled(true));
             }
         }

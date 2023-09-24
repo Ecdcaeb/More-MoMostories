@@ -27,7 +27,6 @@ public class Spawner {
         if (!player.world.isRemote){
             if (player.world.provider.getDimension()== 0){
                 if (new Random().nextInt(1200)<=2){
-                    MoreMoMoSrories.LogWarning("ap :%d",player.world.getTotalWorldTime());
                     BlockEndBlockShelf.spawnVan(player.world, player.getPosition());
                 }
             }

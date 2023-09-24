@@ -19,7 +19,7 @@ public class ModBiomes {
     {
         biome.setRegistryName(name);
         ForgeRegistries.BIOMES.register(biome);
-        MoreMoMoSrories.Log("Biome registered:%s", name);
+        MoreMoMoSrories.LOGGER.info("Biome registered:{}", name);
         BiomeDictionary.addTypes(biome, type);
         //BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 100));
         BiomeManager.addSpawnBiome(biome);

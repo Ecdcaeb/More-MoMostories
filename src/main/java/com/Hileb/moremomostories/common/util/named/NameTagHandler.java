@@ -64,7 +64,7 @@ public class NameTagHandler {
         }
     }
     public static void register(NameTagBase tag){
-        MoreMoMoSrories.Log("register nameTag: %s",tag.getRegisterName().toString());
+        MoreMoMoSrories.LOGGER.info("register nameTag: {}",tag.getRegisterName().toString());
         TAG_REGISTERS.put(tag.getRegisterName(),tag);
     }
     public static void registerAll(List<NameTagBase> value){
@@ -73,7 +73,7 @@ public class NameTagHandler {
         }
     }
     public static void post(){
-        MoreMoMoSrories.LogWarning("register %d nameTag",TAG_REGISTERS.size());
+        MoreMoMoSrories.LOGGER.info("register {} nameTag",TAG_REGISTERS.size());
     }
 
 }

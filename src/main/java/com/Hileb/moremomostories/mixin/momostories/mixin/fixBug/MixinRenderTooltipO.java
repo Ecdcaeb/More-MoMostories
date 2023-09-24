@@ -12,6 +12,10 @@ import org.spongepowered.asm.mixin.Overwrite;
 @Mixin(RenderTooltipEventO.class)
 public class MixinRenderTooltipO {
 
+    /**
+     * @author Hileb
+     * @reason set the tooltip adjustable
+     */
     @Overwrite
     @SideOnly(Side.CLIENT)
     @SubscribeEvent

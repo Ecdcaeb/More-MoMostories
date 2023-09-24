@@ -1,5 +1,6 @@
 package com.Hileb.moremomostories;
 
+import com.Hileb.moremomostories.common.capabilities.nametag.CapabilityNameTag;
 import com.Hileb.moremomostories.common.world.gui.ModGuiElementLoader;
 import com.Hileb.moremomostories.common.init.ModOreDic;
 import com.Hileb.moremomostories.common.init.ModRecipes;
@@ -44,8 +45,6 @@ public class MoreMoMoSrories {
     public static final String VERSION = "1.0.1.10";
     public static Logger LOGGER = LogManager.getLogger(MODID);
 
-    public static final boolean SHOW_WARN = true;
-
     @Mod.Instance
     public static MoreMoMoSrories instance;
 
@@ -56,6 +55,7 @@ public class MoreMoMoSrories {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         RegistryHandler.preInitRegistries(event);
+        CapabilityNameTag.register();
 
         if (Loader.isModLoaded(SlashBlade.modid)){
             SlashBlade.InitEventBus.register(new SlashBladeUtil());
@@ -65,7 +65,6 @@ public class MoreMoMoSrories {
     @EventHandler
     public static void Init(FMLInitializationEvent event) {
         ModRecipes.init();
-        RegisterTileEntity();
         initRegistries(event);
         ModOreDic.init();
         new ModGuiElementLoader();
@@ -76,7 +75,7 @@ public class MoreMoMoSrories {
         }
         NetworkHandler.init();
 
-		LogWarning("%s has finished its initializations", MODID);
+		LOGGER.info("{} has finished its initializations", MODID);
 
 	}
 	@SideOnly(Side.CLIENT)
@@ -87,12 +86,6 @@ public class MoreMoMoSrories {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        // Moved Spawning registry to last since forge doesn't auto-generate sub
-        // "M' biomes until late
-//        if (ModConfig.SPAWN_CONF.SPAWN) {
-//            ModSpawn.registerSpawnList();
-//        }
-
         ModSpawn.registerSpawnList();
         TrashTalking();
 
@@ -110,34 +103,10 @@ public class MoreMoMoSrories {
     private void TrashTalking() {
         if (MetaUtil.isIDLLoaded)
         {
-            MoreMoMoSrories.Log("Bow to Idealland.");
+            MoreMoMoSrories.LOGGER.info("Bow to Idealland.");
         }
         else {
-            MoreMoMoSrories.Log("Made with Idealland Framework.");
+            MoreMoMoSrories.LOGGER.info("Made with Idealland Framework.");
         }
-    }
-
-    private static void RegisterTileEntity() {
-
-    }
-
-    public static void LogWarning(String str, Object... args) {
-        if (SHOW_WARN) {
-            LOGGER.warn(String.format(str, args));
-        }
-    }
-
-    public static void LogWarning(String str) {
-        if (SHOW_WARN) {
-            LOGGER.warn(str);
-        }
-    }
-
-    public static void Log(String str) {
-        LOGGER.info(str);
-    }
-
-    public static void Log(String str, Object... args) {
-        LOGGER.info(String.format(str, args));
     }
 }

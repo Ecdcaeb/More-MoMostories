@@ -40,7 +40,9 @@ public class ExtraMixinRenderItem {
         if (iColorEnchantment!=null && iColorEnchantment.hasEnchantmentEffect(stack)){//试着支持附魔，而不是物品本身决定光效。
             int color= iColorEnchantment.getEnchantmentColor(stack);
             if (!model.isBuiltInRenderer()) {
-                ExtraMixinRenderItem.renderEffect(renderItem,model,color);
+                iColorEnchantment.onPreRender(stack,renderItem,model,color);
+                iColorEnchantment.onRender(stack,renderItem,model,color);
+                iColorEnchantment.onPostRender(stack,renderItem,model,color);
             }
         }
     }

@@ -186,7 +186,6 @@ public class EntityMobChest extends EntityZombie {
                             entityMobChest.setPosition((int)pos.getX(),(int)pos.getY(),(int)pos.getZ());
                             removeList.add(pos);
                             world.spawnEntity(entityMobChest);
-                            MoreMoMoSrories.LogWarning("%d %d %d",pos.getX(),pos.getY(),pos.getZ());
                         }
                     }
                 }

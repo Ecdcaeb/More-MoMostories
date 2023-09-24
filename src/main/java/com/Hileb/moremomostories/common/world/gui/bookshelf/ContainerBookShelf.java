@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.world.gui.BookShelf;
+package com.Hileb.moremomostories.common.world.gui.bookshelf;
 
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.common.world.blocks.tileEntity.TileEntityBookShelf;
@@ -89,7 +89,6 @@ public class ContainerBookShelf extends Container
         {
             this.addSlotToContainer(new Slot(playerInventory, i1, 8 + i1 * 18, 161 + i));
         }
-        MoreMoMoSrories.LogWarning("bookCount:%d",((TileEntityBookShelf)chestInventory).getBookCount());
     }
 
     /**

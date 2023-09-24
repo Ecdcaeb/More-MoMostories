@@ -16,7 +16,6 @@ import java.util.List;
 
 @Mod.EventBusSubscriber(modid=com.Hileb.add_potion.IdlFramework.MODID)
 public class APMain {
-
     @Optional.Method(modid= com.Hileb.add_potion.IdlFramework.MODID)
     @SubscribeEvent
     public static void onPlayerAddPotion(APCraftEvent.Pre event){

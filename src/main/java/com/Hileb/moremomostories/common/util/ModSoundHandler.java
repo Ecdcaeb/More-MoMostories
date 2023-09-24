@@ -18,9 +18,8 @@ public class ModSoundHandler {
 
     public static void soundRegister()
     {
-        MoreMoMoSrories.Log("Registering %s sounds.", SOUNDS.size());
         ForgeRegistries.SOUND_EVENTS.registerAll(ModSoundHandler.SOUNDS.toArray(new SoundEvent[0]));
-        MoreMoMoSrories.Log("Registered %s sounds.", SOUNDS.size());
+        MoreMoMoSrories.LOGGER.info("Registered {} sounds.", SOUNDS.size());
     }
 
 }

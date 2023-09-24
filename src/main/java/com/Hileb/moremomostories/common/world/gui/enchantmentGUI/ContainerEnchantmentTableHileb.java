@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.world.gui.EnchantmentGUI;
+package com.Hileb.moremomostories.common.world.gui.enchantmentGUI;
 
 import com.Hileb.moremomostories.common.world.blocks.BlockEnchantmentTableHileb;
 import net.minecraft.entity.player.EntityPlayer;

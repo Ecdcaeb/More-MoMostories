@@ -20,7 +20,7 @@ public class KeyboardManager {
              ClientProxy.KEY_BINDINGS) {
             ClientRegistry.registerKeyBinding(key);
         }
-        MoreMoMoSrories.Log("Registered %d keys", ClientProxy.KEY_BINDINGS.size());
+        MoreMoMoSrories.LOGGER.info("Registered {} keys", ClientProxy.KEY_BINDINGS.size());
     }
 
     @SideOnly(Side.CLIENT)

@@ -281,7 +281,6 @@ public class StructurePrimerTree extends MapGenStructure {
                     treePoint.randomChild(random,type);
                     addChild(treePoint);
                 }
-                MoreMoMoSrories.LogWarning("random an child %d",childs.size());
             }
             public static class Type{
                 public static final boolean UP=true;

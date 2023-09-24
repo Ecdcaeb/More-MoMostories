@@ -29,7 +29,7 @@ public class MoreMoMoStoriesLoadingCore implements IEarlyMixinLoader, IFMLLoadin
     @Override
     public String[] getASMTransformerClass() {
         return new String[]{
-                "com.Hileb.moremomostories.mixin.slashblade.core.ASMClassItemBlade"
+                //"com.Hileb.moremomostories.mixin.slashblade.core.ASMClassItemBlade"
         };
     }
 

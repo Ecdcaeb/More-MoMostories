@@ -53,7 +53,7 @@ public class ModAdvancementsInit {
         Advancement advancement = findAdvancement(playerMP.mcServer, id);
         if (advancement == null)
         {
-            MoreMoMoSrories.LogWarning("failed to find an advancement:%s", id);
+            MoreMoMoSrories.LOGGER.warn("failed to find an advancement:{}", id);
             return false;
         }
 
@@ -68,7 +68,7 @@ public class ModAdvancementsInit {
         EntityPlayerMP playerMP = (EntityPlayerMP) player;
         Advancement advancement = findAdvancement(playerMP.mcServer, id);
         if (advancement == null) {
-            MoreMoMoSrories.LogWarning("failed to find an advancement:%s", id);
+            MoreMoMoSrories.LOGGER.warn("failed to find an advancement:{}", id);
             return false;
         }
 
@@ -92,7 +92,7 @@ public class ModAdvancementsInit {
 
         if (advancement == null)
         {
-            MoreMoMoSrories.Log("Cannot find advancement:%s", id);
+            MoreMoMoSrories.LOGGER.error("Cannot find advancement:{}", id);
             return null;
         }
         else
