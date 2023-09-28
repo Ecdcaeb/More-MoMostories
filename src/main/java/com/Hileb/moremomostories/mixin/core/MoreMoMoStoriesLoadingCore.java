@@ -15,9 +15,10 @@ import java.util.Map;
  * @Author Hileb
  * @Date 2023/8/27 11:00
  **/
-@IFMLLoadingPlugin.Name(MoreMoMoSrories.MODID)
+@IFMLLoadingPlugin.Name(MoreMoMoStoriesLoadingCore.NAME)
 @IFMLLoadingPlugin.MCVersion(ForgeVersion.mcVersion)
 public class MoreMoMoStoriesLoadingCore implements IEarlyMixinLoader, IFMLLoadingPlugin {
+    public static final String NAME="ForgedMoMo";
     public MoreMoMoStoriesLoadingCore(){
     }
     @Override
@@ -29,13 +30,13 @@ public class MoreMoMoStoriesLoadingCore implements IEarlyMixinLoader, IFMLLoadin
     @Override
     public String[] getASMTransformerClass() {
         return new String[]{
-                //"com.Hileb.moremomostories.mixin.slashblade.core.ASMClassItemBlade"
+                //"com.Hileb.moremomostories.mixin.core.asmtransformers.DataFixManagerTransformer"
         };
     }
 
     @Override
     public String getModContainerClass() {
-        return null;
+        return "com.Hileb.moremomostories.mixin.core.ForgedMoMoContainer";
     }
 
     @Nullable

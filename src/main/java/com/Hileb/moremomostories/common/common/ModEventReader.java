@@ -1,6 +1,9 @@
 package com.Hileb.moremomostories.common.common;
 
 import com.Hileb.moremomostories.MoreMoMoSrories;
+import com.Hileb.moremomostories.common.datafix.DataFixHandler;
+import com.Hileb.moremomostories.common.datafix.items.DataFixDeepLake;
+import com.Hileb.moremomostories.common.events.datafix.DataFixerSetupEvent;
 import com.Hileb.moremomostories.common.meta.MetaUtil;
 import com.Hileb.moremomostories.common.util.math.VirtueSpace;
 import com.Hileb.moremomostories.common.world.advancements.Advancementkeys;
@@ -17,10 +20,12 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.datafix.FixTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ModFixs;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
