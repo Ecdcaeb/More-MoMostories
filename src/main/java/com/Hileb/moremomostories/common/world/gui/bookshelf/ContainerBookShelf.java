@@ -1,7 +1,6 @@
 package com.Hileb.moremomostories.common.world.gui.bookshelf;
 
-import com.Hileb.moremomostories.MoreMoMoSrories;
-import com.Hileb.moremomostories.common.world.blocks.tileEntity.TileEntityBookShelf;
+import com.Hileb.moremomostories.common.world.blocks.tile.bookshelf.TileEntityBookShelf;
 import com.Hileb.moremomostories.common.world.item.myItems.ItemBookMod;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;

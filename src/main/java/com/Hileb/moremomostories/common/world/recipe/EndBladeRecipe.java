@@ -21,7 +21,7 @@ public class EndBladeRecipe extends ShapedOreRecipe {
                 "RTY",
                 "ABC",
                 "Q Q",
-                'A',new ItemStack(ModItems.ITEM_12_B),
+                'A',new ItemStack(ModItems.ITEM_FIBER_WIRE),
                 'B',new ItemStack(ModItems.ITEM_CARD_ZFP),
                 'C',new ItemStack(ModItems.ITEM_SWOOD_MEMORY_END),
                 'Q',new ItemStack(ModItems.ITEM_XE),
@@ -38,7 +38,7 @@ public class EndBladeRecipe extends ShapedOreRecipe {
         else if (inv.getStackInSlot(0).getItem()!=com.gq2529.momostories.item.ModItems.REPLICA_1)return false;
         else if (inv.getStackInSlot(1).getItem()!=Items.GOLDEN_SWORD)return false;
         else if (inv.getStackInSlot(2).getItem()!=com.gq2529.momostories.item.ModItems.THE_BOOK_OF_MANIFESTATION)return false;
-        else if (inv.getStackInSlot(3).getItem()!=ModItems.ITEM_12_B)return false;
+        else if (inv.getStackInSlot(3).getItem()!=ModItems.ITEM_FIBER_WIRE)return false;
         else if (inv.getStackInSlot(4).getItem()!=ModItems.ITEM_CARD_ZFP)return false;
         else if (inv.getStackInSlot(5).getItem()!=ModItems.ITEM_SWOOD_MEMORY_END)return false;
         else if (inv.getStackInSlot(6).getItem()!=ModItems.ITEM_XE)return false;

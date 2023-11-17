@@ -5,7 +5,7 @@ import com.Hileb.moremomostories.common.world.advancements.ModAdvancementsInit;
 import com.Hileb.moremomostories.common.world.command.ModCommands;
 import com.Hileb.moremomostories.common.world.item.myItems.ItemDao;
 import com.Hileb.moremomostories.common.util.CommonFunctions;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import com.Hileb.moremomostories.common.util.ticker.AttackRenderTask;
 import com.gq2529.momostories.item.ModItems;
 import net.minecraft.block.Block;

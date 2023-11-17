@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.world.blocks.tileEntity;
+package com.Hileb.moremomostories.common.world.blocks.tile.bookshelf;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,6 +1,5 @@
-package com.Hileb.moremomostories.mixin.core;
+package com.Hileb.forgedmomo.core;
 
-import com.Hileb.moremomostories.MoreMoMoSrories;
 import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 import zone.rong.mixinbooter.IEarlyMixinLoader;
@@ -30,13 +29,13 @@ public class MoreMoMoStoriesLoadingCore implements IEarlyMixinLoader, IFMLLoadin
     @Override
     public String[] getASMTransformerClass() {
         return new String[]{
-                //"com.Hileb.moremomostories.mixin.core.asmtransformers.DataFixManagerTransformer"
+                //"com.Hileb.forgedmomo.core.asmtransformers.DataFixManagerTransformer"
         };
     }
 
     @Override
     public String getModContainerClass() {
-        return "com.Hileb.moremomostories.mixin.core.ForgedMoMoContainer";
+        return "com.Hileb.forgedmomo.core.ForgedMoMoContainer";
     }
 
     @Nullable

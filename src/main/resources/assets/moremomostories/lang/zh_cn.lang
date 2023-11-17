@@ -7,7 +7,7 @@ generator.TYPE_ONE=Type One;
 generator.TYPE_TWO=Type Two;
 
 
-item.item_card_get_from_null.name=无中生有
+item.moremomostories.item_card_get_from_null.name=无中生有
 item.item_card_get_from_null.desc1=出牌阶段，对自己使用。摸一张牌。\n“天下万物生于有，有生于无”\n<老子>\n获得一张momostroies牌\n没有加载momostories时返回原料.
 item.item_card_get_from_null.desc2=出牌阶段，对自己使用。摸一张牌。\n“天下万物生于有，有生于无”\n<老子>\n按住 §eLShift §f显示更多
 
@@ -16,9 +16,9 @@ momo.energy.rainbow.damage.name=耐久
 momo.energy.rainbow.en.name=能量
 momo.energy.rainbow.en.end=RE(RainbowEnergy)
 
-item.item_ytxsy_sound.name=唱片
-item.item_end_rainbow_swood.name=终焉彩虹
-item.entity_boss_disdescable.name=不可名状
+item.moremomostories.item_ytxsy_sound.name=唱片
+item.moremomostories.item_end_rainbow_swood.name=终焉彩虹
+item.moremomostories.entity_boss_disdescable.name=不可名状
 
 
 item.diamond_pickaxe.name=钻石镐
@@ -29,23 +29,23 @@ item.item_main_sy.name=岁月之力
 item.item_main_tr.name=贪婪之噬
 item.item_main_wj.name=硬化之纹
 
-tile.blackstonebrick.name=深色石砖
+tile.moremomostories.blackstonebrick.name=深色石砖
 
-item.item_card_null.name=卡牌-空
-item.item_card_null.desc=在上面画点什么呢。
+item.moremomostories.item_card_null.name=卡牌-空
+item.moremomostories.item_card_null.desc=在上面画点什么呢。
 
-item.item_card_get_from_null.name=「无中生有」
-item.item_card_zfp.name=「煮饭婆」
+item.moremomostories.item_card_get_from_null.name=「无中生有」
+item.moremomostories.item_card_zfp.name=「煮饭婆」
 desc.cardzfp.desc=煮饭婆举高高！~
 desc.cardzfp2.desc=煮饭婆可爱捏！~
 
-item.item_copyer.name=复制卡
+item.moremomostories.item_copyer.name=复制卡
 desc.item.copyer.desc=仿制的...终究是仿制的...\n--Hileb\n此卡为消耗品\n可以复制副手物品\n限时200ticks
 desc.item.copyer.desc2=仿制的...终究是仿制的...\n--Hileb\n按住 §eLShift §f显示更多
 desc.copyitem.desc=§e复制品！\n§f还剩%d刻！
 
-item.item_card_mi.name=万写的宝镜
-item.item_card_mi_item.name=万写的宝镜
+item.moremomostories.item_card_mi.name=万写的宝镜
+item.moremomostories.item_card_mi_item.name=万写的宝镜
 
 
 advancements.itzmxAdvancements.root.title=More MoMostories
@@ -73,8 +73,8 @@ tip.moremomostories.copysuccessful.tip=副手没有物品！
 
 
 tooltip.paper.hileb.a.desc=Hileb试图研究岁月之果。
-item.item_paper_hileb_a.name=Hileb的手稿
-item.item_food_sysg.name=岁月煲
+item.moremomostories.item_paper_hileb_a.name=Hileb的手稿
+item.moremomostories.item_food_sysg.name=岁月煲
 tooltip.item_food_sysg.desc=富含岁月之力\n嘎嘎好吃
 
 death.syzg.death=%s试图在岁月中游泳！被时间泯灭了。
@@ -109,13 +109,13 @@ item.luck_bottle.desc=当背包里有钻石时，使用它！有几率获得两�
 com.hileb.achievement.item_card_zfp.title=煮饭婆举高高!
 com.hileb.achievement.item_card_zfp.desc=把煮饭婆举高高~~~
 
-item.item_turn_into.name=腐朽者
+item.moremomostories.item_turn_into.name=腐朽者
 item.item_turn_into.tip=化神奇为腐朽
-item.item_add_entityzq_item.name=战旗
+item.moremomostories.item_add_entityzq_item.name=战旗
 item.item_add_entityzq_item.desc=战！战！战！战！
-item.no_can_hit_it.name=无懈可击
+item.moremomostories.no_can_hit_it.name=无懈可击
 item.no_can_hit_it.tip=使用它，你就是无敌的！
-item.item_paper_idonotwanttodie.name=§4纸
+item.moremomostories.item_paper_idonotwanttodie.name=§4纸
 
 tip.item.end.memory.sword.tip1.tip=“啊！这是什么？斩忆剑？斩一下...啊！这是什么？斩忆剑？斩一下... ...”
 tip.item.end.memory.sword.tip2.tip=一把可以抹除记忆的剑，无论是亲友，敌人，都会忘记吧......
@@ -149,21 +149,21 @@ entity.entity_zq.name=战旗
 
 entity.entity_zfp.name=煮饭婆
 
-item.item_putrid_item.name=腐烂的物品
-item.item_card_five.name=五雷天师令
-item.item_do_forever.name=永动机
+item.moremomostories.item_putrid_item.name=腐烂的物品
+item.moremomostories.item_card_five.name=五雷天师令
+item.moremomostories.item_do_forever.name=永动机
 item.item_do_forever.desc1=宇宙三大最高科技之一\n但具显之书似乎不想将其具显
 com.hileb.achievement.findpaper.title=§4纸
 com.hileb.achievement.findpaper.desc=找到并阅读§4纸
-item.item_scene_1.name=§4场景
+item.moremomostories.item_scene_1.name=§4场景
 com.hileb.achievement.scene1.title=§4场景
 com.hileb.achievement.scene1.desc=具显§4场景
 #momostroies
 moremomostories.conf.apionly=仅API模式
-tile.wood_no_leaf.name=无叶木
-tile.unbreakable_hileb_block.name=高强度材料
-item.item_11_a.name=核心制造技术
-item.item_12_b.name=纤维绳
+tile.moremomostories.wood_no_leaf.name=无叶木
+tile.moremomostories.unbreakable_hileb_block.name=高强度材料
+item.moremomostories.item_11_a.name=核心制造技术
+item.moremomostories.fiber_wire.name=纤维绳
 entity.entity_golden_guide.name=黄金卫士
 com.hileb.achievement.lx.title=homo故事会
 com.hileb.achievement.lx.desc=遇见老♂乡。
@@ -172,9 +172,9 @@ death.attack.van_damage=%1$s遇见了老♂乡。
 death.attack.momostories.wither=%1$s被%2$s榨干了。
 death.attack.momostories.wither.item=%1$s被%2$s用%3$s榨干了。
 
-tile.block_stone_red.name=红色氙石矿石
-tile.block_stone_blue.name=蓝色氙石矿石
-tile.block_stone_yellow.name=黑色氙石矿石
+tile.moremomostories.block_stone_red.name=红色氙石矿石
+tile.moremomostories.block_stone_blue.name=蓝色氙石矿石
+tile.moremomostories.block_stone_yellow.name=黑色氙石矿石
 
 item.item_xe.name=未知氙
 com.hileb.moremomostories.item.xe.red.name=§r红色氙石粉末
@@ -194,15 +194,15 @@ com.hileb.moremomostories.item.xe.stone.golden.name=氙金
 com.hileb.moremomostories.item.xe.stone.level.name=等级%d
 com.hileb.moremomostories.item.xe.stone.color.name=成色%d
 
-item.item_qgx.name=切尔西
-item.item_qgx.blue.name=蓝色妖姬
-item.item_qgx.red.name=红色风暴
-item.item_qgx.black.name=黑色沉默
-item.item_z.name=北极
+item.moremomostories.item_qgx.name=切尔西
+item.moremomostories.item_qgx.blue.name=蓝色妖姬
+item.moremomostories.item_qgx.red.name=红色风暴
+item.moremomostories.item_qgx.black.name=黑色沉默
+item.moremomostories.item_z.name=北极
 
-item.duck_cooked.name=烤鸭
-item.duck_kao.name=尻鸭
-item.item_dao.name=折扇
+item.moremomostories.duck_cooked.name=烤鸭
+item.moremomostories.duck_kao.name=尻鸭
+item.moremomostories.item_dao.name=折扇
 
 item.moremomostories.testBlade1.name=雨
 item.moremomostories.blandTianki.name=天姬
@@ -239,8 +239,8 @@ say.zfp.23.say=<煮饭婆>日，tank一车拍死四个人，真离谱
 say.zfp.24.say=<煮饭婆>32的话一些装饰带樱花纹也可以的
 
 boss.van.spawn=王的男人(Van♂ Man)出现了！！！
-tile.block_end_book_shelf.name=书架
-tile.block_tp_hileb.name=通行符节
+tile.moremomostories.block_end_book_shelf.name=书架
+tile.moremomostories.block_tp_hileb.name=通行符节
 entity.entity_fire.name=火
 #config
 slashblade=拔刀剑设置
@@ -323,23 +323,23 @@ com.hileb.momo.lang.skill.rain=§e落雨地生
 com.hileb.momo.lang.skill.endmemory.name=§e斩忆
 com.hileb.momo.lang.skill.endmemory.desc=使被击中者30刻内失去目标。
 
-item.item_book_buddha_god_palm.name=《如来神掌》
-item.item_book_dust.name=书的碎片
-item.item_end_memory_swood.name=斩记剑
-item.item_zfp_headset.name=煮饭婆耳机
-item.item_shining_silver_breastplate.name=银鳞胸甲
-item.item_van_chest.name=束缚腰带
-item.item_card_container.name=已知的卡牌册
-tile.block_book_shelf.name=书架
-tile.block_book_shelf_inv.name=升魔台
-tile.block_infinitycake.name=无尽蛋糕
+item.moremomostories.item_book_buddha_god_palm.name=《如来神掌》
+item.moremomostories.item_book_dust.name=书的碎片
+item.moremomostories.item_end_memory_swood.name=斩记剑
+item.moremomostories.item_zfp_headset.name=煮饭婆耳机
+item.moremomostories.item_shining_silver_breastplate.name=银鳞胸甲
+item.moremomostories.item_van_chest.name=束缚腰带
+item.moremomostories.item_card_container.name=已知的卡牌册
+tile.moremomostories.block_book_shelf.name=书架
+tile.moremomostories.block_book_shelf_inv.name=升魔台
+tile.moremomostories.block_infinitycake.name=无尽蛋糕
 advancements.momoOtherModAdvancements.card.ap.title=绝命毒师
 advancements.momoOtherModAdvancements.card.ap.desc=注入剧毒效果
 advancements.momoOtherModAdvancements.card.tk.title=天姬
 advancements.momoOtherModAdvancements.card.tk.desc=获得神刀天姬
 
-item.luck_bottle.name=幸运之瓶
-item.item_tp.name=双向传送晶核
+item.moremomostories.luck_bottle.name=幸运之瓶
+item.moremomostories.item_tp.name=双向传送晶核
 skill.left.desc=以下技能按下左键触发
 skill.right.desc=以下技能按下右键随机触发(消耗500RE)
 skill.pass.desc=以下技能被动触发
@@ -357,7 +357,7 @@ entity.entity_bike.name=自行车
 entity.entity_bookworm.name=书虫
 entity.entity_boss_golden_guide.name=巨大黄金守卫
 entity.entity_mob_chest.name=箱子
-item.item_magatama.name=勾玉
+item.moremomostories.item_magatama.name=勾玉
 
 tag.1.name=锐利
 tag.2.name=高端

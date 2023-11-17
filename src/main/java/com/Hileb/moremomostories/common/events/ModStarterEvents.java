@@ -13,8 +13,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 import static com.Hileb.moremomostories.common.util.IDLNBT.getPlayerIdeallandIntSafe;
-import static com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTDef.CUR_STARTER_KIT_VERSION;
-import static com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTDef.STARTER_KIT_VERSION_TAG;
+import static com.Hileb.forgedmomo.utils.nbt.IDLNBTDef.CUR_STARTER_KIT_VERSION;
+import static com.Hileb.forgedmomo.utils.nbt.IDLNBTDef.STARTER_KIT_VERSION_TAG;
 
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class ModStarterEvents {

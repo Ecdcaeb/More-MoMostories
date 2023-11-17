@@ -4,7 +4,7 @@ import com.Hileb.moremomostories.common.world.advancements.ModAdvancementsInit;
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.common.world.item.ItemBase;
 import com.Hileb.moremomostories.common.world.item.ItemInformationAdder;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

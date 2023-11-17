@@ -1,9 +1,9 @@
 package com.Hileb.moremomostories.common.world.blocks;
 
+import com.Hileb.forgedmomo.interfaces.IModelHolder;
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.common.init.ModCreativeTab;
 import com.Hileb.moremomostories.common.world.item.ModItems;
-import com.Hileb.moremomostories.common.util.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,12 +17,12 @@ import net.minecraft.world.IBlockAccess;
 
 import java.util.Random;
 
-public class BlockBase extends Block implements IHasModel
+public class BlockBase extends Block implements IModelHolder.IBlock
 {
 	public BlockBase(String name, Material material)
 	{
 		super(material);
-		setUnlocalizedName(name);
+		setUnlocalizedName(MoreMoMoSrories.MODID+"."+name);
 		setRegistryName(name);
 		setCreativeTab(ModCreativeTab.IDL_MISC);
 		
@@ -56,10 +56,7 @@ public class BlockBase extends Block implements IHasModel
 		return super.quantityDropped(rand);
 	}
 	
-	@Override
-	public void registerModels() {
-		MoreMoMoSrories.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
-	}
+
 
 	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon) {

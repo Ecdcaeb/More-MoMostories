@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.util.math;
+package com.Hileb.forgedmomo.utils.math;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

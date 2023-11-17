@@ -3,6 +3,7 @@ package com.Hileb.moremomostories.common.capabilities.nametag;
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
@@ -45,28 +46,13 @@ public class CapabilityNameTag {
     }
     @SubscribeEvent
     public static void onRegister(AttachCapabilitiesEvent<ItemStack> event){
-        if (!event.getObject().hasCapability(CAPABILITY, null)) {
-            int a=new Random().nextInt(14);
-            event.addCapability(new ResourceLocation(MoreMoMoSrories.MODID, "cap_name_tag"), new CapabilityNameTagProvider(new NameTagContainer("tag." + a + ".name")));
+        if (event.getObject().getItem() instanceof ItemTool){
+            if (!event.getObject().hasCapability(CAPABILITY, null)) {
+                int a=new Random().nextInt(13)+1;
+                event.addCapability(new ResourceLocation(MoreMoMoSrories.MODID, "cap_name_tag"), new CapabilityNameTagProvider(new NameTagContainer("tag." + a + ".name")));
+            }
         }
     }
-    /*
-
-tag.1.name=锐利
-tag.2.name=高端
-tag.3.name=强力
-tag.4.name=碎裂
-tag.5.name=破损
-tag.6.name=粗劣
-tag.7.name=致伤
-tag.8.name=强劲
-tag.9.name=粗鲁
-tag.10.name=软弱
-tag.11.name=无情
-tag.12.name=神级
-tag.13.name=恶魔
-tag.14.name=狂热
-    */
     @SubscribeEvent
     public static void onTooltip(ItemTooltipEvent event){
         if (event.getItemStack().hasCapability(CAPABILITY,null)){

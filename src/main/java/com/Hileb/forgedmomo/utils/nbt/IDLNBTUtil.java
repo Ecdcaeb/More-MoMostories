@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.util.NBTStrDef;
+package com.Hileb.forgedmomo.utils.nbt;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -14,7 +14,7 @@ import java.util.Collections;
 
 import static com.Hileb.moremomostories.common.util.IDLNBT.getPlayerIdeallandIntArraySafe;
 import static com.Hileb.moremomostories.common.util.IDLNBT.setPlayerIdeallandTagSafe;
-import static com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTDef.*;
+import static com.Hileb.forgedmomo.utils.nbt.IDLNBTDef.*;
 
 //on a server, strlen 65000 is ok, but 66000 will crash
 public class IDLNBTUtil {

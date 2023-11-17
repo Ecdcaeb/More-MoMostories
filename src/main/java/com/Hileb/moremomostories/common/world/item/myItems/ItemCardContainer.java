@@ -47,10 +47,6 @@ public class ItemCardContainer extends ItemBase {
         return super.initCapabilities(stack, nbt);
     }
 
-    @Override
-    public void registerModels() {
-        MoreMoMoSrories.proxy.registerItemRenderer(this, ModItems.THE_BOOK_OF_MANIFESTATION, 0, "inventory");
-    }
 
     @Nonnull
     @Override

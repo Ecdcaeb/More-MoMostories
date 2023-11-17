@@ -1,6 +1,5 @@
 package com.Hileb.moremomostories.common.world.level.worldgen;
 
-import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.common.world.blocks.ModBlocks;
 import com.Hileb.moremomostories.common.world.entity.entity.living.EntityGoldenGuide;
 import com.Hileb.moremomostories.common.world.item.ModItems;
@@ -84,7 +83,7 @@ public class ModWoldGenHilebRoom implements IWorldGenerator {
         chest.setInventorySlotContents(1,new ItemStack(Items.DIAMOND,new Random().nextInt(4)));
         chest.setInventorySlotContents(2,new ItemStack(ModItems.ITEM_PAPER_IDONOTWANTTODIE));
         chest.setInventorySlotContents(3,new ItemStack(ModItems.ITEM_MAIN_XK,2));
-        chest.setInventorySlotContents(4,new ItemStack(ModItems.ITEM_12_B,1));
+        chest.setInventorySlotContents(4,new ItemStack(ModItems.ITEM_FIBER_WIRE,1));
         chest.setInventorySlotContents(5,new ItemStack(ModItems.ITEM_MAGATAMA,1));
         chest.setInventorySlotContents(6,new ItemStack(ModItems.ITEM_CARD_ZFP,3));
         chest.setInventorySlotContents(7,new ItemStack(com.gq2529.momostories.item.ModItems.THE_BOOK_OF_MANIFESTATION,1));

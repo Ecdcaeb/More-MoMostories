@@ -40,11 +40,6 @@ public class ItemQGX extends ItemArmorBase {
         super(name, ModArmorMaterials.QGXMaterial,1, EntityEquipmentSlot.FEET);
     }
 
-    @Override
-    public void registerModels() {
-        super.registerModels();
-    }
-
     @SideOnly(Side.CLIENT)
     @Nullable
     @Override

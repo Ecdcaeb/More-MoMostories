@@ -24,7 +24,7 @@ public class EndBladeRecipeSlashBlade extends RecipeAwakeBlade {
                 "RTY",
                 "ABC",
                 "QEQ",
-                'A',new ItemStack(ModItems.ITEM_12_B),
+                'A',new ItemStack(ModItems.ITEM_FIBER_WIRE),
                 'B',new ItemStack(ModItems.ITEM_CARD_ZFP),
                 'C',new ItemStack(ModItems.ITEM_SWOOD_MEMORY_END),
                 'Q',new ItemStack(ModItems.ITEM_XE),

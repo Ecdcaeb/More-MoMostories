@@ -1,7 +1,7 @@
 package com.Hileb.moremomostories.mixin.momostories.eventExtra;
 
 import com.Hileb.moremomostories.MoreMoMoSrories;
-import com.Hileb.moremomostories.common.util.helper.Finder;
+import com.Hileb.forgedmomo.utils.helper.Finder;
 import com.gq2529.momostories.MoMoFramework;
 import com.gq2529.momostories.item.ModItems;
 import net.minecraft.entity.player.EntityPlayer;

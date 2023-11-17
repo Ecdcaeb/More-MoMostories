@@ -6,7 +6,7 @@ import com.Hileb.moremomostories.common.world.item.ItemBase;
 import com.Hileb.moremomostories.common.util.CommonFunctions;
 import com.Hileb.moremomostories.mods.momo.MoMoCards;
 import com.Hileb.moremomostories.common.util.ModSoundHandler;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;

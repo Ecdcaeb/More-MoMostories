@@ -1,10 +1,14 @@
-package com.Hileb.moremomostories.mixin.core;
+package com.Hileb.forgedmomo.core;
 
+import com.Hileb.forgedmomo.interfaces.IModelHolder;
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.google.common.eventbus.EventBus;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.DummyModContainer;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.LoadController;
 import net.minecraftforge.fml.common.ModMetadata;
+import net.minecraftforge.fml.relauncher.Side;
 
 /**
  * @Project More-MoMostories
@@ -13,6 +17,7 @@ import net.minecraftforge.fml.common.ModMetadata;
  **/
 @SuppressWarnings("unused")
 public class ForgedMoMoContainer extends DummyModContainer{
+    public static final Side side=FMLCommonHandler.instance().getSide();
     public ForgedMoMoContainer(){
         super(new ModMetadata());
         ModMetadata metadata=this.getMetadata();
@@ -30,6 +35,7 @@ public class ForgedMoMoContainer extends DummyModContainer{
 
     @Override
     public boolean registerBus(EventBus bus, LoadController controller) {
+        MinecraftForge.EVENT_BUS.register(IModelHolder.ModelHanlder.class);
         return true;
     }
 }

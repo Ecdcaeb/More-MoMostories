@@ -2,7 +2,7 @@ package com.Hileb.moremomostories.common.world.item.myItems;
 
 import com.Hileb.moremomostories.common.world.item.ItemBase;
 import com.Hileb.moremomostories.common.world.item.ModItems;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;

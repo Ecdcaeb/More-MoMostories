@@ -113,9 +113,13 @@ jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes([
-                "FMLCorePlugin": "com.Hileb.moremomostories.mixin.core.MoreMoMoStoriesLoadingCore",
-                "FMLCorePluginContainsFMLMod": true
-                "FMLAT":"moremomostories_at.cfg"
+                "FMLCorePlugin": "com.Hileb.forgedmomo.core.MoreMoMoStoriesLoadingCore",
+                "FMLCorePluginContainsFMLMod": true,
+                "FMLAT":"moremomostories_at.cfg",
+                "Building-Time":new java.text.SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new java.util.Date()),
+                "Author":"Hileb",
+                "ModLoader":"JavaFML",
+                "Version":version
         ])
     }
 }

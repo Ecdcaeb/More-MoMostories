@@ -1,11 +1,11 @@
 package com.Hileb.moremomostories.common.world.item;
 
+import com.Hileb.forgedmomo.interfaces.IModelHolder;
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.common.init.ModCreativeTab;
 import com.Hileb.moremomostories.common.util.CommonFunctions;
-import com.Hileb.moremomostories.common.util.IHasModel;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTDef;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTDef;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.resources.I18n;
@@ -27,7 +27,7 @@ import java.util.UUID;
 
 
 //try to sync with ItemBase
-public class ItemArmorBase extends ItemArmor implements IHasModel {
+public class ItemArmorBase extends ItemArmor implements  IModelHolder.IItem {
 	private boolean overrideRarity = false;
 	private EnumRarity enumRarity = EnumRarity.COMMON;
 	protected boolean showGuaSocketDesc = false;
@@ -42,7 +42,7 @@ public class ItemArmorBase extends ItemArmor implements IHasModel {
 	private String texturePath;
 	public ItemArmorBase(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
-		setUnlocalizedName(name);
+		setUnlocalizedName(MoreMoMoSrories.MODID+"."+name);
 		setRegistryName(name);
 		setCreativeTab(ModCreativeTab.IDL_MISC);
 
@@ -127,15 +127,6 @@ public class ItemArmorBase extends ItemArmor implements IHasModel {
 	{
 		return null;
 	}
-
-
-	@Override
-	public void registerModels() 
-	{
-		MoreMoMoSrories.proxy.registerItemRenderer(this, 0, "inventory");
-	}
-
-
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {

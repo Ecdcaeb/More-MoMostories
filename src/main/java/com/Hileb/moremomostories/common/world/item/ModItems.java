@@ -20,7 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemFishFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +62,7 @@ public class ModItems {
     public static final Item ITEM_PAPER_IDONOTWANTTODIE=new ItemPaper1();//纸"我不想死"
     public static final Item ITEM_SCENE_1=new ItemScene1();//场景"我不想死"
     public static final Item ITEM_11_A=new ItemRemainBase("item_11_a");//核心制造技术
-    public static final Item ITEM_12_B=new Item12Base("item_12_b");//纤维绳
+    public static final Item ITEM_FIBER_WIRE=new ItemFiberWire("fiber_wire");//纤维绳//fiber_wire
     public static final Item ITEM_FIRE=new ItemBase("item_fire");//投掷物：火
     public static final Item ITEM_XE=new ItemXe("item_xe");//氙石
     public static final Item ITEM_ARROM_XE=new ItemQGX("item_qgx");//切尔西
@@ -172,7 +171,7 @@ public class ModItems {
             //items
             items.add((i++),new ItemStack(ITEM_CARD_MI_ITEM));
             items.add((i++),new ItemStack(ITEM_DAO));
-            items.add((i++),new ItemStack(ITEM_12_B));
+            items.add((i++),new ItemStack(ITEM_FIBER_WIRE));
             items.add((i++),new ItemStack(ITEM_ADD_ENTITYZQ));
             items.add((i++),new ItemStack(ITEM_AXE_DIA));
             items.add((i++),new ItemStack(ITEM_DO_FOREVER));

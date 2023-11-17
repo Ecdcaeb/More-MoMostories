@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.util.math;
+package com.Hileb.forgedmomo.utils.math;
 
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;

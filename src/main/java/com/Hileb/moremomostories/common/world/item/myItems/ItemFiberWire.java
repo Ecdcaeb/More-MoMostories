@@ -6,8 +6,8 @@ import com.Hileb.moremomostories.common.world.advancements.ModAdvancementsInit;
 import com.Hileb.moremomostories.common.world.item.ItemBase;
 import com.Hileb.moremomostories.common.network.NetworkHandler;
 import com.Hileb.moremomostories.common.network.protocols.PacketEntityNBT;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDFBasicNBTUtil;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDFBasicNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import net.minecraft.block.BlockChest;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -33,11 +33,11 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Item12Base extends ItemBase {
+public class ItemFiberWire extends ItemBase {
     public static String NBT_IS_SLEEP="nbt_hileb.isSleep";
     public static String NBT_ENTITY_ID="nbt_hileb.entityId";
     public static String NBT_IS_CATCH="nbt_hileb.isCatching";
-    public Item12Base(String name){
+    public ItemFiberWire(String name){
         super(name);
         MinecraftForge.EVENT_BUS.register(this);
     }

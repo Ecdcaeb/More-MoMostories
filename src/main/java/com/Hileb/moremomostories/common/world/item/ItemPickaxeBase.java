@@ -1,11 +1,11 @@
 package com.Hileb.moremomostories.common.world.item;
 
+import com.Hileb.forgedmomo.interfaces.IModelHolder;
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.common.init.ModCreativeTab;
 import com.Hileb.moremomostories.common.util.CommonFunctions;
-import com.Hileb.moremomostories.common.util.IHasModel;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTDef;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTDef;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,7 +19,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-public class ItemPickaxeBase extends ItemPickaxe implements IHasModel {
+public class ItemPickaxeBase extends ItemPickaxe implements IModelHolder.IItem {
 	private boolean overrideRarity = false;
 	private EnumRarity enumRarity = EnumRarity.COMMON;
 	protected boolean showGuaSocketDesc = false;
@@ -36,7 +36,7 @@ public class ItemPickaxeBase extends ItemPickaxe implements IHasModel {
 	public ItemPickaxeBase(String name, ToolMaterial material)
 	{
 		super(material);
-		setUnlocalizedName(name);
+		setUnlocalizedName(MoreMoMoSrories.MODID+"."+name);
 		setRegistryName(name);
 		setCreativeTab(ModCreativeTab.IDL_MISC);
 		toolMaterial = material;
@@ -111,12 +111,6 @@ public class ItemPickaxeBase extends ItemPickaxe implements IHasModel {
 	public void serverUseTick(ItemStack stack, EntityLivingBase living, int count)
 	{
 
-	}
-
-	@Override
-	public void registerModels() 
-	{
-		MoreMoMoSrories.proxy.registerItemRenderer(this, 0, "inventory");
 	}
 	@SideOnly(Side.CLIENT)
 	@Override

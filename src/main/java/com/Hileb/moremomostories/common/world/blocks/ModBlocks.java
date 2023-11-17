@@ -1,18 +1,16 @@
 package com.Hileb.moremomostories.common.world.blocks;
 
-import com.Hileb.moremomostories.common.world.blocks.tileEntity.BlockBookShelf;
+import com.Hileb.moremomostories.common.world.blocks.tile.bookshelf.BlockBookShelf;
 import com.Hileb.moremomostories.common.world.item.myItems.ItemXe;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;

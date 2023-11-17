@@ -2,7 +2,6 @@ package com.Hileb.moremomostories;
 
 import com.Hileb.moremomostories.common.capabilities.nametag.CapabilityNameTag;
 import com.Hileb.moremomostories.common.datafix.DataFixHandler;
-import com.Hileb.moremomostories.common.events.datafix.DataFixerSetupEvent;
 import com.Hileb.moremomostories.common.world.gui.ModGuiElementLoader;
 import com.Hileb.moremomostories.common.init.ModOreDic;
 import com.Hileb.moremomostories.common.init.ModRecipes;
@@ -19,7 +18,6 @@ import com.Hileb.moremomostories.common.util.Reference;
 import com.Hileb.moremomostories.common.util.named.NameTagHandler;
 import com.Hileb.moremomostories.common.util.named.NameTags;
 import mods.flammpfeil.slashblade.SlashBlade;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -46,6 +44,7 @@ public class MoreMoMoSrories {
     public static final String MODID = "moremomostories";
     public static final String NAME = "More MoMoStories";
     public static final String VERSION = "1.2.0.11";
+    public static final int BUILD_VERSION=11;
     public static Logger LOGGER = LogManager.getLogger(MODID);
 
     @Mod.Instance

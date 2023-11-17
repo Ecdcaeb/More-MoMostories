@@ -25,10 +25,6 @@ public class ItemHeadSet extends ItemArmorBase {
         super(name, ModArmorMaterials.QGXMaterial,1, EntityEquipmentSlot.HEAD);
     }
 
-    @Override
-    public void registerModels() {
-        super.registerModels();
-    }
 
     @SideOnly(Side.CLIENT)
     @Nullable

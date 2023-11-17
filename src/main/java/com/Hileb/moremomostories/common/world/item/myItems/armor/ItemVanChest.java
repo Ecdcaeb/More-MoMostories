@@ -23,12 +23,6 @@ public class ItemVanChest extends ItemArmorBase {
     public ItemVanChest(String name){
         super(name, ModArmorMaterials.QGXMaterial,1, EntityEquipmentSlot.LEGS);
     }
-
-    @Override
-    public void registerModels() {
-        super.registerModels();
-    }
-
     @SideOnly(Side.CLIENT)
     @Nullable
     @Override

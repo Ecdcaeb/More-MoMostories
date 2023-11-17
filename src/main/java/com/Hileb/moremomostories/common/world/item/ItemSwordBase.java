@@ -1,11 +1,11 @@
 package com.Hileb.moremomostories.common.world.item;
 
+import com.Hileb.forgedmomo.interfaces.IModelHolder;
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.common.init.ModCreativeTab;
 import com.Hileb.moremomostories.common.util.CommonFunctions;
-import com.Hileb.moremomostories.common.util.IHasModel;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTDef;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTDef;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import com.Hileb.moremomostories.common.world.item.interfaces.IEntityItemX;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,7 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemSwordBase extends ItemSword implements IHasModel {
+public class ItemSwordBase extends ItemSword implements IModelHolder.IItem {
 	private boolean overrideRarity = false;
 	private EnumRarity enumRarity = EnumRarity.COMMON;
 	protected boolean showGuaSocketDesc = false;
@@ -39,7 +39,7 @@ public class ItemSwordBase extends ItemSword implements IHasModel {
 	public ItemSwordBase(String name, Item.ToolMaterial material)
 	{
 		super(material);
-		setUnlocalizedName(name);
+		setUnlocalizedName(MoreMoMoSrories.MODID+"."+name);
 		setRegistryName(name);
 		setCreativeTab(ModCreativeTab.IDL_MISC);
 		toolMaterial = material;
@@ -105,11 +105,7 @@ public class ItemSwordBase extends ItemSword implements IHasModel {
 
 	}
 
-	@Override
-	public void registerModels() 
-	{
-		MoreMoMoSrories.proxy.registerItemRenderer(this, 0, "inventory");
-	}
+
 
 	@SideOnly(Side.CLIENT)
 	@Override

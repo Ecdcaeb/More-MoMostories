@@ -1,7 +1,7 @@
 package com.Hileb.moremomostories.common.world.entity.entity.living;
 
 import com.Hileb.moremomostories.client.keys.ServerKeyBoardManager;
-import com.Hileb.moremomostories.common.util.math.MathHelper;
+import com.Hileb.forgedmomo.utils.math.MathHelper;
 import com.Hileb.moremomostories.common.world.level.worldgen.WorldGenHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;

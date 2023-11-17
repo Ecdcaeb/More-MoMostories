@@ -1,29 +1,26 @@
 package com.Hileb.moremomostories.common.world.blocks;
 
+import com.Hileb.forgedmomo.interfaces.IModelHolder;
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.common.init.ModCreativeTab;
-import com.Hileb.moremomostories.common.util.IHasModel;
 import com.Hileb.moremomostories.common.world.item.ModItems;
-import com.Hileb.moremomostories.common.world.item.myItems.ItemXe;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 /**
  * @Project More-MoMostories
  * @Author Hileb
  * @Date 2023/9/10 22:33
  **/
-public abstract class BlockOreBase extends BlockOre implements IHasModel {
+public abstract class BlockOreBase extends BlockOre implements IModelHolder.IBlock{
     public BlockOreBase(String name,int levelIn,int hardness){
         super();
-        setUnlocalizedName(name);
+        setUnlocalizedName(MoreMoMoSrories.MODID+"."+name);
         setRegistryName(name);
         setCreativeTab(ModCreativeTab.IDL_MISC);
 
@@ -40,8 +37,4 @@ public abstract class BlockOreBase extends BlockOre implements IHasModel {
 
     @Override
     public abstract void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune);
-
-    public void registerModels() {
-        MoreMoMoSrories.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
-    }
 }

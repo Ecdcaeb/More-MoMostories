@@ -1,7 +1,7 @@
 package com.Hileb.moremomostories.common.util.named;
 
 import com.Hileb.moremomostories.MoreMoMoSrories;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;

@@ -3,7 +3,7 @@ package com.Hileb.moremomostories.common.world.item.myItems;
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.common.world.item.interfaces.IEntityItemX;
 import com.Hileb.moremomostories.common.world.item.ItemSwordBase;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import com.Hileb.moremomostories.common.util.named.skillTag.ItemSkillList;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;

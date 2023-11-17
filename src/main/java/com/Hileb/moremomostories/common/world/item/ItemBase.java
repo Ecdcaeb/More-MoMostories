@@ -1,10 +1,11 @@
 package com.Hileb.moremomostories.common.world.item;
 
+import com.Hileb.forgedmomo.interfaces.IModelHolder;
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.common.init.ModCreativeTab;
 import com.Hileb.moremomostories.common.util.*;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTDef;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTDef;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import com.Hileb.moremomostories.common.world.item.interfaces.IEntityItemX;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -29,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class ItemBase extends Item implements IHasModel {
+public class ItemBase extends Item implements IModelHolder.IItem {
 	private boolean overrideRarity = false;
 	private EnumRarity enumRarity = EnumRarity.COMMON;
 	protected boolean showGuaSocketDesc = false;
@@ -53,7 +54,7 @@ public class ItemBase extends Item implements IHasModel {
 
 	public ItemBase(String name)
 	{
-		setUnlocalizedName(name);
+		setUnlocalizedName(MoreMoMoSrories.MODID+"."+name);
 		setRegistryName(name);
 		setCreativeTab(ModCreativeTab.IDL_MISC);
 		ModItems.ITEMS.add(this);
@@ -208,11 +209,7 @@ public class ItemBase extends Item implements IHasModel {
 
 	}
 
-	@Override
-	public void registerModels() 
-	{
-		MoreMoMoSrories.proxy.registerItemRenderer(this, 0, "inventory");
-	}
+
 
 
 	@SideOnly(Side.CLIENT)

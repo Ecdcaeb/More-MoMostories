@@ -1,7 +1,7 @@
 package com.Hileb.moremomostories.common.world.item.myItems;
 
 import com.Hileb.moremomostories.common.world.item.ItemBase;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.IItemPropertyGetter;

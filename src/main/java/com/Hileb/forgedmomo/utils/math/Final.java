@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.util.math;
+package com.Hileb.forgedmomo.utils.math;
 
 /**
  * @Project More-MoMostories

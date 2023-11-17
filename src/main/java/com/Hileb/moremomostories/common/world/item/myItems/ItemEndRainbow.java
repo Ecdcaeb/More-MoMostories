@@ -8,7 +8,7 @@ import com.Hileb.moremomostories.common.world.entity.entity.projectile.EntityRai
 import com.Hileb.moremomostories.common.world.potion.ModPotions;
 import com.Hileb.moremomostories.common.world.potion.myBuff.PotionDayTime;
 import com.Hileb.moremomostories.common.util.EntityUtil;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import com.Hileb.moremomostories.common.util.named.NameTagHandler;
 import ic2.api.item.ElectricItem;
 import ic2.core.IC2;

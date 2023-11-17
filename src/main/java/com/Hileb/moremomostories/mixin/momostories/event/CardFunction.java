@@ -2,8 +2,8 @@ package com.Hileb.moremomostories.mixin.momostories.event;
 
 import com.Hileb.moremomostories.client.RandomManager;
 import com.Hileb.moremomostories.common.common.ModEventReader;
-import com.Hileb.moremomostories.common.util.helper.Finder;
-import com.Hileb.moremomostories.common.util.math.VirtueSpace;
+import com.Hileb.forgedmomo.utils.helper.Finder;
+import com.Hileb.forgedmomo.utils.math.VirtueSpace;
 import com.Hileb.moremomostories.common.world.command.ModCommands;
 import com.Hileb.moremomostories.common.world.item.myItems.ItemCardContainer;
 import com.Hileb.moremomostories.common.world.potion.myBuff.PotionDayTime;
@@ -1644,8 +1644,8 @@ public class CardFunction {
 
                     Vec3d playerLook= new Vec3d(lookX*maxEffectLong,lookY*maxEffectLong,lookZ*maxEffectLong);
                     entityplayer.rayTrace(2048,0);
-                    //List<RayTraceResult> results= com.Hileb.moremomostories.common.util.math.MathHelper.raytraceAll(worldIn,playerShootPos,playerShootPos.add(playerLook),false);
-                    RayTraceResult result= com.Hileb.moremomostories.common.util.math.MathHelper.rayTraceShoot(entityplayer,worldIn,playerShootPos,playerShootPos.add(playerLook));
+                    //List<RayTraceResult> results= com.Hileb.forgedmomo.utils.math.MathHelper.raytraceAll(worldIn,playerShootPos,playerShootPos.add(playerLook),false);
+                    RayTraceResult result= com.Hileb.forgedmomo.utils.math.MathHelper.rayTraceShoot(entityplayer,worldIn,playerShootPos,playerShootPos.add(playerLook));
 
 
 

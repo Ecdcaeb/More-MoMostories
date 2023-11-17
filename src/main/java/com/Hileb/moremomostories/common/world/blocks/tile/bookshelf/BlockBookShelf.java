@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.world.blocks.tileEntity;
+package com.Hileb.moremomostories.common.world.blocks.tile.bookshelf;
 
 
 import com.Hileb.moremomostories.MoreMoMoSrories;

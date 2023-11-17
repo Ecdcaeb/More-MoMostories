@@ -1,4 +1,4 @@
-package com.Hileb.moremomostories.common.util.NBTStrDef;
+package com.Hileb.forgedmomo.utils.nbt;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;

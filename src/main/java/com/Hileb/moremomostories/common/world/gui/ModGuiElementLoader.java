@@ -1,7 +1,7 @@
 package com.Hileb.moremomostories.common.world.gui;
 
 import com.Hileb.moremomostories.MoreMoMoSrories;
-import com.Hileb.moremomostories.common.world.blocks.tileEntity.TileEntityBookShelf;
+import com.Hileb.moremomostories.common.world.blocks.tile.bookshelf.TileEntityBookShelf;
 import com.Hileb.moremomostories.common.world.gui.bookshelf.ContainerBookShelf;
 import com.Hileb.moremomostories.common.world.gui.bookshelf.GuiContainerBookShelf;
 import com.Hileb.moremomostories.common.world.gui.enchantmentGUI.ContainerEnchantmentTableHileb;

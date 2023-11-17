@@ -1,10 +1,10 @@
 package com.Hileb.moremomostories.common.world.blocks;
 
+import com.Hileb.forgedmomo.interfaces.IModelHolder;
 import com.Hileb.moremomostories.MoreMoMoSrories;
-import com.Hileb.moremomostories.common.world.gui.ModGuiElementLoader;
 import com.Hileb.moremomostories.common.init.ModCreativeTab;
+import com.Hileb.moremomostories.common.world.gui.ModGuiElementLoader;
 import com.Hileb.moremomostories.common.world.item.ModItems;
-import com.Hileb.moremomostories.common.util.IHasModel;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,10 +19,10 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockEnchantmentTableHileb extends net.minecraft.block.BlockEnchantmentTable implements IHasModel {
+public class BlockEnchantmentTableHileb extends net.minecraft.block.BlockEnchantmentTable implements IModelHolder.IBlock {
     public BlockEnchantmentTableHileb(String name){
         super();
-        setUnlocalizedName(name);
+        setUnlocalizedName(MoreMoMoSrories.MODID+"."+name);
         setRegistryName(name);
         setCreativeTab(ModCreativeTab.IDL_MISC);
 
@@ -33,10 +33,6 @@ public class BlockEnchantmentTableHileb extends net.minecraft.block.BlockEnchant
 
         setHardness(5.0F);
         setLightOpacity(1);
-    }
-    @Override
-    public void registerModels() {
-        MoreMoMoSrories.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
     @Override
     public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {

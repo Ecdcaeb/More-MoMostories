@@ -1,11 +1,11 @@
 package com.Hileb.moremomostories.common.util;
 
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTDef;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTDef;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 
-import static com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTDef.IDEALLAND;
+import static com.Hileb.forgedmomo.utils.nbt.IDLNBTDef.IDEALLAND;
 
 public class IDLNBT {
 	public int pearlCount;

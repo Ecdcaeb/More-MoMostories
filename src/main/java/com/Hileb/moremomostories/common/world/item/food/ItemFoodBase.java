@@ -1,12 +1,12 @@
 package com.Hileb.moremomostories.common.world.item.food;
 
+import com.Hileb.forgedmomo.interfaces.IModelHolder;
 import com.Hileb.moremomostories.MoreMoMoSrories;
 import com.Hileb.moremomostories.common.init.ModCreativeTab;
 import com.Hileb.moremomostories.common.world.item.ModItems;
 import com.Hileb.moremomostories.common.util.CommonFunctions;
-import com.Hileb.moremomostories.common.util.IHasModel;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTDef;
-import com.Hileb.moremomostories.common.util.NBTStrDef.IDLNBTUtil;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTDef;
+import com.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -22,7 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-public class ItemFoodBase extends ItemFood implements IHasModel {
+public class ItemFoodBase extends ItemFood implements IModelHolder.IItem {
 
     private boolean overrideRarity = false;
     private EnumRarity enumRarity = EnumRarity.COMMON;
@@ -68,17 +68,9 @@ public class ItemFoodBase extends ItemFood implements IHasModel {
         this.addXP = addXP;
         return this;
     }
-
-
-    @Override
-    public void registerModels()
-    {
-        MoreMoMoSrories.proxy.registerItemRenderer(this, 0, "inventory");
-    }
-
     public ItemFoodBase(String name, int amount, float saturation, boolean isWolfFood) {
         super(amount, saturation, isWolfFood);
-        setUnlocalizedName(name);
+        setUnlocalizedName(MoreMoMoSrories.MODID+"."+name);
         setRegistryName(name);
         setCreativeTab(ModCreativeTab.IDL_MISC);
 

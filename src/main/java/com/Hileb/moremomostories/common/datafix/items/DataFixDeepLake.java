@@ -1,5 +1,6 @@
 package com.Hileb.moremomostories.common.datafix.items;
 
+import com.Hileb.moremomostories.MoreMoMoSrories;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.datafix.IFixableData;
 
@@ -12,13 +13,14 @@ public class DataFixDeepLake implements IFixableData {
 
     @Override
     public int getFixVersion() {
-        return 102000011;
+        return 10;
     }
 
     @Override
     public NBTTagCompound fixTagCompound(NBTTagCompound compound) {
         if (compound.hasKey("id", 8))
         {
+            MoreMoMoSrories.LOGGER.warn("fix");
             String name = compound.getString("id");
             if ("momostories:the_supreme_magi_deep_lake".equals(name)){
                 compound.setString("id","momostories:the_supreme_magic_deep_lake");

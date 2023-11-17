@@ -4,7 +4,7 @@ package com.Hileb.moremomostories.common.world.entity.model;// Made with Blockbe
 
 
 import com.Hileb.moremomostories.common.world.entity.entity.living.EntityBike;
-import com.Hileb.moremomostories.common.util.math.MathHelper;
+import com.Hileb.forgedmomo.utils.math.MathHelper;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
