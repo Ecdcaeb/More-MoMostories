@@ -1,13 +1,13 @@
 {
   "package": "com.Hileb.moremomostories.mixin.momostories.mixin.fixBug",
   "mixins": [
-    "MixinStoneGrinder",
-    "MixinRegisterHandler",
-    "MixinTEHelper"
+    "mods.Hileb.moremomostories.mixin.momostories.mixin.fixBug.MixinStoneGrinder",
+    "mods.Hileb.moremomostories.mixin.momostories.mixin.fixBug.MixinRegisterHandler",
+    "mods.Hileb.moremomostories.mixin.momostories.mixin.fixBug.MixinTEHelper"
 
   ],
   "client": [
-    "MixinRenderTooltipO"
+    "mods.Hileb.moremomostories.mixin.momostories.mixin.fixBug.MixinRenderTooltipO"
   ],
   "minVersion": 0.8,
   "compatibilityLevel": "JAVA_8",

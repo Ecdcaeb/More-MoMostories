@@ -3,8 +3,8 @@
   "refmap": "mixins.moremomostories.refmap.json",
   "mixins": [],
   "client": [
-    "MixinRenderItem",
-    "MixinItemStack"
+    "mods.Hileb.moremomostories.mixin.minecraft.mixin.MixinRenderItem",
+    "mods.Hileb.moremomostories.mixin.minecraft.mixin.MixinItemStack"
   ],
   "minVersion": 0.8,
   "compatibilityLevel": "JAVA_8",

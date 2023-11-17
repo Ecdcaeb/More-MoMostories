@@ -1,7 +1,7 @@
 {
   "package": "com.Hileb.moremomostories.mixin.momostories.mixin.fixBug",
   "mixins": [
-    "MixinRegisterHandler"
+    "mods.Hileb.moremomostories.mixin.momostories.mixin.fixBug.MixinRegisterHandler"
   ],
   "client": [],
   "minVersion": 0.8,
