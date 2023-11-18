@@ -8,7 +8,6 @@ import mods.Hileb.forgedmomo.utils.registry.DeferredEventBusRegisterManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.LoaderState;
-import net.minecraftforge.fml.common.ModClassLoader;
 import net.minecraftforge.fml.common.discovery.ASMDataTable;
 import net.minecraftforge.fml.common.discovery.asm.ModAnnotation;
 import net.minecraftforge.fml.common.event.*;
@@ -28,7 +27,7 @@ public class F3MFMLLoadingHandler {
     public static final F3MFMLLoadingHandler INSTANCE=new F3MFMLLoadingHandler();
     public static final List<ModPlugin.ModPluginContainer> plugins=new ArrayList<>();
     //internal
-    private static void loadModPlugins(LoaderState state){
+    private static void runModPlugins(LoaderState state){
         Iterator<ModPlugin.ModPluginContainer> iterator=plugins.iterator();
         ModPlugin.ModPluginContainer container=null;
         try{
@@ -38,7 +37,7 @@ public class F3MFMLLoadingHandler {
                     if (container.couldLoad()){
                         container.load();
                         iterator.remove();
-                    }
+                    }else iterator.remove();
                 }
             }
         }catch (Exception e){
@@ -51,48 +50,48 @@ public class F3MFMLLoadingHandler {
     // fml events
     @Subscribe
     public void preInit(FMLPreInitializationEvent event){
-        loadModPlugins(LoaderState.PREINITIALIZATION);
+        runModPlugins(LoaderState.PREINITIALIZATION);
         DeferredEventBusRegisterManager.registerAll();
     }
     @Subscribe
     public void init(FMLInitializationEvent event){
-        loadModPlugins(LoaderState.INITIALIZATION);
+        runModPlugins(LoaderState.INITIALIZATION);
     }
     @Subscribe
     public void postInit(FMLPostInitializationEvent event){
-        loadModPlugins(LoaderState.POSTINITIALIZATION);
+        runModPlugins(LoaderState.POSTINITIALIZATION);
     }
     @Subscribe
     public void complete(FMLLoadCompleteEvent event){
-        loadModPlugins(LoaderState.AVAILABLE);
+        runModPlugins(LoaderState.AVAILABLE);
         MinecraftForge.EVENT_BUS.post(new ResourceGenerateEvent());
     }
     @Subscribe
     public void serverAboutToStart(FMLServerAboutToStartEvent event){
-        loadModPlugins(LoaderState.SERVER_ABOUT_TO_START);
+        runModPlugins(LoaderState.SERVER_ABOUT_TO_START);
     }
     @Subscribe
     public void serverStarting( FMLServerStartingEvent event){
-        loadModPlugins(LoaderState.SERVER_STARTING);
+        runModPlugins(LoaderState.SERVER_STARTING);
     }
     @Subscribe
     public void serverStarted( FMLServerStartedEvent event){
-        loadModPlugins(LoaderState.SERVER_STARTED);
+        runModPlugins(LoaderState.SERVER_STARTED);
     }
     @Subscribe
     public void serverStopping( FMLServerStoppingEvent event){
-        loadModPlugins(LoaderState.SERVER_STOPPING);
+        runModPlugins(LoaderState.SERVER_STOPPING);
     }
     @Subscribe
     public void serverStopped( FMLServerStoppedEvent event){
-        loadModPlugins(LoaderState.SERVER_STOPPED);
+        runModPlugins(LoaderState.SERVER_STOPPED);
     }
     @Subscribe
     public void construction(FMLConstructionEvent event){
         ASMDataTable asmDataTable=event.getASMHarvestedData();
         //ModClassLoader modClassLoader=event.getModClassLoader();
         ASMDataTable.ASMData asmData;
-        ModPlugin.ModPluginContainer modPluginContainer;
+        ModPlugin.ModPluginContainer modPluginContainer = null;
         Iterator<ASMDataTable.ASMData> iterator=asmDataTable.getAll(ModPlugin.class.getName()).iterator();
         try{
             while (iterator.hasNext()){
@@ -111,10 +110,7 @@ public class F3MFMLLoadingHandler {
         }catch (Exception e){
             throw new RuntimeException("ModPlugin loading error",e);
         }
-        loadModPlugins(LoaderState.CONSTRUCTING);
-        if (FMLCommonHandler.instance().getSide()==Side.CLIENT){
-            MinecraftForge.EVENT_BUS.register(IModelHolder.ModelHandler.class);
-        }
-        ForgedMoMoContainer.LOGGER.warn("consTTT");
+        //although: CONSTRUCTING should not be used because ModContainer has not been built yet.
+        runModPlugins(LoaderState.CONSTRUCTING);
     }
 }

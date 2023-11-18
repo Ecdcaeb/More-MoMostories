@@ -9,7 +9,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.LoaderState;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@ModPlugin(state = LoaderState.CONSTRUCTING,modid = SlashBlade.modid,method = "init")
+@ModPlugin(state = LoaderState.PREINITIALIZATION,modid = SlashBlade.modid,method = "init")
 public class SlashBladeUtil {
     public static void init(){
         F3MFMLLoadingHandler.addToBus(SlashBladeUtil.class);

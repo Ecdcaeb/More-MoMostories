@@ -29,7 +29,7 @@ public class F3MSlashBladePlugin {
             }
         }
     }
-    @ModPlugin(modid = SlashBlade.modid,state = LoaderState.CONSTRUCTING,method = "init")
+    @ModPlugin(modid = SlashBlade.modid,state = LoaderState.PREINITIALIZATION,method = "init")
     public static class RecipeLoading{
         public static void init(){
             F3MFMLLoadingHandler.addToBus(RecipeLoading.class);
