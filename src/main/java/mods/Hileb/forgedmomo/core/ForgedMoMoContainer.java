@@ -24,14 +24,14 @@ public class ForgedMoMoContainer extends DummyModContainer{
     public ForgedMoMoContainer(){
         super(new ModMetadata());
         ModMetadata metadata=this.getMetadata();
-        metadata.modId=MoreMoMoStoriesLoadingCore.NAME;
-        metadata.name= MoreMoMoStoriesLoadingCore.NAME;
+        metadata.modId= ForgedMoMoFMLLoadingPlugin.NAME;
+        metadata.name= "ForgedMoMo";
         metadata.description="A mod for MoMoStories.This is the coremod!";
         metadata.version= MoreMoMoSrories.VERSION;
         metadata.url="https://www.mcmod.cn/class/7481.html";
         metadata.updateUrl="https://www.mcmod.cn/class/7481.html";
         metadata.authorList.add("Hileb");
-        metadata.credits="\n Idealland - they provided this framework. \n momostories - the mod is very very goooooooood.~";
+        metadata.credits="\n Idealland - they provided this framework. \n momostories - the mod is very very goooooooood.~ \n moremomostories - they provide this API";
         metadata.logoFile="assets/moremomostories/index.png";
         metadata.screenshots=new String[]{"assets/moremomostories/index.png"};
     }
@@ -39,9 +39,9 @@ public class ForgedMoMoContainer extends DummyModContainer{
     @Override
     public boolean registerBus(EventBus bus, LoadController controller) {
         LOGGER.info("loading ForgedMoMo");
-        MinecraftForge.EVENT_BUS.register(IModelHolder.ModelHandler.class);
-        MinecraftForge.EVENT_BUS.register(F3MLoadingLateHandler.class);
-        bus.register(F3MLoadingLateHandler.class);
+        bus.register(F3MFMLLoadingHandler.INSTANCE);
+        F3MFMLLoadingHandler.addToBus(IModelHolder.ModelHandler.class);
+        F3MFMLLoadingHandler.addToBus(F3MFMLLoadingHandler.class);
         return true;
     }
 }

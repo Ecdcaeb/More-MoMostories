@@ -1,5 +1,6 @@
 package mods.Hileb.moremomostories.common.util;
 
+import mods.Hileb.forgedmomo.utils.StringUtil;
 import net.minecraft.client.resources.I18n;
 import org.lwjgl.input.Keyboard;
 

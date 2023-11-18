@@ -3,7 +3,7 @@ package mods.Hileb.moremomostories.common.world.item.myItems;
 import mods.Hileb.moremomostories.MoreMoMoSrories;
 import mods.Hileb.moremomostories.common.init.ModCreativeTab;
 import mods.Hileb.moremomostories.common.world.item.ItemBase;
-import mods.Hileb.moremomostories.common.util.CommonFunctions;
+import mods.Hileb.forgedmomo.utils.CommonFunctions;
 import mods.Hileb.forgedmomo.api.momostories.MoMoCards;
 import mods.Hileb.moremomostories.client.sound.ModSoundHandler;
 import mods.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;

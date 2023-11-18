@@ -2,7 +2,7 @@ package mods.Hileb.moremomostories.common.world.entity.entity.living;
 
 import mods.Hileb.moremomostories.common.world.command.ModCommands;
 import mods.Hileb.moremomostories.common.world.item.ModItems;
-import mods.Hileb.moremomostories.common.util.CommonFunctions;
+import mods.Hileb.forgedmomo.utils.CommonFunctions;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;

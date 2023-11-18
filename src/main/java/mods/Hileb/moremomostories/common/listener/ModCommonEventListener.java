@@ -1,5 +1,6 @@
 package mods.Hileb.moremomostories.common.listener;
 
+import mods.Hileb.forgedmomo.utils.math.LimitedVirtueSpace;
 import mods.Hileb.moremomostories.MoreMoMoSrories;
 import mods.Hileb.moremomostories.mods.ModLoadingPlugin;
 import mods.Hileb.forgedmomo.utils.math.VirtueSpace;
@@ -103,27 +104,24 @@ public class ModCommonEventListener {
                 Vec3d shootCenter=new Vec3d(entity.posX,entity.posY+entity.getEyeHeight(),entity.posZ);
                 //circle
                 if (entity.world.getTotalWorldTime()%2==0){
-                    VirtueSpace circleSpace=new VirtueSpace(shootCenter);
+                    LimitedVirtueSpace lCircleSpace=new LimitedVirtueSpace(256);
                     for(int i=0;i<256;i++){
                         float angle= (float) Math.PI/128*i;
                         float x=MathHelper.cos(angle);
                         float z=MathHelper.sin(angle);
-                        circleSpace.putPos(new Vec3d(x,0,z));
+                        lCircleSpace.put(x,0,z);
                     }
-                    circleSpace.scale(bar,bar,bar);
-                    //MathHelper.nextFloat(RandomManager.random,0,(float) Math.PI)
-                    circleSpace.rotation(rotationPitch,rotationYaw);
-                    for(Vec3d point:circleSpace.vec3dList){
-                        Vec3d pos=point.add(circleSpace.centerPos);
+                    lCircleSpace.scale(bar,bar,bar);
+                    lCircleSpace.rotation(rotationPitch,rotationYaw);
+                    for(double[] vec:lCircleSpace.getPoints()){
                         entity.world.spawnParticle(EnumParticleTypes.END_ROD,
-                                pos.x,pos.y,pos.z,
-                                point.x,point.y,point.z
+                                vec[0]+shootCenter.x,vec[1]+shootCenter.y,vec[2]+shootCenter.z,
+                                vec[0],vec[1],vec[2]
                         );
                     }
                 }
                 //the cross
                 if (entity.world.getTotalWorldTime()%2==0){
-                    VirtueSpace crossSpace=new VirtueSpace(shootCenter);
                     Vec3d theCross=new Vec3d(0,1,0);
                     theCross=theCross.rotatePitch(entity.rotationPitch* -0.017453292F-(float)Math.PI/2f).rotateYaw(-entity.rotationYaw* 0.017453292F).add(shootCenter);
                     entity.world.spawnParticle(EnumParticleTypes.END_ROD,
@@ -132,21 +130,21 @@ public class ModCommonEventListener {
                     );
                 }
                 if (speedFlag){
-                    VirtueSpace speedSpace=new VirtueSpace(shootCenter);
+                    LimitedVirtueSpace lSpeedSpace=new LimitedVirtueSpace(16);
 
                     for(int j=0;j<16;j++){
                         float angle= (float) Math.PI/8*j;
                         float x=MathHelper.cos(angle);
                         float z=MathHelper.sin(angle);
-                        speedSpace.putPos(new Vec3d(x,0,z));
+                        lSpeedSpace.put(x,0,z);
                     }
 
-                    speedSpace.scale(0.5f,0.25f,0.5f);
-                    speedSpace.rotation(rotationPitch,rotationYaw);
-                    for(Vec3d point:speedSpace.vec3dList){
-                        Vec3d pos=point.add(speedSpace.centerPos);
+                    lSpeedSpace.scale(0.5f,0.25f,0.5f);
+                    lSpeedSpace.rotation(rotationPitch,rotationYaw);
+
+                    for(double[] vec:lSpeedSpace.getPoints()){
                         entity.world.spawnParticle(EnumParticleTypes.END_ROD,
-                                pos.x,pos.y,pos.z,
+                                vec[0]+shootCenter.x,vec[1]+shootCenter.y,vec[2]+shootCenter.z,
                                 lookVec.x*0.125, lookVec.y*0.125,lookVec.z*0.125
                         );
                     }

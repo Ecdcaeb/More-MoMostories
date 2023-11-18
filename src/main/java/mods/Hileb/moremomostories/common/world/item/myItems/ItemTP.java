@@ -4,7 +4,7 @@ import mods.Hileb.moremomostories.common.init.ModConfig;
 import mods.Hileb.moremomostories.common.world.item.interfaces.IEntityItemX;
 import mods.Hileb.moremomostories.common.world.item.ItemBase;
 import mods.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
-import mods.Hileb.moremomostories.common.util.Teleport;
+import mods.Hileb.forgedmomo.utils.Teleport;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

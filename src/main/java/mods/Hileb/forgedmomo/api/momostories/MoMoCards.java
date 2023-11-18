@@ -1,10 +1,14 @@
 package mods.Hileb.forgedmomo.api.momostories;
 
+import com.gq2529.momostories.MoMoFramework;
 import com.gq2529.momostories.item.ModItems;
+import mods.Hileb.forgedmomo.announces.ModPlugin;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.LoaderState;
 
 import java.util.*;
 
+@ModPlugin(state = LoaderState.POSTINITIALIZATION,modid = MoMoFramework.MODID,method = "cardInit")
 public class MoMoCards {
     private static HashMap<CardType,ArrayList<Item>> CARDS=new HashMap<>();
 

@@ -35,7 +35,6 @@ public class RegistryHandler {
 	@SubscribeEvent
 	public static void onEnchantmentRegister(RegistryEvent.Register<Enchantment> event)
 	{
-		ModEnchantmentInit.BeforeRegister();
 		event.getRegistry().registerAll(ModEnchantmentInit.ENCHANTMENT_LIST.toArray(new Enchantment[0]));
 	}
 

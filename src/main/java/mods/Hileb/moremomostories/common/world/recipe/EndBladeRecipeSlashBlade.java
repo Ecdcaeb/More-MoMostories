@@ -1,6 +1,6 @@
 package mods.Hileb.moremomostories.common.world.recipe;
 
-import mods.Hileb.moremomostories.mods.slashblade.blade.ModBlades;
+import mods.Hileb.moremomostories.mods.slashblade.ModBlades;
 import mods.Hileb.moremomostories.common.world.item.ModItems;
 import mods.Hileb.moremomostories.common.world.item.myItems.ItemEndRainbow;
 import mods.Hileb.moremomostories.common.capabilities.nametag.named.NameTagHandler;
@@ -31,7 +31,7 @@ public class EndBladeRecipeSlashBlade extends RecipeAwakeBlade {
                 'R',new ItemStack(com.gq2529.momostories.item.ModItems.REPLICA_1),
                 'T',new ItemStack(Items.GOLDEN_SWORD),
                 'Y',new ItemStack(com.gq2529.momostories.item.ModItems.THE_BOOK_OF_MANIFESTATION),
-                'E',SlashBlade.getCustomBlade(ModBlades.TIAN_KI.getName())
+                'E',SlashBlade.getCustomBlade(ModBlades.TIAN_KI.getName()).copy()
                 );
     }
     @Nonnull
@@ -41,11 +41,12 @@ public class EndBladeRecipeSlashBlade extends RecipeAwakeBlade {
 
             ItemStack stackBland=var1.getStackInSlot(7);
             int score=0;
+            ItemSlashBlade.class.getName();
             NBTTagCompound tagCompound=stackBland.getTagCompound();
             score+=ItemSlashBlade.RepairCount.get(tagCompound)*100;
             score+=ItemSlashBlade.KillCount.get(tagCompound)*10;
             score+=ItemSlashBlade.ProudSoul.get(tagCompound);
-            ItemEndRainbow.addEnergy(result,(double) score);
+            ItemEndRainbow.addEnergy(result, score);
 
             Map<Enchantment,Integer> oldItemEnchants = EnchantmentHelper.getEnchantments(stackBland);
             for(Map.Entry<Enchantment,Integer> enchant: oldItemEnchants.entrySet())

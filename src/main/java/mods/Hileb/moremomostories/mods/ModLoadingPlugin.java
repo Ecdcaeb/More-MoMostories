@@ -52,16 +52,7 @@ public class ModLoadingPlugin {
         if(isLoaded_MoreMomoStories){
             RecipePutrid.registerPutridItem(ModItems.ITEM_PUTRID);
         }
-        if (isLoaded_MagicCircle){
-            ModMagicCircles.init();
-        }
-        if (isLoaded_Momostories){
-            MoMoCards.cardInit();
-        }
     }
     public static void preInit(){
-        if (isLoaded_SlashBlade){
-            MinecraftForge.EVENT_BUS.register(SlashBladeUtil.class);
-        }
     }
 }

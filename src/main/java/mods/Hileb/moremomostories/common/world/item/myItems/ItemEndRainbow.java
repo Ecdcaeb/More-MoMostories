@@ -7,7 +7,7 @@ import mods.Hileb.moremomostories.common.world.entity.entity.projectile.EntityFi
 import mods.Hileb.moremomostories.common.world.entity.entity.projectile.EntityRain;
 import mods.Hileb.moremomostories.common.world.potion.ModPotions;
 import mods.Hileb.moremomostories.common.world.potion.myBuff.PotionDayTime;
-import mods.Hileb.moremomostories.common.util.EntityUtil;
+import mods.Hileb.forgedmomo.utils.EntityUtil;
 import mods.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import mods.Hileb.moremomostories.common.capabilities.nametag.named.NameTagHandler;
 import ic2.api.item.ElectricItem;

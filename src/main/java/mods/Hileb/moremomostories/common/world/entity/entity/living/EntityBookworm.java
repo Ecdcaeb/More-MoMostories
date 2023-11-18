@@ -1,7 +1,7 @@
 package mods.Hileb.moremomostories.common.world.entity.entity.living;
 
 import mods.Hileb.moremomostories.common.world.blocks.ModBlocks;
-import mods.Hileb.moremomostories.common.util.CommonFunctions;
+import mods.Hileb.forgedmomo.utils.CommonFunctions;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityCreature;

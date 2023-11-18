@@ -3,7 +3,7 @@ package mods.Hileb.moremomostories.common.world.potion.myBuff;
 import mods.Hileb.moremomostories.MoreMoMoSrories;
 import mods.Hileb.moremomostories.common.world.potion.ModPotions;
 import mods.Hileb.moremomostories.common.world.potion.PotionBase;
-import mods.Hileb.moremomostories.common.util.texture.Texture;
+import mods.Hileb.forgedmomo.client.texture.Texture;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.PotionEffect;

@@ -4,9 +4,8 @@ import mods.Hileb.moremomostories.common.world.advancements.Advancementkeys;
 import mods.Hileb.moremomostories.common.world.advancements.ModAdvancementsInit;
 import mods.Hileb.moremomostories.common.world.command.ModCommands;
 import mods.Hileb.moremomostories.common.world.item.myItems.ItemDao;
-import mods.Hileb.moremomostories.common.util.CommonFunctions;
+import mods.Hileb.forgedmomo.utils.CommonFunctions;
 import mods.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
-import mods.Hileb.moremomostories.common.util.ticker.AttackRenderTask;
 import com.gq2529.momostories.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.resources.I18n;
@@ -209,23 +208,12 @@ public class EntityZFP extends EntityAnimal {
 
         }
     }
-    public void tellStories(List<EntityPlayer> players){
-        for(int i=0;i<players.size();i++){
-            players.get(i).sendMessage(new TextComponentString(I18n.format(String.format("say.zfp.%d.say",new Random().nextInt(26)))));
+    public void tellStories(List<EntityPlayer> players) {
+        for (int i = 0; i < players.size(); i++) {
+            players.get(i).sendMessage(new TextComponentString(I18n.format(String.format("say.zfp.%d.say", new Random().nextInt(26)))));
             players.get(i).heal(1f);
         }
-        ItemDao.setClosed(this.getHeldItemMainhand(),false);
-    }
-
-    @Override
-    public boolean attackEntityFrom(DamageSource source, float amount) {
-        boolean b= super.attackEntityFrom(source, amount);
-
-        if (world.isRemote){
-            LivingHurtEvent event=new LivingHurtEvent(this,source,amount);
-            AttackRenderTask.put(event);
-        }
-        return b;
+        ItemDao.setClosed(this.getHeldItemMainhand(), false);
     }
 
 }

@@ -1,8 +1,8 @@
 package mods.Hileb.moremomostories.common.world.command;
 
 import mods.Hileb.moremomostories.MoreMoMoSrories;
-import mods.Hileb.moremomostories.common.util.CommonFunctions;
-import mods.Hileb.moremomostories.common.util.Teleport;
+import mods.Hileb.forgedmomo.utils.CommonFunctions;
+import mods.Hileb.forgedmomo.utils.Teleport;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;

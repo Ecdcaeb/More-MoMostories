@@ -11,6 +11,7 @@ import java.util.List;
  * @Author Hileb
  * @Date 2023/8/10 17:04
  **/
+@Deprecated
 public class VirtueSpace {
     public List<Vec3d> vec3dList= NonNullList.create();
     public Vec3d centerPos;

@@ -1,5 +1,6 @@
 package mods.Hileb.moremomostories.mixin.momostories.event;
 
+import mods.Hileb.forgedmomo.utils.math.LimitedVirtueSpace;
 import mods.Hileb.moremomostories.client.RandomManager;
 import mods.Hileb.moremomostories.common.listener.ModCommonEventListener;
 import mods.Hileb.forgedmomo.utils.helper.Finder;
@@ -1648,7 +1649,7 @@ public class CardFunction {
                     RayTraceResult result= mods.Hileb.forgedmomo.utils.math.MathHelper.rayTraceShoot(entityplayer,worldIn,playerShootPos,playerShootPos.add(playerLook));
 
 
-
+                    //LimitedVirtueSpace lVirtueSpace=new LimitedVirtueSpace(maxEffectLong*4);
                     VirtueSpace virtueSpace=new VirtueSpace(playerShootPos);
                     for(int o=0;o<=maxEffectLong*4;o++){
                         virtueSpace.putPos(new Vec3d(0,o,0));

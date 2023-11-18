@@ -1,5 +1,6 @@
 package mods.Hileb.forgedmomo.api.slashblade;
 
+import com.sun.istack.internal.NotNull;
 import mods.flammpfeil.slashblade.ItemSlashBladeNamed;
 import mods.flammpfeil.slashblade.SlashBlade;
 import mods.flammpfeil.slashblade.item.ItemSlashBlade;
@@ -13,7 +14,8 @@ import java.util.function.Function;
 
 public abstract class BladeType {
     public static List<BladeType> REGISTER=new LinkedList<>();
-    public final ItemStack thisItemStack;
+    public ItemStack thisItemStack;
+    @NotNull
     public abstract String getName();//刀的名字
     //item. (getName) .name
     public abstract int getKillCount();
@@ -38,46 +40,49 @@ public abstract class BladeType {
     //上面这些是不必须的
     public ItemStack newItemStackInstance(){
         ItemStack stack=new ItemStack(SlashBlade.bladeNamed);//新建刀Stack
-        NBTTagCompound tagCompound=new NBTTagCompound();//新建NBT
-        stack.setTagCompound(tagCompound);//绑定NBT
-        //
-        ItemSlashBladeNamed.CurrentItemName.set(tagCompound,getName());//设置客户端刀名
-        ItemSlashBladeNamed.CustomMaxDamage.set(tagCompound,getMaxDamage());//设置最大耐久
-        if (getSA()!=null && getSA().isNull())ItemSlashBladeNamed.SpecialAttackType.set(tagCompound,getSA().getID());//SA类型
-        ItemSlashBladeNamed.StandbyRenderType.set(tagCompound,getStandbyRenderType());//绘制类型
-        ItemSlashBladeNamed.IsBroken.set(tagCompound,isBroken());//是否破损
-        ItemSlashBladeNamed.IsDefaultBewitched.set(tagCompound, isDefaultBewitched());//是否为妖刀
-        ItemSlashBladeNamed.AttackAmplifier.set(tagCompound,getAttackAmplifier());
-        ItemSlashBladeNamed.BaseAttackModifier.set(tagCompound,getBaseAttackModifier());//初始攻击力
+        try {
+            NBTTagCompound tagCompound=new NBTTagCompound();//新建NBT
+            stack.setTagCompound(tagCompound);//绑定NBT
+            //
+            ItemSlashBladeNamed.CurrentItemName.set(tagCompound,getName());//设置客户端刀名
+            ItemSlashBladeNamed.CustomMaxDamage.set(tagCompound,getMaxDamage());//设置最大耐久
+            if (getSA()!=null)ItemSlashBladeNamed.SpecialAttackType.set(tagCompound,getSA().getID());//SA类型
+            ItemSlashBladeNamed.StandbyRenderType.set(tagCompound,getStandbyRenderType());//绘制类型
+            ItemSlashBladeNamed.IsBroken.set(tagCompound,isBroken());//是否破损
+            ItemSlashBladeNamed.IsDefaultBewitched.set(tagCompound, isDefaultBewitched());//是否为妖刀
+            ItemSlashBladeNamed.AttackAmplifier.set(tagCompound,getAttackAmplifier());
+            ItemSlashBladeNamed.BaseAttackModifier.set(tagCompound,getBaseAttackModifier());//初始攻击力
 
-        ItemSlashBladeNamed.ProudSoul.set(tagCompound,getProudSoul());
-        ItemSlashBladeNamed.KillCount.set(tagCompound,getKillCount());
-        ItemSlashBladeNamed.RepairCount.set(tagCompound,getRefine());
+            ItemSlashBladeNamed.ProudSoul.set(tagCompound,getProudSoul());
+            ItemSlashBladeNamed.KillCount.set(tagCompound,getKillCount());
+            ItemSlashBladeNamed.RepairCount.set(tagCompound,getRefine());
 
 
-        ItemSlashBlade.TextureName.set(tagCompound,getTexture());//贴图路径 .png
-        ItemSlashBlade.ModelName.get(tagCompound,getModel());//模型路径 .obj
-
+            ItemSlashBlade.TextureName.set(tagCompound,getTexture());//贴图路径 .png
+            ItemSlashBlade.ModelName.get(tagCompound,getModel());//模型路径 .obj
+        }catch (Exception exception){
+            REGISTER.remove(this);
+        }
         return stack;
     }
 
     public ItemStack getThisItemStack() {
-        return thisItemStack;
+        return thisItemStack==null?thisItemStack=newItemStackInstance():thisItemStack;
     }
     public void registerStack(){
         ItemSlashBladeNamed.NamedBlades.add(getName());//添加刀，进入物品栏。
         SlashBlade.registerCustomItemStack(getName(),getThisItemStack());//注册刀
     }
-    public BladeType(){
-        thisItemStack=newItemStackInstance();
-        REGISTER.add(this);
+
+    public static void register(BladeType bladeType){
+        REGISTER.add(bladeType);
     }
 
     public abstract IRecipe getRecipe();
     public static class Builder{
-        private Impl impl=new Impl();
+        private final Impl impl;
         public Builder(String name){
-            impl.name=name;
+            impl=new Impl(name);
         }
         public Builder killCount(int value){
             impl.killCount=value;
@@ -127,33 +132,44 @@ public abstract class BladeType {
             impl.maxDamage=value;
             return this;
         }
-        public Builder recipe(IRecipe recipe){
-            impl.iRecipe=recipe;
+        public Builder recipe(Function<BladeType,IRecipe> recipe){
+            impl.recipe=recipe;
             return this;
         }
         public Builder process(Function<ItemStack,ItemStack> value){
             impl.process=value;
             return this;
         }
+        public Builder register(){
+            REGISTER.add(impl);
+            return this;
+        }
         public BladeType build(){
             return impl;
         }
         private static class Impl extends BladeType{
-            public String name=null;
+            public final String name;
             public int killCount=0;
             public int proudSoul=0;
             public int refine=0;
             public String model;
             public String texture;
-            public SpecialAttackType specialAttackType=SpecialAttackType.NULL;
+            public SpecialAttackType specialAttackType=null;
             public boolean isBroken=false;
             public float attackAmplifier=0;
             public int standbyRenderType=0;
             public boolean isDefaultBewitched=true;
             public int baseAttackModifier=4;
             public int maxDamage=14;
-            public IRecipe iRecipe=null;
+            public Function<BladeType,IRecipe> recipe;
             public Function<ItemStack,ItemStack> process=(stack)->stack;
+            public Impl(String name){
+                this.name=name;
+                if (this.name==null){
+                    throw new RuntimeException("null name for blade?");
+                }
+                thisItemStack=this.newItemStackInstance();
+            }
             @Override
             public String getName() {
                 return name;
@@ -213,7 +229,7 @@ public abstract class BladeType {
             }
             @Override
             public IRecipe getRecipe() {
-                return iRecipe;
+                return recipe.apply(this);
             }
 
             @Override

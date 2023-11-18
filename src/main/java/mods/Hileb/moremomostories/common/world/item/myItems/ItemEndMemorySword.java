@@ -23,20 +23,28 @@ import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.List;
 
 public class ItemEndMemorySword extends ItemSwordBase implements IEntityItemX {
+    public static Field attackTarget;
     public ItemEndMemorySword(String name){
         super(name, EnumHelper.addToolMaterial("toolmaterialEndMemory",0,2048,8.0f,1.0f,30));
         MinecraftForge.EVENT_BUS.register(this);
+        for(Field f:EntityLiving.class.getDeclaredFields()){
+            if (f.getType()==EntityLivingBase.class){
+                attackTarget=f;
+                attackTarget.setAccessible(true);
+                break;
+            }
+        }
     }
-
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
         if (player instanceof EntityPlayerMP && entity instanceof EntityLiving){
             EntityLiving living=(EntityLiving)entity;
             if (living.getAttackTarget()!=null){
-                living.setAttackTarget((EntityLivingBase)null);
+                living.setAttackTarget(null);
                 IDLNBTUtil.SetInt(entity,"com.hileb.momo.nbt.hasNoTarget",25);
                 if (entity instanceof EntityTameable){
                     EntityTameable tameable=(EntityTameable)entity;
@@ -56,31 +64,9 @@ public class ItemEndMemorySword extends ItemSwordBase implements IEntityItemX {
                     IDLNBTUtil.SetInt(event.getEntityLiving(),"com.hileb.momo.nbt.hasNoTarget",p-1);
 
                     EntityLiving living=((EntityLiving)event.getEntityLiving());
-                    Field attackTarget=null;
-                    try{
-                        attackTarget=EntityLiving.class.getDeclaredField("attackTarget");
-
-                    }catch (NoSuchFieldException e){
-                        attackTarget=null;
-                        boolean flag=false;
-                        for(Field f:EntityLiving.class.getDeclaredFields()){
-                            if (f.getType()==EntityLivingBase.class){
-                                attackTarget=f;
-                                flag=true;
-                                break;
-                            }
-                        }
-                        if (!flag) MoreMoMoSrories.LOGGER.error(String.format("on setting living target by %s [entity:%s]",this.getUnlocalizedName(),living.getUniqueID().toString()),(Throwable) e);
-
-                    }
-
-
                     try{
                         try{
-                            if (attackTarget!=null){
-                                attackTarget.setAccessible(true);
-                                attackTarget.set(living,null);
-                            }
+                            attackTarget.set(living,null);
                         }catch (NullPointerException e){
                             MoreMoMoSrories.LOGGER.error(String.format("on setting living target by %s [entity:%s]",this.getUnlocalizedName(),living.getUniqueID().toString()),(Throwable) e);
                         }

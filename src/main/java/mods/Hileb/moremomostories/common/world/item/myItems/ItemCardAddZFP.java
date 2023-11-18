@@ -3,7 +3,7 @@ package mods.Hileb.moremomostories.common.world.item.myItems;
 import mods.Hileb.moremomostories.common.world.entity.entity.living.EntityZFP;
 import mods.Hileb.moremomostories.common.world.item.ItemBase;
 import mods.Hileb.moremomostories.common.world.item.ModItems;
-import mods.Hileb.moremomostories.common.util.CommonFunctions;
+import mods.Hileb.forgedmomo.utils.CommonFunctions;
 import mods.Hileb.forgedmomo.api.momostories.MoMoCards;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.effect.EntityLightningBolt;

@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public abstract class SpecialAttackType {
-    public static final SpecialAttackType NULL=new Builder(()->-1,()->null).build();
     public static List<SpecialAttackType> REGISTER=new LinkedList<>();
     public abstract int getID();//int 通常使用配置文件
 
@@ -20,10 +19,12 @@ public abstract class SpecialAttackType {
     public SpecialAttackType(){
         REGISTER.add(this);
     }
-    public void register(){
+    public void registerSpecialAttack(){
         ItemSlashBlade.specialAttacks.put(this.getID(), this.getSpecialAttack());
     }
-    public boolean isNull(){return getID()==-1;}
+    public static void register(SpecialAttackType specialAttackType){
+        REGISTER.add(specialAttackType);
+    }
     public static class Builder{
         private Impl impl;
         public Builder(Supplier<Integer> id,Supplier<SpecialAttackBase> supplier){
@@ -31,6 +32,10 @@ public abstract class SpecialAttackType {
         }
         public SpecialAttackType build(){
             return impl;
+        }
+        public Builder register(){
+            REGISTER.add(impl);
+            return this;
         }
         private static class Impl extends SpecialAttackType{
             public Supplier<Integer> id;

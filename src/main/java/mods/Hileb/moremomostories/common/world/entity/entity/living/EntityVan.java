@@ -3,7 +3,7 @@ package mods.Hileb.moremomostories.common.world.entity.entity.living;
 import mods.Hileb.moremomostories.common.world.advancements.Advancementkeys;
 import mods.Hileb.moremomostories.common.world.advancements.ModAdvancementsInit;
 import mods.Hileb.moremomostories.common.world.damageSource.ModDamageSources;
-import mods.Hileb.moremomostories.common.util.CommonFunctions;
+import mods.Hileb.forgedmomo.utils.CommonFunctions;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;

@@ -1,7 +1,7 @@
 package mods.Hileb.moremomostories.common.world.blocks;
 
 import mods.Hileb.moremomostories.common.init.ModConfig;
-import mods.Hileb.moremomostories.common.util.Teleport;
+import mods.Hileb.forgedmomo.utils.Teleport;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;

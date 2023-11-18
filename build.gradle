@@ -113,7 +113,7 @@ jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes([
-                "FMLCorePlugin": "com.Hileb.forgedmomo.core.MoreMoMoStoriesLoadingCore",
+                "FMLCorePlugin": "mods.Hileb.forgedmomo.core.ForgedMoMoFMLLoadingPlugin",
                 "FMLCorePluginContainsFMLMod": true,
                 "FMLAT":"moremomostories_at.cfg",
                 "Building-Time":new java.text.SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new java.util.Date()),

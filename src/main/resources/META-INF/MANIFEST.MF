@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-FMLCorePlugin: com.Hileb.forgedmomo.core.MoreMoMoStoriesLoadingCore
+FMLCorePlugin: mods.Hileb.forgedmomo.core.ForgedMoMoFMLLoadingPlugin
 FMLCorePluginContainsFMLMod: true
 FMLAT: moremomostories_at.cfg

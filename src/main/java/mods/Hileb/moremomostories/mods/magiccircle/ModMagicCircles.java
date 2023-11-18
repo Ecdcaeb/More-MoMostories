@@ -1,10 +1,11 @@
 package mods.Hileb.moremomostories.mods.magiccircle;
 
+import com.gq2529.momostories.events.DamageSource1;
+import com.gq2529.momostories.item.ModItems;
+import mods.Hileb.forgedmomo.announces.ModPlugin;
 import mods.Hileb.forgedmomo.api.magiccircle.MagicCircleSixstars;
 import mods.Hileb.moremomostories.common.world.damageSource.ModDamageSources;
 import mods.Hileb.moremomostories.common.world.item.myItems.ItemXe;
-import com.gq2529.momostories.events.DamageSource1;
-import com.gq2529.momostories.item.ModItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -13,12 +14,14 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.fml.common.LoaderState;
 
 /**
  * @Project More-MoMostories
  * @Author Hileb
  * @Date 2023/11/17 20:10
  **/
+@ModPlugin(state = LoaderState.POSTINITIALIZATION,modid = net.mcreator.magiccircle.MagicCircle.MODID)
 public class ModMagicCircles{
     public static final MagicCircleSixstars Magic_Circle_of_the_fruit_of_the_flowing_years =new MagicCircleSixstars(
             ModItems.THE_FRUIT_OF_THE_FLOWING_YEARS
@@ -142,5 +145,4 @@ public class ModMagicCircles{
             }
         }
     };
-    public static void init(){}
 }

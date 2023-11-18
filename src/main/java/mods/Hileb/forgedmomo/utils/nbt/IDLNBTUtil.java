@@ -1,20 +1,12 @@
 package mods.Hileb.forgedmomo.utils.nbt;
 
-import mods.Hileb.moremomostories.common.util.IDLNBT;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-
-import static mods.Hileb.moremomostories.common.util.IDLNBT.setPlayerIdeallandTagSafe;
-import static mods.Hileb.forgedmomo.utils.nbt.IDLNBTDef.*;
 
 //on a server, strlen 65000 is ok, but 66000 will crash
 public class IDLNBTUtil {
@@ -274,85 +266,14 @@ public class IDLNBTUtil {
 		nbt.setIntArray(key, array);
 	}
 
-	public static void SetGuaEnhanceFree(ItemStack stack, int val)
+	public static void markPos(NBTTagCompound tag,String key, BlockPos pos)
 	{
-		SetInt(stack, GUA_FREE_SOCKET, val);
+		tag.setIntArray(key,new int[]{pos.getX(),pos.getY(),pos.getZ()});
 	}
-
-	public static boolean GetIsLearned(EntityPlayer player, int skillID)
-	{
-		int[] learnt = IDLNBT.getPlayerIdeallandIntArraySafe(player, STARTER_KIT_VERSION_TAG);
-		if (Arrays.binarySearch(learnt, skillID) >= 0)
-		{
-			return true;
-		}
-		return false;
+	public static BlockPos getPos(NBTTagCompound tag,String key,BlockPos defaultValue){
+		if (tag.hasKey(key,IDFBasicNBTUtil.NBTType.NBTTagIntArray)){
+			int[] a=tag.getIntArray(key);
+			return new BlockPos(a[0],a[1],a[2]);
+		}else return defaultValue;
 	}
-
-	public static void SetIsLearned(EntityPlayer player, int skillID, boolean val)
-	{
-		int[] learnt = IDLNBT.getPlayerIdeallandIntArraySafe(player, LEARNING_DONE);
-		int oldIndex = Arrays.binarySearch(learnt, skillID);
-		if (oldIndex >= 0)
-		{
-			if (val)
-			{
-				return;
-			}else {
-				//todo: remove it
-
-			}
-		}else {
-			if (val)
-			{
-				ArrayList<Integer> list = new ArrayList<Integer>();
-				for (int oldID:
-						learnt
-					 ) {
-					list.add(oldID);
-				}
-				list.add(skillID);
-				Collections.sort(list);
-
-				int[] newLearnt = list.stream().mapToInt(Integer::valueOf).toArray();
-				setPlayerIdeallandTagSafe(player, LEARNING_DONE, newLearnt);
-			}else {
-				return;
-			}
-		}
-	}
-	//--------------------------------------------
-
-
-
-	public static BlockPos getMarkedPos(ItemStack stack)
-	{
-		NBTTagCompound NBT = IDLNBTUtil.getNBT(stack);
-		return new BlockPos(NBT.getDouble(ANCHOR_X), NBT.getDouble(ANCHOR_Y), NBT.getDouble(ANCHOR_Z));
-	}
-
-	public static BlockPos getMarkedPos2(ItemStack stack)
-	{
-		NBTTagCompound NBT = IDLNBTUtil.getNBT(stack);
-		return new BlockPos(NBT.getDouble(ANCHOR_X_2), NBT.getDouble(ANCHOR_Y_2), NBT.getDouble(ANCHOR_Z_2));
-	}
-
-	public static void markPosToStack(ItemStack stack, BlockPos pos)
-	{
-		IDLNBTUtil.SetBoolean(stack, ANCHOR_READY, true);
-		IDLNBTUtil.SetDouble(stack, ANCHOR_X, pos.getX());
-		IDLNBTUtil.SetDouble(stack, ANCHOR_Y, pos.getY());
-		IDLNBTUtil.SetDouble(stack, ANCHOR_Z, pos.getZ());
-	}
-
-	public static void markPosToStack2(ItemStack stack, BlockPos pos)
-	{
-		IDLNBTUtil.SetBoolean(stack, ANCHOR_READY_2, true);
-		IDLNBTUtil.SetDouble(stack, ANCHOR_X_2, pos.getX());
-		IDLNBTUtil.SetDouble(stack, ANCHOR_Y_2, pos.getY());
-		IDLNBTUtil.SetDouble(stack, ANCHOR_Z_2, pos.getZ());
-	}
-
-
-	//private static boolean SetItemStackBase(NBTTagCompound tagCompound, ItemStack stack)
 }

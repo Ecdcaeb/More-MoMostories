@@ -3,6 +3,7 @@ package mods.Hileb.moremomostories.mixin.momostories.mixin.cardMixins;
 import mods.Hileb.moremomostories.mixin.momostories.event.CardFunction;
 import com.gq2529.momostories.item.bows.LunaHunting;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -16,14 +17,27 @@ import org.spongepowered.asm.mixin.Overwrite;
  * @Date 2023/8/11 9:46
  **/
 @Mixin(LunaHunting.class)
-public class MixinLunaHunting{
+public abstract class MixinLunaHunting extends Item {
+    /**
+     * @author
+     * @reason
+     */
     @Overwrite
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
         CardFunction.LunaHunting.onPlayerStoppedUsing((LunaHunting)(Object)this,stack,worldIn,entityLiving,timeLeft);
     }
+    /**
+     * @author
+     * @reason
+     */
     @SubscribeEvent
     @Overwrite
     public static void luna_hunting(LivingHurtEvent event){
         CardFunction.LunaHunting.luna_hunting(event);
+    }
+
+    @Override
+    public void onUsingTick(ItemStack stack, EntityLivingBase player, int count) {
+        super.onUsingTick(stack, player, count);
     }
 }

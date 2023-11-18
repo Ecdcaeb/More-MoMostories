@@ -1,5 +1,6 @@
 package mods.Hileb.moremomostories.client.resource;
 
+import mods.Hileb.forgedmomo.api.resource.ResourceGenerateEvent;
 import mods.Hileb.moremomostories.MoreMoMoSrories;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.*;
@@ -8,7 +9,6 @@ import net.minecraft.launchwrapper.Launch;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import org.apache.commons.codec.binary.Base64;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.EXTFramebufferObject;
@@ -32,7 +32,7 @@ import java.nio.IntBuffer;
 @Mod.EventBusSubscriber(modid= MoreMoMoSrories.MODID)
 public class RCGlint {
     @SubscribeEvent
-    public static void onRender(PlayerEvent.PlayerLoggedInEvent event){
+    public static void onRender(ResourceGenerateEvent event){
         Minecraft.getMinecraft().addScheduledTask(() -> generate(256));
     }
 
