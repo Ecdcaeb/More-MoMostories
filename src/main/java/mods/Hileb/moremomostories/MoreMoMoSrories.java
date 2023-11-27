@@ -8,9 +8,7 @@ import mods.Hileb.moremomostories.common.init.ModRecipes;
 import mods.Hileb.moremomostories.common.init.ModSpawn;
 import mods.Hileb.moremomostories.common.init.RegistryHandler;
 import mods.Hileb.moremomostories.common.world.item.myItems.ItemColorHandler;
-import mods.Hileb.moremomostories.client.keys.ClientKey;
-import mods.Hileb.moremomostories.client.keys.KeyboardManager;
-import mods.Hileb.moremomostories.mods.ModLoadingPlugin;
+import mods.Hileb.moremomostories.modplugins.ModLoadingPlugin;
 import mods.Hileb.moremomostories.common.network.NetworkHandler;
 import mods.Hileb.moremomostories.proxy.ProxyBase;
 import mods.Hileb.moremomostories.common.util.Reference;
@@ -28,11 +26,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-/*
-为了加腐烂的食物
-请RecipePutrid.PutridItems.add(Item.getByNameOrId();
- */
-//To let the player be a traveling god who plays yin-yang magic.
 
 @Mod(modid = MoreMoMoSrories.MODID, name = MoreMoMoSrories.NAME, version = MoreMoMoSrories.VERSION,dependencies="required-after:momostories;required-after:mixinbooter@[4.2,);after:idealland;after:forestry;after:manametalmod;after:calculator;after:ic2;after:flammpfeil.slashblade")//dependencies = "required-after:Forge@[14.23.5.2705,)"
 public class MoreMoMoSrories {
@@ -69,7 +62,6 @@ public class MoreMoMoSrories {
         if (!proxy.isServer())
         {
             clientInit();
-            KeyboardManager.init();
         }
         NetworkHandler.init();
 
@@ -79,7 +71,6 @@ public class MoreMoMoSrories {
 	@SideOnly(Side.CLIENT)
     public static void clientInit(){
         ItemColorHandler.init();
-        ClientKey.init();
     }
 
     @EventHandler

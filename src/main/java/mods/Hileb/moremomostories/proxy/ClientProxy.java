@@ -1,5 +1,6 @@
 package mods.Hileb.moremomostories.proxy;
 
+import com.gq2529.momostories.keys.ModKeyBinding;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.item.Item;
@@ -9,9 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClientProxy extends ProxyBase {
-    public static final List<KeyBinding> KEY_BINDINGS = new ArrayList<KeyBinding>();
-	//public static final KeyBinding CAST_MAINHAND = new ModKeyBinding("activate_skill_mainhand", KeyConflictContext.IN_GAME, KeyModifier.NONE, Keyboard.KEY_R, "key.category.moremomostories");
-	//public static final KeyBinding CAST_OFFHAND = new ModKeyBinding("activate_skill_offhand", KeyConflictContext.IN_GAME, KeyModifier.NONE, Keyboard.KEY_GRAVE, "key.category.moremomostories");
 
 	public boolean isServer()
 	{

@@ -3,7 +3,7 @@ package mods.Hileb.moremomostories.common.world.item.myItems;
 import mods.Hileb.moremomostories.MoreMoMoSrories;
 import mods.Hileb.moremomostories.common.world.gui.ModGuiElementLoader;
 import mods.Hileb.moremomostories.common.world.item.ItemBase;
-import mods.Hileb.forgedmomo.api.momostories.MoMoCards;
+import mods.Hileb.forgedmomo.api.mods.momostories.MoMoCards;
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

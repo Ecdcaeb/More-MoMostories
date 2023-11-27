@@ -3,6 +3,8 @@ package mods.Hileb.moremomostories.common.world.entity.model;// Made with Blockb
 // Paste this class into your mod and generate all required imports
 
 
+import mods.Hileb.forgedmomo.api.common.keyboard.F2MKeyBoardManager;
+import mods.Hileb.moremomostories.common.keybinding.ModKeyBinding;
 import mods.Hileb.moremomostories.common.world.entity.entity.living.EntityBike;
 import mods.Hileb.forgedmomo.utils.math.MathHelper;
 import net.minecraft.client.model.ModelBase;
@@ -252,9 +254,11 @@ public class ModelEntityBycile extends ModelBase {
 			double vectoryW=vectoryV*2/20;
 			if (entityIn.onGround)
 				this.wheel_2.rotateAngleZ=(float) vectoryW*ageInTicks;
-			if (((EntityBike)entityIn).isKeySDown){
-				this.wheel_3.rotateAngleZ=(float) vectoryW*ageInTicks;
-				this.loop.rotateAngleZ=this.wheel_3.rotateAngleZ*4f;
+			if (entityIn.isBeingRidden()){
+				if (F2MKeyBoardManager.GLOBAL_MANAGER.isKeyDown(entityIn.getPassengers().get(0).getUniqueID(), ModKeyBinding.forward)){
+					this.wheel_3.rotateAngleZ=(float) vectoryW*ageInTicks;
+					this.loop.rotateAngleZ=this.wheel_3.rotateAngleZ*4f;
+				}
 			}
 
 		//}

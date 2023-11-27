@@ -1,5 +1,5 @@
 {
-  "package": "mods.Hileb.moremomostories.mixin.momostories.mixin.cardMixins",
+  "package": "mods.Hileb.forgedmomo.core.mixin.momostories.mixin.cardMixins",
   "mixins": [
     "MixinLunaBlessing",
     "MixinAncientMirrors",

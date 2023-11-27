@@ -4,7 +4,7 @@ import mods.Hileb.moremomostories.MoreMoMoSrories;
 import mods.Hileb.moremomostories.common.world.advancements.Advancementkeys;
 import mods.Hileb.moremomostories.common.world.blocks.ModBlocks;
 import mods.Hileb.moremomostories.common.world.recipe.*;
-import mods.Hileb.moremomostories.mods.ModLoadingPlugin;
+import mods.Hileb.moremomostories.modplugins.ModLoadingPlugin;
 import mods.Hileb.moremomostories.common.util.Reference;
 import com.gq2529.momostories.item.ModItems;
 import mods.flammpfeil.slashblade.SlashBlade;

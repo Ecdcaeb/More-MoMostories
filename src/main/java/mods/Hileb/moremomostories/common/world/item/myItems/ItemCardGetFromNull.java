@@ -1,10 +1,10 @@
 package mods.Hileb.moremomostories.common.world.item.myItems;
 
-import mods.Hileb.moremomostories.common.world.command.ModCommands;
+import mods.Hileb.forgedmomo.api.common.ModCommandFunction;
 import mods.Hileb.moremomostories.common.world.item.ItemBase;
 import mods.Hileb.moremomostories.common.world.item.ModItems;
-import mods.Hileb.moremomostories.mods.ModLoadingPlugin;
-import mods.Hileb.forgedmomo.api.momostories.MoMoCards;
+import mods.Hileb.moremomostories.modplugins.ModLoadingPlugin;
+import mods.Hileb.forgedmomo.api.mods.momostories.MoMoCards;
 import mods.Hileb.moremomostories.common.util.TooltipHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -37,7 +37,7 @@ public class ItemCardGetFromNull extends ItemBase {
                     Item card=MoMoCards.getCard(new Random().nextInt(MoMoCards.getCount()));
                     if (card!=null){
                         ItemStack stack=new ItemStack(card);
-                        ModCommands.give(player,stack.copy());
+                        ModCommandFunction.give(player,stack.copy());
                     }
                     else give(player);
                 }
@@ -59,8 +59,8 @@ public class ItemCardGetFromNull extends ItemBase {
         TooltipHelper.onTooltip(tooltip,"item.item_card_get_from_null.desc2","item.item_card_get_from_null.desc1");
     }
     private void give(EntityPlayer player){
-        ModCommands.give(player,new ItemStack(ModItems.ITEM_CARD_NULL));
-        ModCommands.give(player,new ItemStack(ModItems.ITEM_MAIN_TR));
-        ModCommands.give(player,new ItemStack(ModItems.ITEM_MAIN_XK));
+        ModCommandFunction.give(player,new ItemStack(ModItems.ITEM_CARD_NULL));
+        ModCommandFunction.give(player,new ItemStack(ModItems.ITEM_MAIN_TR));
+        ModCommandFunction.give(player,new ItemStack(ModItems.ITEM_MAIN_XK));
     }
 }

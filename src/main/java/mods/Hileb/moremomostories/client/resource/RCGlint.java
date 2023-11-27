@@ -1,6 +1,6 @@
 package mods.Hileb.moremomostories.client.resource;
 
-import mods.Hileb.forgedmomo.api.resource.ResourceGenerateEvent;
+import mods.Hileb.forgedmomo.api.client.resource.ResourceGenerateEvent;
 import mods.Hileb.moremomostories.MoreMoMoSrories;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.*;

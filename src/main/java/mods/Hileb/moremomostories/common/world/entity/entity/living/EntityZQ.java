@@ -1,6 +1,6 @@
 package mods.Hileb.moremomostories.common.world.entity.entity.living;
 
-import mods.Hileb.moremomostories.common.world.command.ModCommands;
+import mods.Hileb.forgedmomo.api.common.ModCommandFunction;
 import mods.Hileb.moremomostories.common.world.item.ModItems;
 import mods.Hileb.forgedmomo.utils.CommonFunctions;
 import net.minecraft.block.*;
@@ -105,7 +105,7 @@ public class EntityZQ extends EntityAnimal {
         if (!player.world.isRemote){
             if (player.getHeldItemMainhand().isEmpty() && time>=50){
                 this.isDead=true;
-                ModCommands.give(player,new ItemStack(ModItems.ITEM_ADD_ENTITYZQ));
+                ModCommandFunction.give(player,new ItemStack(ModItems.ITEM_ADD_ENTITYZQ));
             }
         }
         return super.applyPlayerInteraction(player, vec, hand);

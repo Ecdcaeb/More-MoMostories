@@ -4,7 +4,7 @@ import mods.Hileb.moremomostories.MoreMoMoSrories;
 import mods.Hileb.moremomostories.common.init.ModConfig;
 import mods.Hileb.moremomostories.common.world.item.myItems.RGBColor;
 import mods.Hileb.moremomostories.common.util.Reference;
-import mods.Hileb.forgedmomo.client.texture.Texture;
+import mods.Hileb.forgedmomo.api.client.texture.Texture;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;

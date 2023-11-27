@@ -103,7 +103,7 @@ public class ItemYTXSY extends ItemBase {
                             world.spawnEntity(item);
 
                             //MoreMoMoSrories.LogWarning("10");
-                            //ModCommands.give(event.getEntityPlayer(),jukebox.getRecord().copy());
+                            //ModCommandFunction.give(event.getEntityPlayer(),jukebox.getRecord().copy());
                             jukebox.setRecord(ItemStack.EMPTY);
 
 

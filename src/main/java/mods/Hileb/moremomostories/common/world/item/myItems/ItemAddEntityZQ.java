@@ -5,7 +5,7 @@ import mods.Hileb.moremomostories.common.world.advancements.ModAdvancementsInit;
 import mods.Hileb.moremomostories.common.world.entity.entity.living.EntityZQ;
 import mods.Hileb.moremomostories.common.world.item.ItemBase;
 import mods.Hileb.forgedmomo.utils.CommonFunctions;
-import mods.Hileb.forgedmomo.api.momostories.MoMoCards;
+import mods.Hileb.forgedmomo.api.mods.momostories.MoMoCards;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

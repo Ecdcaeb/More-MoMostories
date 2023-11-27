@@ -2,15 +2,14 @@ package mods.Hileb.moremomostories.common.listener;
 
 import mods.Hileb.forgedmomo.utils.math.LimitedVirtueSpace;
 import mods.Hileb.moremomostories.MoreMoMoSrories;
-import mods.Hileb.moremomostories.mods.ModLoadingPlugin;
-import mods.Hileb.forgedmomo.utils.math.VirtueSpace;
+import mods.Hileb.moremomostories.modplugins.ModLoadingPlugin;
 import mods.Hileb.moremomostories.common.world.advancements.Advancementkeys;
 import mods.Hileb.moremomostories.common.world.advancements.ModAdvancementsInit;
 import mods.Hileb.moremomostories.common.world.entity.entity.living.EntityGoldenGuide;
 import mods.Hileb.moremomostories.common.world.entity.entity.living.boss.EntityGoldenGuideBoss;
 import com.gq2529.momostories.item.ModItems;
 import com.gq2529.momostories.item.bows.LunaHunting;
-import mods.Hileb.moremomostories.mixin.momostories.event.CardFunction;
+import mods.Hileb.forgedmomo.core.mixin.momostories.CardFunction;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;

@@ -3,7 +3,7 @@ package mods.Hileb.moremomostories.common.events;
 import mods.Hileb.moremomostories.common.util.Reference;
 import mods.Hileb.moremomostories.common.world.advancements.Advancementkeys;
 import mods.Hileb.moremomostories.common.world.advancements.ModAdvancementsInit;
-import mods.Hileb.moremomostories.mods.ModLoadingPlugin;
+import mods.Hileb.moremomostories.modplugins.ModLoadingPlugin;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;

@@ -1,6 +1,6 @@
 package mods.Hileb.moremomostories.common.world.blocks;
 
-import mods.Hileb.moremomostories.common.world.command.ModCommands;
+import mods.Hileb.forgedmomo.api.common.ModCommandFunction;
 import mods.Hileb.moremomostories.common.world.entity.entity.living.EntityGoldenGuide;
 import mods.Hileb.moremomostories.common.world.item.ModItems;
 import mods.Hileb.moremomostories.common.world.item.myItems.ItemBookMod;
@@ -56,7 +56,7 @@ public class BlockEndBlockShelf extends BlockBase{
                 return true;
             }
             else if (hand==EnumHand.MAIN_HAND && playerIn.getHeldItem(hand).isEmpty()){
-                ModCommands.give(playerIn, ItemBookMod.getBook());
+                ModCommandFunction.give(playerIn, ItemBookMod.getBook());
                 worldIn.setBlockState(pos, Blocks.BOOKSHELF.getDefaultState(),3);
                 return true;
             }

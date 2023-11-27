@@ -1,7 +1,8 @@
 package mods.Hileb.moremomostories.common.world.entity.entity.living;
 
-import mods.Hileb.moremomostories.client.keys.ServerKeyBoardManager;
+import mods.Hileb.forgedmomo.api.common.keyboard.F2MKeyBoardManager;
 import mods.Hileb.forgedmomo.utils.math.MathHelper;
+import mods.Hileb.moremomostories.common.keybinding.ModKeyBinding;
 import mods.Hileb.moremomostories.common.world.level.worldgen.WorldGenHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -94,57 +95,13 @@ public class EntityBike extends EntityAnimal {
         return true;
     }
 
-    public boolean isKeyWDown=false;
-    public boolean isKeyADown=false;
-    public boolean isKeySDown=false;
-    public boolean isKeyDDown=false;
-    public boolean isKeySPACEDown=false;
+
     public boolean isLockedLook=false;
 
     public Vec3d forward=new Vec3d(1,0,1);
 
-    @SubscribeEvent
-    public void isKeyDowndoner(ServerKeyBoardManager.Server.PlayerKeyDownEvent event){
-        if (this.isBeingRidden() && this.getPassengers().get(0).getUniqueID().toString().equals(event.uuid)){
-            if (event.key.equals(ServerKeyBoardManager.Server.keyBoard.keyBindForward)) {
-                isKeyWDown = event.isDown;
-            } else if (event.key.equals(ServerKeyBoardManager.Server.keyBoard.keyBindLeft)){
-                if (!isKeyADown && event.isDown){
-                    isLockedLook=!isLockedLook;
-                }
-                isKeyADown = event.isDown;
-            }else if(event.key.equals(ServerKeyBoardManager.Server.keyBoard.keyBindRight)){
-                if (!isKeyDDown && event.isDown){
-                    isLockedLook=!isLockedLook;
-                }
-                isKeyDDown = event.isDown;
-            }else if (event.key.equals(ServerKeyBoardManager.Server.keyBoard.keyBindBack)){
-                isKeySDown = event.isDown;
-            }else if (event.key.equals(ServerKeyBoardManager.Server.keyBoard.keyBindJump)){
-                isKeySPACEDown = event.isDown;
-            }
-        }
-    }
-    /*
-    * public static class Handler implements IMessageHandler<Client.PackKeyReturn, IMessage> {
-            @Override
-            public IMessage onMessage(Client.PackKeyReturn message, MessageContext ctx) {
-                PlayerKeyDownEvent event=new PlayerKeyDownEvent(message.uuid,message.key,message.isDown);
-                if (event.uuid!=null && event.key!=null)MinecraftForge.EVENT_BUS.post(event);
-                return null;
-            }
-       }
-       *
-
-      * where the event post
-      *
-      *
-
-      */
     @Override
     public void onUpdate() {
-
-
 
         double vectoryV=Math.sqrt((this.motionX*this.motionX)+(this.motionZ*this.motionZ));
 
@@ -178,7 +135,7 @@ public class EntityBike extends EntityAnimal {
                 double primerX=motionX/vectoryV;
                 double primerZ=motionZ/vectoryV;
 
-                if(isKeyWDown && this.onGround){
+                if(F2MKeyBoardManager.GLOBAL_MANAGER.isKeyDown(playerMP.getUniqueID(), ModKeyBinding.forward) && this.onGround){
 
                     if (vectoryV!=0){
                         this.motionX+=primerX/20;
@@ -189,11 +146,11 @@ public class EntityBike extends EntityAnimal {
                         this.motionZ+=playerMP.getLookVec().z/20;
                     }
                 }
-                if(isKeySDown && this.onGround){
+                if(F2MKeyBoardManager.GLOBAL_MANAGER.isKeyDown(playerMP.getUniqueID(), ModKeyBinding.back) && this.onGround){
                     this.motionX=this.motionX/1.17f;
                     this.motionZ=this.motionZ/1.17f;
                 }
-                if(isKeySPACEDown && this.onGround){
+                if(F2MKeyBoardManager.GLOBAL_MANAGER.isKeyDown(playerMP.getUniqueID(), ModKeyBinding.jump) && this.onGround){
                     if (vectoryV!=0){
                         this.motionY+=0.8*(vectoryV);
                     }
@@ -205,7 +162,7 @@ public class EntityBike extends EntityAnimal {
 
 
                 double selfLong=3;
-                double angle= MathHelper.getYawAngle(preSpeedVec,Vec3d.fromPitchYaw((float)rotationPitch,(float)rotationYaw));
+                double angle= MathHelper.getYawAngle(preSpeedVec,Vec3d.fromPitchYaw(rotationPitch, rotationYaw));
 
                 double r=(1/ net.minecraft.util.math.MathHelper.sin((float) angle/2f))*(selfLong/2);
                 r=Math.abs(r);
@@ -223,7 +180,7 @@ public class EntityBike extends EntityAnimal {
         }
 
 
-        double angle4=MathHelper.getYawAngle(preSpeedVec,Vec3d.fromPitchYaw((float)rotationPitch,(float)rotationYaw));
+        double angle4=MathHelper.getYawAngle(preSpeedVec,Vec3d.fromPitchYaw(rotationPitch, rotationYaw));
 
 
         if (motionX>4)motionX=4;
@@ -258,7 +215,7 @@ public class EntityBike extends EntityAnimal {
         //move end
 
         Vec3d postSpeedVec=new Vec3d(motionX,0,motionZ);
-        double angle5=MathHelper.getYawAngle(postSpeedVec,Vec3d.fromPitchYaw((float)rotationPitch,(float)rotationYaw));
+        double angle5=MathHelper.getYawAngle(postSpeedVec,Vec3d.fromPitchYaw(rotationPitch, rotationYaw));
         double angle3= angle4-angle5;
 
 
@@ -275,5 +232,13 @@ public class EntityBike extends EntityAnimal {
     @Override
     public EntityAgeable createChild(EntityAgeable ageable) {
         return null;
+    }
+
+    @Override
+    public void onDeath(DamageSource cause) {
+        super.onDeath(cause);
+        if (this.dead){
+            MinecraftForge.EVENT_BUS.unregister(this);
+        }
     }
 }

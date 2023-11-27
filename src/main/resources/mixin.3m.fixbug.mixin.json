@@ -1,10 +1,10 @@
 {
-  "package": "mods.Hileb.moremomostories.mixin.momostories.mixin.fixBug",
+  "package": "mods.Hileb.forgedmomo.core.mixin.momostories.mixin.fixBug",
   "mixins": [
     "MixinStoneGrinder",
     "MixinRegisterHandler",
-    "MixinTEHelper"
-
+    "MixinTEHelper",
+    "MixinRegisterHandler"
   ],
   "client": [
     "MixinRenderTooltipO"

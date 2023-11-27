@@ -2,7 +2,6 @@ package mods.Hileb.forgedmomo.announces;
 
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.LoaderState;
-import net.minecraftforge.fml.common.eventhandler.Event;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -18,13 +17,13 @@ import java.lang.reflect.InvocationTargetException;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface ModPlugin {
-    LoaderState state();
+    LoaderState state() default LoaderState.PREINITIALIZATION;
     /**
      * public static void method(){} , or "" static.
      * */
     String method() default "<null>";
 
-    String modid();
+    String modid() default "<null>";
 
     class ModPluginContainer {
         public String modid;
@@ -38,7 +37,7 @@ public @interface ModPlugin {
             this.method=method;
         }
         public boolean couldLoad(){
-            return Loader.isModLoaded(modid);
+            return "<null>".equals(modid) || Loader.isModLoaded(modid);
         }
         public void load() throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
             if (!"<null>".equals(method) && method!=null && !method.isEmpty()){

@@ -2,7 +2,7 @@ package mods.Hileb.moremomostories.common.world.entity.entity.living;
 
 import mods.Hileb.moremomostories.common.world.advancements.Advancementkeys;
 import mods.Hileb.moremomostories.common.world.advancements.ModAdvancementsInit;
-import mods.Hileb.moremomostories.common.world.command.ModCommands;
+import mods.Hileb.forgedmomo.api.common.ModCommandFunction;
 import mods.Hileb.moremomostories.common.world.item.myItems.ItemDao;
 import mods.Hileb.forgedmomo.utils.CommonFunctions;
 import mods.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
@@ -182,7 +182,7 @@ public class EntityZFP extends EntityAnimal {
         World world=event.player.world;
         if(!world.isRemote){
             if (this.getValueOfZFP()>=50){
-                ModCommands.give(event.player,new ItemStack(mods.Hileb.moremomostories.common.world.item.ModItems.ITEM_DUCK_COOKED));
+                ModCommandFunction.give(event.player,new ItemStack(mods.Hileb.moremomostories.common.world.item.ModItems.ITEM_DUCK_COOKED));
             }
         }
     }

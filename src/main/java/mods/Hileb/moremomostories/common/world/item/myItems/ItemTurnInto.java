@@ -1,9 +1,9 @@
 package mods.Hileb.moremomostories.common.world.item.myItems;
 
-import mods.Hileb.moremomostories.common.world.command.ModCommands;
+import mods.Hileb.forgedmomo.api.common.ModCommandFunction;
 import mods.Hileb.moremomostories.common.world.item.ItemBase;
 import mods.Hileb.moremomostories.common.world.item.ModItems;
-import mods.Hileb.forgedmomo.api.momostories.MoMoCards;
+import mods.Hileb.forgedmomo.api.mods.momostories.MoMoCards;
 import com.gq2529.momostories.potion.effect.ModPotions;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -33,7 +33,7 @@ public class ItemTurnInto extends ItemBase {
                     if (!player.getHeldItemMainhand().isEmpty()){
                         if (player.getHeldItemMainhand().getItem() instanceof ItemFood && !player.getHeldItemMainhand().isEmpty()){
                             player.getHeldItemMainhand().shrink(1);
-                            ModCommands.give(player,new ItemStack(ModItems.ITEM_PUTRID));
+                            ModCommandFunction.give(player,new ItemStack(ModItems.ITEM_PUTRID));
                         }
                     }
                 }

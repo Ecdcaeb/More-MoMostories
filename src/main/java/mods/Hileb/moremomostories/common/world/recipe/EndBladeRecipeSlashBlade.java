@@ -1,6 +1,6 @@
 package mods.Hileb.moremomostories.common.world.recipe;
 
-import mods.Hileb.moremomostories.mods.slashblade.ModBlades;
+import mods.Hileb.moremomostories.modplugins.slashblade.ModBlades;
 import mods.Hileb.moremomostories.common.world.item.ModItems;
 import mods.Hileb.moremomostories.common.world.item.myItems.ItemEndRainbow;
 import mods.Hileb.moremomostories.common.capabilities.nametag.named.NameTagHandler;

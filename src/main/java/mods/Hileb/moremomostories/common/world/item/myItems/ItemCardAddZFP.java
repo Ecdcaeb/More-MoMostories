@@ -4,7 +4,7 @@ import mods.Hileb.moremomostories.common.world.entity.entity.living.EntityZFP;
 import mods.Hileb.moremomostories.common.world.item.ItemBase;
 import mods.Hileb.moremomostories.common.world.item.ModItems;
 import mods.Hileb.forgedmomo.utils.CommonFunctions;
-import mods.Hileb.forgedmomo.api.momostories.MoMoCards;
+import mods.Hileb.forgedmomo.api.mods.momostories.MoMoCards;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.item.ItemStack;

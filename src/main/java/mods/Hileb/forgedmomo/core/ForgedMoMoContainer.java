@@ -3,7 +3,6 @@ package mods.Hileb.forgedmomo.core;
 import mods.Hileb.forgedmomo.interfaces.IModelHolder;
 import mods.Hileb.moremomostories.MoreMoMoSrories;
 import com.google.common.eventbus.EventBus;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.DummyModContainer;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.LoadController;
@@ -34,14 +33,16 @@ public class ForgedMoMoContainer extends DummyModContainer{
         metadata.credits="\n Idealland - they provided this framework. \n momostories - the mod is very very goooooooood.~ \n moremomostories - they provide this API";
         metadata.logoFile="assets/moremomostories/index.png";
         metadata.screenshots=new String[]{"assets/moremomostories/index.png"};
+        ModContainerInjector.inject();
     }
 
     @Override
     public boolean registerBus(EventBus bus, LoadController controller) {
         LOGGER.info("loading ForgedMoMo");
-        bus.register(F3MFMLLoadingHandler.INSTANCE);
-        F3MFMLLoadingHandler.addToBus(IModelHolder.ModelHandler.class);
-        F3MFMLLoadingHandler.addToBus(F3MFMLLoadingHandler.class);
+        bus.register(F2MFMLLoadingHandler.INSTANCE);
+        bus.register(new ModPluginLoader());
+        F2MFMLLoadingHandler.addToBus(IModelHolder.ModelHandler.class);
+        F2MFMLLoadingHandler.addToBus(F2MFMLLoadingHandler.class);
         return true;
     }
 }

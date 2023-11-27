@@ -4,7 +4,7 @@ import mods.Hileb.moremomostories.MoreMoMoSrories;
 import mods.Hileb.moremomostories.common.init.ModCreativeTab;
 import mods.Hileb.moremomostories.common.world.item.ItemBase;
 import mods.Hileb.forgedmomo.utils.CommonFunctions;
-import mods.Hileb.forgedmomo.api.momostories.MoMoCards;
+import mods.Hileb.forgedmomo.api.mods.momostories.MoMoCards;
 import mods.Hileb.moremomostories.client.sound.ModSoundHandler;
 import mods.Hileb.forgedmomo.utils.nbt.IDLNBTUtil;
 import net.minecraft.client.resources.I18n;

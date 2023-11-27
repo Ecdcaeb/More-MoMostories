@@ -1,7 +1,7 @@
 package mods.Hileb.moremomostories.common.world.item.myItems;
 
 import mods.Hileb.moremomostories.common.world.item.ItemBase;
-import mods.Hileb.forgedmomo.api.momostories.MoMoCards;
+import mods.Hileb.forgedmomo.api.mods.momostories.MoMoCards;
 
 public class ItemNoCanHit extends ItemBase {
     public ItemNoCanHit(String name){

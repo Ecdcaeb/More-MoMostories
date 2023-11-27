@@ -2,7 +2,7 @@ package mods.Hileb.moremomostories.common.world.gui.cardGUI.card;
 
 import mods.Hileb.moremomostories.common.world.item.ModItems;
 import mods.Hileb.moremomostories.common.world.item.myItems.ItemCardContainer;
-import mods.Hileb.forgedmomo.api.momostories.MoMoCards;
+import mods.Hileb.forgedmomo.api.mods.momostories.MoMoCards;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;

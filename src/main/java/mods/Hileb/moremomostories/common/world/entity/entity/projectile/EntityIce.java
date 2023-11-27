@@ -1,6 +1,6 @@
 package mods.Hileb.moremomostories.common.world.entity.entity.projectile;
 
-import mods.Hileb.moremomostories.mods.ModLoadingPlugin;
+import mods.Hileb.moremomostories.modplugins.ModLoadingPlugin;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;

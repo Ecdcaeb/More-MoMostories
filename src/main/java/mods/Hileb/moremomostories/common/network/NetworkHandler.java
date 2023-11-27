@@ -1,7 +1,6 @@
 package mods.Hileb.moremomostories.common.network;
 
 import mods.Hileb.moremomostories.MoreMoMoSrories;
-import mods.Hileb.moremomostories.client.keys.ServerKeyBoardManager;
 import mods.Hileb.moremomostories.common.network.protocols.PacketEntityNBT;
 import mods.Hileb.moremomostories.common.network.protocols.PacketTest;
 import net.minecraft.entity.Entity;
@@ -25,7 +24,8 @@ public class NetworkHandler {
         channel.registerMessage(PacketTest.Handler.class, PacketTest.class, id++, Side.SERVER);
 
 
-        channel.registerMessage(ServerKeyBoardManager.Server.Handler.class,ServerKeyBoardManager.Client.PackKeyReturn.class, id++, Side.SERVER);
+        id++;
+        // channel.registerMessage(ServerKeyBoardManager.Server.Handler.class,ServerKeyBoardManager.Client.PackKeyReturn.class, id++, Side.SERVER);
 
         //just call SendToServer
         channel.registerMessage(PacketEntityNBT.Handler.class,PacketEntityNBT.class, id++, Side.CLIENT);

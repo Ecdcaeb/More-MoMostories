@@ -1,6 +1,6 @@
 package mods.Hileb.moremomostories.common.world.entity.entity.projectile;
 
-import mods.Hileb.moremomostories.mods.ModLoadingPlugin;
+import mods.Hileb.moremomostories.modplugins.ModLoadingPlugin;
 import net.minecraft.block.BlockFire;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
