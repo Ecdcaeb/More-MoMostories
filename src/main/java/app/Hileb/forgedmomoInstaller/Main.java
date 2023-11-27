@@ -1,25 +1,16 @@
 package app.Hileb.forgedmomoInstaller;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
-import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-
-import java.io.FileInputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 
 /**
@@ -47,7 +38,7 @@ public class Main extends Application {
         Image mainImage=new Image("assets/moremomostories/index.png");
         ImageView imageView=new ImageView(mainImage);
         imageView.setX(300);
-        imageView.setY(90);
+        imageView.setY(60);
         imageView.setPreserveRatio(true);
         root.getChildren().add(imageView);
         //Text
@@ -82,7 +73,6 @@ public class Main extends Application {
         primaryStage.show();
     }
     public static void onForgedMoMoButton(MouseEvent event){
-
     }
     public static void onMomoButton(MouseEvent event){
 
