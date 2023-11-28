@@ -12,6 +12,13 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 
 /**
  * @Project More-MoMostories
@@ -31,7 +38,7 @@ public class Main extends Application {
         Scene scene=new Scene(root,480,300);
         scene.setFill(Color.WHITE);
 
-        primaryStage.setTitle("ForgedMoMo Installer");
+        primaryStage.setTitle("MoreMoMoStories Installer");
         primaryStage.setScene(scene);
 
         //Image
@@ -51,20 +58,20 @@ public class Main extends Application {
         root.getChildren().add(offTextTitle);
         root.getChildren().add(copyrightText);
         //Button
-        Button forgedMoMoButton=new Button("Install ForgedMoMo");
+        Button forgedMoMoButton=new Button("Install MoreMoMoStories");
         forgedMoMoButton.addEventFilter(MouseEvent.MOUSE_CLICKED, Main::onForgedMoMoButton);
         forgedMoMoButton.setLayoutX(10);
-        forgedMoMoButton.setLayoutY(210);
+        forgedMoMoButton.setLayoutY(200);
 
         Button momoButton=new Button("Install MoMoStories");
         momoButton.addEventFilter(MouseEvent.MOUSE_CLICKED, Main::onMomoButton);
         momoButton.setLayoutX(10);
-        momoButton.setLayoutY(240);
+        momoButton.setLayoutY(230);
 
         Button aboutUsButton=new Button("About us");
         aboutUsButton.addEventFilter(MouseEvent.MOUSE_CLICKED, Main::onAboutUsButton);
         aboutUsButton.setLayoutX(10);
-        aboutUsButton.setLayoutY(270);
+        aboutUsButton.setLayoutY(260);
 
         root.getChildren().add(forgedMoMoButton);
         root.getChildren().add(momoButton);
@@ -73,6 +80,15 @@ public class Main extends Application {
         primaryStage.show();
     }
     public static void onForgedMoMoButton(MouseEvent event){
+        Desktop desktop = Desktop.getDesktop();
+        try {
+            URI url = new URI("https://www.mcmod.cn/download/7481.html");
+            if (desktop.isSupported(Desktop.Action.BROWSE)) {
+                desktop.browse(url);
+            }
+        } catch(IOException | URISyntaxException ignored){
+
+        }
     }
     public static void onMomoButton(MouseEvent event){
 
