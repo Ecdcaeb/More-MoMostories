@@ -13,7 +13,8 @@ import java.io.File;
 public class ResourceGenerateEvent extends Event {
     public final File root;
     public ResourceGenerateEvent(){
-        root= Launch.minecraftHome;
+        root=new File( Launch.minecraftHome,"resourceGen/");
+        root.mkdir();
     }
     @Override
     public boolean isCancelable() {

@@ -33,11 +33,11 @@ import java.nio.IntBuffer;
 public class RCGlint {
     @SubscribeEvent
     public static void onRender(ResourceGenerateEvent event){
-        Minecraft.getMinecraft().addScheduledTask(() -> generate(256));
+        Minecraft.getMinecraft().addScheduledTask(() -> generate(256,event));
     }
 
     //after post init:waiting for Minecraft instance.
-    public static void generate(int count){
+    public static void generate(int count,ResourceGenerateEvent event){
         //64x64
         RenderItem renderItem=Minecraft.getMinecraft().getRenderItem();
         FBOHelper fboHelper=new FBOHelper(64,64*count);
@@ -122,7 +122,8 @@ public class RCGlint {
         GL11.glPopMatrix();
 
         fboHelper.end();
-        File out=new File(Launch.minecraftHome,"glint_gen.png");
+        File out=new File(event.root,"textures/glint_gen.png");
+        out.mkdirs();
         fboHelper.saveToFile(out);
         fboHelper.restoreTexture();
     }
