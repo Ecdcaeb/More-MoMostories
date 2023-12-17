@@ -4,6 +4,7 @@ import mods.Hileb.forgedmomo.api.client.resource.ResourceGenI18nChannel;
 import mods.Hileb.forgedmomo.api.client.resource.ResourceGenI18nChannel.Language;
 import mods.Hileb.forgedmomo.api.client.resource.ResourceGenerateEvent;
 import mods.Hileb.moremomostories.MoreMoMoSrories;
+import mods.Hileb.moremomostories.common.world.item.ModItems;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -33,6 +34,10 @@ public class RCGI18n {
         i18nChannel.pop("testKey");
         zh_cn.push("我是中文");
         en_us.push("I am English");
+
+        i18nChannel.pop(ModItems.ITEM_SILVER_CHEST.getUnlocalizedName());
+        zh_cn.push("银鳞胸甲");
+        en_us.push("Shining Silver Breastplate");
 
         //push and gen
         try {
