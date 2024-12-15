@@ -1,23 +1,8 @@
-langname.name=zh_cn
-
-# PARSE_ESCAPES
-itemGroup.itzmxMiscTab=更多momo学
 
 generator.TYPE_ONE=Type One;
 generator.TYPE_TWO=Type Two;
 
 
-item.moremomostories.item_card_get_from_null.name=无中生有
-item.item_card_get_from_null.desc1=出牌阶段，对自己使用。摸一张牌。\n“天下万物生于有，有生于无”\n<老子>\n获得一张momostroies牌\n没有加载momostories时返回原料.
-item.item_card_get_from_null.desc2=出牌阶段，对自己使用。摸一张牌。\n“天下万物生于有，有生于无”\n<老子>\n按住 §eLShift §f显示更多
-
-
-momo.energy.rainbow.damage.name=耐久
-momo.energy.rainbow.en.name=能量
-momo.energy.rainbow.en.end=RE(RainbowEnergy)
-
-item.moremomostories.item_ytxsy_sound.name=唱片
-item.moremomostories.item_end_rainbow_swood.name=终焉彩虹
 item.moremomostories.entity_boss_disdescable.name=不可名状
 
 
@@ -34,10 +19,6 @@ tile.moremomostories.blackstonebrick.name=深色石砖
 item.moremomostories.item_card_null.name=卡牌-空
 item.moremomostories.item_card_null.desc=在上面画点什么呢。
 
-item.moremomostories.item_card_get_from_null.name=「无中生有」
-item.moremomostories.item_card_zfp.name=「煮饭婆」
-desc.cardzfp.desc=煮饭婆举高高！~
-desc.cardzfp2.desc=煮饭婆可爱捏！~
 
 item.moremomostories.item_copyer.name=复制卡
 desc.item.copyer.desc=仿制的...终究是仿制的...\n--Hileb\n此卡为消耗品\n可以复制副手物品\n限时200ticks
@@ -162,7 +143,6 @@ com.hileb.achievement.scene1.desc=具显§4场景
 moremomostories.conf.apionly=仅API模式
 tile.moremomostories.wood_no_leaf.name=无叶木
 tile.moremomostories.unbreakable_hileb_block.name=高强度材料
-item.moremomostories.item_11_a.name=核心制造技术
 item.moremomostories.fiber_wire.name=纤维绳
 entity.entity_golden_guide.name=黄金卫士
 com.hileb.achievement.lx.title=homo故事会
@@ -176,23 +156,6 @@ tile.moremomostories.block_stone_red.name=红色氙石矿石
 tile.moremomostories.block_stone_blue.name=蓝色氙石矿石
 tile.moremomostories.block_stone_yellow.name=黑色氙石矿石
 
-item.item_xe.name=未知氙
-com.hileb.moremomostories.item.xe.red.name=§r红色氙石粉末
-com.hileb.moremomostories.item.xe.blue.name=§b蓝色氙石粉末
-com.hileb.moremomostories.item.xe.black.name=黑色氙石粉末
-com.hileb.moremomostories.item.xe.other.name=氙石粉末
-com.hileb.moremomostories.item.xe.empty.name=空氙石粉末瓶
-com.hileb.moremomostories.item.xe.golden.name=氙金粉末
-com.hileb.moremomostories.item.xe.unknown.name=未知氙石粉末
-com.hileb.moremomostories.item.xe.stone.red.name=红色氙石
-com.hileb.moremomostories.item.xe.stone.blue.name=蓝色氙石
-com.hileb.moremomostories.item.xe.stone.black.name=黑色氙石
-com.hileb.moremomostories.item.xe.stone.other.name=氙石
-com.hileb.moremomostories.item.xe.stone.unknown.name=未知氙石
-com.hileb.moremomostories.item.xe.stone.golden.name=氙金
-
-com.hileb.moremomostories.item.xe.stone.level.name=等级%d
-com.hileb.moremomostories.item.xe.stone.color.name=成色%d
 
 item.moremomostories.item_qgx.name=切尔西
 item.moremomostories.item_qgx.blue.name=蓝色妖姬
@@ -249,67 +212,9 @@ dimension=维度设置
 Dimension.tooltip=这里控制维度以防冲突（更改后须重启游戏）
 canEntityElectricShaking.tooltip=这里决定是否启用生物电摇
 
-book.name.com.hileb.momo.llf.name=你记不记得有一招从天而降的掌法
 container.title.book=书架
 //yx
-book.name.0.name=《迈恩可拉福特使用指南》
-book.author.0.name=网难
-book.name.1.name=《红石入门》
-book.author.1.name=网难
-book.name.2.name=《霸道史蒂夫爱上我》
-book.author.2.name=匿名网友
-book.name.3.name=《逸一世误一世》
-book.author.3.name=田所浩二
-book.name.4.name=《别人的世界》
-book.author.4.name=别人
-book.name.5.name=《重生是失望》
-book.author.5.name=匿名网友
-book.name.6.name=《加速火把（加粗）真正的（斜体）使用方法》
-book.author.6.name=森林蝙蝠
-book.name.7.name=《§k§4Hello Minecraft§f》
-book.author.7.name=§kHerobrine
-book.name.8.name=《逸久逸九罢一龄》
-book.author.8.name=田所浩二
-book.name.9.name=《怎么下载我的世界》
-book.author.9.name=匿名网友
-book.name.10.name=《蓝楼梦》
-book.author.10.name=蔡靴轻
-book.name.11.name=《怎么装光影》
-book.author.11.name=OptiFine
-book.name.12.name=《怎么在Fabric上装光影》
-book.author.12.name=OptiFabric
-book.name.13.name=《为什么光影不能用》
-book.author.13.name=钠（Sodium）
-book.name.14.name=《OmOm事故会》
-book.author.14.name=Hileb
-book.name.15.name=《这是一本书》
-book.author.15.name=这是这本书的作者
-book.name.16.name=《怎么装模组》
-book.author.16.name=Forge，Fabric
-book.name.17.name=《红石大神》
-book.author.17.name=网难
-book.name.18.name=《北游记》
-book.author.18.name=武城摁
-book.name.19.name=《千度万科》
-book.author.19.name=千度（Du·Qian）
-book.name.20.name=《火浒传》
-book.author.20.name=势奈艳
-book.name.21.name=《死着》
-book.author.21.name=剩华
-book.name.22.name=《七体》
-book.author.22.name=六瓷醒
-book.name.23.name=《九国演狗》
-book.author.23.name=洛惯重
-book.name.24.name=《被风筝追的人》
-book.author.24.name=不卡列·胡谁尼（Bukalie Huseini）
-book.name.25.name=《十年孤独》
-book.author.25.name=减夫六尔·加冬压·马摁克锡（Jianfuliuer Jiadongya Maenkexi）
-book.name.26.name=《呵马莱普》
-book.author.26.name=窝世·伊戈萨比（Woshi Yigegesb）
-book.name.27.name=《这是一本书的续作》
-book.author.27.name=这是这本书的续作的作者
-book.name.28.name=（C96）煮饭婆ちゃんの小さな秘密
-book.author.28.name=Hileb
+
 
 entity.entity_rain.name=雨点
 entity.entity_ice.name=冰点
@@ -320,16 +225,7 @@ tag.tag_best.name=神圣的
 DayTimeText=§e曙光初现..
 com.hileb.momo.lang.skill.bakin=§e淫气释放
 com.hileb.momo.lang.skill.rain=§e落雨地生
-com.hileb.momo.lang.skill.endmemory.name=§e斩忆
-com.hileb.momo.lang.skill.endmemory.desc=使被击中者30刻内失去目标。
 
-item.moremomostories.item_book_buddha_god_palm.name=《如来神掌》
-item.moremomostories.item_book_dust.name=书的碎片
-item.moremomostories.item_end_memory_swood.name=斩记剑
-item.moremomostories.item_zfp_headset.name=煮饭婆耳机
-item.moremomostories.item_shining_silver_breastplate.name=银鳞胸甲
-item.moremomostories.item_van_chest.name=束缚腰带
-item.moremomostories.item_card_container.name=已知的卡牌册
 tile.moremomostories.block_book_shelf.name=书架
 tile.moremomostories.block_book_shelf_inv.name=升魔台
 tile.moremomostories.block_infinitycake.name=无尽蛋糕
@@ -340,15 +236,7 @@ advancements.momoOtherModAdvancements.card.tk.desc=获得神刀天姬
 
 item.moremomostories.luck_bottle.name=幸运之瓶
 item.moremomostories.item_tp.name=双向传送晶核
-skill.left.desc=以下技能按下左键触发
-skill.right.desc=以下技能按下右键随机触发(消耗500RE)
-skill.pass.desc=以下技能被动触发
-skill.bakin.desc=驱逐淫气，恢复视野。
-skill.rain.desc=生成大量攻击性雨滴
-skill.fire.desc=生成攻击性火焰
-skill.eu.desc=攻击时，给背包内物品充EU，1Damage=1EU
-com.hileb.achievement.memory.title=记忆斩断者
-com.hileb.achievement.memory.desc=获得斩忆剑
+
 com.hileb.achievement.ass.title=沉默刺客
 com.hileb.achievement.ass.desc=用纤维绳束缚并隐藏尸体
 com.hileb.achievement.rainbow.title=最终之剑

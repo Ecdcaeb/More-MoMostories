@@ -20,6 +20,11 @@ public class ResourceGenI18nChannel {
             language.pop(key);
         }
     }
+    public void push(String key){
+        for (Language language:languages){
+            language.push(key);
+        }
+    }
     public Language of(String name){
         Language language=new Language(name);
         languages.add(language);
@@ -38,7 +43,7 @@ public class ResourceGenI18nChannel {
             name=nameIn;
         }
         public void commit(String line){
-            text.append('\n').append(line);
+            text.append('\n').append("#"+line);
         }
         public void put(String key,String value){
             text.append('\n').append(key).append('=').append(value);
